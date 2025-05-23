@@ -1,0 +1,777 @@
+ARM GAS  /tmp/ccheLRib.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"i2c.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.i2c_config,"ax",%progbits
+  18              		.align	1
+  19              		.global	i2c_config
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	i2c_config:
+  25              	.LFB116:
+  26              		.file 1 "Core/Source/i2c.c"
+   1:Core/Source/i2c.c **** #include "i2c.h"
+   2:Core/Source/i2c.c **** #include "gpio.h"
+   3:Core/Source/i2c.c **** 
+   4:Core/Source/i2c.c **** #define I2C0_OWN_ADDRESS7      0x10
+   5:Core/Source/i2c.c **** 
+   6:Core/Source/i2c.c **** //-----------------------------------------------------------------//
+   7:Core/Source/i2c.c **** void i2c_config(void)
+   8:Core/Source/i2c.c **** { 
+  27              		.loc 1 8 1 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 10B5     		push	{r4, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+   9:Core/Source/i2c.c ****     I2C_gpio_config();
+  36              		.loc 1 9 5 view .LVU1
+  37 0002 FFF7FEFF 		bl	I2C_gpio_config
+  38              	.LVL0:
+  10:Core/Source/i2c.c ****     i2c_clock_config(I2C0, 400000, I2C_DTCY_2); // I2C clock configure
+  39              		.loc 1 10 5 view .LVU2
+  40 0006 0A4C     		ldr	r4, .L3
+  41 0008 0022     		movs	r2, #0
+  42 000a 0A49     		ldr	r1, .L3+4
+  43 000c 2046     		mov	r0, r4
+  44 000e FFF7FEFF 		bl	i2c_clock_config
+  45              	.LVL1:
+  11:Core/Source/i2c.c ****     // I2C address configure 
+  12:Core/Source/i2c.c ****     i2c_mode_addr_config(I2C0, I2C_I2CMODE_ENABLE, I2C_ADDFORMAT_7BITS, I2C0_OWN_ADDRESS7);
+  46              		.loc 1 12 5 view .LVU3
+ARM GAS  /tmp/ccheLRib.s 			page 2
+
+
+  47 0012 1023     		movs	r3, #16
+  48 0014 0022     		movs	r2, #0
+  49 0016 1146     		mov	r1, r2
+  50 0018 2046     		mov	r0, r4
+  51 001a FFF7FEFF 		bl	i2c_mode_addr_config
+  52              	.LVL2:
+  13:Core/Source/i2c.c ****     i2c_enable(I2C0);     // enable I2C0  
+  53              		.loc 1 13 5 view .LVU4
+  54 001e 2046     		mov	r0, r4
+  55 0020 FFF7FEFF 		bl	i2c_enable
+  56              	.LVL3:
+  14:Core/Source/i2c.c ****     i2c_ack_config(I2C0, I2C_ACK_ENABLE);  // enable acknowledge
+  57              		.loc 1 14 5 view .LVU5
+  58 0024 0121     		movs	r1, #1
+  59 0026 2046     		mov	r0, r4
+  60 0028 FFF7FEFF 		bl	i2c_ack_config
+  61              	.LVL4:
+  15:Core/Source/i2c.c **** }
+  62              		.loc 1 15 1 is_stmt 0 view .LVU6
+  63 002c 10BD     		pop	{r4, pc}
+  64              	.L4:
+  65 002e 00BF     		.align	2
+  66              	.L3:
+  67 0030 00540040 		.word	1073763328
+  68 0034 801A0600 		.word	400000
+  69              		.cfi_endproc
+  70              	.LFE116:
+  72              		.section	.text.i2c_write_bytes,"ax",%progbits
+  73              		.align	1
+  74              		.global	i2c_write_bytes
+  75              		.syntax unified
+  76              		.thumb
+  77              		.thumb_func
+  79              	i2c_write_bytes:
+  80              	.LVL5:
+  81              	.LFB117:
+  16:Core/Source/i2c.c **** 
+  17:Core/Source/i2c.c **** //-------------------------------------------------------------------------------------//
+  18:Core/Source/i2c.c **** void i2c_write_bytes (uint8_t slave_address, uint8_t * data_buffer, uint8_t numb_byte)
+  19:Core/Source/i2c.c **** {
+  82              		.loc 1 19 1 is_stmt 1 view -0
+  83              		.cfi_startproc
+  84              		@ args = 0, pretend = 0, frame = 0
+  85              		@ frame_needed = 0, uses_anonymous_args = 0
+  86              		.loc 1 19 1 is_stmt 0 view .LVU8
+  87 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  88              	.LCFI1:
+  89              		.cfi_def_cfa_offset 24
+  90              		.cfi_offset 3, -24
+  91              		.cfi_offset 4, -20
+  92              		.cfi_offset 5, -16
+  93              		.cfi_offset 6, -12
+  94              		.cfi_offset 7, -8
+  95              		.cfi_offset 14, -4
+  96 0002 0746     		mov	r7, r0
+  97 0004 0E46     		mov	r6, r1
+  98 0006 1546     		mov	r5, r2
+ARM GAS  /tmp/ccheLRib.s 			page 3
+
+
+  20:Core/Source/i2c.c ****     uint8_t count = 0;
+  99              		.loc 1 20 5 is_stmt 1 view .LVU9
+ 100              	.LVL6:
+  21:Core/Source/i2c.c **** 
+  22:Core/Source/i2c.c ****     while(i2c_flag_get(I2C0, I2C_FLAG_I2CBSY)); //wait until I2C bus is idle 
+ 101              		.loc 1 22 5 view .LVU10
+ 102              	.L6:
+ 103              		.loc 1 22 47 discriminator 1 view .LVU11
+ 104              		.loc 1 22 10 discriminator 1 view .LVU12
+ 105              		.loc 1 22 11 is_stmt 0 discriminator 1 view .LVU13
+ 106 0008 40F20161 		movw	r1, #1537
+ 107 000c 2148     		ldr	r0, .L15
+ 108 000e FFF7FEFF 		bl	i2c_flag_get
+ 109              	.LVL7:
+ 110              		.loc 1 22 10 discriminator 1 view .LVU14
+ 111 0012 0446     		mov	r4, r0
+ 112 0014 0028     		cmp	r0, #0
+ 113 0016 F7D1     		bne	.L6
+  23:Core/Source/i2c.c ****     i2c_start_on_bus(I2C0);     //send a start condition to I2C bus 
+ 114              		.loc 1 23 5 is_stmt 1 view .LVU15
+ 115 0018 1E48     		ldr	r0, .L15
+ 116 001a FFF7FEFF 		bl	i2c_start_on_bus
+ 117              	.LVL8:
+  24:Core/Source/i2c.c ****     while(!i2c_flag_get(I2C0, I2C_FLAG_SBSEND)); //wait until SBSEND bit is set 
+ 118              		.loc 1 24 5 view .LVU16
+ 119              	.L7:
+ 120              		.loc 1 24 48 discriminator 1 view .LVU17
+ 121              		.loc 1 24 10 discriminator 1 view .LVU18
+ 122              		.loc 1 24 12 is_stmt 0 discriminator 1 view .LVU19
+ 123 001e 4FF4A061 		mov	r1, #1280
+ 124 0022 1C48     		ldr	r0, .L15
+ 125 0024 FFF7FEFF 		bl	i2c_flag_get
+ 126              	.LVL9:
+ 127              		.loc 1 24 10 discriminator 1 view .LVU20
+ 128 0028 0028     		cmp	r0, #0
+ 129 002a F8D0     		beq	.L7
+  25:Core/Source/i2c.c ****     i2c_master_addressing(I2C0, slave_address, I2C_TRANSMITTER);	//send slave address to I2C bus
+ 130              		.loc 1 25 5 is_stmt 1 view .LVU21
+ 131 002c 6FF00102 		mvn	r2, #1
+ 132 0030 3946     		mov	r1, r7
+ 133 0032 1848     		ldr	r0, .L15
+ 134 0034 FFF7FEFF 		bl	i2c_master_addressing
+ 135              	.LVL10:
+  26:Core/Source/i2c.c ****     while(!i2c_flag_get(I2C0, I2C_FLAG_ADDSEND)); //wait until ADDSEND bit is set
+ 136              		.loc 1 26 5 view .LVU22
+ 137              	.L8:
+ 138              		.loc 1 26 49 discriminator 1 view .LVU23
+ 139              		.loc 1 26 10 discriminator 1 view .LVU24
+ 140              		.loc 1 26 12 is_stmt 0 discriminator 1 view .LVU25
+ 141 0038 40F20151 		movw	r1, #1281
+ 142 003c 1548     		ldr	r0, .L15
+ 143 003e FFF7FEFF 		bl	i2c_flag_get
+ 144              	.LVL11:
+ 145              		.loc 1 26 10 discriminator 1 view .LVU26
+ 146 0042 0028     		cmp	r0, #0
+ 147 0044 F8D0     		beq	.L8
+  27:Core/Source/i2c.c ****     i2c_flag_clear(I2C0, I2C_FLAG_ADDSEND); //clear ADDSEND bit
+ARM GAS  /tmp/ccheLRib.s 			page 4
+
+
+ 148              		.loc 1 27 5 is_stmt 1 view .LVU27
+ 149 0046 40F20151 		movw	r1, #1281
+ 150 004a 1248     		ldr	r0, .L15
+ 151 004c FFF7FEFF 		bl	i2c_flag_clear
+ 152              	.LVL12:
+  28:Core/Source/i2c.c ****     while(!i2c_flag_get(I2C0, I2C_FLAG_TBE)); //wait until the transmit data buffer is empty
+ 153              		.loc 1 28 5 view .LVU28
+ 154              	.L9:
+ 155              		.loc 1 28 45 discriminator 1 view .LVU29
+ 156              		.loc 1 28 10 discriminator 1 view .LVU30
+ 157              		.loc 1 28 12 is_stmt 0 discriminator 1 view .LVU31
+ 158 0050 40F20751 		movw	r1, #1287
+ 159 0054 0F48     		ldr	r0, .L15
+ 160 0056 FFF7FEFF 		bl	i2c_flag_get
+ 161              	.LVL13:
+ 162              		.loc 1 28 10 discriminator 1 view .LVU32
+ 163 005a 0028     		cmp	r0, #0
+ 164 005c F8D0     		beq	.L9
+ 165 005e 0CE0     		b	.L10
+ 166              	.LVL14:
+ 167              	.L12:
+  29:Core/Source/i2c.c **** 
+  30:Core/Source/i2c.c ****     for(count=0; count<numb_byte; count++)
+  31:Core/Source/i2c.c ****     {
+  32:Core/Source/i2c.c ****         i2c_data_transmit(I2C0, *(data_buffer + count));         // data transmission 
+ 168              		.loc 1 32 9 is_stmt 1 view .LVU33
+ 169 0060 315D     		ldrb	r1, [r6, r4]	@ zero_extendqisi2
+ 170 0062 0C48     		ldr	r0, .L15
+ 171 0064 FFF7FEFF 		bl	i2c_data_transmit
+ 172              	.LVL15:
+  33:Core/Source/i2c.c ****         while(!i2c_flag_get(I2C0, I2C_FLAG_TBE)); //wait until the TBE bit is set
+ 173              		.loc 1 33 9 view .LVU34
+ 174              	.L11:
+ 175              		.loc 1 33 49 discriminator 1 view .LVU35
+ 176              		.loc 1 33 14 discriminator 1 view .LVU36
+ 177              		.loc 1 33 16 is_stmt 0 discriminator 1 view .LVU37
+ 178 0068 40F20751 		movw	r1, #1287
+ 179 006c 0948     		ldr	r0, .L15
+ 180 006e FFF7FEFF 		bl	i2c_flag_get
+ 181              	.LVL16:
+ 182              		.loc 1 33 14 discriminator 1 view .LVU38
+ 183 0072 0028     		cmp	r0, #0
+ 184 0074 F8D0     		beq	.L11
+  30:Core/Source/i2c.c ****     {
+ 185              		.loc 1 30 35 is_stmt 1 discriminator 2 view .LVU39
+  30:Core/Source/i2c.c ****     {
+ 186              		.loc 1 30 40 is_stmt 0 discriminator 2 view .LVU40
+ 187 0076 0134     		adds	r4, r4, #1
+ 188              	.LVL17:
+  30:Core/Source/i2c.c ****     {
+ 189              		.loc 1 30 40 discriminator 2 view .LVU41
+ 190 0078 E4B2     		uxtb	r4, r4
+ 191              	.LVL18:
+ 192              	.L10:
+  30:Core/Source/i2c.c ****     {
+ 193              		.loc 1 30 18 is_stmt 1 discriminator 1 view .LVU42
+  30:Core/Source/i2c.c ****     {
+ARM GAS  /tmp/ccheLRib.s 			page 5
+
+
+ 194              		.loc 1 30 5 is_stmt 0 discriminator 1 view .LVU43
+ 195 007a AC42     		cmp	r4, r5
+ 196 007c F0D3     		bcc	.L12
+  34:Core/Source/i2c.c ****     }
+  35:Core/Source/i2c.c ****     i2c_stop_on_bus(I2C0); //send a stop condition to I2C bus
+ 197              		.loc 1 35 5 is_stmt 1 view .LVU44
+ 198 007e 0548     		ldr	r0, .L15
+ 199 0080 FFF7FEFF 		bl	i2c_stop_on_bus
+ 200              	.LVL19:
+  36:Core/Source/i2c.c ****     while(I2C_CTL0(I2C0)&0x0200); //wait until stop condition generate
+ 201              		.loc 1 36 5 view .LVU45
+ 202              	.L13:
+ 203              		.loc 1 36 33 discriminator 1 view .LVU46
+ 204              		.loc 1 36 10 discriminator 1 view .LVU47
+ 205              		.loc 1 36 11 is_stmt 0 discriminator 1 view .LVU48
+ 206 0084 044B     		ldr	r3, .L15+4
+ 207 0086 D3F80034 		ldr	r3, [r3, #1024]
+ 208              		.loc 1 36 10 discriminator 1 view .LVU49
+ 209 008a 13F4007F 		tst	r3, #512
+ 210 008e F9D1     		bne	.L13
+  37:Core/Source/i2c.c **** 
+  38:Core/Source/i2c.c **** }
+ 211              		.loc 1 38 1 view .LVU50
+ 212 0090 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 213              	.LVL20:
+ 214              	.L16:
+ 215              		.loc 1 38 1 view .LVU51
+ 216 0092 00BF     		.align	2
+ 217              	.L15:
+ 218 0094 00540040 		.word	1073763328
+ 219 0098 00500040 		.word	1073762304
+ 220              		.cfi_endproc
+ 221              	.LFE117:
+ 223              		.section	.text.i2c_write_buffer_16bit_registr,"ax",%progbits
+ 224              		.align	1
+ 225              		.global	i2c_write_buffer_16bit_registr
+ 226              		.syntax unified
+ 227              		.thumb
+ 228              		.thumb_func
+ 230              	i2c_write_buffer_16bit_registr:
+ 231              	.LVL21:
+ 232              	.LFB118:
+  39:Core/Source/i2c.c **** 
+  40:Core/Source/i2c.c **** //--------------------------------------------------------------------------------------//
+  41:Core/Source/i2c.c **** void i2c_write_buffer_16bit_registr (uint8_t slave_address, uint16_t registr_adr, uint8_t * data_bu
+  42:Core/Source/i2c.c **** {
+ 233              		.loc 1 42 1 is_stmt 1 view -0
+ 234              		.cfi_startproc
+ 235              		@ args = 0, pretend = 0, frame = 8
+ 236              		@ frame_needed = 0, uses_anonymous_args = 0
+ 237              		.loc 1 42 1 is_stmt 0 view .LVU53
+ 238 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 239              	.LCFI2:
+ 240              		.cfi_def_cfa_offset 20
+ 241              		.cfi_offset 4, -20
+ 242              		.cfi_offset 5, -16
+ 243              		.cfi_offset 6, -12
+ARM GAS  /tmp/ccheLRib.s 			page 6
+
+
+ 244              		.cfi_offset 7, -8
+ 245              		.cfi_offset 14, -4
+ 246 0002 83B0     		sub	sp, sp, #12
+ 247              	.LCFI3:
+ 248              		.cfi_def_cfa_offset 32
+ 249 0004 0746     		mov	r7, r0
+ 250 0006 1646     		mov	r6, r2
+ 251 0008 1D46     		mov	r5, r3
+  43:Core/Source/i2c.c **** 	uint8_t tmp_buf[2] ;
+ 252              		.loc 1 43 2 is_stmt 1 view .LVU54
+  44:Core/Source/i2c.c **** 	tmp_buf[0] = (uint8_t)(registr_adr>>8);
+ 253              		.loc 1 44 2 view .LVU55
+ 254              		.loc 1 44 15 is_stmt 0 view .LVU56
+ 255 000a 0B0A     		lsrs	r3, r1, #8
+ 256              	.LVL22:
+ 257              		.loc 1 44 13 view .LVU57
+ 258 000c 8DF80430 		strb	r3, [sp, #4]
+  45:Core/Source/i2c.c **** 	tmp_buf[1] = (uint8_t)(0x00FF & registr_adr);
+ 259              		.loc 1 45 2 is_stmt 1 view .LVU58
+ 260              		.loc 1 45 13 is_stmt 0 view .LVU59
+ 261 0010 8DF80510 		strb	r1, [sp, #5]
+  46:Core/Source/i2c.c **** 	uint8_t count = 0;
+ 262              		.loc 1 46 2 is_stmt 1 view .LVU60
+ 263              	.LVL23:
+  47:Core/Source/i2c.c **** 	
+  48:Core/Source/i2c.c ****     while(i2c_flag_get(I2C0, I2C_FLAG_I2CBSY)); //wait until I2C bus is idle 
+ 264              		.loc 1 48 5 view .LVU61
+ 265              	.L18:
+ 266              		.loc 1 48 47 discriminator 1 view .LVU62
+ 267              		.loc 1 48 10 discriminator 1 view .LVU63
+ 268              		.loc 1 48 11 is_stmt 0 discriminator 1 view .LVU64
+ 269 0014 40F20161 		movw	r1, #1537
+ 270 0018 2C48     		ldr	r0, .L30
+ 271 001a FFF7FEFF 		bl	i2c_flag_get
+ 272              	.LVL24:
+ 273              		.loc 1 48 10 discriminator 1 view .LVU65
+ 274 001e 0446     		mov	r4, r0
+ 275 0020 0028     		cmp	r0, #0
+ 276 0022 F7D1     		bne	.L18
+  49:Core/Source/i2c.c ****     i2c_start_on_bus(I2C0);     //send a start condition to I2C bus 
+ 277              		.loc 1 49 5 is_stmt 1 view .LVU66
+ 278 0024 2948     		ldr	r0, .L30
+ 279 0026 FFF7FEFF 		bl	i2c_start_on_bus
+ 280              	.LVL25:
+  50:Core/Source/i2c.c ****     while(!i2c_flag_get(I2C0, I2C_FLAG_SBSEND)); //wait until SBSEND bit is set 
+ 281              		.loc 1 50 5 view .LVU67
+ 282              	.L19:
+ 283              		.loc 1 50 48 discriminator 1 view .LVU68
+ 284              		.loc 1 50 10 discriminator 1 view .LVU69
+ 285              		.loc 1 50 12 is_stmt 0 discriminator 1 view .LVU70
+ 286 002a 4FF4A061 		mov	r1, #1280
+ 287 002e 2748     		ldr	r0, .L30
+ 288 0030 FFF7FEFF 		bl	i2c_flag_get
+ 289              	.LVL26:
+ 290              		.loc 1 50 10 discriminator 1 view .LVU71
+ 291 0034 0028     		cmp	r0, #0
+ 292 0036 F8D0     		beq	.L19
+ARM GAS  /tmp/ccheLRib.s 			page 7
+
+
+  51:Core/Source/i2c.c ****     i2c_master_addressing(I2C0, slave_address, I2C_TRANSMITTER);	//send slave address to I2C bus
+ 293              		.loc 1 51 5 is_stmt 1 view .LVU72
+ 294 0038 6FF00102 		mvn	r2, #1
+ 295 003c 3946     		mov	r1, r7
+ 296 003e 2348     		ldr	r0, .L30
+ 297 0040 FFF7FEFF 		bl	i2c_master_addressing
+ 298              	.LVL27:
+  52:Core/Source/i2c.c ****     while(!i2c_flag_get(I2C0, I2C_FLAG_ADDSEND)); //wait until ADDSEND bit is set
+ 299              		.loc 1 52 5 view .LVU73
+ 300              	.L20:
+ 301              		.loc 1 52 49 discriminator 1 view .LVU74
+ 302              		.loc 1 52 10 discriminator 1 view .LVU75
+ 303              		.loc 1 52 12 is_stmt 0 discriminator 1 view .LVU76
+ 304 0044 40F20151 		movw	r1, #1281
+ 305 0048 2048     		ldr	r0, .L30
+ 306 004a FFF7FEFF 		bl	i2c_flag_get
+ 307              	.LVL28:
+ 308              		.loc 1 52 10 discriminator 1 view .LVU77
+ 309 004e 0028     		cmp	r0, #0
+ 310 0050 F8D0     		beq	.L20
+  53:Core/Source/i2c.c ****     i2c_flag_clear(I2C0, I2C_FLAG_ADDSEND); //clear ADDSEND bit
+ 311              		.loc 1 53 5 is_stmt 1 view .LVU78
+ 312 0052 40F20151 		movw	r1, #1281
+ 313 0056 1D48     		ldr	r0, .L30
+ 314 0058 FFF7FEFF 		bl	i2c_flag_clear
+ 315              	.LVL29:
+  54:Core/Source/i2c.c ****     while(!i2c_flag_get(I2C0, I2C_FLAG_TBE)); //wait until the transmit data buffer is empty
+ 316              		.loc 1 54 5 view .LVU79
+ 317              	.L21:
+ 318              		.loc 1 54 45 discriminator 1 view .LVU80
+ 319              		.loc 1 54 10 discriminator 1 view .LVU81
+ 320              		.loc 1 54 12 is_stmt 0 discriminator 1 view .LVU82
+ 321 005c 40F20751 		movw	r1, #1287
+ 322 0060 1A48     		ldr	r0, .L30
+ 323 0062 FFF7FEFF 		bl	i2c_flag_get
+ 324              	.LVL30:
+ 325              		.loc 1 54 10 discriminator 1 view .LVU83
+ 326 0066 0028     		cmp	r0, #0
+ 327 0068 F8D0     		beq	.L21
+  55:Core/Source/i2c.c **** 
+  56:Core/Source/i2c.c ****     for (count = 0; count < 2; count++) 
+ 328              		.loc 1 56 16 view .LVU84
+ 329 006a 2746     		mov	r7, r4
+ 330 006c 10E0     		b	.L22
+ 331              	.LVL31:
+ 332              	.L24:
+  57:Core/Source/i2c.c **** 	{
+  58:Core/Source/i2c.c ****         i2c_data_transmit(I2C0, tmp_buf[count]); 
+ 333              		.loc 1 58 9 is_stmt 1 view .LVU85
+ 334 006e 07F10803 		add	r3, r7, #8
+ 335 0072 6B44     		add	r3, sp, r3
+ 336 0074 13F8041C 		ldrb	r1, [r3, #-4]	@ zero_extendqisi2
+ 337 0078 1448     		ldr	r0, .L30
+ 338 007a FFF7FEFF 		bl	i2c_data_transmit
+ 339              	.LVL32:
+  59:Core/Source/i2c.c **** 		while(!i2c_flag_get(I2C0, I2C_FLAG_TBE)); //wait until the TBE bit is set
+ 340              		.loc 1 59 3 view .LVU86
+ARM GAS  /tmp/ccheLRib.s 			page 8
+
+
+ 341              	.L23:
+ 342              		.loc 1 59 43 discriminator 1 view .LVU87
+ 343              		.loc 1 59 8 discriminator 1 view .LVU88
+ 344              		.loc 1 59 10 is_stmt 0 discriminator 1 view .LVU89
+ 345 007e 40F20751 		movw	r1, #1287
+ 346 0082 1248     		ldr	r0, .L30
+ 347 0084 FFF7FEFF 		bl	i2c_flag_get
+ 348              	.LVL33:
+ 349              		.loc 1 59 8 discriminator 1 view .LVU90
+ 350 0088 0028     		cmp	r0, #0
+ 351 008a F8D0     		beq	.L23
+  56:Core/Source/i2c.c **** 	{
+ 352              		.loc 1 56 32 is_stmt 1 discriminator 2 view .LVU91
+  56:Core/Source/i2c.c **** 	{
+ 353              		.loc 1 56 37 is_stmt 0 discriminator 2 view .LVU92
+ 354 008c 0137     		adds	r7, r7, #1
+ 355              	.LVL34:
+  56:Core/Source/i2c.c **** 	{
+ 356              		.loc 1 56 37 discriminator 2 view .LVU93
+ 357 008e FFB2     		uxtb	r7, r7
+ 358              	.LVL35:
+ 359              	.L22:
+  56:Core/Source/i2c.c **** 	{
+ 360              		.loc 1 56 21 is_stmt 1 discriminator 1 view .LVU94
+  56:Core/Source/i2c.c **** 	{
+ 361              		.loc 1 56 5 is_stmt 0 discriminator 1 view .LVU95
+ 362 0090 012F     		cmp	r7, #1
+ 363 0092 ECD9     		bls	.L24
+ 364 0094 0CE0     		b	.L25
+ 365              	.LVL36:
+ 366              	.L27:
+  60:Core/Source/i2c.c **** 	}
+  61:Core/Source/i2c.c **** 	
+  62:Core/Source/i2c.c **** 	for (count = 0; count < numb_byte; count++)
+  63:Core/Source/i2c.c ****     {			
+  64:Core/Source/i2c.c **** 		i2c_data_transmit(I2C0, *(data_buffer+count));
+ 367              		.loc 1 64 3 is_stmt 1 view .LVU96
+ 368 0096 315D     		ldrb	r1, [r6, r4]	@ zero_extendqisi2
+ 369 0098 0C48     		ldr	r0, .L30
+ 370 009a FFF7FEFF 		bl	i2c_data_transmit
+ 371              	.LVL37:
+  65:Core/Source/i2c.c **** 		while(!i2c_flag_get(I2C0, I2C_FLAG_TBE)); //wait until the TBE bit is set
+ 372              		.loc 1 65 3 view .LVU97
+ 373              	.L26:
+ 374              		.loc 1 65 43 discriminator 1 view .LVU98
+ 375              		.loc 1 65 8 discriminator 1 view .LVU99
+ 376              		.loc 1 65 10 is_stmt 0 discriminator 1 view .LVU100
+ 377 009e 40F20751 		movw	r1, #1287
+ 378 00a2 0A48     		ldr	r0, .L30
+ 379 00a4 FFF7FEFF 		bl	i2c_flag_get
+ 380              	.LVL38:
+ 381              		.loc 1 65 8 discriminator 1 view .LVU101
+ 382 00a8 0028     		cmp	r0, #0
+ 383 00aa F8D0     		beq	.L26
+  62:Core/Source/i2c.c ****     {			
+ 384              		.loc 1 62 37 is_stmt 1 discriminator 2 view .LVU102
+  62:Core/Source/i2c.c ****     {			
+ARM GAS  /tmp/ccheLRib.s 			page 9
+
+
+ 385              		.loc 1 62 42 is_stmt 0 discriminator 2 view .LVU103
+ 386 00ac 0134     		adds	r4, r4, #1
+ 387              	.LVL39:
+  62:Core/Source/i2c.c ****     {			
+ 388              		.loc 1 62 42 discriminator 2 view .LVU104
+ 389 00ae E4B2     		uxtb	r4, r4
+ 390              	.LVL40:
+ 391              	.L25:
+  62:Core/Source/i2c.c ****     {			
+ 392              		.loc 1 62 18 is_stmt 1 discriminator 1 view .LVU105
+  62:Core/Source/i2c.c ****     {			
+ 393              		.loc 1 62 2 is_stmt 0 discriminator 1 view .LVU106
+ 394 00b0 AC42     		cmp	r4, r5
+ 395 00b2 F0D3     		bcc	.L27
+  66:Core/Source/i2c.c **** 	}
+  67:Core/Source/i2c.c **** 
+  68:Core/Source/i2c.c ****     i2c_stop_on_bus(I2C0); //send a stop condition to I2C bus
+ 396              		.loc 1 68 5 is_stmt 1 view .LVU107
+ 397 00b4 0548     		ldr	r0, .L30
+ 398 00b6 FFF7FEFF 		bl	i2c_stop_on_bus
+ 399              	.LVL41:
+  69:Core/Source/i2c.c ****     while(I2C_CTL0(I2C0)&0x0200); //wait until stop condition generate
+ 400              		.loc 1 69 5 view .LVU108
+ 401              	.L28:
+ 402              		.loc 1 69 33 discriminator 1 view .LVU109
+ 403              		.loc 1 69 10 discriminator 1 view .LVU110
+ 404              		.loc 1 69 11 is_stmt 0 discriminator 1 view .LVU111
+ 405 00ba 054B     		ldr	r3, .L30+4
+ 406 00bc D3F80034 		ldr	r3, [r3, #1024]
+ 407              		.loc 1 69 10 discriminator 1 view .LVU112
+ 408 00c0 13F4007F 		tst	r3, #512
+ 409 00c4 F9D1     		bne	.L28
+  70:Core/Source/i2c.c **** }
+ 410              		.loc 1 70 1 view .LVU113
+ 411 00c6 03B0     		add	sp, sp, #12
+ 412              	.LCFI4:
+ 413              		.cfi_def_cfa_offset 20
+ 414              		@ sp needed
+ 415 00c8 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 416              	.LVL42:
+ 417              	.L31:
+ 418              		.loc 1 70 1 view .LVU114
+ 419 00ca 00BF     		.align	2
+ 420              	.L30:
+ 421 00cc 00540040 		.word	1073763328
+ 422 00d0 00500040 		.word	1073762304
+ 423              		.cfi_endproc
+ 424              	.LFE118:
+ 426              		.section	.text.i2c_write_buffer_8bit_registr,"ax",%progbits
+ 427              		.align	1
+ 428              		.global	i2c_write_buffer_8bit_registr
+ 429              		.syntax unified
+ 430              		.thumb
+ 431              		.thumb_func
+ 433              	i2c_write_buffer_8bit_registr:
+ 434              	.LVL43:
+ 435              	.LFB119:
+ARM GAS  /tmp/ccheLRib.s 			page 10
+
+
+  71:Core/Source/i2c.c **** 
+  72:Core/Source/i2c.c **** //-------------------------------------------------------------------------------------//
+  73:Core/Source/i2c.c **** void i2c_write_buffer_8bit_registr (uint8_t slave_address, uint8_t registr_adr, uint8_t * data_buff
+  74:Core/Source/i2c.c **** {
+ 436              		.loc 1 74 1 is_stmt 1 view -0
+ 437              		.cfi_startproc
+ 438              		@ args = 0, pretend = 0, frame = 0
+ 439              		@ frame_needed = 0, uses_anonymous_args = 0
+ 440              		.loc 1 74 1 is_stmt 0 view .LVU116
+ 441 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 442              	.LCFI5:
+ 443              		.cfi_def_cfa_offset 24
+ 444              		.cfi_offset 4, -24
+ 445              		.cfi_offset 5, -20
+ 446              		.cfi_offset 6, -16
+ 447              		.cfi_offset 7, -12
+ 448              		.cfi_offset 8, -8
+ 449              		.cfi_offset 14, -4
+ 450 0004 8046     		mov	r8, r0
+ 451 0006 0F46     		mov	r7, r1
+ 452 0008 1646     		mov	r6, r2
+ 453 000a 1D46     		mov	r5, r3
+  75:Core/Source/i2c.c ****     uint8_t count = 0;
+ 454              		.loc 1 75 5 is_stmt 1 view .LVU117
+ 455              	.LVL44:
+  76:Core/Source/i2c.c **** 	
+  77:Core/Source/i2c.c ****     while(i2c_flag_get(I2C0, I2C_FLAG_I2CBSY)); //wait until I2C bus is idle 
+ 456              		.loc 1 77 5 view .LVU118
+ 457              	.L33:
+ 458              		.loc 1 77 47 discriminator 1 view .LVU119
+ 459              		.loc 1 77 10 discriminator 1 view .LVU120
+ 460              		.loc 1 77 11 is_stmt 0 discriminator 1 view .LVU121
+ 461 000c 40F20161 		movw	r1, #1537
+ 462 0010 2748     		ldr	r0, .L43
+ 463 0012 FFF7FEFF 		bl	i2c_flag_get
+ 464              	.LVL45:
+ 465              		.loc 1 77 10 discriminator 1 view .LVU122
+ 466 0016 0446     		mov	r4, r0
+ 467 0018 0028     		cmp	r0, #0
+ 468 001a F7D1     		bne	.L33
+  78:Core/Source/i2c.c ****     i2c_start_on_bus(I2C0);     //send a start condition to I2C bus 
+ 469              		.loc 1 78 5 is_stmt 1 view .LVU123
+ 470 001c 2448     		ldr	r0, .L43
+ 471 001e FFF7FEFF 		bl	i2c_start_on_bus
+ 472              	.LVL46:
+  79:Core/Source/i2c.c ****     while(!i2c_flag_get(I2C0, I2C_FLAG_SBSEND)); //wait until SBSEND bit is set 
+ 473              		.loc 1 79 5 view .LVU124
+ 474              	.L34:
+ 475              		.loc 1 79 48 discriminator 1 view .LVU125
+ 476              		.loc 1 79 10 discriminator 1 view .LVU126
+ 477              		.loc 1 79 12 is_stmt 0 discriminator 1 view .LVU127
+ 478 0022 4FF4A061 		mov	r1, #1280
+ 479 0026 2248     		ldr	r0, .L43
+ 480 0028 FFF7FEFF 		bl	i2c_flag_get
+ 481              	.LVL47:
+ 482              		.loc 1 79 10 discriminator 1 view .LVU128
+ 483 002c 0028     		cmp	r0, #0
+ARM GAS  /tmp/ccheLRib.s 			page 11
+
+
+ 484 002e F8D0     		beq	.L34
+  80:Core/Source/i2c.c ****     i2c_master_addressing(I2C0, slave_address, I2C_TRANSMITTER);	//send slave address to I2C bus
+ 485              		.loc 1 80 5 is_stmt 1 view .LVU129
+ 486 0030 6FF00102 		mvn	r2, #1
+ 487 0034 4146     		mov	r1, r8
+ 488 0036 1E48     		ldr	r0, .L43
+ 489 0038 FFF7FEFF 		bl	i2c_master_addressing
+ 490              	.LVL48:
+  81:Core/Source/i2c.c ****     while(!i2c_flag_get(I2C0, I2C_FLAG_ADDSEND)); //wait until ADDSEND bit is set
+ 491              		.loc 1 81 5 view .LVU130
+ 492              	.L35:
+ 493              		.loc 1 81 49 discriminator 1 view .LVU131
+ 494              		.loc 1 81 10 discriminator 1 view .LVU132
+ 495              		.loc 1 81 12 is_stmt 0 discriminator 1 view .LVU133
+ 496 003c 40F20151 		movw	r1, #1281
+ 497 0040 1B48     		ldr	r0, .L43
+ 498 0042 FFF7FEFF 		bl	i2c_flag_get
+ 499              	.LVL49:
+ 500              		.loc 1 81 10 discriminator 1 view .LVU134
+ 501 0046 0028     		cmp	r0, #0
+ 502 0048 F8D0     		beq	.L35
+  82:Core/Source/i2c.c ****     i2c_flag_clear(I2C0, I2C_FLAG_ADDSEND); //clear ADDSEND bit
+ 503              		.loc 1 82 5 is_stmt 1 view .LVU135
+ 504 004a 40F20151 		movw	r1, #1281
+ 505 004e 1848     		ldr	r0, .L43
+ 506 0050 FFF7FEFF 		bl	i2c_flag_clear
+ 507              	.LVL50:
+  83:Core/Source/i2c.c ****     while(!i2c_flag_get(I2C0, I2C_FLAG_TBE)); //wait until the transmit data buffer is empty
+ 508              		.loc 1 83 5 view .LVU136
+ 509              	.L36:
+ 510              		.loc 1 83 45 discriminator 1 view .LVU137
+ 511              		.loc 1 83 10 discriminator 1 view .LVU138
+ 512              		.loc 1 83 12 is_stmt 0 discriminator 1 view .LVU139
+ 513 0054 40F20751 		movw	r1, #1287
+ 514 0058 1548     		ldr	r0, .L43
+ 515 005a FFF7FEFF 		bl	i2c_flag_get
+ 516              	.LVL51:
+ 517              		.loc 1 83 10 discriminator 1 view .LVU140
+ 518 005e 0028     		cmp	r0, #0
+ 519 0060 F8D0     		beq	.L36
+  84:Core/Source/i2c.c **** 
+  85:Core/Source/i2c.c ****     i2c_data_transmit(I2C0, registr_adr); 
+ 520              		.loc 1 85 5 is_stmt 1 view .LVU141
+ 521 0062 3946     		mov	r1, r7
+ 522 0064 1248     		ldr	r0, .L43
+ 523 0066 FFF7FEFF 		bl	i2c_data_transmit
+ 524              	.LVL52:
+  86:Core/Source/i2c.c **** 	while(!i2c_flag_get(I2C0, I2C_FLAG_TBE)); //wait until the TBE bit is set
+ 525              		.loc 1 86 2 view .LVU142
+ 526              	.L37:
+ 527              		.loc 1 86 42 discriminator 1 view .LVU143
+ 528              		.loc 1 86 7 discriminator 1 view .LVU144
+ 529              		.loc 1 86 9 is_stmt 0 discriminator 1 view .LVU145
+ 530 006a 40F20751 		movw	r1, #1287
+ 531 006e 1048     		ldr	r0, .L43
+ 532 0070 FFF7FEFF 		bl	i2c_flag_get
+ 533              	.LVL53:
+ARM GAS  /tmp/ccheLRib.s 			page 12
+
+
+ 534              		.loc 1 86 7 discriminator 1 view .LVU146
+ 535 0074 0028     		cmp	r0, #0
+ 536 0076 F8D0     		beq	.L37
+ 537 0078 0CE0     		b	.L38
+ 538              	.LVL54:
+ 539              	.L40:
+  87:Core/Source/i2c.c **** 
+  88:Core/Source/i2c.c ****     for (count = 0; count < numb_byte; count++)
+  89:Core/Source/i2c.c ****     {			
+  90:Core/Source/i2c.c **** 		i2c_data_transmit(I2C0, *(data_buffer+count));
+ 540              		.loc 1 90 3 is_stmt 1 view .LVU147
+ 541 007a 315D     		ldrb	r1, [r6, r4]	@ zero_extendqisi2
+ 542 007c 0C48     		ldr	r0, .L43
+ 543 007e FFF7FEFF 		bl	i2c_data_transmit
+ 544              	.LVL55:
+  91:Core/Source/i2c.c **** 		while(!i2c_flag_get(I2C0, I2C_FLAG_TBE)); //wait until the TBE bit is set
+ 545              		.loc 1 91 3 view .LVU148
+ 546              	.L39:
+ 547              		.loc 1 91 43 discriminator 1 view .LVU149
+ 548              		.loc 1 91 8 discriminator 1 view .LVU150
+ 549              		.loc 1 91 10 is_stmt 0 discriminator 1 view .LVU151
+ 550 0082 40F20751 		movw	r1, #1287
+ 551 0086 0A48     		ldr	r0, .L43
+ 552 0088 FFF7FEFF 		bl	i2c_flag_get
+ 553              	.LVL56:
+ 554              		.loc 1 91 8 discriminator 1 view .LVU152
+ 555 008c 0028     		cmp	r0, #0
+ 556 008e F8D0     		beq	.L39
+  88:Core/Source/i2c.c ****     {			
+ 557              		.loc 1 88 40 is_stmt 1 discriminator 2 view .LVU153
+  88:Core/Source/i2c.c ****     {			
+ 558              		.loc 1 88 45 is_stmt 0 discriminator 2 view .LVU154
+ 559 0090 0134     		adds	r4, r4, #1
+ 560              	.LVL57:
+  88:Core/Source/i2c.c ****     {			
+ 561              		.loc 1 88 45 discriminator 2 view .LVU155
+ 562 0092 E4B2     		uxtb	r4, r4
+ 563              	.LVL58:
+ 564              	.L38:
+  88:Core/Source/i2c.c ****     {			
+ 565              		.loc 1 88 21 is_stmt 1 discriminator 1 view .LVU156
+  88:Core/Source/i2c.c ****     {			
+ 566              		.loc 1 88 5 is_stmt 0 discriminator 1 view .LVU157
+ 567 0094 AC42     		cmp	r4, r5
+ 568 0096 F0D3     		bcc	.L40
+  92:Core/Source/i2c.c **** 	}
+  93:Core/Source/i2c.c **** 
+  94:Core/Source/i2c.c ****     i2c_stop_on_bus(I2C0); //send a stop condition to I2C bus
+ 569              		.loc 1 94 5 is_stmt 1 view .LVU158
+ 570 0098 0548     		ldr	r0, .L43
+ 571 009a FFF7FEFF 		bl	i2c_stop_on_bus
+ 572              	.LVL59:
+  95:Core/Source/i2c.c ****     while(I2C_CTL0(I2C0)&0x0200); //wait until stop condition generate
+ 573              		.loc 1 95 5 view .LVU159
+ 574              	.L41:
+ 575              		.loc 1 95 33 discriminator 1 view .LVU160
+ 576              		.loc 1 95 10 discriminator 1 view .LVU161
+ARM GAS  /tmp/ccheLRib.s 			page 13
+
+
+ 577              		.loc 1 95 11 is_stmt 0 discriminator 1 view .LVU162
+ 578 009e 054B     		ldr	r3, .L43+4
+ 579 00a0 D3F80034 		ldr	r3, [r3, #1024]
+ 580              		.loc 1 95 10 discriminator 1 view .LVU163
+ 581 00a4 13F4007F 		tst	r3, #512
+ 582 00a8 F9D1     		bne	.L41
+  96:Core/Source/i2c.c **** }
+ 583              		.loc 1 96 1 view .LVU164
+ 584 00aa BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 585              	.LVL60:
+ 586              	.L44:
+ 587              		.loc 1 96 1 view .LVU165
+ 588 00ae 00BF     		.align	2
+ 589              	.L43:
+ 590 00b0 00540040 		.word	1073763328
+ 591 00b4 00500040 		.word	1073762304
+ 592              		.cfi_endproc
+ 593              	.LFE119:
+ 595              		.text
+ 596              	.Letext0:
+ 597              		.file 2 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/m
+ 598              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
+ 599              		.file 4 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_i2c.h"
+ 600              		.file 5 "Core/Include/gpio.h"
+ARM GAS  /tmp/ccheLRib.s 			page 14
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 i2c.c
+     /tmp/ccheLRib.s:18     .text.i2c_config:0000000000000000 $t
+     /tmp/ccheLRib.s:24     .text.i2c_config:0000000000000000 i2c_config
+     /tmp/ccheLRib.s:67     .text.i2c_config:0000000000000030 $d
+     /tmp/ccheLRib.s:73     .text.i2c_write_bytes:0000000000000000 $t
+     /tmp/ccheLRib.s:79     .text.i2c_write_bytes:0000000000000000 i2c_write_bytes
+     /tmp/ccheLRib.s:218    .text.i2c_write_bytes:0000000000000094 $d
+     /tmp/ccheLRib.s:224    .text.i2c_write_buffer_16bit_registr:0000000000000000 $t
+     /tmp/ccheLRib.s:230    .text.i2c_write_buffer_16bit_registr:0000000000000000 i2c_write_buffer_16bit_registr
+     /tmp/ccheLRib.s:421    .text.i2c_write_buffer_16bit_registr:00000000000000cc $d
+     /tmp/ccheLRib.s:427    .text.i2c_write_buffer_8bit_registr:0000000000000000 $t
+     /tmp/ccheLRib.s:433    .text.i2c_write_buffer_8bit_registr:0000000000000000 i2c_write_buffer_8bit_registr
+     /tmp/ccheLRib.s:590    .text.i2c_write_buffer_8bit_registr:00000000000000b0 $d
+
+UNDEFINED SYMBOLS
+I2C_gpio_config
+i2c_clock_config
+i2c_mode_addr_config
+i2c_enable
+i2c_ack_config
+i2c_flag_get
+i2c_start_on_bus
+i2c_master_addressing
+i2c_flag_clear
+i2c_data_transmit
+i2c_stop_on_bus

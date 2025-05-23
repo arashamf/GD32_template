@@ -1,0 +1,1192 @@
+ARM GAS  /tmp/ccYXlj4j.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"gd32f30x_bkp.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.bkp_deinit,"ax",%progbits
+  18              		.align	1
+  19              		.global	bkp_deinit
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	bkp_deinit:
+  25              	.LFB116:
+  26              		.file 1 "Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c"
+   1:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+   2:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \file    gd32f30x_bkp.c
+   3:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief   BKP driver
+   4:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+   5:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \version 2017-02-10, V1.0.0, firmware for GD32F30x
+   6:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \version 2018-10-10, V1.1.0, firmware for GD32F30x
+   7:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \version 2018-12-25, V2.0.0, firmware for GD32F30x
+   8:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \version 2020-09-30, V2.1.0, firmware for GD32F30x
+   9:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+  10:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+  11:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*
+  12:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     Copyright (c) 2020, GigaDevice Semiconductor Inc.
+  13:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+  14:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     Redistribution and use in source and binary forms, with or without modification, 
+  15:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** are permitted provided that the following conditions are met:
+  16:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+  17:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     1. Redistributions of source code must retain the above copyright notice, this 
+  18:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****        list of conditions and the following disclaimer.
+  19:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     2. Redistributions in binary form must reproduce the above copyright notice, 
+  20:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****        this list of conditions and the following disclaimer in the documentation 
+  21:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****        and/or other materials provided with the distribution.
+  22:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     3. Neither the name of the copyright holder nor the names of its contributors 
+  23:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****        may be used to endorse or promote products derived from this software without 
+  24:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****        specific prior written permission.
+  25:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+  26:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+  27:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  28:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  29:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  30:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  31:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  32:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+ARM GAS  /tmp/ccYXlj4j.s 			page 2
+
+
+  33:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  34:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
+  35:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** OF SUCH DAMAGE.
+  36:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+  37:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+  38:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** #include "gd32f30x_bkp.h"
+  39:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+  40:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** #define TAMPER_FLAG_SHIFT          ((uint8_t)8U)
+  41:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+  42:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+  43:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      reset BKP registers
+  44:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  none
+  45:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+  46:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
+  47:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+  48:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** void bkp_deinit(void)
+  49:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+  27              		.loc 1 49 1 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  50:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     /* reset BKP domain register*/
+  51:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     rcu_bkp_reset_enable();
+  36              		.loc 1 51 5 view .LVU1
+  37 0002 FFF7FEFF 		bl	rcu_bkp_reset_enable
+  38              	.LVL0:
+  52:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     rcu_bkp_reset_disable();
+  39              		.loc 1 52 5 view .LVU2
+  40 0006 FFF7FEFF 		bl	rcu_bkp_reset_disable
+  41              	.LVL1:
+  53:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+  42              		.loc 1 53 1 is_stmt 0 view .LVU3
+  43 000a 08BD     		pop	{r3, pc}
+  44              		.cfi_endproc
+  45              	.LFE116:
+  47              		.section	.text.bkp_write_data,"ax",%progbits
+  48              		.align	1
+  49              		.global	bkp_write_data
+  50              		.syntax unified
+  51              		.thumb
+  52              		.thumb_func
+  54              	bkp_write_data:
+  55              	.LVL2:
+  56              	.LFB117:
+  54:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+  55:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+  56:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      write BKP data register
+  57:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  register_number: refer to bkp_data_register_enum, only one parameter can be selecte
+  58:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****       \arg        BKP_DATA_x(x = 0..41): bkp data register number x
+  59:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  data: the data to be write in BKP data register
+  60:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+  61:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
+ARM GAS  /tmp/ccYXlj4j.s 			page 3
+
+
+  62:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+  63:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** void bkp_write_data(bkp_data_register_enum register_number, uint16_t data)
+  64:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+  57              		.loc 1 64 1 is_stmt 1 view -0
+  58              		.cfi_startproc
+  59              		@ args = 0, pretend = 0, frame = 0
+  60              		@ frame_needed = 0, uses_anonymous_args = 0
+  61              		@ link register save eliminated.
+  65:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     if((register_number >= BKP_DATA_10) && (register_number <= BKP_DATA_41)){
+  62              		.loc 1 65 5 view .LVU5
+  63              		.loc 1 65 41 is_stmt 0 view .LVU6
+  64 0000 A0F10B03 		sub	r3, r0, #11
+  65 0004 DBB2     		uxtb	r3, r3
+  66              		.loc 1 65 7 view .LVU7
+  67 0006 1F2B     		cmp	r3, #31
+  68 0008 04D8     		bhi	.L4
+  66:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****         BKP_DATA10_41(register_number-1U) = data;
+  69              		.loc 1 66 9 is_stmt 1 view .LVU8
+  70 000a 084B     		ldr	r3, .L6
+  71 000c 0344     		add	r3, r3, r0
+  72 000e 9B00     		lsls	r3, r3, #2
+  73              		.loc 1 66 43 is_stmt 0 view .LVU9
+  74 0010 1980     		strh	r1, [r3]	@ movhi
+  75 0012 7047     		bx	lr
+  76              	.L4:
+  67:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     }else if((register_number >= BKP_DATA_0) && (register_number <= BKP_DATA_9)){
+  77              		.loc 1 67 11 is_stmt 1 view .LVU10
+  78              		.loc 1 67 46 is_stmt 0 view .LVU11
+  79 0014 431E     		subs	r3, r0, #1
+  80 0016 DBB2     		uxtb	r3, r3
+  81              		.loc 1 67 13 view .LVU12
+  82 0018 092B     		cmp	r3, #9
+  83 001a 05D8     		bhi	.L3
+  68:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****         BKP_DATA0_9(register_number-1U) = data;
+  84              		.loc 1 68 9 is_stmt 1 view .LVU13
+  85 001c 00F18050 		add	r0, r0, #268435456
+  86              	.LVL3:
+  87              		.loc 1 68 9 is_stmt 0 view .LVU14
+  88 0020 00F5D850 		add	r0, r0, #6912
+  89 0024 8000     		lsls	r0, r0, #2
+  90              		.loc 1 68 41 view .LVU15
+  91 0026 0180     		strh	r1, [r0]	@ movhi
+  69:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     }else{
+  70:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****         /* illegal parameters */
+  71:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     }
+  92              		.loc 1 71 5 is_stmt 1 view .LVU16
+  93              	.L3:
+  72:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+  94              		.loc 1 72 1 is_stmt 0 view .LVU17
+  95 0028 7047     		bx	lr
+  96              	.L7:
+  97 002a 00BF     		.align	2
+  98              	.L6:
+  99 002c 051B0010 		.word	268442373
+ 100              		.cfi_endproc
+ 101              	.LFE117:
+ 103              		.section	.text.bkp_read_data,"ax",%progbits
+ARM GAS  /tmp/ccYXlj4j.s 			page 4
+
+
+ 104              		.align	1
+ 105              		.global	bkp_read_data
+ 106              		.syntax unified
+ 107              		.thumb
+ 108              		.thumb_func
+ 110              	bkp_read_data:
+ 111              	.LVL4:
+ 112              	.LFB118:
+  73:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+  74:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+  75:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      read BKP data register
+  76:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  register_number: refer to bkp_data_register_enum, only one parameter can be selecte
+  77:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****       \arg        BKP_DATA_x(x = 0..41): bkp data register number x
+  78:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+  79:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     data of BKP data register
+  80:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+  81:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** uint16_t bkp_read_data(bkp_data_register_enum register_number)
+  82:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+ 113              		.loc 1 82 1 is_stmt 1 view -0
+ 114              		.cfi_startproc
+ 115              		@ args = 0, pretend = 0, frame = 0
+ 116              		@ frame_needed = 0, uses_anonymous_args = 0
+ 117              		@ link register save eliminated.
+  83:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     uint16_t data = 0U;
+ 118              		.loc 1 83 5 view .LVU19
+  84:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     
+  85:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     /* get the data from the BKP data register */
+  86:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     if((register_number >= BKP_DATA_10) && (register_number <= BKP_DATA_41)){
+ 119              		.loc 1 86 5 view .LVU20
+ 120              		.loc 1 86 41 is_stmt 0 view .LVU21
+ 121 0000 A0F10B03 		sub	r3, r0, #11
+ 122 0004 DBB2     		uxtb	r3, r3
+ 123              		.loc 1 86 7 view .LVU22
+ 124 0006 1F2B     		cmp	r3, #31
+ 125 0008 05D8     		bhi	.L9
+  87:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****         data = BKP_DATA10_41(register_number-1U);
+ 126              		.loc 1 87 9 is_stmt 1 view .LVU23
+ 127              		.loc 1 87 16 is_stmt 0 view .LVU24
+ 128 000a 0A4B     		ldr	r3, .L12
+ 129 000c 0344     		add	r3, r3, r0
+ 130 000e 9B00     		lsls	r3, r3, #2
+ 131              		.loc 1 87 14 view .LVU25
+ 132 0010 1888     		ldrh	r0, [r3]
+ 133              	.LVL5:
+ 134              		.loc 1 87 14 view .LVU26
+ 135 0012 80B2     		uxth	r0, r0
+ 136              	.LVL6:
+ 137              		.loc 1 87 14 view .LVU27
+ 138 0014 7047     		bx	lr
+ 139              	.LVL7:
+ 140              	.L9:
+  88:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     }else if((register_number >= BKP_DATA_0) && (register_number <= BKP_DATA_9)){
+ 141              		.loc 1 88 11 is_stmt 1 view .LVU28
+ 142              		.loc 1 88 46 is_stmt 0 view .LVU29
+ 143 0016 431E     		subs	r3, r0, #1
+ 144 0018 DBB2     		uxtb	r3, r3
+ 145              		.loc 1 88 13 view .LVU30
+ARM GAS  /tmp/ccYXlj4j.s 			page 5
+
+
+ 146 001a 092B     		cmp	r3, #9
+ 147 001c 07D8     		bhi	.L11
+  89:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****         data = BKP_DATA0_9(register_number-1U);
+ 148              		.loc 1 89 9 is_stmt 1 view .LVU31
+ 149              		.loc 1 89 16 is_stmt 0 view .LVU32
+ 150 001e 00F18050 		add	r0, r0, #268435456
+ 151              	.LVL8:
+ 152              		.loc 1 89 16 view .LVU33
+ 153 0022 00F5D850 		add	r0, r0, #6912
+ 154 0026 8000     		lsls	r0, r0, #2
+ 155              		.loc 1 89 14 view .LVU34
+ 156 0028 0088     		ldrh	r0, [r0]
+ 157 002a 80B2     		uxth	r0, r0
+ 158              	.LVL9:
+ 159              		.loc 1 89 14 view .LVU35
+ 160 002c 7047     		bx	lr
+ 161              	.LVL10:
+ 162              	.L11:
+  83:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     
+ 163              		.loc 1 83 14 view .LVU36
+ 164 002e 0020     		movs	r0, #0
+ 165              	.LVL11:
+  90:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     }else{
+  91:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****         /* illegal parameters */
+  92:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     }
+ 166              		.loc 1 92 5 is_stmt 1 view .LVU37
+  93:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     return data;
+ 167              		.loc 1 93 5 view .LVU38
+  94:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+ 168              		.loc 1 94 1 is_stmt 0 view .LVU39
+ 169 0030 7047     		bx	lr
+ 170              	.L13:
+ 171 0032 00BF     		.align	2
+ 172              	.L12:
+ 173 0034 051B0010 		.word	268442373
+ 174              		.cfi_endproc
+ 175              	.LFE118:
+ 177              		.section	.text.bkp_rtc_calibration_output_enable,"ax",%progbits
+ 178              		.align	1
+ 179              		.global	bkp_rtc_calibration_output_enable
+ 180              		.syntax unified
+ 181              		.thumb
+ 182              		.thumb_func
+ 184              	bkp_rtc_calibration_output_enable:
+ 185              	.LFB119:
+  95:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+  96:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+  97:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      enable RTC clock calibration output
+  98:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  none
+  99:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+ 100:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
+ 101:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+ 102:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** void bkp_rtc_calibration_output_enable(void)
+ 103:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+ 186              		.loc 1 103 1 is_stmt 1 view -0
+ 187              		.cfi_startproc
+ 188              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  /tmp/ccYXlj4j.s 			page 6
+
+
+ 189              		@ frame_needed = 0, uses_anonymous_args = 0
+ 190              		@ link register save eliminated.
+ 104:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     BKP_OCTL |= (uint16_t)BKP_OCTL_COEN;
+ 191              		.loc 1 104 5 view .LVU41
+ 192              		.loc 1 104 14 is_stmt 0 view .LVU42
+ 193 0000 034A     		ldr	r2, .L15
+ 194 0002 938D     		ldrh	r3, [r2, #44]
+ 195 0004 9BB2     		uxth	r3, r3
+ 196 0006 43F08003 		orr	r3, r3, #128
+ 197 000a 9385     		strh	r3, [r2, #44]	@ movhi
+ 105:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+ 198              		.loc 1 105 1 view .LVU43
+ 199 000c 7047     		bx	lr
+ 200              	.L16:
+ 201 000e 00BF     		.align	2
+ 202              	.L15:
+ 203 0010 006C0040 		.word	1073769472
+ 204              		.cfi_endproc
+ 205              	.LFE119:
+ 207              		.section	.text.bkp_rtc_calibration_output_disable,"ax",%progbits
+ 208              		.align	1
+ 209              		.global	bkp_rtc_calibration_output_disable
+ 210              		.syntax unified
+ 211              		.thumb
+ 212              		.thumb_func
+ 214              	bkp_rtc_calibration_output_disable:
+ 215              	.LFB120:
+ 106:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+ 107:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+ 108:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      disable RTC clock calibration output
+ 109:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  none
+ 110:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+ 111:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
+ 112:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+ 113:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** void bkp_rtc_calibration_output_disable(void)
+ 114:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+ 216              		.loc 1 114 1 is_stmt 1 view -0
+ 217              		.cfi_startproc
+ 218              		@ args = 0, pretend = 0, frame = 0
+ 219              		@ frame_needed = 0, uses_anonymous_args = 0
+ 220              		@ link register save eliminated.
+ 115:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     BKP_OCTL &= (uint16_t)~BKP_OCTL_COEN;
+ 221              		.loc 1 115 5 view .LVU45
+ 222              		.loc 1 115 14 is_stmt 0 view .LVU46
+ 223 0000 034A     		ldr	r2, .L18
+ 224 0002 938D     		ldrh	r3, [r2, #44]
+ 225 0004 9BB2     		uxth	r3, r3
+ 226 0006 23F08003 		bic	r3, r3, #128
+ 227 000a 9BB2     		uxth	r3, r3
+ 228 000c 9385     		strh	r3, [r2, #44]	@ movhi
+ 116:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+ 229              		.loc 1 116 1 view .LVU47
+ 230 000e 7047     		bx	lr
+ 231              	.L19:
+ 232              		.align	2
+ 233              	.L18:
+ 234 0010 006C0040 		.word	1073769472
+ARM GAS  /tmp/ccYXlj4j.s 			page 7
+
+
+ 235              		.cfi_endproc
+ 236              	.LFE120:
+ 238              		.section	.text.bkp_rtc_signal_output_enable,"ax",%progbits
+ 239              		.align	1
+ 240              		.global	bkp_rtc_signal_output_enable
+ 241              		.syntax unified
+ 242              		.thumb
+ 243              		.thumb_func
+ 245              	bkp_rtc_signal_output_enable:
+ 246              	.LFB121:
+ 117:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+ 118:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+ 119:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      enable RTC alarm or second signal output
+ 120:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  none
+ 121:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+ 122:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
+ 123:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+ 124:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** void bkp_rtc_signal_output_enable(void)
+ 125:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+ 247              		.loc 1 125 1 is_stmt 1 view -0
+ 248              		.cfi_startproc
+ 249              		@ args = 0, pretend = 0, frame = 0
+ 250              		@ frame_needed = 0, uses_anonymous_args = 0
+ 251              		@ link register save eliminated.
+ 126:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     BKP_OCTL |= (uint16_t)BKP_OCTL_ASOEN;
+ 252              		.loc 1 126 5 view .LVU49
+ 253              		.loc 1 126 14 is_stmt 0 view .LVU50
+ 254 0000 034A     		ldr	r2, .L21
+ 255 0002 938D     		ldrh	r3, [r2, #44]
+ 256 0004 9BB2     		uxth	r3, r3
+ 257 0006 43F48073 		orr	r3, r3, #256
+ 258 000a 9385     		strh	r3, [r2, #44]	@ movhi
+ 127:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+ 259              		.loc 1 127 1 view .LVU51
+ 260 000c 7047     		bx	lr
+ 261              	.L22:
+ 262 000e 00BF     		.align	2
+ 263              	.L21:
+ 264 0010 006C0040 		.word	1073769472
+ 265              		.cfi_endproc
+ 266              	.LFE121:
+ 268              		.section	.text.bkp_rtc_signal_output_disable,"ax",%progbits
+ 269              		.align	1
+ 270              		.global	bkp_rtc_signal_output_disable
+ 271              		.syntax unified
+ 272              		.thumb
+ 273              		.thumb_func
+ 275              	bkp_rtc_signal_output_disable:
+ 276              	.LFB122:
+ 128:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+ 129:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+ 130:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      disable RTC alarm or second signal output
+ 131:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  none
+ 132:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+ 133:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
+ 134:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+ 135:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** void bkp_rtc_signal_output_disable(void)
+ARM GAS  /tmp/ccYXlj4j.s 			page 8
+
+
+ 136:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+ 277              		.loc 1 136 1 is_stmt 1 view -0
+ 278              		.cfi_startproc
+ 279              		@ args = 0, pretend = 0, frame = 0
+ 280              		@ frame_needed = 0, uses_anonymous_args = 0
+ 281              		@ link register save eliminated.
+ 137:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     BKP_OCTL &= (uint16_t)~BKP_OCTL_ASOEN;
+ 282              		.loc 1 137 5 view .LVU53
+ 283              		.loc 1 137 14 is_stmt 0 view .LVU54
+ 284 0000 034A     		ldr	r2, .L24
+ 285 0002 938D     		ldrh	r3, [r2, #44]
+ 286 0004 9BB2     		uxth	r3, r3
+ 287 0006 23F48073 		bic	r3, r3, #256
+ 288 000a 9BB2     		uxth	r3, r3
+ 289 000c 9385     		strh	r3, [r2, #44]	@ movhi
+ 138:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+ 290              		.loc 1 138 1 view .LVU55
+ 291 000e 7047     		bx	lr
+ 292              	.L25:
+ 293              		.align	2
+ 294              	.L24:
+ 295 0010 006C0040 		.word	1073769472
+ 296              		.cfi_endproc
+ 297              	.LFE122:
+ 299              		.section	.text.bkp_rtc_output_select,"ax",%progbits
+ 300              		.align	1
+ 301              		.global	bkp_rtc_output_select
+ 302              		.syntax unified
+ 303              		.thumb
+ 304              		.thumb_func
+ 306              	bkp_rtc_output_select:
+ 307              	.LVL12:
+ 308              	.LFB123:
+ 139:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+ 140:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+ 141:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      select RTC output
+ 142:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  outputsel: RTC output selection
+ 143:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****       \arg        RTC_OUTPUT_ALARM_PULSE: RTC alarm pulse is selected as the RTC output
+ 144:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****       \arg        RTC_OUTPUT_SECOND_PULSE: RTC second pulse is selected as the RTC output
+ 145:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+ 146:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
+ 147:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+ 148:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** void bkp_rtc_output_select(uint16_t outputsel)
+ 149:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+ 309              		.loc 1 149 1 is_stmt 1 view -0
+ 310              		.cfi_startproc
+ 311              		@ args = 0, pretend = 0, frame = 0
+ 312              		@ frame_needed = 0, uses_anonymous_args = 0
+ 313              		@ link register save eliminated.
+ 150:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     uint16_t ctl = 0U;
+ 314              		.loc 1 150 5 view .LVU57
+ 151:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     
+ 152:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     ctl = BKP_OCTL;
+ 315              		.loc 1 152 5 view .LVU58
+ 316              		.loc 1 152 9 is_stmt 0 view .LVU59
+ 317 0000 034A     		ldr	r2, .L27
+ 318 0002 938D     		ldrh	r3, [r2, #44]
+ARM GAS  /tmp/ccYXlj4j.s 			page 9
+
+
+ 319 0004 9BB2     		uxth	r3, r3
+ 320              	.LVL13:
+ 153:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     ctl &= (uint16_t)~BKP_OCTL_ROSEL;
+ 321              		.loc 1 153 5 is_stmt 1 view .LVU60
+ 322              		.loc 1 153 9 is_stmt 0 view .LVU61
+ 323 0006 23F40073 		bic	r3, r3, #512
+ 324              	.LVL14:
+ 154:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     ctl |= outputsel;
+ 325              		.loc 1 154 5 is_stmt 1 view .LVU62
+ 326              		.loc 1 154 9 is_stmt 0 view .LVU63
+ 327 000a 0343     		orrs	r3, r3, r0
+ 328              	.LVL15:
+ 155:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     BKP_OCTL = ctl;
+ 329              		.loc 1 155 5 is_stmt 1 view .LVU64
+ 330              		.loc 1 155 14 is_stmt 0 view .LVU65
+ 331 000c 9385     		strh	r3, [r2, #44]	@ movhi
+ 156:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+ 332              		.loc 1 156 1 view .LVU66
+ 333 000e 7047     		bx	lr
+ 334              	.L28:
+ 335              		.align	2
+ 336              	.L27:
+ 337 0010 006C0040 		.word	1073769472
+ 338              		.cfi_endproc
+ 339              	.LFE123:
+ 341              		.section	.text.bkp_rtc_clock_output_select,"ax",%progbits
+ 342              		.align	1
+ 343              		.global	bkp_rtc_clock_output_select
+ 344              		.syntax unified
+ 345              		.thumb
+ 346              		.thumb_func
+ 348              	bkp_rtc_clock_output_select:
+ 349              	.LVL16:
+ 350              	.LFB124:
+ 157:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+ 158:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+ 159:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      select RTC clock output
+ 160:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  clocksel: RTC clock output selection
+ 161:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****       \arg        RTC_CLOCK_DIV_64: RTC clock div 64
+ 162:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****       \arg        RTC_CLOCK_DIV_1: RTC clock
+ 163:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+ 164:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
+ 165:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+ 166:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** void bkp_rtc_clock_output_select(uint16_t clocksel)
+ 167:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+ 351              		.loc 1 167 1 is_stmt 1 view -0
+ 352              		.cfi_startproc
+ 353              		@ args = 0, pretend = 0, frame = 0
+ 354              		@ frame_needed = 0, uses_anonymous_args = 0
+ 355              		@ link register save eliminated.
+ 168:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     uint16_t ctl = 0U;
+ 356              		.loc 1 168 5 view .LVU68
+ 169:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     
+ 170:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     ctl = BKP_OCTL;
+ 357              		.loc 1 170 5 view .LVU69
+ 358              		.loc 1 170 9 is_stmt 0 view .LVU70
+ 359 0000 034A     		ldr	r2, .L30
+ARM GAS  /tmp/ccYXlj4j.s 			page 10
+
+
+ 360 0002 938D     		ldrh	r3, [r2, #44]
+ 361 0004 9BB2     		uxth	r3, r3
+ 362              	.LVL17:
+ 171:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     ctl &= (uint16_t)~BKP_OCTL_CCOSEL;
+ 363              		.loc 1 171 5 is_stmt 1 view .LVU71
+ 364              		.loc 1 171 9 is_stmt 0 view .LVU72
+ 365 0006 23F48043 		bic	r3, r3, #16384
+ 366              	.LVL18:
+ 172:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     ctl |= clocksel;
+ 367              		.loc 1 172 5 is_stmt 1 view .LVU73
+ 368              		.loc 1 172 9 is_stmt 0 view .LVU74
+ 369 000a 0343     		orrs	r3, r3, r0
+ 370              	.LVL19:
+ 173:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     BKP_OCTL = ctl;
+ 371              		.loc 1 173 5 is_stmt 1 view .LVU75
+ 372              		.loc 1 173 14 is_stmt 0 view .LVU76
+ 373 000c 9385     		strh	r3, [r2, #44]	@ movhi
+ 174:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+ 374              		.loc 1 174 1 view .LVU77
+ 375 000e 7047     		bx	lr
+ 376              	.L31:
+ 377              		.align	2
+ 378              	.L30:
+ 379 0010 006C0040 		.word	1073769472
+ 380              		.cfi_endproc
+ 381              	.LFE124:
+ 383              		.section	.text.bkp_rtc_clock_calibration_direction,"ax",%progbits
+ 384              		.align	1
+ 385              		.global	bkp_rtc_clock_calibration_direction
+ 386              		.syntax unified
+ 387              		.thumb
+ 388              		.thumb_func
+ 390              	bkp_rtc_clock_calibration_direction:
+ 391              	.LVL20:
+ 392              	.LFB125:
+ 175:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+ 176:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+ 177:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      RTC clock calibration direction
+ 178:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  direction: RTC clock calibration direction
+ 179:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****       \arg        RTC_CLOCK_SLOWED_DOWN: RTC clock slow down
+ 180:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****       \arg        RTC_CLOCK_SPEED_UP: RTC clock speed up
+ 181:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+ 182:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
+ 183:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+ 184:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** void bkp_rtc_clock_calibration_direction(uint16_t direction)
+ 185:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+ 393              		.loc 1 185 1 is_stmt 1 view -0
+ 394              		.cfi_startproc
+ 395              		@ args = 0, pretend = 0, frame = 0
+ 396              		@ frame_needed = 0, uses_anonymous_args = 0
+ 397              		@ link register save eliminated.
+ 186:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     uint16_t ctl = 0U;
+ 398              		.loc 1 186 5 view .LVU79
+ 187:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     
+ 188:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     ctl = BKP_OCTL;
+ 399              		.loc 1 188 5 view .LVU80
+ 400              		.loc 1 188 9 is_stmt 0 view .LVU81
+ARM GAS  /tmp/ccYXlj4j.s 			page 11
+
+
+ 401 0000 034A     		ldr	r2, .L33
+ 402 0002 938D     		ldrh	r3, [r2, #44]
+ 403              	.LVL21:
+ 189:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     ctl &= (uint16_t)~BKP_OCTL_CALDIR;
+ 404              		.loc 1 189 5 is_stmt 1 view .LVU82
+ 405              		.loc 1 189 9 is_stmt 0 view .LVU83
+ 406 0004 C3F30E03 		ubfx	r3, r3, #0, #15
+ 407              	.LVL22:
+ 190:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     ctl |= direction;
+ 408              		.loc 1 190 5 is_stmt 1 view .LVU84
+ 409              		.loc 1 190 9 is_stmt 0 view .LVU85
+ 410 0008 0343     		orrs	r3, r3, r0
+ 411              	.LVL23:
+ 191:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     BKP_OCTL = ctl;
+ 412              		.loc 1 191 5 is_stmt 1 view .LVU86
+ 413              		.loc 1 191 14 is_stmt 0 view .LVU87
+ 414 000a 9385     		strh	r3, [r2, #44]	@ movhi
+ 192:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+ 415              		.loc 1 192 1 view .LVU88
+ 416 000c 7047     		bx	lr
+ 417              	.L34:
+ 418 000e 00BF     		.align	2
+ 419              	.L33:
+ 420 0010 006C0040 		.word	1073769472
+ 421              		.cfi_endproc
+ 422              	.LFE125:
+ 424              		.section	.text.bkp_rtc_calibration_value_set,"ax",%progbits
+ 425              		.align	1
+ 426              		.global	bkp_rtc_calibration_value_set
+ 427              		.syntax unified
+ 428              		.thumb
+ 429              		.thumb_func
+ 431              	bkp_rtc_calibration_value_set:
+ 432              	.LVL24:
+ 433              	.LFB126:
+ 193:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+ 194:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+ 195:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      set RTC clock calibration value 
+ 196:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  value: RTC clock calibration value
+ 197:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****       \arg        0x00 - 0x7F
+ 198:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+ 199:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
+ 200:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+ 201:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** void bkp_rtc_calibration_value_set(uint8_t value)
+ 202:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+ 434              		.loc 1 202 1 is_stmt 1 view -0
+ 435              		.cfi_startproc
+ 436              		@ args = 0, pretend = 0, frame = 0
+ 437              		@ frame_needed = 0, uses_anonymous_args = 0
+ 438              		@ link register save eliminated.
+ 203:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     uint16_t ctl;
+ 439              		.loc 1 203 5 view .LVU90
+ 204:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     
+ 205:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     ctl = BKP_OCTL;
+ 440              		.loc 1 205 5 view .LVU91
+ 441              		.loc 1 205 9 is_stmt 0 view .LVU92
+ 442 0000 024B     		ldr	r3, .L36
+ARM GAS  /tmp/ccYXlj4j.s 			page 12
+
+
+ 443 0002 9A8D     		ldrh	r2, [r3, #44]
+ 444              	.LVL25:
+ 206:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     ctl &= (uint16_t)OCTL_RCCV(0);
+ 445              		.loc 1 206 5 is_stmt 1 view .LVU93
+ 207:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     ctl |= (uint16_t)OCTL_RCCV(value);
+ 446              		.loc 1 207 5 view .LVU94
+ 447              		.loc 1 207 9 is_stmt 0 view .LVU95
+ 448 0004 00F07F00 		and	r0, r0, #127
+ 449              	.LVL26:
+ 208:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     BKP_OCTL = ctl;
+ 450              		.loc 1 208 5 is_stmt 1 view .LVU96
+ 451              		.loc 1 208 14 is_stmt 0 view .LVU97
+ 452 0008 9885     		strh	r0, [r3, #44]	@ movhi
+ 209:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+ 453              		.loc 1 209 1 view .LVU98
+ 454 000a 7047     		bx	lr
+ 455              	.L37:
+ 456              		.align	2
+ 457              	.L36:
+ 458 000c 006C0040 		.word	1073769472
+ 459              		.cfi_endproc
+ 460              	.LFE126:
+ 462              		.section	.text.bkp_tamper_detection_enable,"ax",%progbits
+ 463              		.align	1
+ 464              		.global	bkp_tamper_detection_enable
+ 465              		.syntax unified
+ 466              		.thumb
+ 467              		.thumb_func
+ 469              	bkp_tamper_detection_enable:
+ 470              	.LFB127:
+ 210:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+ 211:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+ 212:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      enable tamper detection
+ 213:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  none
+ 214:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+ 215:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
+ 216:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+ 217:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** void bkp_tamper_detection_enable(void)
+ 218:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+ 471              		.loc 1 218 1 is_stmt 1 view -0
+ 472              		.cfi_startproc
+ 473              		@ args = 0, pretend = 0, frame = 0
+ 474              		@ frame_needed = 0, uses_anonymous_args = 0
+ 475              		@ link register save eliminated.
+ 219:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     BKP_TPCTL |= (uint16_t)BKP_TPCTL_TPEN;
+ 476              		.loc 1 219 5 view .LVU100
+ 477              		.loc 1 219 15 is_stmt 0 view .LVU101
+ 478 0000 034A     		ldr	r2, .L39
+ 479 0002 138E     		ldrh	r3, [r2, #48]
+ 480 0004 9BB2     		uxth	r3, r3
+ 481 0006 43F00103 		orr	r3, r3, #1
+ 482 000a 1386     		strh	r3, [r2, #48]	@ movhi
+ 220:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+ 483              		.loc 1 220 1 view .LVU102
+ 484 000c 7047     		bx	lr
+ 485              	.L40:
+ 486 000e 00BF     		.align	2
+ARM GAS  /tmp/ccYXlj4j.s 			page 13
+
+
+ 487              	.L39:
+ 488 0010 006C0040 		.word	1073769472
+ 489              		.cfi_endproc
+ 490              	.LFE127:
+ 492              		.section	.text.bkp_tamper_detection_disable,"ax",%progbits
+ 493              		.align	1
+ 494              		.global	bkp_tamper_detection_disable
+ 495              		.syntax unified
+ 496              		.thumb
+ 497              		.thumb_func
+ 499              	bkp_tamper_detection_disable:
+ 500              	.LFB128:
+ 221:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+ 222:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+ 223:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      disable tamper detection
+ 224:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  none
+ 225:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+ 226:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
+ 227:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+ 228:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** void bkp_tamper_detection_disable(void)
+ 229:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+ 501              		.loc 1 229 1 is_stmt 1 view -0
+ 502              		.cfi_startproc
+ 503              		@ args = 0, pretend = 0, frame = 0
+ 504              		@ frame_needed = 0, uses_anonymous_args = 0
+ 505              		@ link register save eliminated.
+ 230:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     BKP_TPCTL &= (uint16_t)~BKP_TPCTL_TPEN;
+ 506              		.loc 1 230 5 view .LVU104
+ 507              		.loc 1 230 15 is_stmt 0 view .LVU105
+ 508 0000 034A     		ldr	r2, .L42
+ 509 0002 138E     		ldrh	r3, [r2, #48]
+ 510 0004 9BB2     		uxth	r3, r3
+ 511 0006 23F00103 		bic	r3, r3, #1
+ 512 000a 9BB2     		uxth	r3, r3
+ 513 000c 1386     		strh	r3, [r2, #48]	@ movhi
+ 231:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+ 514              		.loc 1 231 1 view .LVU106
+ 515 000e 7047     		bx	lr
+ 516              	.L43:
+ 517              		.align	2
+ 518              	.L42:
+ 519 0010 006C0040 		.word	1073769472
+ 520              		.cfi_endproc
+ 521              	.LFE128:
+ 523              		.section	.text.bkp_tamper_active_level_set,"ax",%progbits
+ 524              		.align	1
+ 525              		.global	bkp_tamper_active_level_set
+ 526              		.syntax unified
+ 527              		.thumb
+ 528              		.thumb_func
+ 530              	bkp_tamper_active_level_set:
+ 531              	.LVL27:
+ 532              	.LFB129:
+ 232:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+ 233:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+ 234:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      set tamper pin active level
+ 235:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  level: tamper active level
+ARM GAS  /tmp/ccYXlj4j.s 			page 14
+
+
+ 236:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****       \arg        TAMPER_PIN_ACTIVE_HIGH: the tamper pin is active high
+ 237:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****       \arg        TAMPER_PIN_ACTIVE_LOW: the tamper pin is active low
+ 238:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+ 239:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
+ 240:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+ 241:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** void bkp_tamper_active_level_set(uint16_t level)
+ 242:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+ 533              		.loc 1 242 1 is_stmt 1 view -0
+ 534              		.cfi_startproc
+ 535              		@ args = 0, pretend = 0, frame = 0
+ 536              		@ frame_needed = 0, uses_anonymous_args = 0
+ 537              		@ link register save eliminated.
+ 243:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     uint16_t ctl = 0U;
+ 538              		.loc 1 243 5 view .LVU108
+ 244:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     
+ 245:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     ctl = BKP_TPCTL;
+ 539              		.loc 1 245 5 view .LVU109
+ 540              		.loc 1 245 9 is_stmt 0 view .LVU110
+ 541 0000 034A     		ldr	r2, .L45
+ 542 0002 138E     		ldrh	r3, [r2, #48]
+ 543 0004 9BB2     		uxth	r3, r3
+ 544              	.LVL28:
+ 246:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     ctl &= (uint16_t)~BKP_TPCTL_TPAL;
+ 545              		.loc 1 246 5 is_stmt 1 view .LVU111
+ 546              		.loc 1 246 9 is_stmt 0 view .LVU112
+ 547 0006 23F00203 		bic	r3, r3, #2
+ 548              	.LVL29:
+ 247:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     ctl |= level;
+ 549              		.loc 1 247 5 is_stmt 1 view .LVU113
+ 550              		.loc 1 247 9 is_stmt 0 view .LVU114
+ 551 000a 0343     		orrs	r3, r3, r0
+ 552              	.LVL30:
+ 248:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     BKP_TPCTL = ctl;
+ 553              		.loc 1 248 5 is_stmt 1 view .LVU115
+ 554              		.loc 1 248 15 is_stmt 0 view .LVU116
+ 555 000c 1386     		strh	r3, [r2, #48]	@ movhi
+ 249:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+ 556              		.loc 1 249 1 view .LVU117
+ 557 000e 7047     		bx	lr
+ 558              	.L46:
+ 559              		.align	2
+ 560              	.L45:
+ 561 0010 006C0040 		.word	1073769472
+ 562              		.cfi_endproc
+ 563              	.LFE129:
+ 565              		.section	.text.bkp_tamper_interrupt_enable,"ax",%progbits
+ 566              		.align	1
+ 567              		.global	bkp_tamper_interrupt_enable
+ 568              		.syntax unified
+ 569              		.thumb
+ 570              		.thumb_func
+ 572              	bkp_tamper_interrupt_enable:
+ 573              	.LFB130:
+ 250:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+ 251:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+ 252:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      enable tamper interrupt
+ 253:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  none
+ARM GAS  /tmp/ccYXlj4j.s 			page 15
+
+
+ 254:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+ 255:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
+ 256:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+ 257:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** void bkp_tamper_interrupt_enable(void)
+ 258:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+ 574              		.loc 1 258 1 is_stmt 1 view -0
+ 575              		.cfi_startproc
+ 576              		@ args = 0, pretend = 0, frame = 0
+ 577              		@ frame_needed = 0, uses_anonymous_args = 0
+ 578              		@ link register save eliminated.
+ 259:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     BKP_TPCS |= (uint16_t)BKP_TPCS_TPIE;
+ 579              		.loc 1 259 5 view .LVU119
+ 580              		.loc 1 259 14 is_stmt 0 view .LVU120
+ 581 0000 034A     		ldr	r2, .L48
+ 582 0002 938E     		ldrh	r3, [r2, #52]
+ 583 0004 9BB2     		uxth	r3, r3
+ 584 0006 43F00403 		orr	r3, r3, #4
+ 585 000a 9386     		strh	r3, [r2, #52]	@ movhi
+ 260:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+ 586              		.loc 1 260 1 view .LVU121
+ 587 000c 7047     		bx	lr
+ 588              	.L49:
+ 589 000e 00BF     		.align	2
+ 590              	.L48:
+ 591 0010 006C0040 		.word	1073769472
+ 592              		.cfi_endproc
+ 593              	.LFE130:
+ 595              		.section	.text.bkp_tamper_interrupt_disable,"ax",%progbits
+ 596              		.align	1
+ 597              		.global	bkp_tamper_interrupt_disable
+ 598              		.syntax unified
+ 599              		.thumb
+ 600              		.thumb_func
+ 602              	bkp_tamper_interrupt_disable:
+ 603              	.LFB131:
+ 261:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+ 262:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+ 263:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      disable tamper interrupt
+ 264:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  none
+ 265:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+ 266:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
+ 267:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+ 268:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** void bkp_tamper_interrupt_disable(void)
+ 269:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+ 604              		.loc 1 269 1 is_stmt 1 view -0
+ 605              		.cfi_startproc
+ 606              		@ args = 0, pretend = 0, frame = 0
+ 607              		@ frame_needed = 0, uses_anonymous_args = 0
+ 608              		@ link register save eliminated.
+ 270:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     BKP_TPCS &= (uint16_t)~BKP_TPCS_TPIE;
+ 609              		.loc 1 270 5 view .LVU123
+ 610              		.loc 1 270 14 is_stmt 0 view .LVU124
+ 611 0000 034A     		ldr	r2, .L51
+ 612 0002 938E     		ldrh	r3, [r2, #52]
+ 613 0004 9BB2     		uxth	r3, r3
+ 614 0006 23F00403 		bic	r3, r3, #4
+ 615 000a 9BB2     		uxth	r3, r3
+ARM GAS  /tmp/ccYXlj4j.s 			page 16
+
+
+ 616 000c 9386     		strh	r3, [r2, #52]	@ movhi
+ 271:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+ 617              		.loc 1 271 1 view .LVU125
+ 618 000e 7047     		bx	lr
+ 619              	.L52:
+ 620              		.align	2
+ 621              	.L51:
+ 622 0010 006C0040 		.word	1073769472
+ 623              		.cfi_endproc
+ 624              	.LFE131:
+ 626              		.section	.text.bkp_flag_get,"ax",%progbits
+ 627              		.align	1
+ 628              		.global	bkp_flag_get
+ 629              		.syntax unified
+ 630              		.thumb
+ 631              		.thumb_func
+ 633              	bkp_flag_get:
+ 634              	.LVL31:
+ 635              	.LFB132:
+ 272:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+ 273:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+ 274:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      get bkp flag state
+ 275:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  flag
+ 276:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****       \arg        BKP_FLAG_TAMPER: tamper event flag
+ 277:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+ 278:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     FlagStatus: SET or RESET
+ 279:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+ 280:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** FlagStatus bkp_flag_get(uint16_t flag)
+ 281:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+ 636              		.loc 1 281 1 is_stmt 1 view -0
+ 637              		.cfi_startproc
+ 638              		@ args = 0, pretend = 0, frame = 0
+ 639              		@ frame_needed = 0, uses_anonymous_args = 0
+ 640              		@ link register save eliminated.
+ 282:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     if(RESET != (BKP_TPCS & flag)){
+ 641              		.loc 1 282 5 view .LVU127
+ 642              		.loc 1 282 18 is_stmt 0 view .LVU128
+ 643 0000 034B     		ldr	r3, .L56
+ 644 0002 9B8E     		ldrh	r3, [r3, #52]
+ 645              		.loc 1 282 7 view .LVU129
+ 646 0004 1842     		tst	r0, r3
+ 647 0006 01D0     		beq	.L55
+ 283:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****         return SET;
+ 648              		.loc 1 283 16 view .LVU130
+ 649 0008 0120     		movs	r0, #1
+ 650              	.LVL32:
+ 651              		.loc 1 283 16 view .LVU131
+ 652 000a 7047     		bx	lr
+ 653              	.LVL33:
+ 654              	.L55:
+ 284:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     }else{
+ 285:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****         return RESET;
+ 655              		.loc 1 285 16 view .LVU132
+ 656 000c 0020     		movs	r0, #0
+ 657              	.LVL34:
+ 286:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     }
+ 287:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+ARM GAS  /tmp/ccYXlj4j.s 			page 17
+
+
+ 658              		.loc 1 287 1 view .LVU133
+ 659 000e 7047     		bx	lr
+ 660              	.L57:
+ 661              		.align	2
+ 662              	.L56:
+ 663 0010 006C0040 		.word	1073769472
+ 664              		.cfi_endproc
+ 665              	.LFE132:
+ 667              		.section	.text.bkp_flag_clear,"ax",%progbits
+ 668              		.align	1
+ 669              		.global	bkp_flag_clear
+ 670              		.syntax unified
+ 671              		.thumb
+ 672              		.thumb_func
+ 674              	bkp_flag_clear:
+ 675              	.LVL35:
+ 676              	.LFB133:
+ 288:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+ 289:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+ 290:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      clear bkp flag state
+ 291:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  flag
+ 292:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****       \arg        BKP_FLAG_TAMPER: tamper event flag
+ 293:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+ 294:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
+ 295:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+ 296:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** void bkp_flag_clear(uint16_t flag)
+ 297:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+ 677              		.loc 1 297 1 is_stmt 1 view -0
+ 678              		.cfi_startproc
+ 679              		@ args = 0, pretend = 0, frame = 0
+ 680              		@ frame_needed = 0, uses_anonymous_args = 0
+ 681              		@ link register save eliminated.
+ 298:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****         BKP_TPCS |= (uint16_t)(flag >> TAMPER_FLAG_SHIFT);
+ 682              		.loc 1 298 9 view .LVU135
+ 683              		.loc 1 298 18 is_stmt 0 view .LVU136
+ 684 0000 034A     		ldr	r2, .L59
+ 685 0002 938E     		ldrh	r3, [r2, #52]
+ 686 0004 9BB2     		uxth	r3, r3
+ 687 0006 43EA1023 		orr	r3, r3, r0, lsr #8
+ 688 000a 9386     		strh	r3, [r2, #52]	@ movhi
+ 299:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+ 689              		.loc 1 299 1 view .LVU137
+ 690 000c 7047     		bx	lr
+ 691              	.L60:
+ 692 000e 00BF     		.align	2
+ 693              	.L59:
+ 694 0010 006C0040 		.word	1073769472
+ 695              		.cfi_endproc
+ 696              	.LFE133:
+ 698              		.section	.text.bkp_interrupt_flag_get,"ax",%progbits
+ 699              		.align	1
+ 700              		.global	bkp_interrupt_flag_get
+ 701              		.syntax unified
+ 702              		.thumb
+ 703              		.thumb_func
+ 705              	bkp_interrupt_flag_get:
+ 706              	.LVL36:
+ARM GAS  /tmp/ccYXlj4j.s 			page 18
+
+
+ 707              	.LFB134:
+ 300:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+ 301:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+ 302:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      get bkp interrupt flag state
+ 303:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  flag
+ 304:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****       \arg        BKP_INT_FLAG_TAMPER: tamper interrupt flag
+ 305:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+ 306:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     FlagStatus: SET or RESET
+ 307:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+ 308:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** FlagStatus bkp_interrupt_flag_get(uint16_t flag)
+ 309:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+ 708              		.loc 1 309 1 is_stmt 1 view -0
+ 709              		.cfi_startproc
+ 710              		@ args = 0, pretend = 0, frame = 0
+ 711              		@ frame_needed = 0, uses_anonymous_args = 0
+ 712              		@ link register save eliminated.
+ 310:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     if(RESET != (BKP_TPCS & flag)){
+ 713              		.loc 1 310 5 view .LVU139
+ 714              		.loc 1 310 18 is_stmt 0 view .LVU140
+ 715 0000 034B     		ldr	r3, .L64
+ 716 0002 9B8E     		ldrh	r3, [r3, #52]
+ 717              		.loc 1 310 7 view .LVU141
+ 718 0004 1842     		tst	r0, r3
+ 719 0006 01D0     		beq	.L63
+ 311:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****         return SET;
+ 720              		.loc 1 311 16 view .LVU142
+ 721 0008 0120     		movs	r0, #1
+ 722              	.LVL37:
+ 723              		.loc 1 311 16 view .LVU143
+ 724 000a 7047     		bx	lr
+ 725              	.LVL38:
+ 726              	.L63:
+ 312:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     }else{
+ 313:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****         return RESET;
+ 727              		.loc 1 313 16 view .LVU144
+ 728 000c 0020     		movs	r0, #0
+ 729              	.LVL39:
+ 314:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     }
+ 315:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+ 730              		.loc 1 315 1 view .LVU145
+ 731 000e 7047     		bx	lr
+ 732              	.L65:
+ 733              		.align	2
+ 734              	.L64:
+ 735 0010 006C0040 		.word	1073769472
+ 736              		.cfi_endproc
+ 737              	.LFE134:
+ 739              		.section	.text.bkp_interrupt_flag_clear,"ax",%progbits
+ 740              		.align	1
+ 741              		.global	bkp_interrupt_flag_clear
+ 742              		.syntax unified
+ 743              		.thumb
+ 744              		.thumb_func
+ 746              	bkp_interrupt_flag_clear:
+ 747              	.LVL40:
+ 748              	.LFB135:
+ 316:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
+ARM GAS  /tmp/ccYXlj4j.s 			page 19
+
+
+ 317:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
+ 318:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      clear bkp interrupt flag state
+ 319:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  flag
+ 320:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****       \arg        BKP_INT_FLAG_TAMPER: tamper interrupt flag
+ 321:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
+ 322:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
+ 323:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
+ 324:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** void bkp_interrupt_flag_clear(uint16_t flag)
+ 325:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
+ 749              		.loc 1 325 1 is_stmt 1 view -0
+ 750              		.cfi_startproc
+ 751              		@ args = 0, pretend = 0, frame = 0
+ 752              		@ frame_needed = 0, uses_anonymous_args = 0
+ 753              		@ link register save eliminated.
+ 326:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     BKP_TPCS |= (uint16_t)(flag >> TAMPER_FLAG_SHIFT);
+ 754              		.loc 1 326 5 view .LVU147
+ 755              		.loc 1 326 14 is_stmt 0 view .LVU148
+ 756 0000 034A     		ldr	r2, .L67
+ 757 0002 938E     		ldrh	r3, [r2, #52]
+ 758 0004 9BB2     		uxth	r3, r3
+ 759 0006 43EA1023 		orr	r3, r3, r0, lsr #8
+ 760 000a 9386     		strh	r3, [r2, #52]	@ movhi
+ 327:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
+ 761              		.loc 1 327 1 view .LVU149
+ 762 000c 7047     		bx	lr
+ 763              	.L68:
+ 764 000e 00BF     		.align	2
+ 765              	.L67:
+ 766 0010 006C0040 		.word	1073769472
+ 767              		.cfi_endproc
+ 768              	.LFE135:
+ 770              		.text
+ 771              	.Letext0:
+ 772              		.file 2 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/m
+ 773              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
+ 774              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
+ 775              		.file 5 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_bkp.h"
+ 776              		.file 6 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_rcu.h"
+ARM GAS  /tmp/ccYXlj4j.s 			page 20
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 gd32f30x_bkp.c
+     /tmp/ccYXlj4j.s:18     .text.bkp_deinit:0000000000000000 $t
+     /tmp/ccYXlj4j.s:24     .text.bkp_deinit:0000000000000000 bkp_deinit
+     /tmp/ccYXlj4j.s:48     .text.bkp_write_data:0000000000000000 $t
+     /tmp/ccYXlj4j.s:54     .text.bkp_write_data:0000000000000000 bkp_write_data
+     /tmp/ccYXlj4j.s:99     .text.bkp_write_data:000000000000002c $d
+     /tmp/ccYXlj4j.s:104    .text.bkp_read_data:0000000000000000 $t
+     /tmp/ccYXlj4j.s:110    .text.bkp_read_data:0000000000000000 bkp_read_data
+     /tmp/ccYXlj4j.s:173    .text.bkp_read_data:0000000000000034 $d
+     /tmp/ccYXlj4j.s:178    .text.bkp_rtc_calibration_output_enable:0000000000000000 $t
+     /tmp/ccYXlj4j.s:184    .text.bkp_rtc_calibration_output_enable:0000000000000000 bkp_rtc_calibration_output_enable
+     /tmp/ccYXlj4j.s:203    .text.bkp_rtc_calibration_output_enable:0000000000000010 $d
+     /tmp/ccYXlj4j.s:208    .text.bkp_rtc_calibration_output_disable:0000000000000000 $t
+     /tmp/ccYXlj4j.s:214    .text.bkp_rtc_calibration_output_disable:0000000000000000 bkp_rtc_calibration_output_disable
+     /tmp/ccYXlj4j.s:234    .text.bkp_rtc_calibration_output_disable:0000000000000010 $d
+     /tmp/ccYXlj4j.s:239    .text.bkp_rtc_signal_output_enable:0000000000000000 $t
+     /tmp/ccYXlj4j.s:245    .text.bkp_rtc_signal_output_enable:0000000000000000 bkp_rtc_signal_output_enable
+     /tmp/ccYXlj4j.s:264    .text.bkp_rtc_signal_output_enable:0000000000000010 $d
+     /tmp/ccYXlj4j.s:269    .text.bkp_rtc_signal_output_disable:0000000000000000 $t
+     /tmp/ccYXlj4j.s:275    .text.bkp_rtc_signal_output_disable:0000000000000000 bkp_rtc_signal_output_disable
+     /tmp/ccYXlj4j.s:295    .text.bkp_rtc_signal_output_disable:0000000000000010 $d
+     /tmp/ccYXlj4j.s:300    .text.bkp_rtc_output_select:0000000000000000 $t
+     /tmp/ccYXlj4j.s:306    .text.bkp_rtc_output_select:0000000000000000 bkp_rtc_output_select
+     /tmp/ccYXlj4j.s:337    .text.bkp_rtc_output_select:0000000000000010 $d
+     /tmp/ccYXlj4j.s:342    .text.bkp_rtc_clock_output_select:0000000000000000 $t
+     /tmp/ccYXlj4j.s:348    .text.bkp_rtc_clock_output_select:0000000000000000 bkp_rtc_clock_output_select
+     /tmp/ccYXlj4j.s:379    .text.bkp_rtc_clock_output_select:0000000000000010 $d
+     /tmp/ccYXlj4j.s:384    .text.bkp_rtc_clock_calibration_direction:0000000000000000 $t
+     /tmp/ccYXlj4j.s:390    .text.bkp_rtc_clock_calibration_direction:0000000000000000 bkp_rtc_clock_calibration_direction
+     /tmp/ccYXlj4j.s:420    .text.bkp_rtc_clock_calibration_direction:0000000000000010 $d
+     /tmp/ccYXlj4j.s:425    .text.bkp_rtc_calibration_value_set:0000000000000000 $t
+     /tmp/ccYXlj4j.s:431    .text.bkp_rtc_calibration_value_set:0000000000000000 bkp_rtc_calibration_value_set
+     /tmp/ccYXlj4j.s:458    .text.bkp_rtc_calibration_value_set:000000000000000c $d
+     /tmp/ccYXlj4j.s:463    .text.bkp_tamper_detection_enable:0000000000000000 $t
+     /tmp/ccYXlj4j.s:469    .text.bkp_tamper_detection_enable:0000000000000000 bkp_tamper_detection_enable
+     /tmp/ccYXlj4j.s:488    .text.bkp_tamper_detection_enable:0000000000000010 $d
+     /tmp/ccYXlj4j.s:493    .text.bkp_tamper_detection_disable:0000000000000000 $t
+     /tmp/ccYXlj4j.s:499    .text.bkp_tamper_detection_disable:0000000000000000 bkp_tamper_detection_disable
+     /tmp/ccYXlj4j.s:519    .text.bkp_tamper_detection_disable:0000000000000010 $d
+     /tmp/ccYXlj4j.s:524    .text.bkp_tamper_active_level_set:0000000000000000 $t
+     /tmp/ccYXlj4j.s:530    .text.bkp_tamper_active_level_set:0000000000000000 bkp_tamper_active_level_set
+     /tmp/ccYXlj4j.s:561    .text.bkp_tamper_active_level_set:0000000000000010 $d
+     /tmp/ccYXlj4j.s:566    .text.bkp_tamper_interrupt_enable:0000000000000000 $t
+     /tmp/ccYXlj4j.s:572    .text.bkp_tamper_interrupt_enable:0000000000000000 bkp_tamper_interrupt_enable
+     /tmp/ccYXlj4j.s:591    .text.bkp_tamper_interrupt_enable:0000000000000010 $d
+     /tmp/ccYXlj4j.s:596    .text.bkp_tamper_interrupt_disable:0000000000000000 $t
+     /tmp/ccYXlj4j.s:602    .text.bkp_tamper_interrupt_disable:0000000000000000 bkp_tamper_interrupt_disable
+     /tmp/ccYXlj4j.s:622    .text.bkp_tamper_interrupt_disable:0000000000000010 $d
+     /tmp/ccYXlj4j.s:627    .text.bkp_flag_get:0000000000000000 $t
+     /tmp/ccYXlj4j.s:633    .text.bkp_flag_get:0000000000000000 bkp_flag_get
+     /tmp/ccYXlj4j.s:663    .text.bkp_flag_get:0000000000000010 $d
+     /tmp/ccYXlj4j.s:668    .text.bkp_flag_clear:0000000000000000 $t
+     /tmp/ccYXlj4j.s:674    .text.bkp_flag_clear:0000000000000000 bkp_flag_clear
+     /tmp/ccYXlj4j.s:694    .text.bkp_flag_clear:0000000000000010 $d
+     /tmp/ccYXlj4j.s:699    .text.bkp_interrupt_flag_get:0000000000000000 $t
+     /tmp/ccYXlj4j.s:705    .text.bkp_interrupt_flag_get:0000000000000000 bkp_interrupt_flag_get
+ARM GAS  /tmp/ccYXlj4j.s 			page 21
+
+
+     /tmp/ccYXlj4j.s:735    .text.bkp_interrupt_flag_get:0000000000000010 $d
+     /tmp/ccYXlj4j.s:740    .text.bkp_interrupt_flag_clear:0000000000000000 $t
+     /tmp/ccYXlj4j.s:746    .text.bkp_interrupt_flag_clear:0000000000000000 bkp_interrupt_flag_clear
+     /tmp/ccYXlj4j.s:766    .text.bkp_interrupt_flag_clear:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+rcu_bkp_reset_enable
+rcu_bkp_reset_disable

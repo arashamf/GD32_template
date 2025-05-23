@@ -1,0 +1,315 @@
+ARM GAS  /tmp/cckdTSlV.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"usart.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.fputc,"ax",%progbits
+  18              		.align	1
+  19              		.global	fputc
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	fputc:
+  25              	.LVL0:
+  26              	.LFB119:
+  27              		.file 1 "Core/Source/usart.c"
+   1:Core/Source/usart.c **** #include "usart.h"
+   2:Core/Source/usart.c **** 
+   3:Core/Source/usart.c **** /* for MicroLIB */
+   4:Core/Source/usart.c **** int fputc(int ch, FILE *f)
+   5:Core/Source/usart.c **** {
+  28              		.loc 1 5 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		.loc 1 5 1 is_stmt 0 view .LVU1
+  33 0000 10B5     		push	{r4, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 4, -8
+  37              		.cfi_offset 14, -4
+  38 0002 0446     		mov	r4, r0
+   6:Core/Source/usart.c ****   /* Place your implementation of fputc here */
+   7:Core/Source/usart.c ****   /* e.g. write a character to the USART3 and Loop until the end of transmission */
+   8:Core/Source/usart.c **** 	usart_data_transmit(USART0, (uint8_t)ch);
+  39              		.loc 1 8 2 is_stmt 1 view .LVU2
+  40 0004 C1B2     		uxtb	r1, r0
+  41              	.LVL1:
+  42              		.loc 1 8 2 is_stmt 0 view .LVU3
+  43 0006 0548     		ldr	r0, .L4
+  44              	.LVL2:
+  45              		.loc 1 8 2 view .LVU4
+  46 0008 FFF7FEFF 		bl	usart_data_transmit
+  47              	.LVL3:
+   9:Core/Source/usart.c **** 	while(RESET == usart_flag_get(USART0, USART_FLAG_TBE));
+  48              		.loc 1 9 2 is_stmt 1 view .LVU5
+  49              	.L2:
+ARM GAS  /tmp/cckdTSlV.s 			page 2
+
+
+  50              		.loc 1 9 56 discriminator 1 view .LVU6
+  51              		.loc 1 9 7 discriminator 1 view .LVU7
+  52              		.loc 1 9 17 is_stmt 0 discriminator 1 view .LVU8
+  53 000c 0721     		movs	r1, #7
+  54 000e 0348     		ldr	r0, .L4
+  55 0010 FFF7FEFF 		bl	usart_flag_get
+  56              	.LVL4:
+  57              		.loc 1 9 7 discriminator 1 view .LVU9
+  58 0014 0028     		cmp	r0, #0
+  59 0016 F9D0     		beq	.L2
+  10:Core/Source/usart.c **** 	return ch;
+  60              		.loc 1 10 2 is_stmt 1 view .LVU10
+  11:Core/Source/usart.c **** }
+  61              		.loc 1 11 1 is_stmt 0 view .LVU11
+  62 0018 2046     		mov	r0, r4
+  63 001a 10BD     		pop	{r4, pc}
+  64              	.LVL5:
+  65              	.L5:
+  66              		.loc 1 11 1 view .LVU12
+  67              		.align	2
+  68              	.L4:
+  69 001c 00380140 		.word	1073821696
+  70              		.cfi_endproc
+  71              	.LFE119:
+  73              		.section	.text._write,"ax",%progbits
+  74              		.align	1
+  75              		.global	_write
+  76              		.syntax unified
+  77              		.thumb
+  78              		.thumb_func
+  80              	_write:
+  81              	.LVL6:
+  82              	.LFB120:
+  12:Core/Source/usart.c **** 
+  13:Core/Source/usart.c **** /* for GNU */
+  14:Core/Source/usart.c **** int _write (int fd, char *pBuffer, int size)
+  15:Core/Source/usart.c **** { 
+  83              		.loc 1 15 1 is_stmt 1 view -0
+  84              		.cfi_startproc
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87              		.loc 1 15 1 is_stmt 0 view .LVU14
+  88 0000 70B5     		push	{r4, r5, r6, lr}
+  89              	.LCFI1:
+  90              		.cfi_def_cfa_offset 16
+  91              		.cfi_offset 4, -16
+  92              		.cfi_offset 5, -12
+  93              		.cfi_offset 6, -8
+  94              		.cfi_offset 14, -4
+  95 0002 0E46     		mov	r6, r1
+  96 0004 1546     		mov	r5, r2
+  16:Core/Source/usart.c **** 	for (int i = 0; i < size; i++)
+  97              		.loc 1 16 2 is_stmt 1 view .LVU15
+  98              	.LBB2:
+  99              		.loc 1 16 7 view .LVU16
+ 100              	.LVL7:
+ 101              		.loc 1 16 11 is_stmt 0 view .LVU17
+ARM GAS  /tmp/cckdTSlV.s 			page 3
+
+
+ 102 0006 0024     		movs	r4, #0
+ 103              		.loc 1 16 2 view .LVU18
+ 104 0008 0AE0     		b	.L7
+ 105              	.LVL8:
+ 106              	.L9:
+  17:Core/Source/usart.c **** 	{
+  18:Core/Source/usart.c **** 		usart_data_transmit(USART0, (uint8_t)pBuffer[i]);
+ 107              		.loc 1 18 3 is_stmt 1 view .LVU19
+ 108 000a 315D     		ldrb	r1, [r6, r4]	@ zero_extendqisi2
+ 109 000c 0648     		ldr	r0, .L11
+ 110 000e FFF7FEFF 		bl	usart_data_transmit
+ 111              	.LVL9:
+  19:Core/Source/usart.c **** 	  while(RESET == usart_flag_get(USART0, USART_FLAG_TBE));
+ 112              		.loc 1 19 4 view .LVU20
+ 113              	.L8:
+ 114              		.loc 1 19 58 discriminator 1 view .LVU21
+ 115              		.loc 1 19 9 discriminator 1 view .LVU22
+ 116              		.loc 1 19 19 is_stmt 0 discriminator 1 view .LVU23
+ 117 0012 0721     		movs	r1, #7
+ 118 0014 0448     		ldr	r0, .L11
+ 119 0016 FFF7FEFF 		bl	usart_flag_get
+ 120              	.LVL10:
+ 121              		.loc 1 19 9 discriminator 1 view .LVU24
+ 122 001a 0028     		cmp	r0, #0
+ 123 001c F9D0     		beq	.L8
+  16:Core/Source/usart.c **** 	for (int i = 0; i < size; i++)
+ 124              		.loc 1 16 28 is_stmt 1 discriminator 2 view .LVU25
+  16:Core/Source/usart.c **** 	for (int i = 0; i < size; i++)
+ 125              		.loc 1 16 29 is_stmt 0 discriminator 2 view .LVU26
+ 126 001e 0134     		adds	r4, r4, #1
+ 127              	.LVL11:
+ 128              	.L7:
+  16:Core/Source/usart.c **** 	for (int i = 0; i < size; i++)
+ 129              		.loc 1 16 18 is_stmt 1 discriminator 1 view .LVU27
+  16:Core/Source/usart.c **** 	for (int i = 0; i < size; i++)
+ 130              		.loc 1 16 2 is_stmt 0 discriminator 1 view .LVU28
+ 131 0020 AC42     		cmp	r4, r5
+ 132 0022 F2DB     		blt	.L9
+ 133              	.LBE2:
+  20:Core/Source/usart.c **** 	}
+  21:Core/Source/usart.c **** 	return size;
+ 134              		.loc 1 21 2 is_stmt 1 view .LVU29
+  22:Core/Source/usart.c **** }
+ 135              		.loc 1 22 1 is_stmt 0 view .LVU30
+ 136 0024 2846     		mov	r0, r5
+ 137 0026 70BD     		pop	{r4, r5, r6, pc}
+ 138              	.LVL12:
+ 139              	.L12:
+ 140              		.loc 1 22 1 view .LVU31
+ 141              		.align	2
+ 142              	.L11:
+ 143 0028 00380140 		.word	1073821696
+ 144              		.cfi_endproc
+ 145              	.LFE120:
+ 147              		.section	.text.usart0_config,"ax",%progbits
+ 148              		.align	1
+ 149              		.global	usart0_config
+ARM GAS  /tmp/cckdTSlV.s 			page 4
+
+
+ 150              		.syntax unified
+ 151              		.thumb
+ 152              		.thumb_func
+ 154              	usart0_config:
+ 155              	.LFB121:
+  23:Core/Source/usart.c **** 
+  24:Core/Source/usart.c **** void usart0_config(void)
+  25:Core/Source/usart.c **** {
+ 156              		.loc 1 25 1 is_stmt 1 view -0
+ 157              		.cfi_startproc
+ 158              		@ args = 0, pretend = 0, frame = 0
+ 159              		@ frame_needed = 0, uses_anonymous_args = 0
+ 160 0000 10B5     		push	{r4, lr}
+ 161              	.LCFI2:
+ 162              		.cfi_def_cfa_offset 8
+ 163              		.cfi_offset 4, -8
+ 164              		.cfi_offset 14, -4
+  26:Core/Source/usart.c ****     /* enable GPIO clock */
+  27:Core/Source/usart.c ****     rcu_periph_clock_enable(RCU_GPIOA);
+ 165              		.loc 1 27 5 view .LVU33
+ 166 0002 40F20260 		movw	r0, #1538
+ 167 0006 FFF7FEFF 		bl	rcu_periph_clock_enable
+ 168              	.LVL13:
+  28:Core/Source/usart.c **** 
+  29:Core/Source/usart.c ****     /* enable USART clock */
+  30:Core/Source/usart.c ****     rcu_periph_clock_enable(RCU_USART0);
+ 169              		.loc 1 30 5 view .LVU34
+ 170 000a 40F20E60 		movw	r0, #1550
+ 171 000e FFF7FEFF 		bl	rcu_periph_clock_enable
+ 172              	.LVL14:
+  31:Core/Source/usart.c **** 
+  32:Core/Source/usart.c ****     /* connect port to USARTx_Tx */
+  33:Core/Source/usart.c ****     gpio_init(GPIOA, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_9);
+ 173              		.loc 1 33 5 view .LVU35
+ 174 0012 124C     		ldr	r4, .L15
+ 175 0014 4FF40073 		mov	r3, #512
+ 176 0018 0322     		movs	r2, #3
+ 177 001a 1821     		movs	r1, #24
+ 178 001c 2046     		mov	r0, r4
+ 179 001e FFF7FEFF 		bl	gpio_init
+ 180              	.LVL15:
+  34:Core/Source/usart.c **** 
+  35:Core/Source/usart.c ****     /* connect port to USARTx_Rx */
+  36:Core/Source/usart.c ****     gpio_init(GPIOA, GPIO_MODE_IN_FLOATING, GPIO_OSPEED_50MHZ, GPIO_PIN_10);
+ 181              		.loc 1 36 5 view .LVU36
+ 182 0022 4FF48063 		mov	r3, #1024
+ 183 0026 0322     		movs	r2, #3
+ 184 0028 0421     		movs	r1, #4
+ 185 002a 2046     		mov	r0, r4
+ 186 002c FFF7FEFF 		bl	gpio_init
+ 187              	.LVL16:
+  37:Core/Source/usart.c **** 
+  38:Core/Source/usart.c ****     /* USART configure */
+  39:Core/Source/usart.c ****     usart_deinit(USART0);
+ 188              		.loc 1 39 5 view .LVU37
+ 189 0030 04F54054 		add	r4, r4, #12288
+ 190 0034 2046     		mov	r0, r4
+ARM GAS  /tmp/cckdTSlV.s 			page 5
+
+
+ 191 0036 FFF7FEFF 		bl	usart_deinit
+ 192              	.LVL17:
+  40:Core/Source/usart.c ****     usart_baudrate_set(USART0, 115200U);
+ 193              		.loc 1 40 5 view .LVU38
+ 194 003a 4FF4E131 		mov	r1, #115200
+ 195 003e 2046     		mov	r0, r4
+ 196 0040 FFF7FEFF 		bl	usart_baudrate_set
+ 197              	.LVL18:
+  41:Core/Source/usart.c ****     usart_receive_config(USART0, USART_RECEIVE_ENABLE);
+ 198              		.loc 1 41 5 view .LVU39
+ 199 0044 0421     		movs	r1, #4
+ 200 0046 2046     		mov	r0, r4
+ 201 0048 FFF7FEFF 		bl	usart_receive_config
+ 202              	.LVL19:
+  42:Core/Source/usart.c ****     usart_transmit_config(USART0, USART_TRANSMIT_ENABLE);
+ 203              		.loc 1 42 5 view .LVU40
+ 204 004c 0821     		movs	r1, #8
+ 205 004e 2046     		mov	r0, r4
+ 206 0050 FFF7FEFF 		bl	usart_transmit_config
+ 207              	.LVL20:
+  43:Core/Source/usart.c ****     usart_enable(USART0);
+ 208              		.loc 1 43 5 view .LVU41
+ 209 0054 2046     		mov	r0, r4
+ 210 0056 FFF7FEFF 		bl	usart_enable
+ 211              	.LVL21:
+  44:Core/Source/usart.c **** }
+ 212              		.loc 1 44 1 is_stmt 0 view .LVU42
+ 213 005a 10BD     		pop	{r4, pc}
+ 214              	.L16:
+ 215              		.align	2
+ 216              	.L15:
+ 217 005c 00080140 		.word	1073809408
+ 218              		.cfi_endproc
+ 219              	.LFE121:
+ 221              		.text
+ 222              	.Letext0:
+ 223              		.file 2 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/m
+ 224              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
+ 225              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
+ 226              		.file 5 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_rcu.h"
+ 227              		.file 6 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_usart.h"
+ 228              		.file 7 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/lib/gcc/arm-none-eabi/1
+ 229              		.file 8 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
+ 230              		.file 9 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
+ 231              		.file 10 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/
+ 232              		.file 11 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/
+ 233              		.file 12 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_gpio.h"
+ARM GAS  /tmp/cckdTSlV.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 usart.c
+     /tmp/cckdTSlV.s:18     .text.fputc:0000000000000000 $t
+     /tmp/cckdTSlV.s:24     .text.fputc:0000000000000000 fputc
+     /tmp/cckdTSlV.s:69     .text.fputc:000000000000001c $d
+     /tmp/cckdTSlV.s:74     .text._write:0000000000000000 $t
+     /tmp/cckdTSlV.s:80     .text._write:0000000000000000 _write
+     /tmp/cckdTSlV.s:143    .text._write:0000000000000028 $d
+     /tmp/cckdTSlV.s:148    .text.usart0_config:0000000000000000 $t
+     /tmp/cckdTSlV.s:154    .text.usart0_config:0000000000000000 usart0_config
+     /tmp/cckdTSlV.s:217    .text.usart0_config:000000000000005c $d
+
+UNDEFINED SYMBOLS
+usart_data_transmit
+usart_flag_get
+rcu_periph_clock_enable
+gpio_init
+usart_deinit
+usart_baudrate_set
+usart_receive_config
+usart_transmit_config
+usart_enable

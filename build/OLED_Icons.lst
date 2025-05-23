@@ -1,0 +1,59 @@
+ARM GAS  /tmp/cc1AWD71.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"OLED_Icons.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.global	icon_clock
+  18              		.section	.rodata.icon_clock,"a"
+  19              		.align	2
+  22              	icon_clock:
+  23 0000 1818007F 		.ascii	"\030\030\000\177\000\000\177\000\000\000\030\000\177"
+  23      00007F00 
+  23      00001800 
+  23      7F
+  24 000d 38C0FF71 		.ascii	"8\300\377q\340\301\373p\000\337\030\000\014\334\000"
+  24      E0C1FB70 
+  24      00DF1800 
+  24      0CDC00
+  25 001c 1CCC0118 		.ascii	"\034\314\001\030\216\0038\006\0070\006\0360\006\034"
+  25      8E033806 
+  25      0730061E 
+  25      30061C
+  26 002b 30061C30 		.ascii	"0\006\0340\006\0000\016\0008\014\000\030\034\000\034"
+  26      0600300E 
+  26      00380C00 
+  26      181C001C 
+  27 003b 18000C70 		.ascii	"\030\000\014p\000\007\340\301\003\300\377\001\000\177"
+  27      0007E0C1 
+  27      03C0FF01 
+  27      007F
+  28 0049 00       		.ascii	"\000"
+  29              		.text
+  30              	.Letext0:
+  31              		.file 1 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/m
+  32              		.file 2 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
+  33              		.file 3 "Drivers/display/OLED_Icons.h"
+  34              		.file 4 "Drivers/display/OLED_Icons.c"
+ARM GAS  /tmp/cc1AWD71.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 OLED_Icons.c
+     /tmp/cc1AWD71.s:22     .rodata.icon_clock:0000000000000000 icon_clock
+     /tmp/cc1AWD71.s:19     .rodata.icon_clock:0000000000000000 $d
+
+NO UNDEFINED SYMBOLS

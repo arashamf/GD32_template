@@ -1,0 +1,1339 @@
+ARM GAS  /tmp/ccMeb3EZ.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.rodata.main.str1.4,"aMS",%progbits,1
+  18              		.align	2
+  19              	.LC0:
+  20 0000 656E635F 		.ascii	"enc_count=%ld\000"
+  20      636F756E 
+  20      743D256C 
+  20      6400
+  21 000e 0000     		.align	2
+  22              	.LC1:
+  23 0010 68656C6C 		.ascii	"hello\000"
+  23      6F00
+  24 0016 0000     		.align	2
+  25              	.LC2:
+  26 0018 73656D69 		.ascii	"semistep\000"
+  26      73746570 
+  26      00
+  27 0021 000000   		.align	2
+  28              	.LC3:
+  29 0024 72756E5F 		.ascii	"run_drive\000"
+  29      64726976 
+  29      6500
+  30              		.section	.text.main,"ax",%progbits
+  31              		.align	1
+  32              		.global	main
+  33              		.syntax unified
+  34              		.thumb
+  35              		.thumb_func
+  37              	main:
+  38              	.LFB119:
+  39              		.file 1 "Core/Source/main.c"
+   1:Core/Source/main.c **** //---------------------------------------------------------------------------//
+   2:Core/Source/main.c **** #include "gd32f30x.h"
+   3:Core/Source/main.c **** #include <stdio.h>
+   4:Core/Source/main.c **** #include "systick.h"
+   5:Core/Source/main.c **** #include "encoder.h"
+   6:Core/Source/main.c **** #include "usart.h"
+   7:Core/Source/main.c **** #include "gpio.h"
+   8:Core/Source/main.c **** #include "spi.h"
+   9:Core/Source/main.c **** #include "OLED.h"
+  10:Core/Source/main.c **** #include "typedef.h"
+  11:Core/Source/main.c **** 
+ARM GAS  /tmp/ccMeb3EZ.s 			page 2
+
+
+  12:Core/Source/main.c **** //---------------------------------------------------------------------------//
+  13:Core/Source/main.c **** #define ISP_ADDR ((uint32_t)0x1FFFF000)
+  14:Core/Source/main.c **** #define MAX_CNT_TIMEOUT   15
+  15:Core/Source/main.c **** //---------------------------------------------------------------------------//
+  16:Core/Source/main.c **** 
+  17:Core/Source/main.c **** FlagStatus sw_led = SET;
+  18:Core/Source/main.c **** char lcd_buf[25];
+  19:Core/Source/main.c **** 
+  20:Core/Source/main.c **** //---------------------------------------------------------------------------//
+  21:Core/Source/main.c **** void adc_config(void);
+  22:Core/Source/main.c **** void jump_to_app(uint32_t addr);
+  23:Core/Source/main.c **** 
+  24:Core/Source/main.c **** //---------------------------------------------------------------------------//
+  25:Core/Source/main.c **** int main(void) 
+  26:Core/Source/main.c **** {
+  40              		.loc 1 26 1 view -0
+  41              		.cfi_startproc
+  42              		@ Volatile: function does not return.
+  43              		@ args = 0, pretend = 0, frame = 0
+  44              		@ frame_needed = 0, uses_anonymous_args = 0
+  45 0000 08B5     		push	{r3, lr}
+  46              	.LCFI0:
+  47              		.cfi_def_cfa_offset 8
+  48              		.cfi_offset 3, -8
+  49              		.cfi_offset 14, -4
+  27:Core/Source/main.c **** #ifdef HID_IAP
+  28:Core/Source/main.c ****     // Soft :GD32 MCU HID IAP Programmer, Bootloader Size :8KB 
+  29:Core/Source/main.c ****   // if use HID bootloader ,set ROM start addr 0x8002000 && set vector 
+  30:Core/Source/main.c ****   // if not use HID bootloader ,set ROM start addr 0x8000000 && Comment out the following code 
+  31:Core/Source/main.c ****   // nvic_vector_table_set(NVIC_VECTTAB_FLASH,0x2000);
+  32:Core/Source/main.c ****     nvic_vector_table_set(NVIC_VECTTAB_FLASH,0x2000);
+  33:Core/Source/main.c **** #endif
+  34:Core/Source/main.c ****     rcu_all_reset_flag_clear();
+  50              		.loc 1 34 5 view .LVU1
+  51 0002 FFF7FEFF 		bl	rcu_all_reset_flag_clear
+  52              	.LVL0:
+  35:Core/Source/main.c ****     SystemInit ();
+  53              		.loc 1 35 5 view .LVU2
+  54 0006 FFF7FEFF 		bl	SystemInit
+  55              	.LVL1:
+  36:Core/Source/main.c ****     SystemCoreClockUpdate ();
+  56              		.loc 1 36 5 view .LVU3
+  57 000a FFF7FEFF 		bl	SystemCoreClockUpdate
+  58              	.LVL2:
+  37:Core/Source/main.c ****     systick_config();
+  59              		.loc 1 37 5 view .LVU4
+  60 000e FFF7FEFF 		bl	systick_config
+  61              	.LVL3:
+  38:Core/Source/main.c ****     gpio_config();
+  62              		.loc 1 38 5 view .LVU5
+  63 0012 FFF7FEFF 		bl	gpio_config
+  64              	.LVL4:
+  39:Core/Source/main.c ****     usart0_config();
+  65              		.loc 1 39 5 view .LVU6
+  66 0016 FFF7FEFF 		bl	usart0_config
+  67              	.LVL5:
+  40:Core/Source/main.c ****     spi0_config();
+ARM GAS  /tmp/ccMeb3EZ.s 			page 3
+
+
+  68              		.loc 1 40 5 view .LVU7
+  69 001a FFF7FEFF 		bl	spi0_config
+  70              	.LVL6:
+  41:Core/Source/main.c ****     OLED_init();
+  71              		.loc 1 41 5 view .LVU8
+  72 001e FFF7FEFF 		bl	OLED_init
+  73              	.LVL7:
+  42:Core/Source/main.c **** 
+  43:Core/Source/main.c ****     //rcu_ckout0_config(RCU_CKOUT0SRC_CKPLL_DIV2);
+  44:Core/Source/main.c ****     rcu_ckout0_config(RCU_CKOUT0SRC_CKSYS);
+  74              		.loc 1 44 5 view .LVU9
+  75 0022 4FF08060 		mov	r0, #67108864
+  76 0026 FFF7FEFF 		bl	rcu_ckout0_config
+  77              	.LVL8:
+  45:Core/Source/main.c **** 
+  46:Core/Source/main.c **** 	FontSet(Segoe_UI_Eng_12);
+  78              		.loc 1 46 2 view .LVU10
+  79 002a 2F48     		ldr	r0, .L8
+  80 002c FFF7FEFF 		bl	FontSet
+  81              	.LVL9:
+  47:Core/Source/main.c ****     snprintf(lcd_buf, 20,"enc_count=%ld", enc_count);
+  82              		.loc 1 47 5 view .LVU11
+  83 0030 2E4C     		ldr	r4, .L8+4
+  84 0032 2F4B     		ldr	r3, .L8+8
+  85 0034 1B68     		ldr	r3, [r3]
+  86 0036 2F4A     		ldr	r2, .L8+12
+  87 0038 1421     		movs	r1, #20
+  88 003a 2046     		mov	r0, r4
+  89 003c FFF7FEFF 		bl	snprintf
+  90              	.LVL10:
+  48:Core/Source/main.c ****     OLED_DrawStr(lcd_buf, 5, 5);	//
+  91              		.loc 1 48 5 view .LVU12
+  92 0040 0522     		movs	r2, #5
+  93 0042 1146     		mov	r1, r2
+  94 0044 2046     		mov	r0, r4
+  95 0046 FFF7FEFF 		bl	OLED_DrawStr
+  96              	.LVL11:
+  49:Core/Source/main.c **** 	OLED_UpdateScreen();
+  97              		.loc 1 49 2 view .LVU13
+  98 004a FFF7FEFF 		bl	OLED_UpdateScreen
+  99              	.LVL12:
+  50:Core/Source/main.c ****     LED(OFF);
+ 100              		.loc 1 50 5 view .LVU14
+ 101 004e 2A4C     		ldr	r4, .L8+16
+ 102 0050 0421     		movs	r1, #4
+ 103 0052 2046     		mov	r0, r4
+ 104 0054 FFF7FEFF 		bl	gpio_bit_reset
+ 105              	.LVL13:
+  51:Core/Source/main.c ****     delay_1ms(1000);
+ 106              		.loc 1 51 5 view .LVU15
+ 107 0058 4FF47A70 		mov	r0, #1000
+ 108 005c FFF7FEFF 		bl	delay_1ms
+ 109              	.LVL14:
+  52:Core/Source/main.c ****     LED(ON);
+ 110              		.loc 1 52 5 view .LVU16
+ 111 0060 0421     		movs	r1, #4
+ 112 0062 2046     		mov	r0, r4
+ARM GAS  /tmp/ccMeb3EZ.s 			page 4
+
+
+ 113 0064 FFF7FEFF 		bl	gpio_bit_set
+ 114              	.LVL15:
+ 115 0068 1FE0     		b	.L2
+ 116              	.L3:
+  53:Core/Source/main.c **** 
+  54:Core/Source/main.c ****     while (1) 
+  55:Core/Source/main.c ****     {
+  56:Core/Source/main.c ****         delay_1ms(1000);
+  57:Core/Source/main.c ****         OLED_Clear(NONE_INVERTED);
+  58:Core/Source/main.c **** 		OLED_DrawStr("hello", 0, 15);	
+  59:Core/Source/main.c **** 		OLED_UpdateScreen();
+  60:Core/Source/main.c ****         TOOGLE_LED();
+ 117              		.loc 1 60 9 is_stmt 0 discriminator 2 view .LVU17
+ 118 006a 0421     		movs	r1, #4
+ 119 006c 2248     		ldr	r0, .L8+16
+ 120 006e FFF7FEFF 		bl	gpio_bit_reset
+ 121              	.LVL16:
+ 122              	.L4:
+  61:Core/Source/main.c **** 
+  62:Core/Source/main.c ****         delay_1ms(1000);
+ 123              		.loc 1 62 9 is_stmt 1 view .LVU18
+ 124 0072 4FF47A70 		mov	r0, #1000
+ 125 0076 FFF7FEFF 		bl	delay_1ms
+ 126              	.LVL17:
+  63:Core/Source/main.c ****         OLED_Clear(NONE_INVERTED);
+ 127              		.loc 1 63 9 view .LVU19
+ 128 007a 0020     		movs	r0, #0
+ 129 007c FFF7FEFF 		bl	OLED_Clear
+ 130              	.LVL18:
+  64:Core/Source/main.c **** 		OLED_DrawStr("semistep", 0, 5);	
+ 131              		.loc 1 64 3 view .LVU20
+ 132 0080 0522     		movs	r2, #5
+ 133 0082 0021     		movs	r1, #0
+ 134 0084 1D48     		ldr	r0, .L8+20
+ 135 0086 FFF7FEFF 		bl	OLED_DrawStr
+ 136              	.LVL19:
+  65:Core/Source/main.c **** 		OLED_DrawStr("run_drive", 0, 25);	
+ 137              		.loc 1 65 3 view .LVU21
+ 138 008a 1922     		movs	r2, #25
+ 139 008c 0021     		movs	r1, #0
+ 140 008e 1C48     		ldr	r0, .L8+24
+ 141 0090 FFF7FEFF 		bl	OLED_DrawStr
+ 142              	.LVL20:
+  66:Core/Source/main.c **** 		OLED_UpdateScreen();
+ 143              		.loc 1 66 3 view .LVU22
+ 144 0094 FFF7FEFF 		bl	OLED_UpdateScreen
+ 145              	.LVL21:
+  67:Core/Source/main.c ****         TOOGLE_LED();
+ 146              		.loc 1 67 9 view .LVU23
+ 147 0098 0421     		movs	r1, #4
+ 148 009a 1748     		ldr	r0, .L8+16
+ 149 009c FFF7FEFF 		bl	gpio_output_bit_get
+ 150              	.LVL22:
+ 151 00a0 E0B9     		cbnz	r0, .L5
+ 152              		.loc 1 67 9 is_stmt 0 discriminator 1 view .LVU24
+ 153 00a2 0421     		movs	r1, #4
+ 154 00a4 1448     		ldr	r0, .L8+16
+ARM GAS  /tmp/ccMeb3EZ.s 			page 5
+
+
+ 155 00a6 FFF7FEFF 		bl	gpio_bit_set
+ 156              	.LVL23:
+ 157              	.L2:
+  54:Core/Source/main.c ****     {
+ 158              		.loc 1 54 5 is_stmt 1 view .LVU25
+  56:Core/Source/main.c ****         OLED_Clear(NONE_INVERTED);
+ 159              		.loc 1 56 9 view .LVU26
+ 160 00aa 4FF47A70 		mov	r0, #1000
+ 161 00ae FFF7FEFF 		bl	delay_1ms
+ 162              	.LVL24:
+  57:Core/Source/main.c **** 		OLED_DrawStr("hello", 0, 15);	
+ 163              		.loc 1 57 9 view .LVU27
+ 164 00b2 0020     		movs	r0, #0
+ 165 00b4 FFF7FEFF 		bl	OLED_Clear
+ 166              	.LVL25:
+  58:Core/Source/main.c **** 		OLED_UpdateScreen();
+ 167              		.loc 1 58 3 view .LVU28
+ 168 00b8 0F22     		movs	r2, #15
+ 169 00ba 0021     		movs	r1, #0
+ 170 00bc 1148     		ldr	r0, .L8+28
+ 171 00be FFF7FEFF 		bl	OLED_DrawStr
+ 172              	.LVL26:
+  59:Core/Source/main.c ****         TOOGLE_LED();
+ 173              		.loc 1 59 3 view .LVU29
+ 174 00c2 FFF7FEFF 		bl	OLED_UpdateScreen
+ 175              	.LVL27:
+  60:Core/Source/main.c **** 
+ 176              		.loc 1 60 9 view .LVU30
+ 177 00c6 0421     		movs	r1, #4
+ 178 00c8 0B48     		ldr	r0, .L8+16
+ 179 00ca FFF7FEFF 		bl	gpio_output_bit_get
+ 180              	.LVL28:
+ 181 00ce 0028     		cmp	r0, #0
+ 182 00d0 CBD1     		bne	.L3
+  60:Core/Source/main.c **** 
+ 183              		.loc 1 60 9 is_stmt 0 discriminator 1 view .LVU31
+ 184 00d2 0421     		movs	r1, #4
+ 185 00d4 0848     		ldr	r0, .L8+16
+ 186 00d6 FFF7FEFF 		bl	gpio_bit_set
+ 187              	.LVL29:
+ 188 00da CAE7     		b	.L4
+ 189              	.L5:
+ 190              		.loc 1 67 9 discriminator 2 view .LVU32
+ 191 00dc 0421     		movs	r1, #4
+ 192 00de 0648     		ldr	r0, .L8+16
+ 193 00e0 FFF7FEFF 		bl	gpio_bit_reset
+ 194              	.LVL30:
+ 195 00e4 E1E7     		b	.L2
+ 196              	.L9:
+ 197 00e6 00BF     		.align	2
+ 198              	.L8:
+ 199 00e8 00000000 		.word	Segoe_UI_Eng_12
+ 200 00ec 00000000 		.word	.LANCHOR0
+ 201 00f0 00000000 		.word	enc_count
+ 202 00f4 00000000 		.word	.LC0
+ 203 00f8 000C0140 		.word	1073810432
+ 204 00fc 18000000 		.word	.LC2
+ARM GAS  /tmp/ccMeb3EZ.s 			page 6
+
+
+ 205 0100 24000000 		.word	.LC3
+ 206 0104 10000000 		.word	.LC1
+ 207              		.cfi_endproc
+ 208              	.LFE119:
+ 210              		.section	.text.jump_to_app,"ax",%progbits
+ 211              		.align	1
+ 212              		.global	jump_to_app
+ 213              		.syntax unified
+ 214              		.thumb
+ 215              		.thumb_func
+ 217              	jump_to_app:
+ 218              	.LVL31:
+ 219              	.LFB120:
+  68:Core/Source/main.c ****     }
+  69:Core/Source/main.c **** 
+  70:Core/Source/main.c **** }
+  71:Core/Source/main.c **** 
+  72:Core/Source/main.c **** //---------------------------------------------------------------------------//
+  73:Core/Source/main.c **** void jump_to_app(uint32_t addr) {
+ 220              		.loc 1 73 33 is_stmt 1 view -0
+ 221              		.cfi_startproc
+ 222              		@ args = 0, pretend = 0, frame = 0
+ 223              		@ frame_needed = 0, uses_anonymous_args = 0
+ 224              		.loc 1 73 33 is_stmt 0 view .LVU34
+ 225 0000 08B5     		push	{r3, lr}
+ 226              	.LCFI1:
+ 227              		.cfi_def_cfa_offset 8
+ 228              		.cfi_offset 3, -8
+ 229              		.cfi_offset 14, -4
+  74:Core/Source/main.c ****     uint32_t app_address;
+ 230              		.loc 1 74 5 is_stmt 1 view .LVU35
+  75:Core/Source/main.c ****     void *(*application)(void);
+ 231              		.loc 1 75 5 view .LVU36
+  76:Core/Source/main.c **** 
+  77:Core/Source/main.c ****     /* test if user code is programmed starting from address */
+  78:Core/Source/main.c ****     if (((*(__IO uint32_t *) addr) & 0x2FFE0000) == 0x20000000) {
+ 232              		.loc 1 78 5 view .LVU37
+ 233              		.loc 1 78 11 is_stmt 0 view .LVU38
+ 234 0002 0268     		ldr	r2, [r0]
+ 235              		.loc 1 78 36 view .LVU39
+ 236 0004 054B     		ldr	r3, .L14
+ 237 0006 1340     		ands	r3, r3, r2
+ 238              		.loc 1 78 8 view .LVU40
+ 239 0008 B3F1005F 		cmp	r3, #536870912
+ 240 000c 00D0     		beq	.L13
+ 241              	.LVL32:
+ 242              	.L10:
+  79:Core/Source/main.c ****         app_address = *(__IO uint32_t *) (addr + 4);
+  80:Core/Source/main.c ****         application = (void *(*)(void)) app_address;
+  81:Core/Source/main.c **** 
+  82:Core/Source/main.c ****         /* initialize user application's stack pointer */
+  83:Core/Source/main.c ****         __set_MSP(*(__IO uint32_t *) addr);
+  84:Core/Source/main.c **** 
+  85:Core/Source/main.c ****         /* jump to application */
+  86:Core/Source/main.c ****         application();
+  87:Core/Source/main.c ****     }
+  88:Core/Source/main.c **** }
+ARM GAS  /tmp/ccMeb3EZ.s 			page 7
+
+
+ 243              		.loc 1 88 1 view .LVU41
+ 244 000e 08BD     		pop	{r3, pc}
+ 245              	.LVL33:
+ 246              	.L13:
+  79:Core/Source/main.c ****         app_address = *(__IO uint32_t *) (addr + 4);
+ 247              		.loc 1 79 9 is_stmt 1 view .LVU42
+  79:Core/Source/main.c ****         app_address = *(__IO uint32_t *) (addr + 4);
+ 248              		.loc 1 79 21 is_stmt 0 view .LVU43
+ 249 0010 4368     		ldr	r3, [r0, #4]
+ 250              	.LVL34:
+  80:Core/Source/main.c **** 
+ 251              		.loc 1 80 9 is_stmt 1 view .LVU44
+  83:Core/Source/main.c **** 
+ 252              		.loc 1 83 9 view .LVU45
+ 253 0012 0268     		ldr	r2, [r0]
+ 254              	.LVL35:
+ 255              	.LBB4:
+ 256              	.LBI4:
+ 257              		.file 2 "Drivers/CMSIS/core_cmFunc.h"
+   1:Drivers/CMSIS/core_cmFunc.h **** /**************************************************************************//**
+   2:Drivers/CMSIS/core_cmFunc.h ****  * @file     core_cmFunc.h
+   3:Drivers/CMSIS/core_cmFunc.h ****  * @brief    CMSIS Cortex-M Core Function Access Header File
+   4:Drivers/CMSIS/core_cmFunc.h ****  * @version  V3.01
+   5:Drivers/CMSIS/core_cmFunc.h ****  * @date     06. March 2012
+   6:Drivers/CMSIS/core_cmFunc.h ****  *
+   7:Drivers/CMSIS/core_cmFunc.h ****  * @note
+   8:Drivers/CMSIS/core_cmFunc.h ****  * Copyright (C) 2009-2012 ARM Limited. All rights reserved.
+   9:Drivers/CMSIS/core_cmFunc.h ****  *
+  10:Drivers/CMSIS/core_cmFunc.h ****  * @par
+  11:Drivers/CMSIS/core_cmFunc.h ****  * ARM Limited (ARM) is supplying this software for use with Cortex-M
+  12:Drivers/CMSIS/core_cmFunc.h ****  * processor based microcontrollers.  This file can be freely distributed
+  13:Drivers/CMSIS/core_cmFunc.h ****  * within development tools that are supporting such ARM based processors.
+  14:Drivers/CMSIS/core_cmFunc.h ****  *
+  15:Drivers/CMSIS/core_cmFunc.h ****  * @par
+  16:Drivers/CMSIS/core_cmFunc.h ****  * THIS SOFTWARE IS PROVIDED "AS IS".  NO WARRANTIES, WHETHER EXPRESS, IMPLIED
+  17:Drivers/CMSIS/core_cmFunc.h ****  * OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF
+  18:Drivers/CMSIS/core_cmFunc.h ****  * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE APPLY TO THIS SOFTWARE.
+  19:Drivers/CMSIS/core_cmFunc.h ****  * ARM SHALL NOT, IN ANY CIRCUMSTANCES, BE LIABLE FOR SPECIAL, INCIDENTAL, OR
+  20:Drivers/CMSIS/core_cmFunc.h ****  * CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+  21:Drivers/CMSIS/core_cmFunc.h ****  *
+  22:Drivers/CMSIS/core_cmFunc.h ****  ******************************************************************************/
+  23:Drivers/CMSIS/core_cmFunc.h **** 
+  24:Drivers/CMSIS/core_cmFunc.h **** #ifndef __CORE_CMFUNC_H
+  25:Drivers/CMSIS/core_cmFunc.h **** #define __CORE_CMFUNC_H
+  26:Drivers/CMSIS/core_cmFunc.h **** 
+  27:Drivers/CMSIS/core_cmFunc.h **** 
+  28:Drivers/CMSIS/core_cmFunc.h **** /* ###########################  Core Function Access  ########################### */
+  29:Drivers/CMSIS/core_cmFunc.h **** /** \ingroup  CMSIS_Core_FunctionInterface
+  30:Drivers/CMSIS/core_cmFunc.h ****     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
+  31:Drivers/CMSIS/core_cmFunc.h ****   @{
+  32:Drivers/CMSIS/core_cmFunc.h ****  */
+  33:Drivers/CMSIS/core_cmFunc.h **** 
+  34:Drivers/CMSIS/core_cmFunc.h **** #if   defined ( __CC_ARM ) /*------------------RealView Compiler -----------------*/
+  35:Drivers/CMSIS/core_cmFunc.h **** /* ARM armcc specific functions */
+  36:Drivers/CMSIS/core_cmFunc.h **** 
+  37:Drivers/CMSIS/core_cmFunc.h **** #if (__ARMCC_VERSION < 400677)
+  38:Drivers/CMSIS/core_cmFunc.h ****   #error "Please use ARM Compiler Toolchain V4.0.677 or later!"
+ARM GAS  /tmp/ccMeb3EZ.s 			page 8
+
+
+  39:Drivers/CMSIS/core_cmFunc.h **** #endif
+  40:Drivers/CMSIS/core_cmFunc.h **** 
+  41:Drivers/CMSIS/core_cmFunc.h **** /* intrinsic void __enable_irq();     */
+  42:Drivers/CMSIS/core_cmFunc.h **** /* intrinsic void __disable_irq();    */
+  43:Drivers/CMSIS/core_cmFunc.h **** 
+  44:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Get Control Register
+  45:Drivers/CMSIS/core_cmFunc.h **** 
+  46:Drivers/CMSIS/core_cmFunc.h ****     This function returns the content of the Control Register.
+  47:Drivers/CMSIS/core_cmFunc.h **** 
+  48:Drivers/CMSIS/core_cmFunc.h ****     \return               Control Register value
+  49:Drivers/CMSIS/core_cmFunc.h ****  */
+  50:Drivers/CMSIS/core_cmFunc.h **** __STATIC_INLINE uint32_t __get_CONTROL(void)
+  51:Drivers/CMSIS/core_cmFunc.h **** {
+  52:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t __regControl         __ASM("control");
+  53:Drivers/CMSIS/core_cmFunc.h ****   return(__regControl);
+  54:Drivers/CMSIS/core_cmFunc.h **** }
+  55:Drivers/CMSIS/core_cmFunc.h **** 
+  56:Drivers/CMSIS/core_cmFunc.h **** 
+  57:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Set Control Register
+  58:Drivers/CMSIS/core_cmFunc.h **** 
+  59:Drivers/CMSIS/core_cmFunc.h ****     This function writes the given value to the Control Register.
+  60:Drivers/CMSIS/core_cmFunc.h **** 
+  61:Drivers/CMSIS/core_cmFunc.h ****     \param [in]    control  Control Register value to set
+  62:Drivers/CMSIS/core_cmFunc.h ****  */
+  63:Drivers/CMSIS/core_cmFunc.h **** __STATIC_INLINE void __set_CONTROL(uint32_t control)
+  64:Drivers/CMSIS/core_cmFunc.h **** {
+  65:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t __regControl         __ASM("control");
+  66:Drivers/CMSIS/core_cmFunc.h ****   __regControl = control;
+  67:Drivers/CMSIS/core_cmFunc.h **** }
+  68:Drivers/CMSIS/core_cmFunc.h **** 
+  69:Drivers/CMSIS/core_cmFunc.h **** 
+  70:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Get IPSR Register
+  71:Drivers/CMSIS/core_cmFunc.h **** 
+  72:Drivers/CMSIS/core_cmFunc.h ****     This function returns the content of the IPSR Register.
+  73:Drivers/CMSIS/core_cmFunc.h **** 
+  74:Drivers/CMSIS/core_cmFunc.h ****     \return               IPSR Register value
+  75:Drivers/CMSIS/core_cmFunc.h ****  */
+  76:Drivers/CMSIS/core_cmFunc.h **** __STATIC_INLINE uint32_t __get_IPSR(void)
+  77:Drivers/CMSIS/core_cmFunc.h **** {
+  78:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t __regIPSR          __ASM("ipsr");
+  79:Drivers/CMSIS/core_cmFunc.h ****   return(__regIPSR);
+  80:Drivers/CMSIS/core_cmFunc.h **** }
+  81:Drivers/CMSIS/core_cmFunc.h **** 
+  82:Drivers/CMSIS/core_cmFunc.h **** 
+  83:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Get APSR Register
+  84:Drivers/CMSIS/core_cmFunc.h **** 
+  85:Drivers/CMSIS/core_cmFunc.h ****     This function returns the content of the APSR Register.
+  86:Drivers/CMSIS/core_cmFunc.h **** 
+  87:Drivers/CMSIS/core_cmFunc.h ****     \return               APSR Register value
+  88:Drivers/CMSIS/core_cmFunc.h ****  */
+  89:Drivers/CMSIS/core_cmFunc.h **** __STATIC_INLINE uint32_t __get_APSR(void)
+  90:Drivers/CMSIS/core_cmFunc.h **** {
+  91:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t __regAPSR          __ASM("apsr");
+  92:Drivers/CMSIS/core_cmFunc.h ****   return(__regAPSR);
+  93:Drivers/CMSIS/core_cmFunc.h **** }
+  94:Drivers/CMSIS/core_cmFunc.h **** 
+  95:Drivers/CMSIS/core_cmFunc.h **** 
+ARM GAS  /tmp/ccMeb3EZ.s 			page 9
+
+
+  96:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Get xPSR Register
+  97:Drivers/CMSIS/core_cmFunc.h **** 
+  98:Drivers/CMSIS/core_cmFunc.h ****     This function returns the content of the xPSR Register.
+  99:Drivers/CMSIS/core_cmFunc.h **** 
+ 100:Drivers/CMSIS/core_cmFunc.h ****     \return               xPSR Register value
+ 101:Drivers/CMSIS/core_cmFunc.h ****  */
+ 102:Drivers/CMSIS/core_cmFunc.h **** __STATIC_INLINE uint32_t __get_xPSR(void)
+ 103:Drivers/CMSIS/core_cmFunc.h **** {
+ 104:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t __regXPSR          __ASM("xpsr");
+ 105:Drivers/CMSIS/core_cmFunc.h ****   return(__regXPSR);
+ 106:Drivers/CMSIS/core_cmFunc.h **** }
+ 107:Drivers/CMSIS/core_cmFunc.h **** 
+ 108:Drivers/CMSIS/core_cmFunc.h **** 
+ 109:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Get Process Stack Pointer
+ 110:Drivers/CMSIS/core_cmFunc.h **** 
+ 111:Drivers/CMSIS/core_cmFunc.h ****     This function returns the current value of the Process Stack Pointer (PSP).
+ 112:Drivers/CMSIS/core_cmFunc.h **** 
+ 113:Drivers/CMSIS/core_cmFunc.h ****     \return               PSP Register value
+ 114:Drivers/CMSIS/core_cmFunc.h ****  */
+ 115:Drivers/CMSIS/core_cmFunc.h **** __STATIC_INLINE uint32_t __get_PSP(void)
+ 116:Drivers/CMSIS/core_cmFunc.h **** {
+ 117:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t __regProcessStackPointer  __ASM("psp");
+ 118:Drivers/CMSIS/core_cmFunc.h ****   return(__regProcessStackPointer);
+ 119:Drivers/CMSIS/core_cmFunc.h **** }
+ 120:Drivers/CMSIS/core_cmFunc.h **** 
+ 121:Drivers/CMSIS/core_cmFunc.h **** 
+ 122:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Set Process Stack Pointer
+ 123:Drivers/CMSIS/core_cmFunc.h **** 
+ 124:Drivers/CMSIS/core_cmFunc.h ****     This function assigns the given value to the Process Stack Pointer (PSP).
+ 125:Drivers/CMSIS/core_cmFunc.h **** 
+ 126:Drivers/CMSIS/core_cmFunc.h ****     \param [in]    topOfProcStack  Process Stack Pointer value to set
+ 127:Drivers/CMSIS/core_cmFunc.h ****  */
+ 128:Drivers/CMSIS/core_cmFunc.h **** __STATIC_INLINE void __set_PSP(uint32_t topOfProcStack)
+ 129:Drivers/CMSIS/core_cmFunc.h **** {
+ 130:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t __regProcessStackPointer  __ASM("psp");
+ 131:Drivers/CMSIS/core_cmFunc.h ****   __regProcessStackPointer = topOfProcStack;
+ 132:Drivers/CMSIS/core_cmFunc.h **** }
+ 133:Drivers/CMSIS/core_cmFunc.h **** 
+ 134:Drivers/CMSIS/core_cmFunc.h **** 
+ 135:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Get Main Stack Pointer
+ 136:Drivers/CMSIS/core_cmFunc.h **** 
+ 137:Drivers/CMSIS/core_cmFunc.h ****     This function returns the current value of the Main Stack Pointer (MSP).
+ 138:Drivers/CMSIS/core_cmFunc.h **** 
+ 139:Drivers/CMSIS/core_cmFunc.h ****     \return               MSP Register value
+ 140:Drivers/CMSIS/core_cmFunc.h ****  */
+ 141:Drivers/CMSIS/core_cmFunc.h **** __STATIC_INLINE uint32_t __get_MSP(void)
+ 142:Drivers/CMSIS/core_cmFunc.h **** {
+ 143:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t __regMainStackPointer     __ASM("msp");
+ 144:Drivers/CMSIS/core_cmFunc.h ****   return(__regMainStackPointer);
+ 145:Drivers/CMSIS/core_cmFunc.h **** }
+ 146:Drivers/CMSIS/core_cmFunc.h **** 
+ 147:Drivers/CMSIS/core_cmFunc.h **** 
+ 148:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Set Main Stack Pointer
+ 149:Drivers/CMSIS/core_cmFunc.h **** 
+ 150:Drivers/CMSIS/core_cmFunc.h ****     This function assigns the given value to the Main Stack Pointer (MSP).
+ 151:Drivers/CMSIS/core_cmFunc.h **** 
+ 152:Drivers/CMSIS/core_cmFunc.h ****     \param [in]    topOfMainStack  Main Stack Pointer value to set
+ARM GAS  /tmp/ccMeb3EZ.s 			page 10
+
+
+ 153:Drivers/CMSIS/core_cmFunc.h ****  */
+ 154:Drivers/CMSIS/core_cmFunc.h **** __STATIC_INLINE void __set_MSP(uint32_t topOfMainStack)
+ 155:Drivers/CMSIS/core_cmFunc.h **** {
+ 156:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t __regMainStackPointer     __ASM("msp");
+ 157:Drivers/CMSIS/core_cmFunc.h ****   __regMainStackPointer = topOfMainStack;
+ 158:Drivers/CMSIS/core_cmFunc.h **** }
+ 159:Drivers/CMSIS/core_cmFunc.h **** 
+ 160:Drivers/CMSIS/core_cmFunc.h **** 
+ 161:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Get Priority Mask
+ 162:Drivers/CMSIS/core_cmFunc.h **** 
+ 163:Drivers/CMSIS/core_cmFunc.h ****     This function returns the current state of the priority mask bit from the Priority Mask Registe
+ 164:Drivers/CMSIS/core_cmFunc.h **** 
+ 165:Drivers/CMSIS/core_cmFunc.h ****     \return               Priority Mask value
+ 166:Drivers/CMSIS/core_cmFunc.h ****  */
+ 167:Drivers/CMSIS/core_cmFunc.h **** __STATIC_INLINE uint32_t __get_PRIMASK(void)
+ 168:Drivers/CMSIS/core_cmFunc.h **** {
+ 169:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t __regPriMask         __ASM("primask");
+ 170:Drivers/CMSIS/core_cmFunc.h ****   return(__regPriMask);
+ 171:Drivers/CMSIS/core_cmFunc.h **** }
+ 172:Drivers/CMSIS/core_cmFunc.h **** 
+ 173:Drivers/CMSIS/core_cmFunc.h **** 
+ 174:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Set Priority Mask
+ 175:Drivers/CMSIS/core_cmFunc.h **** 
+ 176:Drivers/CMSIS/core_cmFunc.h ****     This function assigns the given value to the Priority Mask Register.
+ 177:Drivers/CMSIS/core_cmFunc.h **** 
+ 178:Drivers/CMSIS/core_cmFunc.h ****     \param [in]    priMask  Priority Mask
+ 179:Drivers/CMSIS/core_cmFunc.h ****  */
+ 180:Drivers/CMSIS/core_cmFunc.h **** __STATIC_INLINE void __set_PRIMASK(uint32_t priMask)
+ 181:Drivers/CMSIS/core_cmFunc.h **** {
+ 182:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t __regPriMask         __ASM("primask");
+ 183:Drivers/CMSIS/core_cmFunc.h ****   __regPriMask = (priMask);
+ 184:Drivers/CMSIS/core_cmFunc.h **** }
+ 185:Drivers/CMSIS/core_cmFunc.h **** 
+ 186:Drivers/CMSIS/core_cmFunc.h **** 
+ 187:Drivers/CMSIS/core_cmFunc.h **** #if       (__CORTEX_M >= 0x03)
+ 188:Drivers/CMSIS/core_cmFunc.h **** 
+ 189:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Enable FIQ
+ 190:Drivers/CMSIS/core_cmFunc.h **** 
+ 191:Drivers/CMSIS/core_cmFunc.h ****     This function enables FIQ interrupts by clearing the F-bit in the CPSR.
+ 192:Drivers/CMSIS/core_cmFunc.h ****     Can only be executed in Privileged modes.
+ 193:Drivers/CMSIS/core_cmFunc.h ****  */
+ 194:Drivers/CMSIS/core_cmFunc.h **** #define __enable_fault_irq                __enable_fiq
+ 195:Drivers/CMSIS/core_cmFunc.h **** 
+ 196:Drivers/CMSIS/core_cmFunc.h **** 
+ 197:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Disable FIQ
+ 198:Drivers/CMSIS/core_cmFunc.h **** 
+ 199:Drivers/CMSIS/core_cmFunc.h ****     This function disables FIQ interrupts by setting the F-bit in the CPSR.
+ 200:Drivers/CMSIS/core_cmFunc.h ****     Can only be executed in Privileged modes.
+ 201:Drivers/CMSIS/core_cmFunc.h ****  */
+ 202:Drivers/CMSIS/core_cmFunc.h **** #define __disable_fault_irq               __disable_fiq
+ 203:Drivers/CMSIS/core_cmFunc.h **** 
+ 204:Drivers/CMSIS/core_cmFunc.h **** 
+ 205:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Get Base Priority
+ 206:Drivers/CMSIS/core_cmFunc.h **** 
+ 207:Drivers/CMSIS/core_cmFunc.h ****     This function returns the current value of the Base Priority register.
+ 208:Drivers/CMSIS/core_cmFunc.h **** 
+ 209:Drivers/CMSIS/core_cmFunc.h ****     \return               Base Priority register value
+ARM GAS  /tmp/ccMeb3EZ.s 			page 11
+
+
+ 210:Drivers/CMSIS/core_cmFunc.h ****  */
+ 211:Drivers/CMSIS/core_cmFunc.h **** __STATIC_INLINE uint32_t  __get_BASEPRI(void)
+ 212:Drivers/CMSIS/core_cmFunc.h **** {
+ 213:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t __regBasePri         __ASM("basepri");
+ 214:Drivers/CMSIS/core_cmFunc.h ****   return(__regBasePri);
+ 215:Drivers/CMSIS/core_cmFunc.h **** }
+ 216:Drivers/CMSIS/core_cmFunc.h **** 
+ 217:Drivers/CMSIS/core_cmFunc.h **** 
+ 218:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Set Base Priority
+ 219:Drivers/CMSIS/core_cmFunc.h **** 
+ 220:Drivers/CMSIS/core_cmFunc.h ****     This function assigns the given value to the Base Priority register.
+ 221:Drivers/CMSIS/core_cmFunc.h **** 
+ 222:Drivers/CMSIS/core_cmFunc.h ****     \param [in]    basePri  Base Priority value to set
+ 223:Drivers/CMSIS/core_cmFunc.h ****  */
+ 224:Drivers/CMSIS/core_cmFunc.h **** __STATIC_INLINE void __set_BASEPRI(uint32_t basePri)
+ 225:Drivers/CMSIS/core_cmFunc.h **** {
+ 226:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t __regBasePri         __ASM("basepri");
+ 227:Drivers/CMSIS/core_cmFunc.h ****   __regBasePri = (basePri & 0xff);
+ 228:Drivers/CMSIS/core_cmFunc.h **** }
+ 229:Drivers/CMSIS/core_cmFunc.h **** 
+ 230:Drivers/CMSIS/core_cmFunc.h **** 
+ 231:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Get Fault Mask
+ 232:Drivers/CMSIS/core_cmFunc.h **** 
+ 233:Drivers/CMSIS/core_cmFunc.h ****     This function returns the current value of the Fault Mask register.
+ 234:Drivers/CMSIS/core_cmFunc.h **** 
+ 235:Drivers/CMSIS/core_cmFunc.h ****     \return               Fault Mask register value
+ 236:Drivers/CMSIS/core_cmFunc.h ****  */
+ 237:Drivers/CMSIS/core_cmFunc.h **** __STATIC_INLINE uint32_t __get_FAULTMASK(void)
+ 238:Drivers/CMSIS/core_cmFunc.h **** {
+ 239:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t __regFaultMask       __ASM("faultmask");
+ 240:Drivers/CMSIS/core_cmFunc.h ****   return(__regFaultMask);
+ 241:Drivers/CMSIS/core_cmFunc.h **** }
+ 242:Drivers/CMSIS/core_cmFunc.h **** 
+ 243:Drivers/CMSIS/core_cmFunc.h **** 
+ 244:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Set Fault Mask
+ 245:Drivers/CMSIS/core_cmFunc.h **** 
+ 246:Drivers/CMSIS/core_cmFunc.h ****     This function assigns the given value to the Fault Mask register.
+ 247:Drivers/CMSIS/core_cmFunc.h **** 
+ 248:Drivers/CMSIS/core_cmFunc.h ****     \param [in]    faultMask  Fault Mask value to set
+ 249:Drivers/CMSIS/core_cmFunc.h ****  */
+ 250:Drivers/CMSIS/core_cmFunc.h **** __STATIC_INLINE void __set_FAULTMASK(uint32_t faultMask)
+ 251:Drivers/CMSIS/core_cmFunc.h **** {
+ 252:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t __regFaultMask       __ASM("faultmask");
+ 253:Drivers/CMSIS/core_cmFunc.h ****   __regFaultMask = (faultMask & (uint32_t)1);
+ 254:Drivers/CMSIS/core_cmFunc.h **** }
+ 255:Drivers/CMSIS/core_cmFunc.h **** 
+ 256:Drivers/CMSIS/core_cmFunc.h **** #endif /* (__CORTEX_M >= 0x03) */
+ 257:Drivers/CMSIS/core_cmFunc.h **** 
+ 258:Drivers/CMSIS/core_cmFunc.h **** 
+ 259:Drivers/CMSIS/core_cmFunc.h **** #if       (__CORTEX_M == 0x04)
+ 260:Drivers/CMSIS/core_cmFunc.h **** 
+ 261:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Get FPSCR
+ 262:Drivers/CMSIS/core_cmFunc.h **** 
+ 263:Drivers/CMSIS/core_cmFunc.h ****     This function returns the current value of the Floating Point Status/Control register.
+ 264:Drivers/CMSIS/core_cmFunc.h **** 
+ 265:Drivers/CMSIS/core_cmFunc.h ****     \return               Floating Point Status/Control register value
+ 266:Drivers/CMSIS/core_cmFunc.h ****  */
+ARM GAS  /tmp/ccMeb3EZ.s 			page 12
+
+
+ 267:Drivers/CMSIS/core_cmFunc.h **** __STATIC_INLINE uint32_t __get_FPSCR(void)
+ 268:Drivers/CMSIS/core_cmFunc.h **** {
+ 269:Drivers/CMSIS/core_cmFunc.h **** #if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
+ 270:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t __regfpscr         __ASM("fpscr");
+ 271:Drivers/CMSIS/core_cmFunc.h ****   return(__regfpscr);
+ 272:Drivers/CMSIS/core_cmFunc.h **** #else
+ 273:Drivers/CMSIS/core_cmFunc.h ****    return(0);
+ 274:Drivers/CMSIS/core_cmFunc.h **** #endif
+ 275:Drivers/CMSIS/core_cmFunc.h **** }
+ 276:Drivers/CMSIS/core_cmFunc.h **** 
+ 277:Drivers/CMSIS/core_cmFunc.h **** 
+ 278:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Set FPSCR
+ 279:Drivers/CMSIS/core_cmFunc.h **** 
+ 280:Drivers/CMSIS/core_cmFunc.h ****     This function assigns the given value to the Floating Point Status/Control register.
+ 281:Drivers/CMSIS/core_cmFunc.h **** 
+ 282:Drivers/CMSIS/core_cmFunc.h ****     \param [in]    fpscr  Floating Point Status/Control value to set
+ 283:Drivers/CMSIS/core_cmFunc.h ****  */
+ 284:Drivers/CMSIS/core_cmFunc.h **** __STATIC_INLINE void __set_FPSCR(uint32_t fpscr)
+ 285:Drivers/CMSIS/core_cmFunc.h **** {
+ 286:Drivers/CMSIS/core_cmFunc.h **** #if (__FPU_PRESENT == 1) && (__FPU_USED == 1)
+ 287:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t __regfpscr         __ASM("fpscr");
+ 288:Drivers/CMSIS/core_cmFunc.h ****   __regfpscr = (fpscr);
+ 289:Drivers/CMSIS/core_cmFunc.h **** #endif
+ 290:Drivers/CMSIS/core_cmFunc.h **** }
+ 291:Drivers/CMSIS/core_cmFunc.h **** 
+ 292:Drivers/CMSIS/core_cmFunc.h **** #endif /* (__CORTEX_M == 0x04) */
+ 293:Drivers/CMSIS/core_cmFunc.h **** 
+ 294:Drivers/CMSIS/core_cmFunc.h **** 
+ 295:Drivers/CMSIS/core_cmFunc.h **** #elif defined ( __ICCARM__ ) /*------------------ ICC Compiler -------------------*/
+ 296:Drivers/CMSIS/core_cmFunc.h **** /* IAR iccarm specific functions */
+ 297:Drivers/CMSIS/core_cmFunc.h **** 
+ 298:Drivers/CMSIS/core_cmFunc.h **** #include <cmsis_iar.h>
+ 299:Drivers/CMSIS/core_cmFunc.h **** 
+ 300:Drivers/CMSIS/core_cmFunc.h **** 
+ 301:Drivers/CMSIS/core_cmFunc.h **** #elif defined ( __TMS470__ ) /*---------------- TI CCS Compiler ------------------*/
+ 302:Drivers/CMSIS/core_cmFunc.h **** /* TI CCS specific functions */
+ 303:Drivers/CMSIS/core_cmFunc.h **** 
+ 304:Drivers/CMSIS/core_cmFunc.h **** #include <cmsis_ccs.h>
+ 305:Drivers/CMSIS/core_cmFunc.h **** 
+ 306:Drivers/CMSIS/core_cmFunc.h **** 
+ 307:Drivers/CMSIS/core_cmFunc.h **** #elif defined ( __GNUC__ ) /*------------------ GNU Compiler ---------------------*/
+ 308:Drivers/CMSIS/core_cmFunc.h **** /* GNU gcc specific functions */
+ 309:Drivers/CMSIS/core_cmFunc.h **** 
+ 310:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Enable IRQ Interrupts
+ 311:Drivers/CMSIS/core_cmFunc.h **** 
+ 312:Drivers/CMSIS/core_cmFunc.h ****   This function enables IRQ interrupts by clearing the I-bit in the CPSR.
+ 313:Drivers/CMSIS/core_cmFunc.h ****   Can only be executed in Privileged modes.
+ 314:Drivers/CMSIS/core_cmFunc.h ****  */
+ 315:Drivers/CMSIS/core_cmFunc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+ 316:Drivers/CMSIS/core_cmFunc.h **** {
+ 317:Drivers/CMSIS/core_cmFunc.h ****   __ASM volatile ("cpsie i");
+ 318:Drivers/CMSIS/core_cmFunc.h **** }
+ 319:Drivers/CMSIS/core_cmFunc.h **** 
+ 320:Drivers/CMSIS/core_cmFunc.h **** 
+ 321:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Disable IRQ Interrupts
+ 322:Drivers/CMSIS/core_cmFunc.h **** 
+ 323:Drivers/CMSIS/core_cmFunc.h ****   This function disables IRQ interrupts by setting the I-bit in the CPSR.
+ARM GAS  /tmp/ccMeb3EZ.s 			page 13
+
+
+ 324:Drivers/CMSIS/core_cmFunc.h ****   Can only be executed in Privileged modes.
+ 325:Drivers/CMSIS/core_cmFunc.h ****  */
+ 326:Drivers/CMSIS/core_cmFunc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+ 327:Drivers/CMSIS/core_cmFunc.h **** {
+ 328:Drivers/CMSIS/core_cmFunc.h ****   __ASM volatile ("cpsid i");
+ 329:Drivers/CMSIS/core_cmFunc.h **** }
+ 330:Drivers/CMSIS/core_cmFunc.h **** 
+ 331:Drivers/CMSIS/core_cmFunc.h **** 
+ 332:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Get Control Register
+ 333:Drivers/CMSIS/core_cmFunc.h **** 
+ 334:Drivers/CMSIS/core_cmFunc.h ****     This function returns the content of the Control Register.
+ 335:Drivers/CMSIS/core_cmFunc.h **** 
+ 336:Drivers/CMSIS/core_cmFunc.h ****     \return               Control Register value
+ 337:Drivers/CMSIS/core_cmFunc.h ****  */
+ 338:Drivers/CMSIS/core_cmFunc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __get_CONTROL(void)
+ 339:Drivers/CMSIS/core_cmFunc.h **** {
+ 340:Drivers/CMSIS/core_cmFunc.h ****   uint32_t result;
+ 341:Drivers/CMSIS/core_cmFunc.h **** 
+ 342:Drivers/CMSIS/core_cmFunc.h ****   __ASM volatile ("MRS %0, control" : "=r" (result) );
+ 343:Drivers/CMSIS/core_cmFunc.h ****   return(result);
+ 344:Drivers/CMSIS/core_cmFunc.h **** }
+ 345:Drivers/CMSIS/core_cmFunc.h **** 
+ 346:Drivers/CMSIS/core_cmFunc.h **** 
+ 347:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Set Control Register
+ 348:Drivers/CMSIS/core_cmFunc.h **** 
+ 349:Drivers/CMSIS/core_cmFunc.h ****     This function writes the given value to the Control Register.
+ 350:Drivers/CMSIS/core_cmFunc.h **** 
+ 351:Drivers/CMSIS/core_cmFunc.h ****     \param [in]    control  Control Register value to set
+ 352:Drivers/CMSIS/core_cmFunc.h ****  */
+ 353:Drivers/CMSIS/core_cmFunc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE void __set_CONTROL(uint32_t control)
+ 354:Drivers/CMSIS/core_cmFunc.h **** {
+ 355:Drivers/CMSIS/core_cmFunc.h ****   __ASM volatile ("MSR control, %0" : : "r" (control) );
+ 356:Drivers/CMSIS/core_cmFunc.h **** }
+ 357:Drivers/CMSIS/core_cmFunc.h **** 
+ 358:Drivers/CMSIS/core_cmFunc.h **** 
+ 359:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Get IPSR Register
+ 360:Drivers/CMSIS/core_cmFunc.h **** 
+ 361:Drivers/CMSIS/core_cmFunc.h ****     This function returns the content of the IPSR Register.
+ 362:Drivers/CMSIS/core_cmFunc.h **** 
+ 363:Drivers/CMSIS/core_cmFunc.h ****     \return               IPSR Register value
+ 364:Drivers/CMSIS/core_cmFunc.h ****  */
+ 365:Drivers/CMSIS/core_cmFunc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __get_IPSR(void)
+ 366:Drivers/CMSIS/core_cmFunc.h **** {
+ 367:Drivers/CMSIS/core_cmFunc.h ****   uint32_t result;
+ 368:Drivers/CMSIS/core_cmFunc.h **** 
+ 369:Drivers/CMSIS/core_cmFunc.h ****   __ASM volatile ("MRS %0, ipsr" : "=r" (result) );
+ 370:Drivers/CMSIS/core_cmFunc.h ****   return(result);
+ 371:Drivers/CMSIS/core_cmFunc.h **** }
+ 372:Drivers/CMSIS/core_cmFunc.h **** 
+ 373:Drivers/CMSIS/core_cmFunc.h **** 
+ 374:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Get APSR Register
+ 375:Drivers/CMSIS/core_cmFunc.h **** 
+ 376:Drivers/CMSIS/core_cmFunc.h ****     This function returns the content of the APSR Register.
+ 377:Drivers/CMSIS/core_cmFunc.h **** 
+ 378:Drivers/CMSIS/core_cmFunc.h ****     \return               APSR Register value
+ 379:Drivers/CMSIS/core_cmFunc.h ****  */
+ 380:Drivers/CMSIS/core_cmFunc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __get_APSR(void)
+ARM GAS  /tmp/ccMeb3EZ.s 			page 14
+
+
+ 381:Drivers/CMSIS/core_cmFunc.h **** {
+ 382:Drivers/CMSIS/core_cmFunc.h ****   uint32_t result;
+ 383:Drivers/CMSIS/core_cmFunc.h **** 
+ 384:Drivers/CMSIS/core_cmFunc.h ****   __ASM volatile ("MRS %0, apsr" : "=r" (result) );
+ 385:Drivers/CMSIS/core_cmFunc.h ****   return(result);
+ 386:Drivers/CMSIS/core_cmFunc.h **** }
+ 387:Drivers/CMSIS/core_cmFunc.h **** 
+ 388:Drivers/CMSIS/core_cmFunc.h **** 
+ 389:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Get xPSR Register
+ 390:Drivers/CMSIS/core_cmFunc.h **** 
+ 391:Drivers/CMSIS/core_cmFunc.h ****     This function returns the content of the xPSR Register.
+ 392:Drivers/CMSIS/core_cmFunc.h **** 
+ 393:Drivers/CMSIS/core_cmFunc.h ****     \return               xPSR Register value
+ 394:Drivers/CMSIS/core_cmFunc.h ****  */
+ 395:Drivers/CMSIS/core_cmFunc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __get_xPSR(void)
+ 396:Drivers/CMSIS/core_cmFunc.h **** {
+ 397:Drivers/CMSIS/core_cmFunc.h ****   uint32_t result;
+ 398:Drivers/CMSIS/core_cmFunc.h **** 
+ 399:Drivers/CMSIS/core_cmFunc.h ****   __ASM volatile ("MRS %0, xpsr" : "=r" (result) );
+ 400:Drivers/CMSIS/core_cmFunc.h ****   return(result);
+ 401:Drivers/CMSIS/core_cmFunc.h **** }
+ 402:Drivers/CMSIS/core_cmFunc.h **** 
+ 403:Drivers/CMSIS/core_cmFunc.h **** 
+ 404:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Get Process Stack Pointer
+ 405:Drivers/CMSIS/core_cmFunc.h **** 
+ 406:Drivers/CMSIS/core_cmFunc.h ****     This function returns the current value of the Process Stack Pointer (PSP).
+ 407:Drivers/CMSIS/core_cmFunc.h **** 
+ 408:Drivers/CMSIS/core_cmFunc.h ****     \return               PSP Register value
+ 409:Drivers/CMSIS/core_cmFunc.h ****  */
+ 410:Drivers/CMSIS/core_cmFunc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __get_PSP(void)
+ 411:Drivers/CMSIS/core_cmFunc.h **** {
+ 412:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t result;
+ 413:Drivers/CMSIS/core_cmFunc.h **** 
+ 414:Drivers/CMSIS/core_cmFunc.h ****   __ASM volatile ("MRS %0, psp\n"  : "=r" (result) );
+ 415:Drivers/CMSIS/core_cmFunc.h ****   return(result);
+ 416:Drivers/CMSIS/core_cmFunc.h **** }
+ 417:Drivers/CMSIS/core_cmFunc.h **** 
+ 418:Drivers/CMSIS/core_cmFunc.h **** 
+ 419:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Set Process Stack Pointer
+ 420:Drivers/CMSIS/core_cmFunc.h **** 
+ 421:Drivers/CMSIS/core_cmFunc.h ****     This function assigns the given value to the Process Stack Pointer (PSP).
+ 422:Drivers/CMSIS/core_cmFunc.h **** 
+ 423:Drivers/CMSIS/core_cmFunc.h ****     \param [in]    topOfProcStack  Process Stack Pointer value to set
+ 424:Drivers/CMSIS/core_cmFunc.h ****  */
+ 425:Drivers/CMSIS/core_cmFunc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE void __set_PSP(uint32_t topOfProcStack)
+ 426:Drivers/CMSIS/core_cmFunc.h **** {
+ 427:Drivers/CMSIS/core_cmFunc.h ****   __ASM volatile ("MSR psp, %0\n" : : "r" (topOfProcStack) );
+ 428:Drivers/CMSIS/core_cmFunc.h **** }
+ 429:Drivers/CMSIS/core_cmFunc.h **** 
+ 430:Drivers/CMSIS/core_cmFunc.h **** 
+ 431:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Get Main Stack Pointer
+ 432:Drivers/CMSIS/core_cmFunc.h **** 
+ 433:Drivers/CMSIS/core_cmFunc.h ****     This function returns the current value of the Main Stack Pointer (MSP).
+ 434:Drivers/CMSIS/core_cmFunc.h **** 
+ 435:Drivers/CMSIS/core_cmFunc.h ****     \return               MSP Register value
+ 436:Drivers/CMSIS/core_cmFunc.h ****  */
+ 437:Drivers/CMSIS/core_cmFunc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __get_MSP(void)
+ARM GAS  /tmp/ccMeb3EZ.s 			page 15
+
+
+ 438:Drivers/CMSIS/core_cmFunc.h **** {
+ 439:Drivers/CMSIS/core_cmFunc.h ****   register uint32_t result;
+ 440:Drivers/CMSIS/core_cmFunc.h **** 
+ 441:Drivers/CMSIS/core_cmFunc.h ****   __ASM volatile ("MRS %0, msp\n" : "=r" (result) );
+ 442:Drivers/CMSIS/core_cmFunc.h ****   return(result);
+ 443:Drivers/CMSIS/core_cmFunc.h **** }
+ 444:Drivers/CMSIS/core_cmFunc.h **** 
+ 445:Drivers/CMSIS/core_cmFunc.h **** 
+ 446:Drivers/CMSIS/core_cmFunc.h **** /** \brief  Set Main Stack Pointer
+ 447:Drivers/CMSIS/core_cmFunc.h **** 
+ 448:Drivers/CMSIS/core_cmFunc.h ****     This function assigns the given value to the Main Stack Pointer (MSP).
+ 449:Drivers/CMSIS/core_cmFunc.h **** 
+ 450:Drivers/CMSIS/core_cmFunc.h ****     \param [in]    topOfMainStack  Main Stack Pointer value to set
+ 451:Drivers/CMSIS/core_cmFunc.h ****  */
+ 452:Drivers/CMSIS/core_cmFunc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE void __set_MSP(uint32_t topOfMainStack)
+ 258              		.loc 2 452 57 view .LVU46
+ 259              	.LBB5:
+ 453:Drivers/CMSIS/core_cmFunc.h **** {
+ 454:Drivers/CMSIS/core_cmFunc.h ****   __ASM volatile ("MSR msp, %0\n" : : "r" (topOfMainStack) );
+ 260              		.loc 2 454 3 view .LVU47
+ 261              		.syntax unified
+ 262              	@ 454 "Drivers/CMSIS/core_cmFunc.h" 1
+ 263 0014 82F30888 		MSR msp, r2
+ 264              	
+ 265              	@ 0 "" 2
+ 266              	.LVL36:
+ 267              		.loc 2 454 3 is_stmt 0 view .LVU48
+ 268              		.thumb
+ 269              		.syntax unified
+ 270              	.LBE5:
+ 271              	.LBE4:
+  86:Core/Source/main.c ****     }
+ 272              		.loc 1 86 9 is_stmt 1 view .LVU49
+ 273 0018 9847     		blx	r3
+ 274              	.LVL37:
+ 275              		.loc 1 88 1 is_stmt 0 view .LVU50
+ 276 001a F8E7     		b	.L10
+ 277              	.L15:
+ 278              		.align	2
+ 279              	.L14:
+ 280 001c 0000FE2F 		.word	805175296
+ 281              		.cfi_endproc
+ 282              	.LFE120:
+ 284              		.section	.text._read,"ax",%progbits
+ 285              		.align	1
+ 286              		.global	_read
+ 287              		.syntax unified
+ 288              		.thumb
+ 289              		.thumb_func
+ 291              	_read:
+ 292              	.LVL38:
+ 293              	.LFB121:
+  89:Core/Source/main.c **** 
+  90:Core/Source/main.c **** //---------------------------------------------------------------------------//
+  91:Core/Source/main.c **** int _read(int fd, char *pBuffer, int size) {
+ 294              		.loc 1 91 44 is_stmt 1 view -0
+ 295              		.cfi_startproc
+ARM GAS  /tmp/ccMeb3EZ.s 			page 16
+
+
+ 296              		@ args = 0, pretend = 0, frame = 0
+ 297              		@ frame_needed = 0, uses_anonymous_args = 0
+ 298              		.loc 1 91 44 is_stmt 0 view .LVU52
+ 299 0000 70B5     		push	{r4, r5, r6, lr}
+ 300              	.LCFI2:
+ 301              		.cfi_def_cfa_offset 16
+ 302              		.cfi_offset 4, -16
+ 303              		.cfi_offset 5, -12
+ 304              		.cfi_offset 6, -8
+ 305              		.cfi_offset 14, -4
+ 306 0002 0E46     		mov	r6, r1
+ 307 0004 1546     		mov	r5, r2
+  92:Core/Source/main.c ****     for (int i = 0; i < size; i++) {
+ 308              		.loc 1 92 5 is_stmt 1 view .LVU53
+ 309              	.LBB6:
+ 310              		.loc 1 92 10 view .LVU54
+ 311              	.LVL39:
+ 312              		.loc 1 92 14 is_stmt 0 view .LVU55
+ 313 0006 0024     		movs	r4, #0
+ 314              		.loc 1 92 5 view .LVU56
+ 315 0008 0AE0     		b	.L17
+ 316              	.LVL40:
+ 317              	.L18:
+  93:Core/Source/main.c ****         while (usart_flag_get(USART0, USART_FLAG_RBNE) == 1) {
+  94:Core/Source/main.c ****         }
+ 318              		.loc 1 94 9 is_stmt 1 discriminator 1 view .LVU57
+  93:Core/Source/main.c ****         while (usart_flag_get(USART0, USART_FLAG_RBNE) == 1) {
+ 319              		.loc 1 93 15 discriminator 1 view .LVU58
+  93:Core/Source/main.c ****         while (usart_flag_get(USART0, USART_FLAG_RBNE) == 1) {
+ 320              		.loc 1 93 16 is_stmt 0 discriminator 1 view .LVU59
+ 321 000a 0521     		movs	r1, #5
+ 322 000c 0648     		ldr	r0, .L20
+ 323 000e FFF7FEFF 		bl	usart_flag_get
+ 324              	.LVL41:
+  93:Core/Source/main.c ****         while (usart_flag_get(USART0, USART_FLAG_RBNE) == 1) {
+ 325              		.loc 1 93 15 discriminator 1 view .LVU60
+ 326 0012 0128     		cmp	r0, #1
+ 327 0014 F9D0     		beq	.L18
+  95:Core/Source/main.c **** 
+  96:Core/Source/main.c ****         pBuffer[i] = usart_data_receive(USART0);
+ 328              		.loc 1 96 9 is_stmt 1 discriminator 2 view .LVU61
+ 329              		.loc 1 96 22 is_stmt 0 discriminator 2 view .LVU62
+ 330 0016 0448     		ldr	r0, .L20
+ 331 0018 FFF7FEFF 		bl	usart_data_receive
+ 332              	.LVL42:
+ 333              		.loc 1 96 20 discriminator 2 view .LVU63
+ 334 001c 3055     		strb	r0, [r6, r4]
+  92:Core/Source/main.c ****         while (usart_flag_get(USART0, USART_FLAG_RBNE) == 1) {
+ 335              		.loc 1 92 31 is_stmt 1 discriminator 2 view .LVU64
+  92:Core/Source/main.c ****         while (usart_flag_get(USART0, USART_FLAG_RBNE) == 1) {
+ 336              		.loc 1 92 32 is_stmt 0 discriminator 2 view .LVU65
+ 337 001e 0134     		adds	r4, r4, #1
+ 338              	.LVL43:
+ 339              	.L17:
+  92:Core/Source/main.c ****         while (usart_flag_get(USART0, USART_FLAG_RBNE) == 1) {
+ 340              		.loc 1 92 21 is_stmt 1 discriminator 1 view .LVU66
+  92:Core/Source/main.c ****         while (usart_flag_get(USART0, USART_FLAG_RBNE) == 1) {
+ARM GAS  /tmp/ccMeb3EZ.s 			page 17
+
+
+ 341              		.loc 1 92 5 is_stmt 0 discriminator 1 view .LVU67
+ 342 0020 AC42     		cmp	r4, r5
+ 343 0022 F2DB     		blt	.L18
+ 344              	.LBE6:
+  97:Core/Source/main.c ****     }
+  98:Core/Source/main.c ****     return size;
+ 345              		.loc 1 98 5 is_stmt 1 view .LVU68
+  99:Core/Source/main.c **** }
+ 346              		.loc 1 99 1 is_stmt 0 view .LVU69
+ 347 0024 2846     		mov	r0, r5
+ 348 0026 70BD     		pop	{r4, r5, r6, pc}
+ 349              	.LVL44:
+ 350              	.L21:
+ 351              		.loc 1 99 1 view .LVU70
+ 352              		.align	2
+ 353              	.L20:
+ 354 0028 00380140 		.word	1073821696
+ 355              		.cfi_endproc
+ 356              	.LFE121:
+ 358              		.section	.text._sbrk,"ax",%progbits
+ 359              		.align	1
+ 360              		.global	_sbrk
+ 361              		.syntax unified
+ 362              		.thumb
+ 363              		.thumb_func
+ 365              	_sbrk:
+ 366              	.LVL45:
+ 367              	.LFB122:
+ 100:Core/Source/main.c **** 
+ 101:Core/Source/main.c **** extern int  _end;
+ 102:Core/Source/main.c **** 
+ 103:Core/Source/main.c **** //---------------------------------------------------------------------------//
+ 104:Core/Source/main.c **** caddr_t _sbrk ( int incr )
+ 105:Core/Source/main.c **** {
+ 368              		.loc 1 105 1 is_stmt 1 view -0
+ 369              		.cfi_startproc
+ 370              		@ args = 0, pretend = 0, frame = 0
+ 371              		@ frame_needed = 0, uses_anonymous_args = 0
+ 372              		@ link register save eliminated.
+ 373              		.loc 1 105 1 is_stmt 0 view .LVU72
+ 374 0000 0346     		mov	r3, r0
+ 106:Core/Source/main.c ****     static unsigned char *heap = NULL;
+ 375              		.loc 1 106 5 is_stmt 1 view .LVU73
+ 107:Core/Source/main.c ****     unsigned char *prev_heap;
+ 376              		.loc 1 107 5 view .LVU74
+ 108:Core/Source/main.c **** 
+ 109:Core/Source/main.c ****     if (heap == NULL) {
+ 377              		.loc 1 109 5 view .LVU75
+ 378              		.loc 1 109 14 is_stmt 0 view .LVU76
+ 379 0002 064A     		ldr	r2, .L25
+ 380 0004 1268     		ldr	r2, [r2]
+ 381              		.loc 1 109 8 view .LVU77
+ 382 0006 22B1     		cbz	r2, .L24
+ 383              	.L23:
+ 110:Core/Source/main.c ****         heap = (unsigned char *)&_end;
+ 111:Core/Source/main.c ****     }
+ 112:Core/Source/main.c ****     prev_heap = heap;
+ARM GAS  /tmp/ccMeb3EZ.s 			page 18
+
+
+ 384              		.loc 1 112 5 is_stmt 1 view .LVU78
+ 385              		.loc 1 112 15 is_stmt 0 view .LVU79
+ 386 0008 044A     		ldr	r2, .L25
+ 387 000a 1068     		ldr	r0, [r2]
+ 388              	.LVL46:
+ 113:Core/Source/main.c **** 
+ 114:Core/Source/main.c ****     heap += incr;
+ 389              		.loc 1 114 5 is_stmt 1 view .LVU80
+ 390              		.loc 1 114 10 is_stmt 0 view .LVU81
+ 391 000c 0344     		add	r3, r3, r0
+ 392              	.LVL47:
+ 393              		.loc 1 114 10 view .LVU82
+ 394 000e 1360     		str	r3, [r2]
+ 115:Core/Source/main.c **** 
+ 116:Core/Source/main.c ****     return (caddr_t) prev_heap;
+ 395              		.loc 1 116 5 is_stmt 1 view .LVU83
+ 117:Core/Source/main.c **** }
+ 396              		.loc 1 117 1 is_stmt 0 view .LVU84
+ 397 0010 7047     		bx	lr
+ 398              	.LVL48:
+ 399              	.L24:
+ 110:Core/Source/main.c ****     }
+ 400              		.loc 1 110 9 is_stmt 1 view .LVU85
+ 110:Core/Source/main.c ****     }
+ 401              		.loc 1 110 14 is_stmt 0 view .LVU86
+ 402 0012 024A     		ldr	r2, .L25
+ 403 0014 0249     		ldr	r1, .L25+4
+ 404 0016 1160     		str	r1, [r2]
+ 405 0018 F6E7     		b	.L23
+ 406              	.L26:
+ 407 001a 00BF     		.align	2
+ 408              	.L25:
+ 409 001c 00000000 		.word	.LANCHOR1
+ 410 0020 00000000 		.word	_end
+ 411              		.cfi_endproc
+ 412              	.LFE122:
+ 414              		.section	.text.link,"ax",%progbits
+ 415              		.align	1
+ 416              		.global	link
+ 417              		.syntax unified
+ 418              		.thumb
+ 419              		.thumb_func
+ 421              	link:
+ 422              	.LVL49:
+ 423              	.LFB123:
+ 118:Core/Source/main.c **** 
+ 119:Core/Source/main.c **** //---------------------------------------------------------------------------//
+ 120:Core/Source/main.c **** int link(char *old, char *new) {
+ 424              		.loc 1 120 32 is_stmt 1 view -0
+ 425              		.cfi_startproc
+ 426              		@ args = 0, pretend = 0, frame = 0
+ 427              		@ frame_needed = 0, uses_anonymous_args = 0
+ 428              		@ link register save eliminated.
+ 121:Core/Source/main.c ****     return -1;
+ 429              		.loc 1 121 5 view .LVU88
+ 122:Core/Source/main.c **** }
+ 430              		.loc 1 122 1 is_stmt 0 view .LVU89
+ARM GAS  /tmp/ccMeb3EZ.s 			page 19
+
+
+ 431 0000 4FF0FF30 		mov	r0, #-1
+ 432              	.LVL50:
+ 433              		.loc 1 122 1 view .LVU90
+ 434 0004 7047     		bx	lr
+ 435              		.cfi_endproc
+ 436              	.LFE123:
+ 438              		.section	.text._close,"ax",%progbits
+ 439              		.align	1
+ 440              		.global	_close
+ 441              		.syntax unified
+ 442              		.thumb
+ 443              		.thumb_func
+ 445              	_close:
+ 446              	.LVL51:
+ 447              	.LFB124:
+ 123:Core/Source/main.c **** 
+ 124:Core/Source/main.c **** //---------------------------------------------------------------------------//
+ 125:Core/Source/main.c **** int _close(int file)
+ 126:Core/Source/main.c **** {
+ 448              		.loc 1 126 1 is_stmt 1 view -0
+ 449              		.cfi_startproc
+ 450              		@ args = 0, pretend = 0, frame = 0
+ 451              		@ frame_needed = 0, uses_anonymous_args = 0
+ 452              		@ link register save eliminated.
+ 127:Core/Source/main.c ****     return -1;
+ 453              		.loc 1 127 5 view .LVU92
+ 128:Core/Source/main.c **** }
+ 454              		.loc 1 128 1 is_stmt 0 view .LVU93
+ 455 0000 4FF0FF30 		mov	r0, #-1
+ 456              	.LVL52:
+ 457              		.loc 1 128 1 view .LVU94
+ 458 0004 7047     		bx	lr
+ 459              		.cfi_endproc
+ 460              	.LFE124:
+ 462              		.section	.text._fstat,"ax",%progbits
+ 463              		.align	1
+ 464              		.global	_fstat
+ 465              		.syntax unified
+ 466              		.thumb
+ 467              		.thumb_func
+ 469              	_fstat:
+ 470              	.LVL53:
+ 471              	.LFB125:
+ 129:Core/Source/main.c **** 
+ 130:Core/Source/main.c **** //---------------------------------------------------------------------------//
+ 131:Core/Source/main.c **** int _fstat(int file, struct stat *st)
+ 132:Core/Source/main.c **** {
+ 472              		.loc 1 132 1 is_stmt 1 view -0
+ 473              		.cfi_startproc
+ 474              		@ args = 0, pretend = 0, frame = 0
+ 475              		@ frame_needed = 0, uses_anonymous_args = 0
+ 476              		@ link register save eliminated.
+ 133:Core/Source/main.c ****     //st->st_mode = S_IFCHR;
+ 134:Core/Source/main.c ****     return 0;
+ 477              		.loc 1 134 5 view .LVU96
+ 135:Core/Source/main.c **** }
+ 478              		.loc 1 135 1 is_stmt 0 view .LVU97
+ARM GAS  /tmp/ccMeb3EZ.s 			page 20
+
+
+ 479 0000 0020     		movs	r0, #0
+ 480              	.LVL54:
+ 481              		.loc 1 135 1 view .LVU98
+ 482 0002 7047     		bx	lr
+ 483              		.cfi_endproc
+ 484              	.LFE125:
+ 486              		.section	.text._isatty,"ax",%progbits
+ 487              		.align	1
+ 488              		.global	_isatty
+ 489              		.syntax unified
+ 490              		.thumb
+ 491              		.thumb_func
+ 493              	_isatty:
+ 494              	.LVL55:
+ 495              	.LFB126:
+ 136:Core/Source/main.c **** 
+ 137:Core/Source/main.c **** //---------------------------------------------------------------------------//
+ 138:Core/Source/main.c **** int _isatty(int file)
+ 139:Core/Source/main.c **** {
+ 496              		.loc 1 139 1 is_stmt 1 view -0
+ 497              		.cfi_startproc
+ 498              		@ args = 0, pretend = 0, frame = 0
+ 499              		@ frame_needed = 0, uses_anonymous_args = 0
+ 500              		@ link register save eliminated.
+ 140:Core/Source/main.c ****     return 1;
+ 501              		.loc 1 140 5 view .LVU100
+ 141:Core/Source/main.c **** }
+ 502              		.loc 1 141 1 is_stmt 0 view .LVU101
+ 503 0000 0120     		movs	r0, #1
+ 504              	.LVL56:
+ 505              		.loc 1 141 1 view .LVU102
+ 506 0002 7047     		bx	lr
+ 507              		.cfi_endproc
+ 508              	.LFE126:
+ 510              		.section	.text._lseek,"ax",%progbits
+ 511              		.align	1
+ 512              		.global	_lseek
+ 513              		.syntax unified
+ 514              		.thumb
+ 515              		.thumb_func
+ 517              	_lseek:
+ 518              	.LVL57:
+ 519              	.LFB127:
+ 142:Core/Source/main.c **** 
+ 143:Core/Source/main.c **** //---------------------------------------------------------------------------//
+ 144:Core/Source/main.c **** int _lseek(int file, int ptr, int dir)
+ 145:Core/Source/main.c **** {
+ 520              		.loc 1 145 1 is_stmt 1 view -0
+ 521              		.cfi_startproc
+ 522              		@ args = 0, pretend = 0, frame = 0
+ 523              		@ frame_needed = 0, uses_anonymous_args = 0
+ 524              		@ link register save eliminated.
+ 146:Core/Source/main.c ****     return 0;
+ 525              		.loc 1 146 5 view .LVU104
+ 147:Core/Source/main.c **** }
+ 526              		.loc 1 147 1 is_stmt 0 view .LVU105
+ 527 0000 0020     		movs	r0, #0
+ARM GAS  /tmp/ccMeb3EZ.s 			page 21
+
+
+ 528              	.LVL58:
+ 529              		.loc 1 147 1 view .LVU106
+ 530 0002 7047     		bx	lr
+ 531              		.cfi_endproc
+ 532              	.LFE127:
+ 534              		.section	.text.abort,"ax",%progbits
+ 535              		.align	1
+ 536              		.global	abort
+ 537              		.syntax unified
+ 538              		.thumb
+ 539              		.thumb_func
+ 541              	abort:
+ 542              	.LFB128:
+ 148:Core/Source/main.c **** 
+ 149:Core/Source/main.c **** //---------------------------------------------------------------------------//
+ 150:Core/Source/main.c **** void abort(void)
+ 151:Core/Source/main.c **** {
+ 543              		.loc 1 151 1 is_stmt 1 view -0
+ 544              		.cfi_startproc
+ 545              		@ Volatile: function does not return.
+ 546              		@ args = 0, pretend = 0, frame = 0
+ 547              		@ frame_needed = 0, uses_anonymous_args = 0
+ 548              		@ link register save eliminated.
+ 549              	.L33:
+ 152:Core/Source/main.c ****     /* Abort called */
+ 153:Core/Source/main.c ****     while(1);
+ 550              		.loc 1 153 5 discriminator 1 view .LVU108
+ 551              		.loc 1 153 13 discriminator 1 view .LVU109
+ 552              		.loc 1 153 10 discriminator 1 view .LVU110
+ 553 0000 FEE7     		b	.L33
+ 554              		.cfi_endproc
+ 555              	.LFE128:
+ 557              		.global	lcd_buf
+ 558              		.global	sw_led
+ 559              		.section	.bss.heap.0,"aw",%nobits
+ 560              		.align	2
+ 561              		.set	.LANCHOR1,. + 0
+ 564              	heap.0:
+ 565 0000 00000000 		.space	4
+ 566              		.section	.bss.lcd_buf,"aw",%nobits
+ 567              		.align	2
+ 568              		.set	.LANCHOR0,. + 0
+ 571              	lcd_buf:
+ 572 0000 00000000 		.space	25
+ 572      00000000 
+ 572      00000000 
+ 572      00000000 
+ 572      00000000 
+ 573              		.section	.data.sw_led,"aw"
+ 576              	sw_led:
+ 577 0000 01       		.byte	1
+ 578              		.text
+ 579              	.Letext0:
+ 580              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/m
+ 581              		.file 4 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
+ 582              		.file 5 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
+ 583              		.file 6 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_usart.h"
+ARM GAS  /tmp/ccMeb3EZ.s 			page 22
+
+
+ 584              		.file 7 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
+ 585              		.file 8 "Drivers/display/OLED_Fonts.h"
+ 586              		.file 9 "Core/Include/encoder.h"
+ 587              		.file 10 "Core/Include/typedef.h"
+ 588              		.file 11 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_rcu.h"
+ 589              		.file 12 "Drivers/CMSIS/GD/GD32F30x/Include/system_gd32f30x.h"
+ 590              		.file 13 "Core/Include/systick.h"
+ 591              		.file 14 "Core/Include/gpio.h"
+ 592              		.file 15 "Core/Include/usart.h"
+ 593              		.file 16 "Core/Include/spi.h"
+ 594              		.file 17 "Drivers/display/OLED.h"
+ 595              		.file 18 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/
+ 596              		.file 19 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_gpio.h"
+ARM GAS  /tmp/ccMeb3EZ.s 			page 23
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 main.c
+     /tmp/ccMeb3EZ.s:18     .rodata.main.str1.4:0000000000000000 $d
+     /tmp/ccMeb3EZ.s:31     .text.main:0000000000000000 $t
+     /tmp/ccMeb3EZ.s:37     .text.main:0000000000000000 main
+     /tmp/ccMeb3EZ.s:199    .text.main:00000000000000e8 $d
+     /tmp/ccMeb3EZ.s:211    .text.jump_to_app:0000000000000000 $t
+     /tmp/ccMeb3EZ.s:217    .text.jump_to_app:0000000000000000 jump_to_app
+     /tmp/ccMeb3EZ.s:280    .text.jump_to_app:000000000000001c $d
+     /tmp/ccMeb3EZ.s:285    .text._read:0000000000000000 $t
+     /tmp/ccMeb3EZ.s:291    .text._read:0000000000000000 _read
+     /tmp/ccMeb3EZ.s:354    .text._read:0000000000000028 $d
+     /tmp/ccMeb3EZ.s:359    .text._sbrk:0000000000000000 $t
+     /tmp/ccMeb3EZ.s:365    .text._sbrk:0000000000000000 _sbrk
+     /tmp/ccMeb3EZ.s:409    .text._sbrk:000000000000001c $d
+     /tmp/ccMeb3EZ.s:415    .text.link:0000000000000000 $t
+     /tmp/ccMeb3EZ.s:421    .text.link:0000000000000000 link
+     /tmp/ccMeb3EZ.s:439    .text._close:0000000000000000 $t
+     /tmp/ccMeb3EZ.s:445    .text._close:0000000000000000 _close
+     /tmp/ccMeb3EZ.s:463    .text._fstat:0000000000000000 $t
+     /tmp/ccMeb3EZ.s:469    .text._fstat:0000000000000000 _fstat
+     /tmp/ccMeb3EZ.s:487    .text._isatty:0000000000000000 $t
+     /tmp/ccMeb3EZ.s:493    .text._isatty:0000000000000000 _isatty
+     /tmp/ccMeb3EZ.s:511    .text._lseek:0000000000000000 $t
+     /tmp/ccMeb3EZ.s:517    .text._lseek:0000000000000000 _lseek
+     /tmp/ccMeb3EZ.s:535    .text.abort:0000000000000000 $t
+     /tmp/ccMeb3EZ.s:541    .text.abort:0000000000000000 abort
+     /tmp/ccMeb3EZ.s:571    .bss.lcd_buf:0000000000000000 lcd_buf
+     /tmp/ccMeb3EZ.s:576    .data.sw_led:0000000000000000 sw_led
+     /tmp/ccMeb3EZ.s:560    .bss.heap.0:0000000000000000 $d
+     /tmp/ccMeb3EZ.s:564    .bss.heap.0:0000000000000000 heap.0
+     /tmp/ccMeb3EZ.s:567    .bss.lcd_buf:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+rcu_all_reset_flag_clear
+SystemInit
+SystemCoreClockUpdate
+systick_config
+gpio_config
+usart0_config
+spi0_config
+OLED_init
+rcu_ckout0_config
+FontSet
+snprintf
+OLED_DrawStr
+OLED_UpdateScreen
+gpio_bit_reset
+delay_1ms
+gpio_bit_set
+OLED_Clear
+gpio_output_bit_get
+Segoe_UI_Eng_12
+enc_count
+usart_flag_get
+usart_data_receive
+_end
+ARM GAS  /tmp/ccMeb3EZ.s 			page 24
+
+

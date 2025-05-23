@@ -1,0 +1,473 @@
+ARM GAS  /tmp/cctBUkxl.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"spi.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.spi0_config,"ax",%progbits
+  18              		.align	1
+  19              		.global	spi0_config
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	spi0_config:
+  25              	.LFB116:
+  26              		.file 1 "Core/Source/spi.c"
+   1:Core/Source/spi.c **** #include "spi.h"
+   2:Core/Source/spi.c **** #include "gpio.h"
+   3:Core/Source/spi.c **** 
+   4:Core/Source/spi.c **** //-------------------------------------------------------------------------------------//
+   5:Core/Source/spi.c **** #define DISPLAY_SPI SPI0
+   6:Core/Source/spi.c **** 
+   7:Core/Source/spi.c **** //-------------------------------------------------------------------------------------//
+   8:Core/Source/spi.c **** void spi0_config(void)
+   9:Core/Source/spi.c **** {
+  27              		.loc 1 9 1 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 10B5     		push	{r4, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  10:Core/Source/spi.c ****     SPI0_gpio_init ();
+  36              		.loc 1 10 5 view .LVU1
+  37 0002 FFF7FEFF 		bl	SPI0_gpio_init
+  38              	.LVL0:
+  11:Core/Source/spi.c ****     rcu_periph_clock_enable(RCU_SPI0);
+  39              		.loc 1 11 5 view .LVU2
+  40 0006 40F20C60 		movw	r0, #1548
+  41 000a FFF7FEFF 		bl	rcu_periph_clock_enable
+  42              	.LVL1:
+  12:Core/Source/spi.c ****     spi_i2s_deinit(SPI0); //deinitialize SPI and the parameters 
+  43              		.loc 1 12 5 view .LVU3
+  44 000e 1C4C     		ldr	r4, .L3
+  45 0010 2046     		mov	r0, r4
+  46 0012 FFF7FEFF 		bl	spi_i2s_deinit
+ARM GAS  /tmp/cctBUkxl.s 			page 2
+
+
+  47              	.LVL2:
+  13:Core/Source/spi.c **** 
+  14:Core/Source/spi.c ****     SPI_CTL0(SPI0) &= (~SPI_CTL0_CKPH); //Capture the first data at the first clock transition
+  48              		.loc 1 14 5 view .LVU4
+  49              		.loc 1 14 20 is_stmt 0 view .LVU5
+  50 0016 2368     		ldr	r3, [r4]
+  51 0018 23F00103 		bic	r3, r3, #1
+  52 001c 2360     		str	r3, [r4]
+  15:Core/Source/spi.c ****     SPI_CTL0(SPI0) &= (~SPI_CTL0_CKPL); //CLK pin is pulled low when SPI is idle
+  53              		.loc 1 15 5 is_stmt 1 view .LVU6
+  54              		.loc 1 15 20 is_stmt 0 view .LVU7
+  55 001e 2368     		ldr	r3, [r4]
+  56 0020 23F00203 		bic	r3, r3, #2
+  57 0024 2360     		str	r3, [r4]
+  16:Core/Source/spi.c ****     SPI_CTL0(SPI0) |= (SPI_CTL0_MSTMOD); //Master mode
+  58              		.loc 1 16 5 is_stmt 1 view .LVU8
+  59              		.loc 1 16 20 is_stmt 0 view .LVU9
+  60 0026 2368     		ldr	r3, [r4]
+  61 0028 43F00403 		orr	r3, r3, #4
+  62 002c 2360     		str	r3, [r4]
+  17:Core/Source/spi.c ****     SPI_CTL0(SPI0) |= SPI_PSC_64;       //Master clock prescaler selection
+  63              		.loc 1 17 5 is_stmt 1 view .LVU10
+  64              		.loc 1 17 20 is_stmt 0 view .LVU11
+  65 002e 2368     		ldr	r3, [r4]
+  66 0030 43F02803 		orr	r3, r3, #40
+  67 0034 2360     		str	r3, [r4]
+  18:Core/Source/spi.c ****     SPI_CTL0(SPI0) &= (~SPI_CTL0_LF);  // 0: Transmit MSB first
+  68              		.loc 1 18 5 is_stmt 1 view .LVU12
+  69              		.loc 1 18 20 is_stmt 0 view .LVU13
+  70 0036 2368     		ldr	r3, [r4]
+  71 0038 23F08003 		bic	r3, r3, #128
+  72 003c 2360     		str	r3, [r4]
+  19:Core/Source/spi.c ****     SPI_CTL0(SPI0) |= SPI_CTL0_SWNSSEN; //NSS software mode. The NSS level depends on SWNSS bit.
+  73              		.loc 1 19 5 is_stmt 1 view .LVU14
+  74              		.loc 1 19 20 is_stmt 0 view .LVU15
+  75 003e 2368     		ldr	r3, [r4]
+  76 0040 43F40073 		orr	r3, r3, #512
+  77 0044 2360     		str	r3, [r4]
+  20:Core/Source/spi.c ****     SPI_CTL0(SPI0) |= SPI_CTL0_SWNSS; //NSS pin is pulled high
+  78              		.loc 1 20 5 is_stmt 1 view .LVU16
+  79              		.loc 1 20 20 is_stmt 0 view .LVU17
+  80 0046 2368     		ldr	r3, [r4]
+  81 0048 43F48073 		orr	r3, r3, #256
+  82 004c 2360     		str	r3, [r4]
+  21:Core/Source/spi.c ****     SPI_CTL0(SPI0) &= (~SPI_CTL0_RO); //Full-duplex mode
+  83              		.loc 1 21 5 is_stmt 1 view .LVU18
+  84              		.loc 1 21 20 is_stmt 0 view .LVU19
+  85 004e 2368     		ldr	r3, [r4]
+  86 0050 23F48063 		bic	r3, r3, #1024
+  87 0054 2360     		str	r3, [r4]
+  22:Core/Source/spi.c ****     SPI_CTL0(SPI0) &= (~SPI_CTL0_FF16); //8-bit data frame format
+  88              		.loc 1 22 5 is_stmt 1 view .LVU20
+  89              		.loc 1 22 20 is_stmt 0 view .LVU21
+  90 0056 2368     		ldr	r3, [r4]
+  91 0058 23F40063 		bic	r3, r3, #2048
+  92 005c 2360     		str	r3, [r4]
+  23:Core/Source/spi.c ****     SPI_CTL0(SPI0) |= SPI_CTL0_BDEN; //1 line bidirectional transmit mode. The information transfer
+ARM GAS  /tmp/cctBUkxl.s 			page 3
+
+
+  93              		.loc 1 23 5 is_stmt 1 view .LVU22
+  94              		.loc 1 23 20 is_stmt 0 view .LVU23
+  95 005e 2368     		ldr	r3, [r4]
+  96 0060 43F40043 		orr	r3, r3, #32768
+  97 0064 2360     		str	r3, [r4]
+  24:Core/Source/spi.c ****     SPI_CTL0(SPI0) |= SPI_CTL0_BDOEN; //When BDEN is set, this bit determines the direction of tran
+  98              		.loc 1 24 5 is_stmt 1 view .LVU24
+  99              		.loc 1 24 20 is_stmt 0 view .LVU25
+ 100 0066 2368     		ldr	r3, [r4]
+ 101 0068 43F48043 		orr	r3, r3, #16384
+ 102 006c 2360     		str	r3, [r4]
+  25:Core/Source/spi.c ****     SPI_CTL0(SPI0) |= (uint32_t)SPI_CTL0_SPIEN; //SPI peripheral is enabled
+ 103              		.loc 1 25 5 is_stmt 1 view .LVU26
+ 104              		.loc 1 25 20 is_stmt 0 view .LVU27
+ 105 006e 2368     		ldr	r3, [r4]
+ 106 0070 43F04003 		orr	r3, r3, #64
+ 107 0074 2360     		str	r3, [r4]
+  26:Core/Source/spi.c **** 
+  27:Core/Source/spi.c ****     spi_enable(SPI0);
+ 108              		.loc 1 27 5 is_stmt 1 view .LVU28
+ 109 0076 2046     		mov	r0, r4
+ 110 0078 FFF7FEFF 		bl	spi_enable
+ 111              	.LVL3:
+  28:Core/Source/spi.c **** }
+ 112              		.loc 1 28 1 is_stmt 0 view .LVU29
+ 113 007c 10BD     		pop	{r4, pc}
+ 114              	.L4:
+ 115 007e 00BF     		.align	2
+ 116              	.L3:
+ 117 0080 00300140 		.word	1073819648
+ 118              		.cfi_endproc
+ 119              	.LFE116:
+ 121              		.section	.text.spi_write_byte,"ax",%progbits
+ 122              		.align	1
+ 123              		.global	spi_write_byte
+ 124              		.syntax unified
+ 125              		.thumb
+ 126              		.thumb_func
+ 128              	spi_write_byte:
+ 129              	.LVL4:
+ 130              	.LFB117:
+  29:Core/Source/spi.c **** 
+  30:Core/Source/spi.c **** //-------------------------------------------------------------------------------------//
+  31:Core/Source/spi.c **** void spi_write_byte (uint8_t byte)
+  32:Core/Source/spi.c **** {	
+ 131              		.loc 1 32 1 is_stmt 1 view -0
+ 132              		.cfi_startproc
+ 133              		@ args = 0, pretend = 0, frame = 0
+ 134              		@ frame_needed = 0, uses_anonymous_args = 0
+ 135              		.loc 1 32 1 is_stmt 0 view .LVU31
+ 136 0000 10B5     		push	{r4, lr}
+ 137              	.LCFI1:
+ 138              		.cfi_def_cfa_offset 8
+ 139              		.cfi_offset 4, -8
+ 140              		.cfi_offset 14, -4
+ 141 0002 0446     		mov	r4, r0
+  33:Core/Source/spi.c ****     while (spi_i2s_flag_get(DISPLAY_SPI, SPI_FLAG_TBE) == RESET) {}
+ARM GAS  /tmp/cctBUkxl.s 			page 4
+
+
+ 142              		.loc 1 33 5 is_stmt 1 view .LVU32
+ 143              	.LVL5:
+ 144              	.L6:
+ 145              		.loc 1 33 67 discriminator 1 view .LVU33
+ 146              		.loc 1 33 11 discriminator 1 view .LVU34
+ 147              		.loc 1 33 12 is_stmt 0 discriminator 1 view .LVU35
+ 148 0004 0221     		movs	r1, #2
+ 149 0006 0548     		ldr	r0, .L8
+ 150 0008 FFF7FEFF 		bl	spi_i2s_flag_get
+ 151              	.LVL6:
+ 152              		.loc 1 33 11 discriminator 1 view .LVU36
+ 153 000c 0028     		cmp	r0, #0
+ 154 000e F9D0     		beq	.L6
+  34:Core/Source/spi.c ****     spi_i2s_data_transmit(DISPLAY_SPI, byte);
+ 155              		.loc 1 34 5 is_stmt 1 view .LVU37
+ 156 0010 2146     		mov	r1, r4
+ 157 0012 0248     		ldr	r0, .L8
+ 158 0014 FFF7FEFF 		bl	spi_i2s_data_transmit
+ 159              	.LVL7:
+  35:Core/Source/spi.c **** }
+ 160              		.loc 1 35 1 is_stmt 0 view .LVU38
+ 161 0018 10BD     		pop	{r4, pc}
+ 162              	.L9:
+ 163 001a 00BF     		.align	2
+ 164              	.L8:
+ 165 001c 00300140 		.word	1073819648
+ 166              		.cfi_endproc
+ 167              	.LFE117:
+ 169              		.section	.text.spi_write_buffer,"ax",%progbits
+ 170              		.align	1
+ 171              		.global	spi_write_buffer
+ 172              		.syntax unified
+ 173              		.thumb
+ 174              		.thumb_func
+ 176              	spi_write_buffer:
+ 177              	.LVL8:
+ 178              	.LFB118:
+  36:Core/Source/spi.c **** 
+  37:Core/Source/spi.c **** //-------------------------------------------------------------------------------------//
+  38:Core/Source/spi.c **** void spi_write_buffer (uint8_t * data, uint16_t data_size)
+  39:Core/Source/spi.c **** {	
+ 179              		.loc 1 39 1 is_stmt 1 view -0
+ 180              		.cfi_startproc
+ 181              		@ args = 0, pretend = 0, frame = 0
+ 182              		@ frame_needed = 0, uses_anonymous_args = 0
+ 183              		.loc 1 39 1 is_stmt 0 view .LVU40
+ 184 0000 70B5     		push	{r4, r5, r6, lr}
+ 185              	.LCFI2:
+ 186              		.cfi_def_cfa_offset 16
+ 187              		.cfi_offset 4, -16
+ 188              		.cfi_offset 5, -12
+ 189              		.cfi_offset 6, -8
+ 190              		.cfi_offset 14, -4
+ 191 0002 0646     		mov	r6, r0
+ 192 0004 0D46     		mov	r5, r1
+  40:Core/Source/spi.c **** 	for (uint8_t count = 0; count < data_size; count++)
+ 193              		.loc 1 40 2 is_stmt 1 view .LVU41
+ARM GAS  /tmp/cctBUkxl.s 			page 5
+
+
+ 194              	.LBB2:
+ 195              		.loc 1 40 7 view .LVU42
+ 196              	.LVL9:
+ 197              		.loc 1 40 15 is_stmt 0 view .LVU43
+ 198 0006 0024     		movs	r4, #0
+ 199              		.loc 1 40 2 view .LVU44
+ 200 0008 0BE0     		b	.L11
+ 201              	.LVL10:
+ 202              	.L12:
+  41:Core/Source/spi.c **** 	{	
+  42:Core/Source/spi.c **** 		while (spi_i2s_flag_get(DISPLAY_SPI, SPI_FLAG_TBE) == RESET) {}
+ 203              		.loc 1 42 65 is_stmt 1 discriminator 1 view .LVU45
+ 204              		.loc 1 42 9 discriminator 1 view .LVU46
+ 205              		.loc 1 42 10 is_stmt 0 discriminator 1 view .LVU47
+ 206 000a 0221     		movs	r1, #2
+ 207 000c 0748     		ldr	r0, .L14
+ 208 000e FFF7FEFF 		bl	spi_i2s_flag_get
+ 209              	.LVL11:
+ 210              		.loc 1 42 9 discriminator 1 view .LVU48
+ 211 0012 0028     		cmp	r0, #0
+ 212 0014 F9D0     		beq	.L12
+  43:Core/Source/spi.c **** 		spi_i2s_data_transmit   (DISPLAY_SPI, (uint8_t)(*(data + count)));
+ 213              		.loc 1 43 3 is_stmt 1 discriminator 2 view .LVU49
+ 214 0016 315D     		ldrb	r1, [r6, r4]	@ zero_extendqisi2
+ 215 0018 0448     		ldr	r0, .L14
+ 216 001a FFF7FEFF 		bl	spi_i2s_data_transmit
+ 217              	.LVL12:
+  40:Core/Source/spi.c **** 	for (uint8_t count = 0; count < data_size; count++)
+ 218              		.loc 1 40 45 discriminator 2 view .LVU50
+  40:Core/Source/spi.c **** 	for (uint8_t count = 0; count < data_size; count++)
+ 219              		.loc 1 40 50 is_stmt 0 discriminator 2 view .LVU51
+ 220 001e 0134     		adds	r4, r4, #1
+ 221              	.LVL13:
+  40:Core/Source/spi.c **** 	for (uint8_t count = 0; count < data_size; count++)
+ 222              		.loc 1 40 50 discriminator 2 view .LVU52
+ 223 0020 E4B2     		uxtb	r4, r4
+ 224              	.LVL14:
+ 225              	.L11:
+  40:Core/Source/spi.c **** 	for (uint8_t count = 0; count < data_size; count++)
+ 226              		.loc 1 40 26 is_stmt 1 discriminator 1 view .LVU53
+  40:Core/Source/spi.c **** 	for (uint8_t count = 0; count < data_size; count++)
+ 227              		.loc 1 40 32 is_stmt 0 discriminator 1 view .LVU54
+ 228 0022 A3B2     		uxth	r3, r4
+  40:Core/Source/spi.c **** 	for (uint8_t count = 0; count < data_size; count++)
+ 229              		.loc 1 40 2 discriminator 1 view .LVU55
+ 230 0024 AB42     		cmp	r3, r5
+ 231 0026 F0D3     		bcc	.L12
+ 232              	.LBE2:
+  44:Core/Source/spi.c **** 	}
+  45:Core/Source/spi.c **** }
+ 233              		.loc 1 45 1 view .LVU56
+ 234 0028 70BD     		pop	{r4, r5, r6, pc}
+ 235              	.LVL15:
+ 236              	.L15:
+ 237              		.loc 1 45 1 view .LVU57
+ 238 002a 00BF     		.align	2
+ 239              	.L14:
+ARM GAS  /tmp/cctBUkxl.s 			page 6
+
+
+ 240 002c 00300140 		.word	1073819648
+ 241              		.cfi_endproc
+ 242              	.LFE118:
+ 244              		.section	.text.spi1_config,"ax",%progbits
+ 245              		.align	1
+ 246              		.global	spi1_config
+ 247              		.syntax unified
+ 248              		.thumb
+ 249              		.thumb_func
+ 251              	spi1_config:
+ 252              	.LFB119:
+  46:Core/Source/spi.c **** 
+  47:Core/Source/spi.c **** //------------------------------------------------------------------------------------//
+  48:Core/Source/spi.c **** void spi1_config(void)
+  49:Core/Source/spi.c **** {
+ 253              		.loc 1 49 1 is_stmt 1 view -0
+ 254              		.cfi_startproc
+ 255              		@ args = 0, pretend = 0, frame = 0
+ 256              		@ frame_needed = 0, uses_anonymous_args = 0
+ 257 0000 10B5     		push	{r4, lr}
+ 258              	.LCFI3:
+ 259              		.cfi_def_cfa_offset 8
+ 260              		.cfi_offset 4, -8
+ 261              		.cfi_offset 14, -4
+  50:Core/Source/spi.c ****     SPI1_gpio_init ();
+ 262              		.loc 1 50 5 view .LVU59
+ 263 0002 FFF7FEFF 		bl	SPI1_gpio_init
+ 264              	.LVL16:
+  51:Core/Source/spi.c ****     rcu_periph_clock_enable(RCU_SPI1);
+ 265              		.loc 1 51 5 view .LVU60
+ 266 0006 40F20E70 		movw	r0, #1806
+ 267 000a FFF7FEFF 		bl	rcu_periph_clock_enable
+ 268              	.LVL17:
+  52:Core/Source/spi.c ****     spi_i2s_deinit(SPI1); //deinitialize SPI and the parameters 
+ 269              		.loc 1 52 5 view .LVU61
+ 270 000e 284C     		ldr	r4, .L18
+ 271 0010 2046     		mov	r0, r4
+ 272 0012 FFF7FEFF 		bl	spi_i2s_deinit
+ 273              	.LVL18:
+  53:Core/Source/spi.c **** 
+  54:Core/Source/spi.c ****     SPI_CTL0(SPI1) &= (~SPI_CTL0_CKPH); //Capture the first data at the first clock transition
+ 274              		.loc 1 54 5 view .LVU62
+ 275              		.loc 1 54 20 is_stmt 0 view .LVU63
+ 276 0016 274B     		ldr	r3, .L18+4
+ 277 0018 D3F80028 		ldr	r2, [r3, #2048]
+ 278 001c 22F00102 		bic	r2, r2, #1
+ 279 0020 C3F80028 		str	r2, [r3, #2048]
+  55:Core/Source/spi.c ****     SPI_CTL0(SPI1) &= (~SPI_CTL0_CKPL); //CLK pin is pulled low when SPI is idle
+ 280              		.loc 1 55 5 is_stmt 1 view .LVU64
+ 281              		.loc 1 55 20 is_stmt 0 view .LVU65
+ 282 0024 D3F80028 		ldr	r2, [r3, #2048]
+ 283 0028 22F00202 		bic	r2, r2, #2
+ 284 002c C3F80028 		str	r2, [r3, #2048]
+  56:Core/Source/spi.c ****     SPI_CTL0(SPI1) |= (SPI_CTL0_MSTMOD); //Master mode
+ 285              		.loc 1 56 5 is_stmt 1 view .LVU66
+ 286              		.loc 1 56 20 is_stmt 0 view .LVU67
+ 287 0030 D3F80028 		ldr	r2, [r3, #2048]
+ARM GAS  /tmp/cctBUkxl.s 			page 7
+
+
+ 288 0034 42F00402 		orr	r2, r2, #4
+ 289 0038 C3F80028 		str	r2, [r3, #2048]
+  57:Core/Source/spi.c ****     SPI_CTL0(SPI1) |= SPI_PSC_64;       //Master clock prescaler selection
+ 290              		.loc 1 57 5 is_stmt 1 view .LVU68
+ 291              		.loc 1 57 20 is_stmt 0 view .LVU69
+ 292 003c D3F80028 		ldr	r2, [r3, #2048]
+ 293 0040 42F02802 		orr	r2, r2, #40
+ 294 0044 C3F80028 		str	r2, [r3, #2048]
+  58:Core/Source/spi.c ****     SPI_CTL0(SPI1) &= (~SPI_CTL0_LF);  // 0: Transmit MSB first
+ 295              		.loc 1 58 5 is_stmt 1 view .LVU70
+ 296              		.loc 1 58 20 is_stmt 0 view .LVU71
+ 297 0048 D3F80028 		ldr	r2, [r3, #2048]
+ 298 004c 22F08002 		bic	r2, r2, #128
+ 299 0050 C3F80028 		str	r2, [r3, #2048]
+  59:Core/Source/spi.c ****     SPI_CTL0(SPI1) |= SPI_CTL0_SWNSSEN; //NSS software mode. The NSS level depends on SWNSS bit.
+ 300              		.loc 1 59 5 is_stmt 1 view .LVU72
+ 301              		.loc 1 59 20 is_stmt 0 view .LVU73
+ 302 0054 D3F80028 		ldr	r2, [r3, #2048]
+ 303 0058 42F40072 		orr	r2, r2, #512
+ 304 005c C3F80028 		str	r2, [r3, #2048]
+  60:Core/Source/spi.c ****     //SPI_CTL0(SPI1) &= (~SPI_CTL0_SWNSS); //0:NSS pin is pulled low
+  61:Core/Source/spi.c ****     SPI_CTL0(SPI1) |= SPI_CTL0_SWNSS; //1: NSS pin is pulled high
+ 305              		.loc 1 61 5 is_stmt 1 view .LVU74
+ 306              		.loc 1 61 20 is_stmt 0 view .LVU75
+ 307 0060 D3F80028 		ldr	r2, [r3, #2048]
+ 308 0064 42F48072 		orr	r2, r2, #256
+ 309 0068 C3F80028 		str	r2, [r3, #2048]
+  62:Core/Source/spi.c ****     SPI_CTL0(SPI1) &= (~SPI_CTL0_RO); //Full-duplex mode
+ 310              		.loc 1 62 5 is_stmt 1 view .LVU76
+ 311              		.loc 1 62 20 is_stmt 0 view .LVU77
+ 312 006c D3F80028 		ldr	r2, [r3, #2048]
+ 313 0070 22F48062 		bic	r2, r2, #1024
+ 314 0074 C3F80028 		str	r2, [r3, #2048]
+  63:Core/Source/spi.c ****     SPI_CTL0(SPI1) &= (~SPI_CTL0_FF16); //8-bit data frame format
+ 315              		.loc 1 63 5 is_stmt 1 view .LVU78
+ 316              		.loc 1 63 20 is_stmt 0 view .LVU79
+ 317 0078 D3F80028 		ldr	r2, [r3, #2048]
+ 318 007c 22F40062 		bic	r2, r2, #2048
+ 319 0080 C3F80028 		str	r2, [r3, #2048]
+  64:Core/Source/spi.c ****     SPI_CTL0(SPI1) |= SPI_CTL0_BDEN; //1 line bidirectional transmit mode. The information transfer
+ 320              		.loc 1 64 5 is_stmt 1 view .LVU80
+ 321              		.loc 1 64 20 is_stmt 0 view .LVU81
+ 322 0084 D3F80028 		ldr	r2, [r3, #2048]
+ 323 0088 42F40042 		orr	r2, r2, #32768
+ 324 008c C3F80028 		str	r2, [r3, #2048]
+  65:Core/Source/spi.c ****     SPI_CTL0(SPI1) |= SPI_CTL0_BDOEN; //When BDEN is set, this bit determines the direction of tran
+ 325              		.loc 1 65 5 is_stmt 1 view .LVU82
+ 326              		.loc 1 65 20 is_stmt 0 view .LVU83
+ 327 0090 D3F80028 		ldr	r2, [r3, #2048]
+ 328 0094 42F48042 		orr	r2, r2, #16384
+ 329 0098 C3F80028 		str	r2, [r3, #2048]
+  66:Core/Source/spi.c ****     SPI_CTL0(SPI1) |= (uint32_t)SPI_CTL0_SPIEN; //SPI peripheral is enabled
+ 330              		.loc 1 66 5 is_stmt 1 view .LVU84
+ 331              		.loc 1 66 20 is_stmt 0 view .LVU85
+ 332 009c D3F80028 		ldr	r2, [r3, #2048]
+ 333 00a0 42F04002 		orr	r2, r2, #64
+ 334 00a4 C3F80028 		str	r2, [r3, #2048]
+ARM GAS  /tmp/cctBUkxl.s 			page 8
+
+
+  67:Core/Source/spi.c **** 
+  68:Core/Source/spi.c ****     spi_enable(SPI1);
+ 335              		.loc 1 68 5 is_stmt 1 view .LVU86
+ 336 00a8 2046     		mov	r0, r4
+ 337 00aa FFF7FEFF 		bl	spi_enable
+ 338              	.LVL19:
+  69:Core/Source/spi.c **** }
+ 339              		.loc 1 69 1 is_stmt 0 view .LVU87
+ 340 00ae 10BD     		pop	{r4, pc}
+ 341              	.L19:
+ 342              		.align	2
+ 343              	.L18:
+ 344 00b0 00380040 		.word	1073756160
+ 345 00b4 00300040 		.word	1073754112
+ 346              		.cfi_endproc
+ 347              	.LFE119:
+ 349              		.text
+ 350              	.Letext0:
+ 351              		.file 2 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/m
+ 352              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
+ 353              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
+ 354              		.file 5 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_rcu.h"
+ 355              		.file 6 "Core/Include/gpio.h"
+ 356              		.file 7 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_spi.h"
+ARM GAS  /tmp/cctBUkxl.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 spi.c
+     /tmp/cctBUkxl.s:18     .text.spi0_config:0000000000000000 $t
+     /tmp/cctBUkxl.s:24     .text.spi0_config:0000000000000000 spi0_config
+     /tmp/cctBUkxl.s:117    .text.spi0_config:0000000000000080 $d
+     /tmp/cctBUkxl.s:122    .text.spi_write_byte:0000000000000000 $t
+     /tmp/cctBUkxl.s:128    .text.spi_write_byte:0000000000000000 spi_write_byte
+     /tmp/cctBUkxl.s:165    .text.spi_write_byte:000000000000001c $d
+     /tmp/cctBUkxl.s:170    .text.spi_write_buffer:0000000000000000 $t
+     /tmp/cctBUkxl.s:176    .text.spi_write_buffer:0000000000000000 spi_write_buffer
+     /tmp/cctBUkxl.s:240    .text.spi_write_buffer:000000000000002c $d
+     /tmp/cctBUkxl.s:245    .text.spi1_config:0000000000000000 $t
+     /tmp/cctBUkxl.s:251    .text.spi1_config:0000000000000000 spi1_config
+     /tmp/cctBUkxl.s:344    .text.spi1_config:00000000000000b0 $d
+
+UNDEFINED SYMBOLS
+SPI0_gpio_init
+rcu_periph_clock_enable
+spi_i2s_deinit
+spi_enable
+spi_i2s_flag_get
+spi_i2s_data_transmit
+SPI1_gpio_init

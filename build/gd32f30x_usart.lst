@@ -1,0 +1,2935 @@
+ARM GAS  /tmp/ccN5vJ6u.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"gd32f30x_usart.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.usart_deinit,"ax",%progbits
+  18              		.align	1
+  19              		.global	usart_deinit
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	usart_deinit:
+  25              	.LVL0:
+  26              	.LFB116:
+  27              		.file 1 "Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c"
+   1:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+   2:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \file    gd32f30x_usart.c
+   3:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief   USART driver
+   4:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+   5:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \version 2017-02-10, V1.0.0, firmware for GD32F30x
+   6:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \version 2018-10-10, V1.1.0, firmware for GD32F30x
+   7:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \version 2018-12-25, V2.0.0, firmware for GD32F30x
+   8:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \version 2020-09-30, V2.1.0, firmware for GD32F30x
+   9:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+  10:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+  11:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*
+  12:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     Copyright (c) 2020, GigaDevice Semiconductor Inc.
+  13:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+  14:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     Redistribution and use in source and binary forms, with or without modification, 
+  15:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** are permitted provided that the following conditions are met:
+  16:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+  17:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     1. Redistributions of source code must retain the above copyright notice, this 
+  18:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****        list of conditions and the following disclaimer.
+  19:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     2. Redistributions in binary form must reproduce the above copyright notice, 
+  20:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****        this list of conditions and the following disclaimer in the documentation 
+  21:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****        and/or other materials provided with the distribution.
+  22:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     3. Neither the name of the copyright holder nor the names of its contributors 
+  23:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****        may be used to endorse or promote products derived from this software without 
+  24:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****        specific prior written permission.
+  25:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+  26:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+  27:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  28:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  29:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  30:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  31:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+ARM GAS  /tmp/ccN5vJ6u.s 			page 2
+
+
+  32:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  33:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  34:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
+  35:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** OF SUCH DAMAGE.
+  36:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+  37:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+  38:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** #include "gd32f30x_usart.h"
+  39:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+  40:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /* USART register bit offset */
+  41:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** #define GP_GUAT_OFFSET            ((uint32_t)8U)       /* bit offset of GUAT in USART_GP */
+  42:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** #define CTL3_SCRTNUM_OFFSET       ((uint32_t)1U)       /* bit offset of SCRTNUM in USART_CTL3 */
+  43:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** #define RT_BL_OFFSET              ((uint32_t)24U)      /* bit offset of BL in USART_RT */
+  44:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+  45:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+  46:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      reset USART/UART 
+  47:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+  48:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+  49:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+  50:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+  51:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_deinit(uint32_t usart_periph)
+  52:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+  28              		.loc 1 52 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		.loc 1 52 1 is_stmt 0 view .LVU1
+  33 0000 08B5     		push	{r3, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 3, -8
+  37              		.cfi_offset 14, -4
+  53:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     switch(usart_periph){
+  38              		.loc 1 53 5 is_stmt 1 view .LVU2
+  39 0002 204B     		ldr	r3, .L10
+  40 0004 9842     		cmp	r0, r3
+  41 0006 2AD0     		beq	.L2
+  42 0008 0FD9     		bls	.L9
+  43 000a 1F4B     		ldr	r3, .L10+4
+  44 000c 9842     		cmp	r0, r3
+  45 000e 2FD0     		beq	.L7
+  46 0010 03F56843 		add	r3, r3, #59392
+  47 0014 9842     		cmp	r0, r3
+  48 0016 07D1     		bne	.L1
+  54:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case USART0:
+  55:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         /* reset USART0 */
+  56:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         rcu_periph_reset_enable(RCU_USART0RST);
+  49              		.loc 1 56 9 view .LVU3
+  50 0018 40F20E30 		movw	r0, #782
+  51              	.LVL1:
+  52              		.loc 1 56 9 is_stmt 0 view .LVU4
+  53 001c FFF7FEFF 		bl	rcu_periph_reset_enable
+  54              	.LVL2:
+  57:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         rcu_periph_reset_disable(RCU_USART0RST);
+  55              		.loc 1 57 9 is_stmt 1 view .LVU5
+  56 0020 40F20E30 		movw	r0, #782
+  57 0024 FFF7FEFF 		bl	rcu_periph_reset_disable
+  58              	.LVL3:
+ARM GAS  /tmp/ccN5vJ6u.s 			page 3
+
+
+  58:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         break;
+  59              		.loc 1 58 9 view .LVU6
+  60              	.L1:
+  59:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case USART1:
+  60:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         /* reset USART1 */
+  61:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         rcu_periph_reset_enable(RCU_USART1RST);
+  62:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         rcu_periph_reset_disable(RCU_USART1RST);
+  63:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         break;
+  64:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case USART2:
+  65:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         /* reset USART2 */
+  66:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         rcu_periph_reset_enable(RCU_USART2RST);
+  67:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         rcu_periph_reset_disable(RCU_USART2RST);
+  68:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         break;
+  69:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case UART3:
+  70:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         /* reset UART3 */
+  71:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         rcu_periph_reset_enable(RCU_UART3RST);
+  72:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         rcu_periph_reset_disable(RCU_UART3RST);
+  73:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         break;
+  74:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case UART4:
+  75:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         /* reset UART4 */
+  76:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         rcu_periph_reset_enable(RCU_UART4RST);
+  77:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         rcu_periph_reset_disable(RCU_UART4RST);
+  78:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         break;
+  79:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     default:
+  80:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         break;
+  81:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     }
+  82:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+  61              		.loc 1 82 1 is_stmt 0 view .LVU7
+  62 0028 08BD     		pop	{r3, pc}
+  63              	.LVL4:
+  64              	.L9:
+  53:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case USART0:
+  65              		.loc 1 53 5 view .LVU8
+  66 002a A3F50063 		sub	r3, r3, #2048
+  67 002e 9842     		cmp	r0, r3
+  68 0030 0CD0     		beq	.L4
+  69 0032 03F58063 		add	r3, r3, #1024
+  70 0036 9842     		cmp	r0, r3
+  71 0038 F6D1     		bne	.L1
+  66:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         rcu_periph_reset_disable(RCU_USART2RST);
+  72              		.loc 1 66 9 is_stmt 1 view .LVU9
+  73 003a 40F21240 		movw	r0, #1042
+  74              	.LVL5:
+  66:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         rcu_periph_reset_disable(RCU_USART2RST);
+  75              		.loc 1 66 9 is_stmt 0 view .LVU10
+  76 003e FFF7FEFF 		bl	rcu_periph_reset_enable
+  77              	.LVL6:
+  67:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         break;
+  78              		.loc 1 67 9 is_stmt 1 view .LVU11
+  79 0042 40F21240 		movw	r0, #1042
+  80 0046 FFF7FEFF 		bl	rcu_periph_reset_disable
+  81              	.LVL7:
+  68:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case UART3:
+  82              		.loc 1 68 9 view .LVU12
+  83 004a EDE7     		b	.L1
+  84              	.LVL8:
+  85              	.L4:
+ARM GAS  /tmp/ccN5vJ6u.s 			page 4
+
+
+  61:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         rcu_periph_reset_disable(RCU_USART1RST);
+  86              		.loc 1 61 9 view .LVU13
+  87 004c 40F21140 		movw	r0, #1041
+  88              	.LVL9:
+  61:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         rcu_periph_reset_disable(RCU_USART1RST);
+  89              		.loc 1 61 9 is_stmt 0 view .LVU14
+  90 0050 FFF7FEFF 		bl	rcu_periph_reset_enable
+  91              	.LVL10:
+  62:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         break;
+  92              		.loc 1 62 9 is_stmt 1 view .LVU15
+  93 0054 40F21140 		movw	r0, #1041
+  94 0058 FFF7FEFF 		bl	rcu_periph_reset_disable
+  95              	.LVL11:
+  63:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case USART2:
+  96              		.loc 1 63 9 view .LVU16
+  97 005c E4E7     		b	.L1
+  98              	.LVL12:
+  99              	.L2:
+  71:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         rcu_periph_reset_disable(RCU_UART3RST);
+ 100              		.loc 1 71 9 view .LVU17
+ 101 005e 40F21340 		movw	r0, #1043
+ 102              	.LVL13:
+  71:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         rcu_periph_reset_disable(RCU_UART3RST);
+ 103              		.loc 1 71 9 is_stmt 0 view .LVU18
+ 104 0062 FFF7FEFF 		bl	rcu_periph_reset_enable
+ 105              	.LVL14:
+  72:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         break;
+ 106              		.loc 1 72 9 is_stmt 1 view .LVU19
+ 107 0066 40F21340 		movw	r0, #1043
+ 108 006a FFF7FEFF 		bl	rcu_periph_reset_disable
+ 109              	.LVL15:
+  73:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case UART4:
+ 110              		.loc 1 73 9 view .LVU20
+ 111 006e DBE7     		b	.L1
+ 112              	.LVL16:
+ 113              	.L7:
+  76:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         rcu_periph_reset_disable(RCU_UART4RST);
+ 114              		.loc 1 76 9 view .LVU21
+ 115 0070 40F21440 		movw	r0, #1044
+ 116              	.LVL17:
+  76:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         rcu_periph_reset_disable(RCU_UART4RST);
+ 117              		.loc 1 76 9 is_stmt 0 view .LVU22
+ 118 0074 FFF7FEFF 		bl	rcu_periph_reset_enable
+ 119              	.LVL18:
+  77:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         break;
+ 120              		.loc 1 77 9 is_stmt 1 view .LVU23
+ 121 0078 40F21440 		movw	r0, #1044
+ 122 007c FFF7FEFF 		bl	rcu_periph_reset_disable
+ 123              	.LVL19:
+  78:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     default:
+ 124              		.loc 1 78 9 view .LVU24
+ 125              		.loc 1 82 1 is_stmt 0 view .LVU25
+ 126 0080 D2E7     		b	.L1
+ 127              	.L11:
+ 128 0082 00BF     		.align	2
+ 129              	.L10:
+ 130 0084 004C0040 		.word	1073761280
+ARM GAS  /tmp/ccN5vJ6u.s 			page 5
+
+
+ 131 0088 00500040 		.word	1073762304
+ 132              		.cfi_endproc
+ 133              	.LFE116:
+ 135              		.section	.text.usart_baudrate_set,"ax",%progbits
+ 136              		.align	1
+ 137              		.global	usart_baudrate_set
+ 138              		.syntax unified
+ 139              		.thumb
+ 140              		.thumb_func
+ 142              	usart_baudrate_set:
+ 143              	.LVL20:
+ 144              	.LFB117:
+  83:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+  84:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+  85:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      configure USART baud rate value
+  86:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+  87:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  baudval: baud rate value
+  88:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+  89:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+  90:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */ 
+  91:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_baudrate_set(uint32_t usart_periph, uint32_t baudval)
+  92:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 145              		.loc 1 92 1 is_stmt 1 view -0
+ 146              		.cfi_startproc
+ 147              		@ args = 0, pretend = 0, frame = 0
+ 148              		@ frame_needed = 0, uses_anonymous_args = 0
+ 149              		.loc 1 92 1 is_stmt 0 view .LVU27
+ 150 0000 38B5     		push	{r3, r4, r5, lr}
+ 151              	.LCFI1:
+ 152              		.cfi_def_cfa_offset 16
+ 153              		.cfi_offset 3, -16
+ 154              		.cfi_offset 4, -12
+ 155              		.cfi_offset 5, -8
+ 156              		.cfi_offset 14, -4
+ 157 0002 0446     		mov	r4, r0
+ 158 0004 0D46     		mov	r5, r1
+  93:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     uint32_t uclk=0U, intdiv=0U, fradiv=0U, udiv=0U;
+ 159              		.loc 1 93 5 is_stmt 1 view .LVU28
+ 160              	.LVL21:
+  94:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     switch(usart_periph){
+ 161              		.loc 1 94 5 view .LVU29
+ 162 0006 184B     		ldr	r3, .L23
+ 163 0008 9842     		cmp	r0, r3
+ 164 000a 23D0     		beq	.L13
+ 165 000c 10D9     		bls	.L21
+ 166 000e 174B     		ldr	r3, .L23+4
+ 167 0010 9842     		cmp	r0, r3
+ 168 0012 23D0     		beq	.L18
+ 169 0014 03F56843 		add	r3, r3, #59392
+ 170 0018 9842     		cmp	r0, r3
+ 171 001a 23D1     		bne	.L19
+  95:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          /* get clock frequency */
+  96:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case USART0:
+  97:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          /* get USART0 clock */
+  98:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          uclk = rcu_clock_freq_get(CK_APB2);
+ 172              		.loc 1 98 10 view .LVU30
+ 173              		.loc 1 98 17 is_stmt 0 view .LVU31
+ARM GAS  /tmp/ccN5vJ6u.s 			page 6
+
+
+ 174 001c 0320     		movs	r0, #3
+ 175              	.LVL22:
+ 176              		.loc 1 98 17 view .LVU32
+ 177 001e FFF7FEFF 		bl	rcu_clock_freq_get
+ 178              	.LVL23:
+  99:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          break;
+ 179              		.loc 1 99 10 is_stmt 1 view .LVU33
+ 180              	.L17:
+ 100:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case USART1:
+ 101:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          /* get USART1 clock */
+ 102:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          uclk = rcu_clock_freq_get(CK_APB1);
+ 103:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          break;
+ 104:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case USART2:
+ 105:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          /* get USART2 clock */
+ 106:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          uclk = rcu_clock_freq_get(CK_APB1);
+ 107:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          break;
+ 108:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case UART3:
+ 109:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          /* get UART3 clock */
+ 110:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          uclk = rcu_clock_freq_get(CK_APB1);
+ 111:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          break;
+ 112:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case UART4:
+ 113:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          /* get UART4 clock */
+ 114:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          uclk = rcu_clock_freq_get(CK_APB1);
+ 115:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          break;  
+ 116:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     default:
+ 117:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          break;
+ 118:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     }
+ 119:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     /* oversampling by 16, configure the value of USART_BAUD */
+ 120:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     udiv = (uclk+baudval/2U)/baudval;
+ 181              		.loc 1 120 5 view .LVU34
+ 182              		.loc 1 120 17 is_stmt 0 view .LVU35
+ 183 0022 00EB5500 		add	r0, r0, r5, lsr #1
+ 184              	.LVL24:
+ 185              		.loc 1 120 10 view .LVU36
+ 186 0026 B0FBF5F1 		udiv	r1, r0, r5
+ 187              	.LVL25:
+ 121:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     intdiv = udiv & 0xfff0U;
+ 188              		.loc 1 121 5 is_stmt 1 view .LVU37
+ 122:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     fradiv = udiv & 0xfU;
+ 189              		.loc 1 122 5 view .LVU38
+ 123:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_BAUD(usart_periph) = ((USART_BAUD_FRADIV | USART_BAUD_INTDIV) & (intdiv | fradiv));
+ 190              		.loc 1 123 5 view .LVU39
+ 191              		.loc 1 123 83 is_stmt 0 view .LVU40
+ 192 002a 89B2     		uxth	r1, r1
+ 193              	.LVL26:
+ 194              		.loc 1 123 30 view .LVU41
+ 195 002c A160     		str	r1, [r4, #8]
+ 124:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 196              		.loc 1 124 1 view .LVU42
+ 197 002e 38BD     		pop	{r3, r4, r5, pc}
+ 198              	.LVL27:
+ 199              	.L21:
+  94:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          /* get clock frequency */
+ 200              		.loc 1 94 5 view .LVU43
+ 201 0030 A3F50063 		sub	r3, r3, #2048
+ 202 0034 9842     		cmp	r0, r3
+ 203 0036 09D0     		beq	.L15
+ARM GAS  /tmp/ccN5vJ6u.s 			page 7
+
+
+ 204 0038 03F58063 		add	r3, r3, #1024
+ 205 003c 9842     		cmp	r0, r3
+ 206 003e 03D1     		bne	.L22
+ 106:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          break;
+ 207              		.loc 1 106 10 is_stmt 1 view .LVU44
+ 106:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          break;
+ 208              		.loc 1 106 17 is_stmt 0 view .LVU45
+ 209 0040 0220     		movs	r0, #2
+ 210              	.LVL28:
+ 106:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          break;
+ 211              		.loc 1 106 17 view .LVU46
+ 212 0042 FFF7FEFF 		bl	rcu_clock_freq_get
+ 213              	.LVL29:
+ 107:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case UART3:
+ 214              		.loc 1 107 10 is_stmt 1 view .LVU47
+ 215 0046 ECE7     		b	.L17
+ 216              	.LVL30:
+ 217              	.L22:
+  94:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          /* get clock frequency */
+ 218              		.loc 1 94 5 is_stmt 0 view .LVU48
+ 219 0048 0020     		movs	r0, #0
+ 220              	.LVL31:
+  94:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          /* get clock frequency */
+ 221              		.loc 1 94 5 view .LVU49
+ 222 004a EAE7     		b	.L17
+ 223              	.LVL32:
+ 224              	.L15:
+ 102:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          break;
+ 225              		.loc 1 102 10 is_stmt 1 view .LVU50
+ 102:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          break;
+ 226              		.loc 1 102 17 is_stmt 0 view .LVU51
+ 227 004c 0220     		movs	r0, #2
+ 228              	.LVL33:
+ 102:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          break;
+ 229              		.loc 1 102 17 view .LVU52
+ 230 004e FFF7FEFF 		bl	rcu_clock_freq_get
+ 231              	.LVL34:
+ 103:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case USART2:
+ 232              		.loc 1 103 10 is_stmt 1 view .LVU53
+ 233 0052 E6E7     		b	.L17
+ 234              	.LVL35:
+ 235              	.L13:
+ 110:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          break;
+ 236              		.loc 1 110 10 view .LVU54
+ 110:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          break;
+ 237              		.loc 1 110 17 is_stmt 0 view .LVU55
+ 238 0054 0220     		movs	r0, #2
+ 239              	.LVL36:
+ 110:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          break;
+ 240              		.loc 1 110 17 view .LVU56
+ 241 0056 FFF7FEFF 		bl	rcu_clock_freq_get
+ 242              	.LVL37:
+ 111:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case UART4:
+ 243              		.loc 1 111 10 is_stmt 1 view .LVU57
+ 244 005a E2E7     		b	.L17
+ 245              	.LVL38:
+ 246              	.L18:
+ARM GAS  /tmp/ccN5vJ6u.s 			page 8
+
+
+ 114:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          break;  
+ 247              		.loc 1 114 10 view .LVU58
+ 114:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          break;  
+ 248              		.loc 1 114 17 is_stmt 0 view .LVU59
+ 249 005c 0220     		movs	r0, #2
+ 250              	.LVL39:
+ 114:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          break;  
+ 251              		.loc 1 114 17 view .LVU60
+ 252 005e FFF7FEFF 		bl	rcu_clock_freq_get
+ 253              	.LVL40:
+ 115:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     default:
+ 254              		.loc 1 115 10 is_stmt 1 view .LVU61
+ 255 0062 DEE7     		b	.L17
+ 256              	.LVL41:
+ 257              	.L19:
+  94:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          /* get clock frequency */
+ 258              		.loc 1 94 5 is_stmt 0 view .LVU62
+ 259 0064 0020     		movs	r0, #0
+ 260              	.LVL42:
+  94:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****          /* get clock frequency */
+ 261              		.loc 1 94 5 view .LVU63
+ 262 0066 DCE7     		b	.L17
+ 263              	.L24:
+ 264              		.align	2
+ 265              	.L23:
+ 266 0068 004C0040 		.word	1073761280
+ 267 006c 00500040 		.word	1073762304
+ 268              		.cfi_endproc
+ 269              	.LFE117:
+ 271              		.section	.text.usart_parity_config,"ax",%progbits
+ 272              		.align	1
+ 273              		.global	usart_parity_config
+ 274              		.syntax unified
+ 275              		.thumb
+ 276              		.thumb_func
+ 278              	usart_parity_config:
+ 279              	.LVL43:
+ 280              	.LFB118:
+ 125:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 126:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 127:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief       configure USART parity
+ 128:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in] usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 129:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in] paritycfg: configure USART parity
+ 130:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                only one parameter can be selected which is shown as below:
+ 131:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg       USART_PM_NONE: no parity
+ 132:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg       USART_PM_ODD:  odd parity
+ 133:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg       USART_PM_EVEN: even parity 
+ 134:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 135:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 136:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 137:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_parity_config(uint32_t usart_periph, uint32_t paritycfg)
+ 138:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 281              		.loc 1 138 1 is_stmt 1 view -0
+ 282              		.cfi_startproc
+ 283              		@ args = 0, pretend = 0, frame = 0
+ 284              		@ frame_needed = 0, uses_anonymous_args = 0
+ 285              		@ link register save eliminated.
+ARM GAS  /tmp/ccN5vJ6u.s 			page 9
+
+
+ 139:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     /* clear USART_CTL0 PM,PCEN bits */
+ 140:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL0(usart_periph) &= ~(USART_CTL0_PM | USART_CTL0_PCEN);
+ 286              		.loc 1 140 5 view .LVU65
+ 287              		.loc 1 140 30 is_stmt 0 view .LVU66
+ 288 0000 C268     		ldr	r2, [r0, #12]
+ 289 0002 22F4C062 		bic	r2, r2, #1536
+ 290 0006 C260     		str	r2, [r0, #12]
+ 141:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     /* configure USART parity mode */
+ 142:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL0(usart_periph) |= paritycfg ;
+ 291              		.loc 1 142 5 is_stmt 1 view .LVU67
+ 292              		.loc 1 142 30 is_stmt 0 view .LVU68
+ 293 0008 C368     		ldr	r3, [r0, #12]
+ 294 000a 0B43     		orrs	r3, r3, r1
+ 295 000c C360     		str	r3, [r0, #12]
+ 143:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 296              		.loc 1 143 1 view .LVU69
+ 297 000e 7047     		bx	lr
+ 298              		.cfi_endproc
+ 299              	.LFE118:
+ 301              		.section	.text.usart_word_length_set,"ax",%progbits
+ 302              		.align	1
+ 303              		.global	usart_word_length_set
+ 304              		.syntax unified
+ 305              		.thumb
+ 306              		.thumb_func
+ 308              	usart_word_length_set:
+ 309              	.LVL44:
+ 310              	.LFB119:
+ 144:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 145:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 146:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief       configure USART word length
+ 147:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in] usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 148:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in] wlen: USART word length configure
+ 149:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                only one parameter can be selected which is shown as below:
+ 150:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg       USART_WL_8BIT: 8 bits
+ 151:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg       USART_WL_9BIT: 9 bits
+ 152:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 153:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 154:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 155:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_word_length_set(uint32_t usart_periph, uint32_t wlen)
+ 156:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 311              		.loc 1 156 1 is_stmt 1 view -0
+ 312              		.cfi_startproc
+ 313              		@ args = 0, pretend = 0, frame = 0
+ 314              		@ frame_needed = 0, uses_anonymous_args = 0
+ 315              		@ link register save eliminated.
+ 157:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     /* clear USART_CTL0 WL bit */
+ 158:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL0(usart_periph) &= ~USART_CTL0_WL;
+ 316              		.loc 1 158 5 view .LVU71
+ 317              		.loc 1 158 30 is_stmt 0 view .LVU72
+ 318 0000 C268     		ldr	r2, [r0, #12]
+ 319 0002 22F48052 		bic	r2, r2, #4096
+ 320 0006 C260     		str	r2, [r0, #12]
+ 159:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     /* configure USART word length */
+ 160:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL0(usart_periph) |= wlen;
+ 321              		.loc 1 160 5 is_stmt 1 view .LVU73
+ 322              		.loc 1 160 30 is_stmt 0 view .LVU74
+ARM GAS  /tmp/ccN5vJ6u.s 			page 10
+
+
+ 323 0008 C368     		ldr	r3, [r0, #12]
+ 324 000a 0B43     		orrs	r3, r3, r1
+ 325 000c C360     		str	r3, [r0, #12]
+ 161:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 326              		.loc 1 161 1 view .LVU75
+ 327 000e 7047     		bx	lr
+ 328              		.cfi_endproc
+ 329              	.LFE119:
+ 331              		.section	.text.usart_stop_bit_set,"ax",%progbits
+ 332              		.align	1
+ 333              		.global	usart_stop_bit_set
+ 334              		.syntax unified
+ 335              		.thumb
+ 336              		.thumb_func
+ 338              	usart_stop_bit_set:
+ 339              	.LVL45:
+ 340              	.LFB120:
+ 162:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 163:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 164:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief       configure USART stop bit length
+ 165:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in] usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 166:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in] stblen: USART stop bit configure
+ 167:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                only one parameter can be selected which is shown as below:
+ 168:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg       USART_STB_1BIT:   1 bit
+ 169:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg       USART_STB_0_5BIT: 0.5 bit, not available for UARTx(x=3,4)
+ 170:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg       USART_STB_2BIT:   2 bits
+ 171:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg       USART_STB_1_5BIT: 1.5 bits, not available for UARTx(x=3,4)
+ 172:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 173:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 174:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 175:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_stop_bit_set(uint32_t usart_periph, uint32_t stblen)
+ 176:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 341              		.loc 1 176 1 is_stmt 1 view -0
+ 342              		.cfi_startproc
+ 343              		@ args = 0, pretend = 0, frame = 0
+ 344              		@ frame_needed = 0, uses_anonymous_args = 0
+ 345              		@ link register save eliminated.
+ 177:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     /* clear USART_CTL1 STB bits */
+ 178:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL1(usart_periph) &= ~USART_CTL1_STB; 
+ 346              		.loc 1 178 5 view .LVU77
+ 347              		.loc 1 178 30 is_stmt 0 view .LVU78
+ 348 0000 0269     		ldr	r2, [r0, #16]
+ 349 0002 22F44052 		bic	r2, r2, #12288
+ 350 0006 0261     		str	r2, [r0, #16]
+ 179:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     /* configure USART stop bits */
+ 180:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL1(usart_periph) |= stblen;
+ 351              		.loc 1 180 5 is_stmt 1 view .LVU79
+ 352              		.loc 1 180 30 is_stmt 0 view .LVU80
+ 353 0008 0369     		ldr	r3, [r0, #16]
+ 354 000a 0B43     		orrs	r3, r3, r1
+ 355 000c 0361     		str	r3, [r0, #16]
+ 181:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 356              		.loc 1 181 1 view .LVU81
+ 357 000e 7047     		bx	lr
+ 358              		.cfi_endproc
+ 359              	.LFE120:
+ 361              		.section	.text.usart_enable,"ax",%progbits
+ARM GAS  /tmp/ccN5vJ6u.s 			page 11
+
+
+ 362              		.align	1
+ 363              		.global	usart_enable
+ 364              		.syntax unified
+ 365              		.thumb
+ 366              		.thumb_func
+ 368              	usart_enable:
+ 369              	.LVL46:
+ 370              	.LFB121:
+ 182:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 183:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 184:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      enable USART
+ 185:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 186:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 187:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 188:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 189:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_enable(uint32_t usart_periph)
+ 190:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 371              		.loc 1 190 1 is_stmt 1 view -0
+ 372              		.cfi_startproc
+ 373              		@ args = 0, pretend = 0, frame = 0
+ 374              		@ frame_needed = 0, uses_anonymous_args = 0
+ 375              		@ link register save eliminated.
+ 191:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL0(usart_periph) |= USART_CTL0_UEN;
+ 376              		.loc 1 191 5 view .LVU83
+ 377              		.loc 1 191 30 is_stmt 0 view .LVU84
+ 378 0000 C368     		ldr	r3, [r0, #12]
+ 379 0002 43F40053 		orr	r3, r3, #8192
+ 380 0006 C360     		str	r3, [r0, #12]
+ 192:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 381              		.loc 1 192 1 view .LVU85
+ 382 0008 7047     		bx	lr
+ 383              		.cfi_endproc
+ 384              	.LFE121:
+ 386              		.section	.text.usart_disable,"ax",%progbits
+ 387              		.align	1
+ 388              		.global	usart_disable
+ 389              		.syntax unified
+ 390              		.thumb
+ 391              		.thumb_func
+ 393              	usart_disable:
+ 394              	.LVL47:
+ 395              	.LFB122:
+ 193:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 194:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 195:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief       disable USART
+ 196:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in] usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 197:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 198:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 199:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 200:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_disable(uint32_t usart_periph)
+ 201:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 396              		.loc 1 201 1 is_stmt 1 view -0
+ 397              		.cfi_startproc
+ 398              		@ args = 0, pretend = 0, frame = 0
+ 399              		@ frame_needed = 0, uses_anonymous_args = 0
+ 400              		@ link register save eliminated.
+ 202:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL0(usart_periph) &= ~(USART_CTL0_UEN);
+ARM GAS  /tmp/ccN5vJ6u.s 			page 12
+
+
+ 401              		.loc 1 202 5 view .LVU87
+ 402              		.loc 1 202 30 is_stmt 0 view .LVU88
+ 403 0000 C368     		ldr	r3, [r0, #12]
+ 404 0002 23F40053 		bic	r3, r3, #8192
+ 405 0006 C360     		str	r3, [r0, #12]
+ 203:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 406              		.loc 1 203 1 view .LVU89
+ 407 0008 7047     		bx	lr
+ 408              		.cfi_endproc
+ 409              	.LFE122:
+ 411              		.section	.text.usart_transmit_config,"ax",%progbits
+ 412              		.align	1
+ 413              		.global	usart_transmit_config
+ 414              		.syntax unified
+ 415              		.thumb
+ 416              		.thumb_func
+ 418              	usart_transmit_config:
+ 419              	.LVL48:
+ 420              	.LFB123:
+ 204:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 205:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 206:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      configure USART transmitter
+ 207:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 208:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  txconfig: enable or disable USART transmitter
+ 209:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 210:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_TRANSMIT_ENABLE: enable USART transmission
+ 211:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_TRANSMIT_DISABLE: enable USART transmission
+ 212:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 213:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 214:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 215:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_transmit_config(uint32_t usart_periph, uint32_t txconfig)
+ 216:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 421              		.loc 1 216 1 is_stmt 1 view -0
+ 422              		.cfi_startproc
+ 423              		@ args = 0, pretend = 0, frame = 0
+ 424              		@ frame_needed = 0, uses_anonymous_args = 0
+ 425              		@ link register save eliminated.
+ 217:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     uint32_t ctl = 0U;
+ 426              		.loc 1 217 5 view .LVU91
+ 218:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     
+ 219:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl = USART_CTL0(usart_periph);
+ 427              		.loc 1 219 5 view .LVU92
+ 428              		.loc 1 219 9 is_stmt 0 view .LVU93
+ 429 0000 C368     		ldr	r3, [r0, #12]
+ 430              	.LVL49:
+ 220:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl &= ~USART_CTL0_TEN;
+ 431              		.loc 1 220 5 is_stmt 1 view .LVU94
+ 432              		.loc 1 220 9 is_stmt 0 view .LVU95
+ 433 0002 23F00803 		bic	r3, r3, #8
+ 434              	.LVL50:
+ 221:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl |= txconfig;
+ 435              		.loc 1 221 5 is_stmt 1 view .LVU96
+ 436              		.loc 1 221 9 is_stmt 0 view .LVU97
+ 437 0006 0B43     		orrs	r3, r3, r1
+ 438              	.LVL51:
+ 222:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     /* configure transfer mode */
+ 223:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL0(usart_periph) = ctl;
+ARM GAS  /tmp/ccN5vJ6u.s 			page 13
+
+
+ 439              		.loc 1 223 5 is_stmt 1 view .LVU98
+ 440              		.loc 1 223 30 is_stmt 0 view .LVU99
+ 441 0008 C360     		str	r3, [r0, #12]
+ 224:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 442              		.loc 1 224 1 view .LVU100
+ 443 000a 7047     		bx	lr
+ 444              		.cfi_endproc
+ 445              	.LFE123:
+ 447              		.section	.text.usart_receive_config,"ax",%progbits
+ 448              		.align	1
+ 449              		.global	usart_receive_config
+ 450              		.syntax unified
+ 451              		.thumb
+ 452              		.thumb_func
+ 454              	usart_receive_config:
+ 455              	.LVL52:
+ 456              	.LFB124:
+ 225:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 226:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 227:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      configure USART receiver
+ 228:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 229:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  rxconfig: enable or disable USART receiver
+ 230:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 231:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_RECEIVE_ENABLE: enable USART reception
+ 232:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_RECEIVE_DISABLE: disable USART reception
+ 233:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 234:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 235:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 236:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_receive_config(uint32_t usart_periph, uint32_t rxconfig)
+ 237:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 457              		.loc 1 237 1 is_stmt 1 view -0
+ 458              		.cfi_startproc
+ 459              		@ args = 0, pretend = 0, frame = 0
+ 460              		@ frame_needed = 0, uses_anonymous_args = 0
+ 461              		@ link register save eliminated.
+ 238:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     uint32_t ctl = 0U;
+ 462              		.loc 1 238 5 view .LVU102
+ 239:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     
+ 240:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl = USART_CTL0(usart_periph);
+ 463              		.loc 1 240 5 view .LVU103
+ 464              		.loc 1 240 9 is_stmt 0 view .LVU104
+ 465 0000 C368     		ldr	r3, [r0, #12]
+ 466              	.LVL53:
+ 241:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl &= ~USART_CTL0_REN;
+ 467              		.loc 1 241 5 is_stmt 1 view .LVU105
+ 468              		.loc 1 241 9 is_stmt 0 view .LVU106
+ 469 0002 23F00403 		bic	r3, r3, #4
+ 470              	.LVL54:
+ 242:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl |= rxconfig;
+ 471              		.loc 1 242 5 is_stmt 1 view .LVU107
+ 472              		.loc 1 242 9 is_stmt 0 view .LVU108
+ 473 0006 0B43     		orrs	r3, r3, r1
+ 474              	.LVL55:
+ 243:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     /* configure transfer mode */
+ 244:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL0(usart_periph) = ctl;
+ 475              		.loc 1 244 5 is_stmt 1 view .LVU109
+ 476              		.loc 1 244 30 is_stmt 0 view .LVU110
+ARM GAS  /tmp/ccN5vJ6u.s 			page 14
+
+
+ 477 0008 C360     		str	r3, [r0, #12]
+ 245:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 478              		.loc 1 245 1 view .LVU111
+ 479 000a 7047     		bx	lr
+ 480              		.cfi_endproc
+ 481              	.LFE124:
+ 483              		.section	.text.usart_data_first_config,"ax",%progbits
+ 484              		.align	1
+ 485              		.global	usart_data_first_config
+ 486              		.syntax unified
+ 487              		.thumb
+ 488              		.thumb_func
+ 490              	usart_data_first_config:
+ 491              	.LVL56:
+ 492              	.LFB125:
+ 246:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 247:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 248:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      data is transmitted/received with the LSB/MSB first
+ 249:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)
+ 250:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  msbf: LSB/MSB
+ 251:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 252:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_MSBF_LSB: LSB first
+ 253:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_MSBF_MSB: MSB first
+ 254:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 255:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 256:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 257:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_data_first_config(uint32_t usart_periph, uint32_t msbf)
+ 258:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 493              		.loc 1 258 1 is_stmt 1 view -0
+ 494              		.cfi_startproc
+ 495              		@ args = 0, pretend = 0, frame = 0
+ 496              		@ frame_needed = 0, uses_anonymous_args = 0
+ 497              		@ link register save eliminated.
+ 259:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL3(usart_periph) &= ~(USART_CTL3_MSBF); 
+ 498              		.loc 1 259 5 view .LVU113
+ 499              		.loc 1 259 30 is_stmt 0 view .LVU114
+ 500 0000 D0F88020 		ldr	r2, [r0, #128]
+ 501 0004 22F40062 		bic	r2, r2, #2048
+ 502 0008 C0F88020 		str	r2, [r0, #128]
+ 260:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL3(usart_periph) |= msbf;
+ 503              		.loc 1 260 5 is_stmt 1 view .LVU115
+ 504              		.loc 1 260 30 is_stmt 0 view .LVU116
+ 505 000c D0F88030 		ldr	r3, [r0, #128]
+ 506 0010 0B43     		orrs	r3, r3, r1
+ 507 0012 C0F88030 		str	r3, [r0, #128]
+ 261:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 508              		.loc 1 261 1 view .LVU117
+ 509 0016 7047     		bx	lr
+ 510              		.cfi_endproc
+ 511              	.LFE125:
+ 513              		.section	.text.usart_invert_config,"ax",%progbits
+ 514              		.align	1
+ 515              		.global	usart_invert_config
+ 516              		.syntax unified
+ 517              		.thumb
+ 518              		.thumb_func
+ 520              	usart_invert_config:
+ARM GAS  /tmp/ccN5vJ6u.s 			page 15
+
+
+ 521              	.LVL57:
+ 522              	.LFB126:
+ 262:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 263:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 264:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      configure USART inversion
+ 265:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)
+ 266:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  invertpara: refer to enum usart_invert_enum
+ 267:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 268:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_DINV_ENABLE: data bit level inversion
+ 269:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_DINV_DISABLE: data bit level not inversion
+ 270:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_TXPIN_ENABLE: TX pin level inversion
+ 271:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_TXPIN_DISABLE: TX pin level not inversion
+ 272:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_RXPIN_ENABLE: RX pin level inversion
+ 273:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_RXPIN_DISABLE: RX pin level not inversion
+ 274:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 275:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 276:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 277:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_invert_config(uint32_t usart_periph, usart_invert_enum invertpara)
+ 278:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 523              		.loc 1 278 1 is_stmt 1 view -0
+ 524              		.cfi_startproc
+ 525              		@ args = 0, pretend = 0, frame = 0
+ 526              		@ frame_needed = 0, uses_anonymous_args = 0
+ 527              		@ link register save eliminated.
+ 279:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     /* inverted or not the specified siginal */ 
+ 280:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     switch(invertpara){
+ 528              		.loc 1 280 5 view .LVU119
+ 529 0000 0529     		cmp	r1, #5
+ 530 0002 2DD8     		bhi	.L33
+ 531 0004 DFE801F0 		tbb	[pc, r1]
+ 532              	.L36:
+ 533 0008 03       		.byte	(.L41-.L36)/2
+ 534 0009 18       		.byte	(.L40-.L36)/2
+ 535 000a 0A       		.byte	(.L39-.L36)/2
+ 536 000b 1F       		.byte	(.L38-.L36)/2
+ 537 000c 11       		.byte	(.L37-.L36)/2
+ 538 000d 26       		.byte	(.L35-.L36)/2
+ 539              		.p2align 1
+ 540              	.L41:
+ 281:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case USART_DINV_ENABLE:
+ 282:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         /* data bit level inversion */
+ 283:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         USART_CTL3(usart_periph) |= USART_CTL3_DINV;
+ 541              		.loc 1 283 9 view .LVU120
+ 542              		.loc 1 283 34 is_stmt 0 view .LVU121
+ 543 000e D0F88030 		ldr	r3, [r0, #128]
+ 544 0012 43F48063 		orr	r3, r3, #1024
+ 545 0016 C0F88030 		str	r3, [r0, #128]
+ 284:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         break;
+ 546              		.loc 1 284 9 is_stmt 1 view .LVU122
+ 547 001a 7047     		bx	lr
+ 548              	.L39:
+ 285:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case USART_TXPIN_ENABLE:
+ 286:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         /* TX pin level inversion */
+ 287:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         USART_CTL3(usart_periph) |= USART_CTL3_TINV;
+ 549              		.loc 1 287 9 view .LVU123
+ 550              		.loc 1 287 34 is_stmt 0 view .LVU124
+ 551 001c D0F88030 		ldr	r3, [r0, #128]
+ARM GAS  /tmp/ccN5vJ6u.s 			page 16
+
+
+ 552 0020 43F40073 		orr	r3, r3, #512
+ 553 0024 C0F88030 		str	r3, [r0, #128]
+ 288:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         break;
+ 554              		.loc 1 288 9 is_stmt 1 view .LVU125
+ 555 0028 7047     		bx	lr
+ 556              	.L37:
+ 289:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case USART_RXPIN_ENABLE:
+ 290:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         /* RX pin level inversion */
+ 291:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         USART_CTL3(usart_periph) |= USART_CTL3_RINV;
+ 557              		.loc 1 291 9 view .LVU126
+ 558              		.loc 1 291 34 is_stmt 0 view .LVU127
+ 559 002a D0F88030 		ldr	r3, [r0, #128]
+ 560 002e 43F48073 		orr	r3, r3, #256
+ 561 0032 C0F88030 		str	r3, [r0, #128]
+ 292:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         break;
+ 562              		.loc 1 292 9 is_stmt 1 view .LVU128
+ 563 0036 7047     		bx	lr
+ 564              	.L40:
+ 293:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case USART_DINV_DISABLE:
+ 294:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         /* data bit level not inversion */
+ 295:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         USART_CTL3(usart_periph) &= ~(USART_CTL3_DINV);
+ 565              		.loc 1 295 9 view .LVU129
+ 566              		.loc 1 295 34 is_stmt 0 view .LVU130
+ 567 0038 D0F88030 		ldr	r3, [r0, #128]
+ 568 003c 23F48063 		bic	r3, r3, #1024
+ 569 0040 C0F88030 		str	r3, [r0, #128]
+ 296:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         break;
+ 570              		.loc 1 296 9 is_stmt 1 view .LVU131
+ 571 0044 7047     		bx	lr
+ 572              	.L38:
+ 297:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case USART_TXPIN_DISABLE:
+ 298:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         /* TX pin level not inversion */
+ 299:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         USART_CTL3(usart_periph) &= ~(USART_CTL3_TINV);
+ 573              		.loc 1 299 9 view .LVU132
+ 574              		.loc 1 299 34 is_stmt 0 view .LVU133
+ 575 0046 D0F88030 		ldr	r3, [r0, #128]
+ 576 004a 23F40073 		bic	r3, r3, #512
+ 577 004e C0F88030 		str	r3, [r0, #128]
+ 300:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         break;
+ 578              		.loc 1 300 9 is_stmt 1 view .LVU134
+ 579 0052 7047     		bx	lr
+ 580              	.L35:
+ 301:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     case USART_RXPIN_DISABLE:
+ 302:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         /* RX pin level not inversion */
+ 303:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         USART_CTL3(usart_periph) &= ~(USART_CTL3_RINV);
+ 581              		.loc 1 303 9 view .LVU135
+ 582              		.loc 1 303 34 is_stmt 0 view .LVU136
+ 583 0054 D0F88030 		ldr	r3, [r0, #128]
+ 584 0058 23F48073 		bic	r3, r3, #256
+ 585 005c C0F88030 		str	r3, [r0, #128]
+ 304:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         break;
+ 586              		.loc 1 304 9 is_stmt 1 view .LVU137
+ 587              	.L33:
+ 305:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     default:
+ 306:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         break;
+ 307:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     }
+ 308:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ARM GAS  /tmp/ccN5vJ6u.s 			page 17
+
+
+ 588              		.loc 1 308 1 is_stmt 0 view .LVU138
+ 589 0060 7047     		bx	lr
+ 590              		.cfi_endproc
+ 591              	.LFE126:
+ 593              		.section	.text.usart_receiver_timeout_enable,"ax",%progbits
+ 594              		.align	1
+ 595              		.global	usart_receiver_timeout_enable
+ 596              		.syntax unified
+ 597              		.thumb
+ 598              		.thumb_func
+ 600              	usart_receiver_timeout_enable:
+ 601              	.LVL58:
+ 602              	.LFB127:
+ 309:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 310:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 311:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      enable receiver timeout of USART
+ 312:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)
+ 313:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 314:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 315:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 316:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_receiver_timeout_enable(uint32_t usart_periph)
+ 317:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 603              		.loc 1 317 1 is_stmt 1 view -0
+ 604              		.cfi_startproc
+ 605              		@ args = 0, pretend = 0, frame = 0
+ 606              		@ frame_needed = 0, uses_anonymous_args = 0
+ 607              		@ link register save eliminated.
+ 318:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL3(usart_periph) |= USART_CTL3_RTEN;
+ 608              		.loc 1 318 5 view .LVU140
+ 609              		.loc 1 318 30 is_stmt 0 view .LVU141
+ 610 0000 D0F88030 		ldr	r3, [r0, #128]
+ 611 0004 43F00103 		orr	r3, r3, #1
+ 612 0008 C0F88030 		str	r3, [r0, #128]
+ 319:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 613              		.loc 1 319 1 view .LVU142
+ 614 000c 7047     		bx	lr
+ 615              		.cfi_endproc
+ 616              	.LFE127:
+ 618              		.section	.text.usart_receiver_timeout_disable,"ax",%progbits
+ 619              		.align	1
+ 620              		.global	usart_receiver_timeout_disable
+ 621              		.syntax unified
+ 622              		.thumb
+ 623              		.thumb_func
+ 625              	usart_receiver_timeout_disable:
+ 626              	.LVL59:
+ 627              	.LFB128:
+ 320:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 321:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 322:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      disable receiver timeout of USART
+ 323:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)
+ 324:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 325:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 326:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 327:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_receiver_timeout_disable(uint32_t usart_periph)
+ 328:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 628              		.loc 1 328 1 is_stmt 1 view -0
+ARM GAS  /tmp/ccN5vJ6u.s 			page 18
+
+
+ 629              		.cfi_startproc
+ 630              		@ args = 0, pretend = 0, frame = 0
+ 631              		@ frame_needed = 0, uses_anonymous_args = 0
+ 632              		@ link register save eliminated.
+ 329:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL3(usart_periph) &= ~(USART_CTL3_RTEN);
+ 633              		.loc 1 329 5 view .LVU144
+ 634              		.loc 1 329 30 is_stmt 0 view .LVU145
+ 635 0000 D0F88030 		ldr	r3, [r0, #128]
+ 636 0004 23F00103 		bic	r3, r3, #1
+ 637 0008 C0F88030 		str	r3, [r0, #128]
+ 330:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 638              		.loc 1 330 1 view .LVU146
+ 639 000c 7047     		bx	lr
+ 640              		.cfi_endproc
+ 641              	.LFE128:
+ 643              		.section	.text.usart_receiver_timeout_threshold_config,"ax",%progbits
+ 644              		.align	1
+ 645              		.global	usart_receiver_timeout_threshold_config
+ 646              		.syntax unified
+ 647              		.thumb
+ 648              		.thumb_func
+ 650              	usart_receiver_timeout_threshold_config:
+ 651              	.LVL60:
+ 652              	.LFB129:
+ 331:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 332:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 333:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      set the receiver timeout threshold of USART
+ 334:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)
+ 335:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  rtimeout: 0-0xFFFFFF
+ 336:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 337:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 338:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 339:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_receiver_timeout_threshold_config(uint32_t usart_periph, uint32_t rtimeout)
+ 340:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 653              		.loc 1 340 1 is_stmt 1 view -0
+ 654              		.cfi_startproc
+ 655              		@ args = 0, pretend = 0, frame = 0
+ 656              		@ frame_needed = 0, uses_anonymous_args = 0
+ 657              		@ link register save eliminated.
+ 341:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_RT(usart_periph) &= ~(USART_RT_RT);
+ 658              		.loc 1 341 5 view .LVU148
+ 659              		.loc 1 341 28 is_stmt 0 view .LVU149
+ 660 0000 D0F88420 		ldr	r2, [r0, #132]
+ 661 0004 02F07F42 		and	r2, r2, #-16777216
+ 662 0008 C0F88420 		str	r2, [r0, #132]
+ 342:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_RT(usart_periph) |= rtimeout;
+ 663              		.loc 1 342 5 is_stmt 1 view .LVU150
+ 664              		.loc 1 342 28 is_stmt 0 view .LVU151
+ 665 000c D0F88430 		ldr	r3, [r0, #132]
+ 666 0010 0B43     		orrs	r3, r3, r1
+ 667 0012 C0F88430 		str	r3, [r0, #132]
+ 343:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 668              		.loc 1 343 1 view .LVU152
+ 669 0016 7047     		bx	lr
+ 670              		.cfi_endproc
+ 671              	.LFE129:
+ 673              		.section	.text.usart_data_transmit,"ax",%progbits
+ARM GAS  /tmp/ccN5vJ6u.s 			page 19
+
+
+ 674              		.align	1
+ 675              		.global	usart_data_transmit
+ 676              		.syntax unified
+ 677              		.thumb
+ 678              		.thumb_func
+ 680              	usart_data_transmit:
+ 681              	.LVL61:
+ 682              	.LFB130:
+ 344:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 345:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 346:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      USART transmit data function
+ 347:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 348:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  data: data of transmission 
+ 349:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 350:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 351:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 352:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_data_transmit(uint32_t usart_periph, uint32_t data)
+ 353:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 683              		.loc 1 353 1 is_stmt 1 view -0
+ 684              		.cfi_startproc
+ 685              		@ args = 0, pretend = 0, frame = 0
+ 686              		@ frame_needed = 0, uses_anonymous_args = 0
+ 687              		@ link register save eliminated.
+ 354:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_DATA(usart_periph) = ((uint16_t)USART_DATA_DATA & data);
+ 688              		.loc 1 354 5 view .LVU154
+ 689              		.loc 1 354 59 is_stmt 0 view .LVU155
+ 690 0000 C1F30801 		ubfx	r1, r1, #0, #9
+ 691              	.LVL62:
+ 692              		.loc 1 354 30 view .LVU156
+ 693 0004 4160     		str	r1, [r0, #4]
+ 355:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 694              		.loc 1 355 1 view .LVU157
+ 695 0006 7047     		bx	lr
+ 696              		.cfi_endproc
+ 697              	.LFE130:
+ 699              		.section	.text.usart_data_receive,"ax",%progbits
+ 700              		.align	1
+ 701              		.global	usart_data_receive
+ 702              		.syntax unified
+ 703              		.thumb
+ 704              		.thumb_func
+ 706              	usart_data_receive:
+ 707              	.LVL63:
+ 708              	.LFB131:
+ 356:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 357:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 358:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      USART receive data function
+ 359:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 360:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 361:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     data of received
+ 362:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 363:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** uint16_t usart_data_receive(uint32_t usart_periph)
+ 364:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 709              		.loc 1 364 1 is_stmt 1 view -0
+ 710              		.cfi_startproc
+ 711              		@ args = 0, pretend = 0, frame = 0
+ 712              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  /tmp/ccN5vJ6u.s 			page 20
+
+
+ 713              		@ link register save eliminated.
+ 365:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     return (uint16_t)(GET_BITS(USART_DATA(usart_periph), 0U, 8U));
+ 714              		.loc 1 365 5 view .LVU159
+ 715              		.loc 1 365 23 is_stmt 0 view .LVU160
+ 716 0000 4068     		ldr	r0, [r0, #4]
+ 717              	.LVL64:
+ 366:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 718              		.loc 1 366 1 view .LVU161
+ 719 0002 C0F30800 		ubfx	r0, r0, #0, #9
+ 720 0006 7047     		bx	lr
+ 721              		.cfi_endproc
+ 722              	.LFE131:
+ 724              		.section	.text.usart_address_config,"ax",%progbits
+ 725              		.align	1
+ 726              		.global	usart_address_config
+ 727              		.syntax unified
+ 728              		.thumb
+ 729              		.thumb_func
+ 731              	usart_address_config:
+ 732              	.LVL65:
+ 733              	.LFB132:
+ 367:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 368:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 369:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      configure the address of the USART in wake up by address match mode
+ 370:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 371:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  addr: address of USART/UART
+ 372:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 373:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 374:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 375:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_address_config(uint32_t usart_periph, uint8_t addr)
+ 376:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 734              		.loc 1 376 1 is_stmt 1 view -0
+ 735              		.cfi_startproc
+ 736              		@ args = 0, pretend = 0, frame = 0
+ 737              		@ frame_needed = 0, uses_anonymous_args = 0
+ 738              		@ link register save eliminated.
+ 377:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL1(usart_periph) &= ~(USART_CTL1_ADDR);
+ 739              		.loc 1 377 5 view .LVU163
+ 740              		.loc 1 377 30 is_stmt 0 view .LVU164
+ 741 0000 0369     		ldr	r3, [r0, #16]
+ 742 0002 23F00F03 		bic	r3, r3, #15
+ 743 0006 0361     		str	r3, [r0, #16]
+ 378:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL1(usart_periph) |= (USART_CTL1_ADDR & addr);
+ 744              		.loc 1 378 5 is_stmt 1 view .LVU165
+ 745              		.loc 1 378 30 is_stmt 0 view .LVU166
+ 746 0008 0369     		ldr	r3, [r0, #16]
+ 747              		.loc 1 378 50 view .LVU167
+ 748 000a 01F00F01 		and	r1, r1, #15
+ 749              	.LVL66:
+ 750              		.loc 1 378 30 view .LVU168
+ 751 000e 0B43     		orrs	r3, r3, r1
+ 752 0010 0361     		str	r3, [r0, #16]
+ 379:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 753              		.loc 1 379 1 view .LVU169
+ 754 0012 7047     		bx	lr
+ 755              		.cfi_endproc
+ 756              	.LFE132:
+ARM GAS  /tmp/ccN5vJ6u.s 			page 21
+
+
+ 758              		.section	.text.usart_mute_mode_enable,"ax",%progbits
+ 759              		.align	1
+ 760              		.global	usart_mute_mode_enable
+ 761              		.syntax unified
+ 762              		.thumb
+ 763              		.thumb_func
+ 765              	usart_mute_mode_enable:
+ 766              	.LVL67:
+ 767              	.LFB133:
+ 380:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 381:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 382:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      receiver in mute mode
+ 383:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 384:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 385:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 386:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 387:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_mute_mode_enable(uint32_t usart_periph)
+ 388:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 768              		.loc 1 388 1 is_stmt 1 view -0
+ 769              		.cfi_startproc
+ 770              		@ args = 0, pretend = 0, frame = 0
+ 771              		@ frame_needed = 0, uses_anonymous_args = 0
+ 772              		@ link register save eliminated.
+ 389:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL0(usart_periph) |= USART_CTL0_RWU;
+ 773              		.loc 1 389 5 view .LVU171
+ 774              		.loc 1 389 30 is_stmt 0 view .LVU172
+ 775 0000 C368     		ldr	r3, [r0, #12]
+ 776 0002 43F00203 		orr	r3, r3, #2
+ 777 0006 C360     		str	r3, [r0, #12]
+ 390:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 778              		.loc 1 390 1 view .LVU173
+ 779 0008 7047     		bx	lr
+ 780              		.cfi_endproc
+ 781              	.LFE133:
+ 783              		.section	.text.usart_mute_mode_disable,"ax",%progbits
+ 784              		.align	1
+ 785              		.global	usart_mute_mode_disable
+ 786              		.syntax unified
+ 787              		.thumb
+ 788              		.thumb_func
+ 790              	usart_mute_mode_disable:
+ 791              	.LVL68:
+ 792              	.LFB134:
+ 391:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 392:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 393:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      receiver in active mode
+ 394:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 395:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 396:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 397:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 398:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_mute_mode_disable(uint32_t usart_periph)
+ 399:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 793              		.loc 1 399 1 is_stmt 1 view -0
+ 794              		.cfi_startproc
+ 795              		@ args = 0, pretend = 0, frame = 0
+ 796              		@ frame_needed = 0, uses_anonymous_args = 0
+ 797              		@ link register save eliminated.
+ARM GAS  /tmp/ccN5vJ6u.s 			page 22
+
+
+ 400:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL0(usart_periph) &= ~(USART_CTL0_RWU);
+ 798              		.loc 1 400 5 view .LVU175
+ 799              		.loc 1 400 30 is_stmt 0 view .LVU176
+ 800 0000 C368     		ldr	r3, [r0, #12]
+ 801 0002 23F00203 		bic	r3, r3, #2
+ 802 0006 C360     		str	r3, [r0, #12]
+ 401:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 803              		.loc 1 401 1 view .LVU177
+ 804 0008 7047     		bx	lr
+ 805              		.cfi_endproc
+ 806              	.LFE134:
+ 808              		.section	.text.usart_mute_mode_wakeup_config,"ax",%progbits
+ 809              		.align	1
+ 810              		.global	usart_mute_mode_wakeup_config
+ 811              		.syntax unified
+ 812              		.thumb
+ 813              		.thumb_func
+ 815              	usart_mute_mode_wakeup_config:
+ 816              	.LVL69:
+ 817              	.LFB135:
+ 402:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 403:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 404:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      configure wakeup method in mute mode
+ 405:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 406:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  wmethod: two methods be used to enter or exit the mute mode
+ 407:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 408:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_WM_IDLE: idle line
+ 409:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_WM_ADDR: address mask
+ 410:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 411:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 412:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 413:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_mute_mode_wakeup_config(uint32_t usart_periph, uint32_t wmethod)
+ 414:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 818              		.loc 1 414 1 is_stmt 1 view -0
+ 819              		.cfi_startproc
+ 820              		@ args = 0, pretend = 0, frame = 0
+ 821              		@ frame_needed = 0, uses_anonymous_args = 0
+ 822              		@ link register save eliminated.
+ 415:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL0(usart_periph) &= ~(USART_CTL0_WM);
+ 823              		.loc 1 415 5 view .LVU179
+ 824              		.loc 1 415 30 is_stmt 0 view .LVU180
+ 825 0000 C268     		ldr	r2, [r0, #12]
+ 826 0002 22F40062 		bic	r2, r2, #2048
+ 827 0006 C260     		str	r2, [r0, #12]
+ 416:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL0(usart_periph) |= wmethod;
+ 828              		.loc 1 416 5 is_stmt 1 view .LVU181
+ 829              		.loc 1 416 30 is_stmt 0 view .LVU182
+ 830 0008 C368     		ldr	r3, [r0, #12]
+ 831 000a 0B43     		orrs	r3, r3, r1
+ 832 000c C360     		str	r3, [r0, #12]
+ 417:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 833              		.loc 1 417 1 view .LVU183
+ 834 000e 7047     		bx	lr
+ 835              		.cfi_endproc
+ 836              	.LFE135:
+ 838              		.section	.text.usart_lin_mode_enable,"ax",%progbits
+ 839              		.align	1
+ARM GAS  /tmp/ccN5vJ6u.s 			page 23
+
+
+ 840              		.global	usart_lin_mode_enable
+ 841              		.syntax unified
+ 842              		.thumb
+ 843              		.thumb_func
+ 845              	usart_lin_mode_enable:
+ 846              	.LVL70:
+ 847              	.LFB136:
+ 418:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 419:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 420:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      enable LIN mode
+ 421:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 422:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 423:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 424:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 425:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_lin_mode_enable(uint32_t usart_periph)
+ 426:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {   
+ 848              		.loc 1 426 1 is_stmt 1 view -0
+ 849              		.cfi_startproc
+ 850              		@ args = 0, pretend = 0, frame = 0
+ 851              		@ frame_needed = 0, uses_anonymous_args = 0
+ 852              		@ link register save eliminated.
+ 427:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL1(usart_periph) |= USART_CTL1_LMEN;
+ 853              		.loc 1 427 5 view .LVU185
+ 854              		.loc 1 427 30 is_stmt 0 view .LVU186
+ 855 0000 0369     		ldr	r3, [r0, #16]
+ 856 0002 43F48043 		orr	r3, r3, #16384
+ 857 0006 0361     		str	r3, [r0, #16]
+ 428:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 858              		.loc 1 428 1 view .LVU187
+ 859 0008 7047     		bx	lr
+ 860              		.cfi_endproc
+ 861              	.LFE136:
+ 863              		.section	.text.usart_lin_mode_disable,"ax",%progbits
+ 864              		.align	1
+ 865              		.global	usart_lin_mode_disable
+ 866              		.syntax unified
+ 867              		.thumb
+ 868              		.thumb_func
+ 870              	usart_lin_mode_disable:
+ 871              	.LVL71:
+ 872              	.LFB137:
+ 429:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 430:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 431:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      disable LIN mode
+ 432:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 433:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 434:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 435:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 436:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_lin_mode_disable(uint32_t usart_periph)
+ 437:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {   
+ 873              		.loc 1 437 1 is_stmt 1 view -0
+ 874              		.cfi_startproc
+ 875              		@ args = 0, pretend = 0, frame = 0
+ 876              		@ frame_needed = 0, uses_anonymous_args = 0
+ 877              		@ link register save eliminated.
+ 438:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL1(usart_periph) &= ~(USART_CTL1_LMEN);
+ 878              		.loc 1 438 5 view .LVU189
+ARM GAS  /tmp/ccN5vJ6u.s 			page 24
+
+
+ 879              		.loc 1 438 30 is_stmt 0 view .LVU190
+ 880 0000 0369     		ldr	r3, [r0, #16]
+ 881 0002 23F48043 		bic	r3, r3, #16384
+ 882 0006 0361     		str	r3, [r0, #16]
+ 439:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 883              		.loc 1 439 1 view .LVU191
+ 884 0008 7047     		bx	lr
+ 885              		.cfi_endproc
+ 886              	.LFE137:
+ 888              		.section	.text.usart_lin_break_detection_length_config,"ax",%progbits
+ 889              		.align	1
+ 890              		.global	usart_lin_break_detection_length_config
+ 891              		.syntax unified
+ 892              		.thumb
+ 893              		.thumb_func
+ 895              	usart_lin_break_detection_length_config:
+ 896              	.LVL72:
+ 897              	.LFB138:
+ 440:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 441:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 442:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      configure lin break frame length
+ 443:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 444:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  lblen: lin break frame length
+ 445:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 446:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_LBLEN_10B: 10 bits
+ 447:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_LBLEN_11B: 11 bits
+ 448:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 449:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 450:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 451:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_lin_break_detection_length_config(uint32_t usart_periph, uint32_t lblen)
+ 452:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 898              		.loc 1 452 1 is_stmt 1 view -0
+ 899              		.cfi_startproc
+ 900              		@ args = 0, pretend = 0, frame = 0
+ 901              		@ frame_needed = 0, uses_anonymous_args = 0
+ 902              		@ link register save eliminated.
+ 453:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL1(usart_periph) &= ~(USART_CTL1_LBLEN);
+ 903              		.loc 1 453 5 view .LVU193
+ 904              		.loc 1 453 30 is_stmt 0 view .LVU194
+ 905 0000 0369     		ldr	r3, [r0, #16]
+ 906 0002 23F02003 		bic	r3, r3, #32
+ 907 0006 0361     		str	r3, [r0, #16]
+ 454:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL1(usart_periph) |= (USART_CTL1_LBLEN & lblen);
+ 908              		.loc 1 454 5 is_stmt 1 view .LVU195
+ 909              		.loc 1 454 30 is_stmt 0 view .LVU196
+ 910 0008 0369     		ldr	r3, [r0, #16]
+ 911              		.loc 1 454 51 view .LVU197
+ 912 000a 01F02001 		and	r1, r1, #32
+ 913              	.LVL73:
+ 914              		.loc 1 454 30 view .LVU198
+ 915 000e 0B43     		orrs	r3, r3, r1
+ 916 0010 0361     		str	r3, [r0, #16]
+ 455:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 917              		.loc 1 455 1 view .LVU199
+ 918 0012 7047     		bx	lr
+ 919              		.cfi_endproc
+ 920              	.LFE138:
+ARM GAS  /tmp/ccN5vJ6u.s 			page 25
+
+
+ 922              		.section	.text.usart_send_break,"ax",%progbits
+ 923              		.align	1
+ 924              		.global	usart_send_break
+ 925              		.syntax unified
+ 926              		.thumb
+ 927              		.thumb_func
+ 929              	usart_send_break:
+ 930              	.LVL74:
+ 931              	.LFB139:
+ 456:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 457:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 458:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      send break frame
+ 459:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 460:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 461:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 462:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 463:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_send_break(uint32_t usart_periph)
+ 464:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 932              		.loc 1 464 1 is_stmt 1 view -0
+ 933              		.cfi_startproc
+ 934              		@ args = 0, pretend = 0, frame = 0
+ 935              		@ frame_needed = 0, uses_anonymous_args = 0
+ 936              		@ link register save eliminated.
+ 465:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL0(usart_periph) |= USART_CTL0_SBKCMD;
+ 937              		.loc 1 465 5 view .LVU201
+ 938              		.loc 1 465 30 is_stmt 0 view .LVU202
+ 939 0000 C368     		ldr	r3, [r0, #12]
+ 940 0002 43F00103 		orr	r3, r3, #1
+ 941 0006 C360     		str	r3, [r0, #12]
+ 466:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 942              		.loc 1 466 1 view .LVU203
+ 943 0008 7047     		bx	lr
+ 944              		.cfi_endproc
+ 945              	.LFE139:
+ 947              		.section	.text.usart_halfduplex_enable,"ax",%progbits
+ 948              		.align	1
+ 949              		.global	usart_halfduplex_enable
+ 950              		.syntax unified
+ 951              		.thumb
+ 952              		.thumb_func
+ 954              	usart_halfduplex_enable:
+ 955              	.LVL75:
+ 956              	.LFB140:
+ 467:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 468:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 469:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      enable half duplex mode
+ 470:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 471:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 472:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 473:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 474:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_halfduplex_enable(uint32_t usart_periph)
+ 475:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {   
+ 957              		.loc 1 475 1 is_stmt 1 view -0
+ 958              		.cfi_startproc
+ 959              		@ args = 0, pretend = 0, frame = 0
+ 960              		@ frame_needed = 0, uses_anonymous_args = 0
+ 961              		@ link register save eliminated.
+ARM GAS  /tmp/ccN5vJ6u.s 			page 26
+
+
+ 476:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL2(usart_periph) |= USART_CTL2_HDEN;
+ 962              		.loc 1 476 5 view .LVU205
+ 963              		.loc 1 476 30 is_stmt 0 view .LVU206
+ 964 0000 4369     		ldr	r3, [r0, #20]
+ 965 0002 43F00803 		orr	r3, r3, #8
+ 966 0006 4361     		str	r3, [r0, #20]
+ 477:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 967              		.loc 1 477 1 view .LVU207
+ 968 0008 7047     		bx	lr
+ 969              		.cfi_endproc
+ 970              	.LFE140:
+ 972              		.section	.text.usart_halfduplex_disable,"ax",%progbits
+ 973              		.align	1
+ 974              		.global	usart_halfduplex_disable
+ 975              		.syntax unified
+ 976              		.thumb
+ 977              		.thumb_func
+ 979              	usart_halfduplex_disable:
+ 980              	.LVL76:
+ 981              	.LFB141:
+ 478:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 479:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 480:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      disable half duplex mode
+ 481:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 482:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 483:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 484:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 485:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_halfduplex_disable(uint32_t usart_periph)
+ 486:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {  
+ 982              		.loc 1 486 1 is_stmt 1 view -0
+ 983              		.cfi_startproc
+ 984              		@ args = 0, pretend = 0, frame = 0
+ 985              		@ frame_needed = 0, uses_anonymous_args = 0
+ 986              		@ link register save eliminated.
+ 487:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL2(usart_periph) &= ~(USART_CTL2_HDEN);
+ 987              		.loc 1 487 5 view .LVU209
+ 988              		.loc 1 487 30 is_stmt 0 view .LVU210
+ 989 0000 4369     		ldr	r3, [r0, #20]
+ 990 0002 23F00803 		bic	r3, r3, #8
+ 991 0006 4361     		str	r3, [r0, #20]
+ 488:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 992              		.loc 1 488 1 view .LVU211
+ 993 0008 7047     		bx	lr
+ 994              		.cfi_endproc
+ 995              	.LFE141:
+ 997              		.section	.text.usart_synchronous_clock_enable,"ax",%progbits
+ 998              		.align	1
+ 999              		.global	usart_synchronous_clock_enable
+ 1000              		.syntax unified
+ 1001              		.thumb
+ 1002              		.thumb_func
+ 1004              	usart_synchronous_clock_enable:
+ 1005              	.LVL77:
+ 1006              	.LFB142:
+ 489:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 490:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 491:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      enable CK pin in synchronous mode
+ARM GAS  /tmp/ccN5vJ6u.s 			page 27
+
+
+ 492:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)
+ 493:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 494:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 495:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 496:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_synchronous_clock_enable(uint32_t usart_periph)
+ 497:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1007              		.loc 1 497 1 is_stmt 1 view -0
+ 1008              		.cfi_startproc
+ 1009              		@ args = 0, pretend = 0, frame = 0
+ 1010              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1011              		@ link register save eliminated.
+ 498:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL1(usart_periph) |= USART_CTL1_CKEN;
+ 1012              		.loc 1 498 5 view .LVU213
+ 1013              		.loc 1 498 30 is_stmt 0 view .LVU214
+ 1014 0000 0369     		ldr	r3, [r0, #16]
+ 1015 0002 43F40063 		orr	r3, r3, #2048
+ 1016 0006 0361     		str	r3, [r0, #16]
+ 499:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1017              		.loc 1 499 1 view .LVU215
+ 1018 0008 7047     		bx	lr
+ 1019              		.cfi_endproc
+ 1020              	.LFE142:
+ 1022              		.section	.text.usart_synchronous_clock_disable,"ax",%progbits
+ 1023              		.align	1
+ 1024              		.global	usart_synchronous_clock_disable
+ 1025              		.syntax unified
+ 1026              		.thumb
+ 1027              		.thumb_func
+ 1029              	usart_synchronous_clock_disable:
+ 1030              	.LVL78:
+ 1031              	.LFB143:
+ 500:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 501:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 502:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      disable CK pin in synchronous mode
+ 503:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)
+ 504:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 505:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 506:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 507:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_synchronous_clock_disable(uint32_t usart_periph)
+ 508:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1032              		.loc 1 508 1 is_stmt 1 view -0
+ 1033              		.cfi_startproc
+ 1034              		@ args = 0, pretend = 0, frame = 0
+ 1035              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1036              		@ link register save eliminated.
+ 509:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL1(usart_periph) &= ~(USART_CTL1_CKEN);
+ 1037              		.loc 1 509 5 view .LVU217
+ 1038              		.loc 1 509 30 is_stmt 0 view .LVU218
+ 1039 0000 0369     		ldr	r3, [r0, #16]
+ 1040 0002 23F40063 		bic	r3, r3, #2048
+ 1041 0006 0361     		str	r3, [r0, #16]
+ 510:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1042              		.loc 1 510 1 view .LVU219
+ 1043 0008 7047     		bx	lr
+ 1044              		.cfi_endproc
+ 1045              	.LFE143:
+ 1047              		.section	.text.usart_synchronous_clock_config,"ax",%progbits
+ARM GAS  /tmp/ccN5vJ6u.s 			page 28
+
+
+ 1048              		.align	1
+ 1049              		.global	usart_synchronous_clock_config
+ 1050              		.syntax unified
+ 1051              		.thumb
+ 1052              		.thumb_func
+ 1054              	usart_synchronous_clock_config:
+ 1055              	.LVL79:
+ 1056              	.LFB144:
+ 511:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 512:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 513:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      configure USART synchronous mode parameters
+ 514:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)
+ 515:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  clen: CK length
+ 516:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 517:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_CLEN_NONE: there are 7 CK pulses for an 8 bit frame and 8 CK pulses for a 9
+ 518:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_CLEN_EN:   there are 8 CK pulses for an 8 bit frame and 9 CK pulses for a 9
+ 519:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  cph: clock phase
+ 520:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 521:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_CPH_1CK: first clock transition is the first data capture edge 
+ 522:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_CPH_2CK: second clock transition is the first data capture edge
+ 523:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  cpl: clock polarity
+ 524:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 525:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_CPL_LOW:  steady low value on CK pin 
+ 526:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_CPL_HIGH: steady high value on CK pin
+ 527:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 528:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 529:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 530:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_synchronous_clock_config(uint32_t usart_periph, uint32_t clen, uint32_t cph, uint32_t cp
+ 531:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1057              		.loc 1 531 1 is_stmt 1 view -0
+ 1058              		.cfi_startproc
+ 1059              		@ args = 0, pretend = 0, frame = 0
+ 1060              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1061              		@ link register save eliminated.
+ 1062              		.loc 1 531 1 is_stmt 0 view .LVU221
+ 1063 0000 10B4     		push	{r4}
+ 1064              	.LCFI2:
+ 1065              		.cfi_def_cfa_offset 4
+ 1066              		.cfi_offset 4, -4
+ 532:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     uint32_t ctl = 0U;
+ 1067              		.loc 1 532 5 is_stmt 1 view .LVU222
+ 1068              	.LVL80:
+ 533:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     
+ 534:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     /* read USART_CTL1 register */
+ 535:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl = USART_CTL1(usart_periph);
+ 1069              		.loc 1 535 5 view .LVU223
+ 1070              		.loc 1 535 9 is_stmt 0 view .LVU224
+ 1071 0002 0469     		ldr	r4, [r0, #16]
+ 1072              	.LVL81:
+ 536:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl &= ~(USART_CTL1_CLEN | USART_CTL1_CPH | USART_CTL1_CPL);
+ 1073              		.loc 1 536 5 is_stmt 1 view .LVU225
+ 1074              		.loc 1 536 9 is_stmt 0 view .LVU226
+ 1075 0004 24F4E06C 		bic	ip, r4, #1792
+ 1076              	.LVL82:
+ 537:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     /* set CK length, CK phase, CK polarity */
+ 538:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl |= (USART_CTL1_CLEN & clen) | (USART_CTL1_CPH & cph) | (USART_CTL1_CPL & cpl);
+ 1077              		.loc 1 538 5 is_stmt 1 view .LVU227
+ARM GAS  /tmp/ccN5vJ6u.s 			page 29
+
+
+ 1078              		.loc 1 538 29 is_stmt 0 view .LVU228
+ 1079 0008 01F48071 		and	r1, r1, #256
+ 1080              	.LVL83:
+ 1081              		.loc 1 538 55 view .LVU229
+ 1082 000c 02F40072 		and	r2, r2, #512
+ 1083              	.LVL84:
+ 1084              		.loc 1 538 37 view .LVU230
+ 1085 0010 1143     		orrs	r1, r1, r2
+ 1086              		.loc 1 538 80 view .LVU231
+ 1087 0012 03F48063 		and	r3, r3, #1024
+ 1088              	.LVL85:
+ 1089              		.loc 1 538 62 view .LVU232
+ 1090 0016 1943     		orrs	r1, r1, r3
+ 1091              		.loc 1 538 9 view .LVU233
+ 1092 0018 41EA0C01 		orr	r1, r1, ip
+ 1093              	.LVL86:
+ 539:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 540:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL1(usart_periph) = ctl;
+ 1094              		.loc 1 540 5 is_stmt 1 view .LVU234
+ 1095              		.loc 1 540 30 is_stmt 0 view .LVU235
+ 1096 001c 0161     		str	r1, [r0, #16]
+ 541:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1097              		.loc 1 541 1 view .LVU236
+ 1098 001e 10BC     		pop	{r4}
+ 1099              	.LCFI3:
+ 1100              		.cfi_restore 4
+ 1101              		.cfi_def_cfa_offset 0
+ 1102 0020 7047     		bx	lr
+ 1103              		.cfi_endproc
+ 1104              	.LFE144:
+ 1106              		.section	.text.usart_guard_time_config,"ax",%progbits
+ 1107              		.align	1
+ 1108              		.global	usart_guard_time_config
+ 1109              		.syntax unified
+ 1110              		.thumb
+ 1111              		.thumb_func
+ 1113              	usart_guard_time_config:
+ 1114              	.LVL87:
+ 1115              	.LFB145:
+ 542:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 543:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 544:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      configure guard time value in smartcard mode
+ 545:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)
+ 546:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  guat: guard time value, 0-0xFF
+ 547:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 548:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 549:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 550:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_guard_time_config(uint32_t usart_periph,uint32_t guat)
+ 551:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1116              		.loc 1 551 1 is_stmt 1 view -0
+ 1117              		.cfi_startproc
+ 1118              		@ args = 0, pretend = 0, frame = 0
+ 1119              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1120              		@ link register save eliminated.
+ 552:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_GP(usart_periph) &= ~(USART_GP_GUAT);
+ 1121              		.loc 1 552 5 view .LVU238
+ 1122              		.loc 1 552 28 is_stmt 0 view .LVU239
+ARM GAS  /tmp/ccN5vJ6u.s 			page 30
+
+
+ 1123 0000 8369     		ldr	r3, [r0, #24]
+ 1124 0002 23F47F43 		bic	r3, r3, #65280
+ 1125 0006 8361     		str	r3, [r0, #24]
+ 553:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_GP(usart_periph) |= (USART_GP_GUAT & ((guat)<<GP_GUAT_OFFSET));
+ 1126              		.loc 1 553 5 is_stmt 1 view .LVU240
+ 1127              		.loc 1 553 28 is_stmt 0 view .LVU241
+ 1128 0008 8369     		ldr	r3, [r0, #24]
+ 1129              		.loc 1 553 55 view .LVU242
+ 1130 000a 0902     		lsls	r1, r1, #8
+ 1131              	.LVL88:
+ 1132              		.loc 1 553 46 view .LVU243
+ 1133 000c 89B2     		uxth	r1, r1
+ 1134              		.loc 1 553 28 view .LVU244
+ 1135 000e 1943     		orrs	r1, r1, r3
+ 1136 0010 8161     		str	r1, [r0, #24]
+ 554:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1137              		.loc 1 554 1 view .LVU245
+ 1138 0012 7047     		bx	lr
+ 1139              		.cfi_endproc
+ 1140              	.LFE145:
+ 1142              		.section	.text.usart_smartcard_mode_enable,"ax",%progbits
+ 1143              		.align	1
+ 1144              		.global	usart_smartcard_mode_enable
+ 1145              		.syntax unified
+ 1146              		.thumb
+ 1147              		.thumb_func
+ 1149              	usart_smartcard_mode_enable:
+ 1150              	.LVL89:
+ 1151              	.LFB146:
+ 555:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 556:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 557:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      enable smartcard mode
+ 558:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)
+ 559:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 560:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 561:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 562:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_smartcard_mode_enable(uint32_t usart_periph)
+ 563:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1152              		.loc 1 563 1 is_stmt 1 view -0
+ 1153              		.cfi_startproc
+ 1154              		@ args = 0, pretend = 0, frame = 0
+ 1155              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1156              		@ link register save eliminated.
+ 564:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL2(usart_periph) |= USART_CTL2_SCEN;
+ 1157              		.loc 1 564 5 view .LVU247
+ 1158              		.loc 1 564 30 is_stmt 0 view .LVU248
+ 1159 0000 4369     		ldr	r3, [r0, #20]
+ 1160 0002 43F02003 		orr	r3, r3, #32
+ 1161 0006 4361     		str	r3, [r0, #20]
+ 565:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1162              		.loc 1 565 1 view .LVU249
+ 1163 0008 7047     		bx	lr
+ 1164              		.cfi_endproc
+ 1165              	.LFE146:
+ 1167              		.section	.text.usart_smartcard_mode_disable,"ax",%progbits
+ 1168              		.align	1
+ 1169              		.global	usart_smartcard_mode_disable
+ARM GAS  /tmp/ccN5vJ6u.s 			page 31
+
+
+ 1170              		.syntax unified
+ 1171              		.thumb
+ 1172              		.thumb_func
+ 1174              	usart_smartcard_mode_disable:
+ 1175              	.LVL90:
+ 1176              	.LFB147:
+ 566:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 567:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 568:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      disable smartcard mode
+ 569:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)
+ 570:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 571:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 572:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 573:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_smartcard_mode_disable(uint32_t usart_periph)
+ 574:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1177              		.loc 1 574 1 is_stmt 1 view -0
+ 1178              		.cfi_startproc
+ 1179              		@ args = 0, pretend = 0, frame = 0
+ 1180              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1181              		@ link register save eliminated.
+ 575:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL2(usart_periph) &= ~(USART_CTL2_SCEN);
+ 1182              		.loc 1 575 5 view .LVU251
+ 1183              		.loc 1 575 30 is_stmt 0 view .LVU252
+ 1184 0000 4369     		ldr	r3, [r0, #20]
+ 1185 0002 23F02003 		bic	r3, r3, #32
+ 1186 0006 4361     		str	r3, [r0, #20]
+ 576:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1187              		.loc 1 576 1 view .LVU253
+ 1188 0008 7047     		bx	lr
+ 1189              		.cfi_endproc
+ 1190              	.LFE147:
+ 1192              		.section	.text.usart_smartcard_mode_nack_enable,"ax",%progbits
+ 1193              		.align	1
+ 1194              		.global	usart_smartcard_mode_nack_enable
+ 1195              		.syntax unified
+ 1196              		.thumb
+ 1197              		.thumb_func
+ 1199              	usart_smartcard_mode_nack_enable:
+ 1200              	.LVL91:
+ 1201              	.LFB148:
+ 577:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 578:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 579:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      enable NACK in smartcard mode
+ 580:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)
+ 581:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 582:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 583:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 584:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_smartcard_mode_nack_enable(uint32_t usart_periph)
+ 585:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1202              		.loc 1 585 1 is_stmt 1 view -0
+ 1203              		.cfi_startproc
+ 1204              		@ args = 0, pretend = 0, frame = 0
+ 1205              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1206              		@ link register save eliminated.
+ 586:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL2(usart_periph) |= USART_CTL2_NKEN;
+ 1207              		.loc 1 586 5 view .LVU255
+ 1208              		.loc 1 586 30 is_stmt 0 view .LVU256
+ARM GAS  /tmp/ccN5vJ6u.s 			page 32
+
+
+ 1209 0000 4369     		ldr	r3, [r0, #20]
+ 1210 0002 43F01003 		orr	r3, r3, #16
+ 1211 0006 4361     		str	r3, [r0, #20]
+ 587:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1212              		.loc 1 587 1 view .LVU257
+ 1213 0008 7047     		bx	lr
+ 1214              		.cfi_endproc
+ 1215              	.LFE148:
+ 1217              		.section	.text.usart_smartcard_mode_nack_disable,"ax",%progbits
+ 1218              		.align	1
+ 1219              		.global	usart_smartcard_mode_nack_disable
+ 1220              		.syntax unified
+ 1221              		.thumb
+ 1222              		.thumb_func
+ 1224              	usart_smartcard_mode_nack_disable:
+ 1225              	.LVL92:
+ 1226              	.LFB149:
+ 588:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 589:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 590:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      disable NACK in smartcard mode
+ 591:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)
+ 592:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 593:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 594:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 595:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_smartcard_mode_nack_disable(uint32_t usart_periph)
+ 596:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1227              		.loc 1 596 1 is_stmt 1 view -0
+ 1228              		.cfi_startproc
+ 1229              		@ args = 0, pretend = 0, frame = 0
+ 1230              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1231              		@ link register save eliminated.
+ 597:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL2(usart_periph) &= ~(USART_CTL2_NKEN);
+ 1232              		.loc 1 597 5 view .LVU259
+ 1233              		.loc 1 597 30 is_stmt 0 view .LVU260
+ 1234 0000 4369     		ldr	r3, [r0, #20]
+ 1235 0002 23F01003 		bic	r3, r3, #16
+ 1236 0006 4361     		str	r3, [r0, #20]
+ 598:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1237              		.loc 1 598 1 view .LVU261
+ 1238 0008 7047     		bx	lr
+ 1239              		.cfi_endproc
+ 1240              	.LFE149:
+ 1242              		.section	.text.usart_smartcard_autoretry_config,"ax",%progbits
+ 1243              		.align	1
+ 1244              		.global	usart_smartcard_autoretry_config
+ 1245              		.syntax unified
+ 1246              		.thumb
+ 1247              		.thumb_func
+ 1249              	usart_smartcard_autoretry_config:
+ 1250              	.LVL93:
+ 1251              	.LFB150:
+ 599:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 600:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 601:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      configure smartcard auto-retry number
+ 602:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)
+ 603:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  scrtnum: smartcard auto-retry number
+ 604:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ARM GAS  /tmp/ccN5vJ6u.s 			page 33
+
+
+ 605:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 606:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 607:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_smartcard_autoretry_config(uint32_t usart_periph, uint32_t scrtnum)
+ 608:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1252              		.loc 1 608 1 is_stmt 1 view -0
+ 1253              		.cfi_startproc
+ 1254              		@ args = 0, pretend = 0, frame = 0
+ 1255              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1256              		@ link register save eliminated.
+ 609:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL3(usart_periph) &= ~(USART_CTL3_SCRTNUM);
+ 1257              		.loc 1 609 5 view .LVU263
+ 1258              		.loc 1 609 30 is_stmt 0 view .LVU264
+ 1259 0000 D0F88030 		ldr	r3, [r0, #128]
+ 1260 0004 23F00E03 		bic	r3, r3, #14
+ 1261 0008 C0F88030 		str	r3, [r0, #128]
+ 610:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL3(usart_periph) |= (USART_CTL3_SCRTNUM & ((scrtnum)<<CTL3_SCRTNUM_OFFSET));
+ 1262              		.loc 1 610 5 is_stmt 1 view .LVU265
+ 1263              		.loc 1 610 30 is_stmt 0 view .LVU266
+ 1264 000c D0F88030 		ldr	r3, [r0, #128]
+ 1265              		.loc 1 610 65 view .LVU267
+ 1266 0010 4900     		lsls	r1, r1, #1
+ 1267              	.LVL94:
+ 1268              		.loc 1 610 53 view .LVU268
+ 1269 0012 01F00E01 		and	r1, r1, #14
+ 1270              		.loc 1 610 30 view .LVU269
+ 1271 0016 1943     		orrs	r1, r1, r3
+ 1272 0018 C0F88010 		str	r1, [r0, #128]
+ 611:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1273              		.loc 1 611 1 view .LVU270
+ 1274 001c 7047     		bx	lr
+ 1275              		.cfi_endproc
+ 1276              	.LFE150:
+ 1278              		.section	.text.usart_block_length_config,"ax",%progbits
+ 1279              		.align	1
+ 1280              		.global	usart_block_length_config
+ 1281              		.syntax unified
+ 1282              		.thumb
+ 1283              		.thumb_func
+ 1285              	usart_block_length_config:
+ 1286              	.LVL95:
+ 1287              	.LFB151:
+ 612:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 613:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 614:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      configure block length in Smartcard T=1 reception
+ 615:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)
+ 616:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  bl: block length
+ 617:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 618:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 619:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 620:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_block_length_config(uint32_t usart_periph, uint32_t bl)
+ 621:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1288              		.loc 1 621 1 is_stmt 1 view -0
+ 1289              		.cfi_startproc
+ 1290              		@ args = 0, pretend = 0, frame = 0
+ 1291              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1292              		@ link register save eliminated.
+ 622:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_RT(usart_periph) &= ~(USART_RT_BL);
+ARM GAS  /tmp/ccN5vJ6u.s 			page 34
+
+
+ 1293              		.loc 1 622 5 view .LVU272
+ 1294              		.loc 1 622 28 is_stmt 0 view .LVU273
+ 1295 0000 D0F88420 		ldr	r2, [r0, #132]
+ 1296 0004 22F07F42 		bic	r2, r2, #-16777216
+ 1297 0008 C0F88420 		str	r2, [r0, #132]
+ 623:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_RT(usart_periph) |= (USART_RT_BL & ((bl)<<RT_BL_OFFSET));
+ 1298              		.loc 1 623 5 is_stmt 1 view .LVU274
+ 1299              		.loc 1 623 28 is_stmt 0 view .LVU275
+ 1300 000c D0F88430 		ldr	r3, [r0, #132]
+ 1301 0010 43EA0163 		orr	r3, r3, r1, lsl #24
+ 1302 0014 C0F88430 		str	r3, [r0, #132]
+ 624:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1303              		.loc 1 624 1 view .LVU276
+ 1304 0018 7047     		bx	lr
+ 1305              		.cfi_endproc
+ 1306              	.LFE151:
+ 1308              		.section	.text.usart_irda_mode_enable,"ax",%progbits
+ 1309              		.align	1
+ 1310              		.global	usart_irda_mode_enable
+ 1311              		.syntax unified
+ 1312              		.thumb
+ 1313              		.thumb_func
+ 1315              	usart_irda_mode_enable:
+ 1316              	.LVL96:
+ 1317              	.LFB152:
+ 625:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 626:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 627:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      enable IrDA mode
+ 628:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 629:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 630:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 631:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 632:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_irda_mode_enable(uint32_t usart_periph)
+ 633:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1318              		.loc 1 633 1 is_stmt 1 view -0
+ 1319              		.cfi_startproc
+ 1320              		@ args = 0, pretend = 0, frame = 0
+ 1321              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1322              		@ link register save eliminated.
+ 634:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL2(usart_periph) |= USART_CTL2_IREN;
+ 1323              		.loc 1 634 5 view .LVU278
+ 1324              		.loc 1 634 30 is_stmt 0 view .LVU279
+ 1325 0000 4369     		ldr	r3, [r0, #20]
+ 1326 0002 43F00203 		orr	r3, r3, #2
+ 1327 0006 4361     		str	r3, [r0, #20]
+ 635:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1328              		.loc 1 635 1 view .LVU280
+ 1329 0008 7047     		bx	lr
+ 1330              		.cfi_endproc
+ 1331              	.LFE152:
+ 1333              		.section	.text.usart_irda_mode_disable,"ax",%progbits
+ 1334              		.align	1
+ 1335              		.global	usart_irda_mode_disable
+ 1336              		.syntax unified
+ 1337              		.thumb
+ 1338              		.thumb_func
+ 1340              	usart_irda_mode_disable:
+ARM GAS  /tmp/ccN5vJ6u.s 			page 35
+
+
+ 1341              	.LVL97:
+ 1342              	.LFB153:
+ 636:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 637:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 638:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      disable IrDA mode
+ 639:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 640:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 641:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 642:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 643:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_irda_mode_disable(uint32_t usart_periph)
+ 644:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1343              		.loc 1 644 1 is_stmt 1 view -0
+ 1344              		.cfi_startproc
+ 1345              		@ args = 0, pretend = 0, frame = 0
+ 1346              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1347              		@ link register save eliminated.
+ 645:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL2(usart_periph) &= ~(USART_CTL2_IREN);
+ 1348              		.loc 1 645 5 view .LVU282
+ 1349              		.loc 1 645 30 is_stmt 0 view .LVU283
+ 1350 0000 4369     		ldr	r3, [r0, #20]
+ 1351 0002 23F00203 		bic	r3, r3, #2
+ 1352 0006 4361     		str	r3, [r0, #20]
+ 646:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1353              		.loc 1 646 1 view .LVU284
+ 1354 0008 7047     		bx	lr
+ 1355              		.cfi_endproc
+ 1356              	.LFE153:
+ 1358              		.section	.text.usart_prescaler_config,"ax",%progbits
+ 1359              		.align	1
+ 1360              		.global	usart_prescaler_config
+ 1361              		.syntax unified
+ 1362              		.thumb
+ 1363              		.thumb_func
+ 1365              	usart_prescaler_config:
+ 1366              	.LVL98:
+ 1367              	.LFB154:
+ 647:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 648:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 649:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      configure the peripheral clock prescaler in USART IrDA low-power mode
+ 650:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 651:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  psc: 0x00-0xFF
+ 652:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 653:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 654:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 655:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_prescaler_config(uint32_t usart_periph, uint8_t psc)
+ 656:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1368              		.loc 1 656 1 is_stmt 1 view -0
+ 1369              		.cfi_startproc
+ 1370              		@ args = 0, pretend = 0, frame = 0
+ 1371              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1372              		@ link register save eliminated.
+ 657:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_GP(usart_periph) &= ~(USART_GP_PSC);
+ 1373              		.loc 1 657 5 view .LVU286
+ 1374              		.loc 1 657 28 is_stmt 0 view .LVU287
+ 1375 0000 8369     		ldr	r3, [r0, #24]
+ 1376 0002 23F0FF03 		bic	r3, r3, #255
+ 1377 0006 8361     		str	r3, [r0, #24]
+ARM GAS  /tmp/ccN5vJ6u.s 			page 36
+
+
+ 658:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_GP(usart_periph) |= psc;
+ 1378              		.loc 1 658 5 is_stmt 1 view .LVU288
+ 1379              		.loc 1 658 28 is_stmt 0 view .LVU289
+ 1380 0008 8369     		ldr	r3, [r0, #24]
+ 1381 000a 1943     		orrs	r1, r1, r3
+ 1382              	.LVL99:
+ 1383              		.loc 1 658 28 view .LVU290
+ 1384 000c 8161     		str	r1, [r0, #24]
+ 659:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1385              		.loc 1 659 1 view .LVU291
+ 1386 000e 7047     		bx	lr
+ 1387              		.cfi_endproc
+ 1388              	.LFE154:
+ 1390              		.section	.text.usart_irda_lowpower_config,"ax",%progbits
+ 1391              		.align	1
+ 1392              		.global	usart_irda_lowpower_config
+ 1393              		.syntax unified
+ 1394              		.thumb
+ 1395              		.thumb_func
+ 1397              	usart_irda_lowpower_config:
+ 1398              	.LVL100:
+ 1399              	.LFB155:
+ 660:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 661:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 662:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      configure IrDA low-power
+ 663:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 664:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  irlp: IrDA low-power or normal
+ 665:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 666:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_IRLP_LOW: low-power
+ 667:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_IRLP_NORMAL: normal
+ 668:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 669:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 670:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 671:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_irda_lowpower_config(uint32_t usart_periph, uint32_t irlp)
+ 672:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1400              		.loc 1 672 1 is_stmt 1 view -0
+ 1401              		.cfi_startproc
+ 1402              		@ args = 0, pretend = 0, frame = 0
+ 1403              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1404              		@ link register save eliminated.
+ 673:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL2(usart_periph) &= ~(USART_CTL2_IRLP);
+ 1405              		.loc 1 673 5 view .LVU293
+ 1406              		.loc 1 673 30 is_stmt 0 view .LVU294
+ 1407 0000 4369     		ldr	r3, [r0, #20]
+ 1408 0002 23F00403 		bic	r3, r3, #4
+ 1409 0006 4361     		str	r3, [r0, #20]
+ 674:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL2(usart_periph) |= (USART_CTL2_IRLP & irlp);
+ 1410              		.loc 1 674 5 is_stmt 1 view .LVU295
+ 1411              		.loc 1 674 30 is_stmt 0 view .LVU296
+ 1412 0008 4369     		ldr	r3, [r0, #20]
+ 1413              		.loc 1 674 50 view .LVU297
+ 1414 000a 01F00401 		and	r1, r1, #4
+ 1415              	.LVL101:
+ 1416              		.loc 1 674 30 view .LVU298
+ 1417 000e 0B43     		orrs	r3, r3, r1
+ 1418 0010 4361     		str	r3, [r0, #20]
+ 675:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ARM GAS  /tmp/ccN5vJ6u.s 			page 37
+
+
+ 1419              		.loc 1 675 1 view .LVU299
+ 1420 0012 7047     		bx	lr
+ 1421              		.cfi_endproc
+ 1422              	.LFE155:
+ 1424              		.section	.text.usart_hardware_flow_rts_config,"ax",%progbits
+ 1425              		.align	1
+ 1426              		.global	usart_hardware_flow_rts_config
+ 1427              		.syntax unified
+ 1428              		.thumb
+ 1429              		.thumb_func
+ 1431              	usart_hardware_flow_rts_config:
+ 1432              	.LVL102:
+ 1433              	.LFB156:
+ 676:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 677:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 678:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      configure hardware flow control RTS
+ 679:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)
+ 680:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  rtsconfig: enable or disable RTS
+ 681:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 682:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_RTS_ENABLE:  enable RTS
+ 683:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_RTS_DISABLE: disable RTS
+ 684:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 685:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 686:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 687:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_hardware_flow_rts_config(uint32_t usart_periph, uint32_t rtsconfig)
+ 688:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1434              		.loc 1 688 1 is_stmt 1 view -0
+ 1435              		.cfi_startproc
+ 1436              		@ args = 0, pretend = 0, frame = 0
+ 1437              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1438              		@ link register save eliminated.
+ 689:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     uint32_t ctl = 0U;
+ 1439              		.loc 1 689 5 view .LVU301
+ 690:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     
+ 691:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl = USART_CTL2(usart_periph);
+ 1440              		.loc 1 691 5 view .LVU302
+ 1441              		.loc 1 691 9 is_stmt 0 view .LVU303
+ 1442 0000 4369     		ldr	r3, [r0, #20]
+ 1443              	.LVL103:
+ 692:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl &= ~USART_CTL2_RTSEN;
+ 1444              		.loc 1 692 5 is_stmt 1 view .LVU304
+ 1445              		.loc 1 692 9 is_stmt 0 view .LVU305
+ 1446 0002 23F48073 		bic	r3, r3, #256
+ 1447              	.LVL104:
+ 693:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl |= rtsconfig;
+ 1448              		.loc 1 693 5 is_stmt 1 view .LVU306
+ 1449              		.loc 1 693 9 is_stmt 0 view .LVU307
+ 1450 0006 0B43     		orrs	r3, r3, r1
+ 1451              	.LVL105:
+ 694:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     /* configure RTS */
+ 695:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL2(usart_periph) = ctl;
+ 1452              		.loc 1 695 5 is_stmt 1 view .LVU308
+ 1453              		.loc 1 695 30 is_stmt 0 view .LVU309
+ 1454 0008 4361     		str	r3, [r0, #20]
+ 696:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1455              		.loc 1 696 1 view .LVU310
+ 1456 000a 7047     		bx	lr
+ARM GAS  /tmp/ccN5vJ6u.s 			page 38
+
+
+ 1457              		.cfi_endproc
+ 1458              	.LFE156:
+ 1460              		.section	.text.usart_hardware_flow_cts_config,"ax",%progbits
+ 1461              		.align	1
+ 1462              		.global	usart_hardware_flow_cts_config
+ 1463              		.syntax unified
+ 1464              		.thumb
+ 1465              		.thumb_func
+ 1467              	usart_hardware_flow_cts_config:
+ 1468              	.LVL106:
+ 1469              	.LFB157:
+ 697:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 698:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 699:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      configure hardware flow control CTS
+ 700:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)
+ 701:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  ctsconfig: enable or disable CTS
+ 702:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 703:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_CTS_ENABLE:  enable CTS
+ 704:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_CTS_DISABLE: disable CTS
+ 705:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 706:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 707:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 708:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_hardware_flow_cts_config(uint32_t usart_periph, uint32_t ctsconfig)
+ 709:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1470              		.loc 1 709 1 is_stmt 1 view -0
+ 1471              		.cfi_startproc
+ 1472              		@ args = 0, pretend = 0, frame = 0
+ 1473              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1474              		@ link register save eliminated.
+ 710:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     uint32_t ctl = 0U;
+ 1475              		.loc 1 710 5 view .LVU312
+ 711:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     
+ 712:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl = USART_CTL2(usart_periph);
+ 1476              		.loc 1 712 5 view .LVU313
+ 1477              		.loc 1 712 9 is_stmt 0 view .LVU314
+ 1478 0000 4369     		ldr	r3, [r0, #20]
+ 1479              	.LVL107:
+ 713:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl &= ~USART_CTL2_CTSEN;
+ 1480              		.loc 1 713 5 is_stmt 1 view .LVU315
+ 1481              		.loc 1 713 9 is_stmt 0 view .LVU316
+ 1482 0002 23F40073 		bic	r3, r3, #512
+ 1483              	.LVL108:
+ 714:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl |= ctsconfig;
+ 1484              		.loc 1 714 5 is_stmt 1 view .LVU317
+ 1485              		.loc 1 714 9 is_stmt 0 view .LVU318
+ 1486 0006 0B43     		orrs	r3, r3, r1
+ 1487              	.LVL109:
+ 715:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     /* configure CTS */
+ 716:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL2(usart_periph) = ctl;
+ 1488              		.loc 1 716 5 is_stmt 1 view .LVU319
+ 1489              		.loc 1 716 30 is_stmt 0 view .LVU320
+ 1490 0008 4361     		str	r3, [r0, #20]
+ 717:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1491              		.loc 1 717 1 view .LVU321
+ 1492 000a 7047     		bx	lr
+ 1493              		.cfi_endproc
+ 1494              	.LFE157:
+ARM GAS  /tmp/ccN5vJ6u.s 			page 39
+
+
+ 1496              		.section	.text.usart_dma_receive_config,"ax",%progbits
+ 1497              		.align	1
+ 1498              		.global	usart_dma_receive_config
+ 1499              		.syntax unified
+ 1500              		.thumb
+ 1501              		.thumb_func
+ 1503              	usart_dma_receive_config:
+ 1504              	.LVL110:
+ 1505              	.LFB158:
+ 718:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 719:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 720:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      configure USART DMA reception
+ 721:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3)
+ 722:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  dmacmd: enable or disable DMA for reception
+ 723:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 724:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_DENR_ENABLE:  DMA enable for reception
+ 725:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_DENR_DISABLE: DMA disable for reception
+ 726:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 727:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 728:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 729:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_dma_receive_config(uint32_t usart_periph, uint32_t dmacmd)
+ 730:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1506              		.loc 1 730 1 is_stmt 1 view -0
+ 1507              		.cfi_startproc
+ 1508              		@ args = 0, pretend = 0, frame = 0
+ 1509              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1510              		@ link register save eliminated.
+ 731:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     uint32_t ctl = 0U;
+ 1511              		.loc 1 731 5 view .LVU323
+ 732:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     
+ 733:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl = USART_CTL2(usart_periph);
+ 1512              		.loc 1 733 5 view .LVU324
+ 1513              		.loc 1 733 9 is_stmt 0 view .LVU325
+ 1514 0000 4369     		ldr	r3, [r0, #20]
+ 1515              	.LVL111:
+ 734:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl &= ~USART_CTL2_DENR;
+ 1516              		.loc 1 734 5 is_stmt 1 view .LVU326
+ 1517              		.loc 1 734 9 is_stmt 0 view .LVU327
+ 1518 0002 23F04003 		bic	r3, r3, #64
+ 1519              	.LVL112:
+ 735:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl |= dmacmd;
+ 1520              		.loc 1 735 5 is_stmt 1 view .LVU328
+ 1521              		.loc 1 735 9 is_stmt 0 view .LVU329
+ 1522 0006 0B43     		orrs	r3, r3, r1
+ 1523              	.LVL113:
+ 736:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     /* configure DMA reception */
+ 737:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL2(usart_periph) = ctl;
+ 1524              		.loc 1 737 5 is_stmt 1 view .LVU330
+ 1525              		.loc 1 737 30 is_stmt 0 view .LVU331
+ 1526 0008 4361     		str	r3, [r0, #20]
+ 738:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1527              		.loc 1 738 1 view .LVU332
+ 1528 000a 7047     		bx	lr
+ 1529              		.cfi_endproc
+ 1530              	.LFE158:
+ 1532              		.section	.text.usart_dma_transmit_config,"ax",%progbits
+ 1533              		.align	1
+ARM GAS  /tmp/ccN5vJ6u.s 			page 40
+
+
+ 1534              		.global	usart_dma_transmit_config
+ 1535              		.syntax unified
+ 1536              		.thumb
+ 1537              		.thumb_func
+ 1539              	usart_dma_transmit_config:
+ 1540              	.LVL114:
+ 1541              	.LFB159:
+ 739:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 740:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 741:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      configure USART DMA transmission
+ 742:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3)
+ 743:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  dmacmd: enable or disable DMA for transmission
+ 744:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 745:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_DENT_ENABLE:  DMA enable for transmission
+ 746:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_DENT_DISABLE: DMA disable for transmission
+ 747:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 748:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 749:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 750:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_dma_transmit_config(uint32_t usart_periph, uint32_t dmacmd)
+ 751:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1542              		.loc 1 751 1 is_stmt 1 view -0
+ 1543              		.cfi_startproc
+ 1544              		@ args = 0, pretend = 0, frame = 0
+ 1545              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1546              		@ link register save eliminated.
+ 752:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     uint32_t ctl = 0U;
+ 1547              		.loc 1 752 5 view .LVU334
+ 753:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     
+ 754:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl = USART_CTL2(usart_periph);
+ 1548              		.loc 1 754 5 view .LVU335
+ 1549              		.loc 1 754 9 is_stmt 0 view .LVU336
+ 1550 0000 4369     		ldr	r3, [r0, #20]
+ 1551              	.LVL115:
+ 755:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl &= ~USART_CTL2_DENT;
+ 1552              		.loc 1 755 5 is_stmt 1 view .LVU337
+ 1553              		.loc 1 755 9 is_stmt 0 view .LVU338
+ 1554 0002 23F08003 		bic	r3, r3, #128
+ 1555              	.LVL116:
+ 756:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     ctl |= dmacmd;
+ 1556              		.loc 1 756 5 is_stmt 1 view .LVU339
+ 1557              		.loc 1 756 9 is_stmt 0 view .LVU340
+ 1558 0006 0B43     		orrs	r3, r3, r1
+ 1559              	.LVL117:
+ 757:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     /* configure DMA transmission */
+ 758:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_CTL2(usart_periph) = ctl;
+ 1560              		.loc 1 758 5 is_stmt 1 view .LVU341
+ 1561              		.loc 1 758 30 is_stmt 0 view .LVU342
+ 1562 0008 4361     		str	r3, [r0, #20]
+ 759:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1563              		.loc 1 759 1 view .LVU343
+ 1564 000a 7047     		bx	lr
+ 1565              		.cfi_endproc
+ 1566              	.LFE159:
+ 1568              		.section	.text.usart_flag_get,"ax",%progbits
+ 1569              		.align	1
+ 1570              		.global	usart_flag_get
+ 1571              		.syntax unified
+ARM GAS  /tmp/ccN5vJ6u.s 			page 41
+
+
+ 1572              		.thumb
+ 1573              		.thumb_func
+ 1575              	usart_flag_get:
+ 1576              	.LVL118:
+ 1577              	.LFB160:
+ 760:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 761:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 762:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      get flag in STAT0/STAT1 register
+ 763:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 764:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  flag: USART flags, refer to usart_flag_enum
+ 765:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 766:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_CTS: CTS change flag
+ 767:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_LBD: LIN break detected flag 
+ 768:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_TBE: transmit data buffer empty 
+ 769:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_TC: transmission complete 
+ 770:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_RBNE: read data buffer not empty 
+ 771:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_IDLE: IDLE frame detected flag 
+ 772:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_ORERR: overrun error 
+ 773:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_NERR: noise error flag 
+ 774:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_FERR: frame error flag 
+ 775:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_PERR: parity error flag 
+ 776:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_BSY: busy flag 
+ 777:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_EB: end of block flag 
+ 778:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_RT: receiver timeout flag 
+ 779:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 780:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     FlagStatus: SET or RESET
+ 781:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 782:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** FlagStatus usart_flag_get(uint32_t usart_periph, usart_flag_enum flag)
+ 783:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1578              		.loc 1 783 1 is_stmt 1 view -0
+ 1579              		.cfi_startproc
+ 1580              		@ args = 0, pretend = 0, frame = 0
+ 1581              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1582              		@ link register save eliminated.
+ 784:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     if(RESET != (USART_REG_VAL(usart_periph, flag) & BIT(USART_BIT_POS(flag)))){
+ 1583              		.loc 1 784 5 view .LVU345
+ 1584              		.loc 1 784 18 is_stmt 0 view .LVU346
+ 1585 0000 8B09     		lsrs	r3, r1, #6
+ 1586 0002 1B58     		ldr	r3, [r3, r0]
+ 1587              		.loc 1 784 54 view .LVU347
+ 1588 0004 01F01F01 		and	r1, r1, #31
+ 1589              	.LVL119:
+ 1590              		.loc 1 784 14 view .LVU348
+ 1591 0008 23FA01F1 		lsr	r1, r3, r1
+ 1592              		.loc 1 784 7 view .LVU349
+ 1593 000c 11F0010F 		tst	r1, #1
+ 1594 0010 01D0     		beq	.L78
+ 785:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         return SET;
+ 1595              		.loc 1 785 16 view .LVU350
+ 1596 0012 0120     		movs	r0, #1
+ 1597              	.LVL120:
+ 1598              		.loc 1 785 16 view .LVU351
+ 1599 0014 7047     		bx	lr
+ 1600              	.LVL121:
+ 1601              	.L78:
+ 786:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     }else{
+ 787:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         return RESET;
+ARM GAS  /tmp/ccN5vJ6u.s 			page 42
+
+
+ 1602              		.loc 1 787 16 view .LVU352
+ 1603 0016 0020     		movs	r0, #0
+ 1604              	.LVL122:
+ 788:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     }
+ 789:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1605              		.loc 1 789 1 view .LVU353
+ 1606 0018 7047     		bx	lr
+ 1607              		.cfi_endproc
+ 1608              	.LFE160:
+ 1610              		.section	.text.usart_flag_clear,"ax",%progbits
+ 1611              		.align	1
+ 1612              		.global	usart_flag_clear
+ 1613              		.syntax unified
+ 1614              		.thumb
+ 1615              		.thumb_func
+ 1617              	usart_flag_clear:
+ 1618              	.LVL123:
+ 1619              	.LFB161:
+ 790:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 791:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 792:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      clear flag in STAT0/STAT1 register
+ 793:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 794:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  flag: USART flags, refer to usart_flag_enum
+ 795:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 796:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_CTS: CTS change flag
+ 797:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_LBD: LIN break detected flag
+ 798:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_TC: transmission complete
+ 799:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_RBNE: read data buffer not empty
+ 800:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_EB: end of block flag
+ 801:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_FLAG_RT: receiver timeout flag
+ 802:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 803:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 804:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 805:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_flag_clear(uint32_t usart_periph, usart_flag_enum flag)
+ 806:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1620              		.loc 1 806 1 is_stmt 1 view -0
+ 1621              		.cfi_startproc
+ 1622              		@ args = 0, pretend = 0, frame = 0
+ 1623              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1624              		@ link register save eliminated.
+ 807:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_REG_VAL(usart_periph, flag) &= ~BIT(USART_BIT_POS(flag));
+ 1625              		.loc 1 807 5 view .LVU355
+ 1626              		.loc 1 807 39 is_stmt 0 view .LVU356
+ 1627 0000 4FEA911C 		lsr	ip, r1, #6
+ 1628 0004 5CF80030 		ldr	r3, [ip, r0]
+ 1629              		.loc 1 807 43 view .LVU357
+ 1630 0008 01F01F01 		and	r1, r1, #31
+ 1631              	.LVL124:
+ 1632              		.loc 1 807 43 view .LVU358
+ 1633 000c 0122     		movs	r2, #1
+ 1634 000e 02FA01F1 		lsl	r1, r2, r1
+ 1635              		.loc 1 807 39 view .LVU359
+ 1636 0012 23EA0101 		bic	r1, r3, r1
+ 1637 0016 4CF80010 		str	r1, [ip, r0]
+ 808:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1638              		.loc 1 808 1 view .LVU360
+ 1639 001a 7047     		bx	lr
+ARM GAS  /tmp/ccN5vJ6u.s 			page 43
+
+
+ 1640              		.cfi_endproc
+ 1641              	.LFE161:
+ 1643              		.section	.text.usart_interrupt_enable,"ax",%progbits
+ 1644              		.align	1
+ 1645              		.global	usart_interrupt_enable
+ 1646              		.syntax unified
+ 1647              		.thumb
+ 1648              		.thumb_func
+ 1650              	usart_interrupt_enable:
+ 1651              	.LVL125:
+ 1652              	.LFB162:
+ 809:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 810:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 811:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      enable USART interrupt
+ 812:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 813:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  interrupt: USART interrupts, refer to usart_interrupt_enum
+ 814:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 815:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_PERR: parity error interrupt
+ 816:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_TBE: transmitter buffer empty interrupt
+ 817:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_TC: transmission complete interrupt
+ 818:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_RBNE: read data buffer not empty interrupt and overrun error interrupt
+ 819:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_IDLE: IDLE line detected interrupt
+ 820:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_LBD: LIN break detected interrupt
+ 821:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_ERR: error interrupt
+ 822:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_CTS: CTS interrupt
+ 823:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_RT: interrupt enable bit of receive timeout event
+ 824:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_EB: interrupt enable bit of end of block event
+ 825:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 826:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 827:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 828:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_interrupt_enable(uint32_t usart_periph, usart_interrupt_enum interrupt)
+ 829:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1653              		.loc 1 829 1 is_stmt 1 view -0
+ 1654              		.cfi_startproc
+ 1655              		@ args = 0, pretend = 0, frame = 0
+ 1656              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1657              		@ link register save eliminated.
+ 830:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_REG_VAL(usart_periph, interrupt) |= BIT(USART_BIT_POS(interrupt));
+ 1658              		.loc 1 830 5 view .LVU362
+ 1659              		.loc 1 830 44 is_stmt 0 view .LVU363
+ 1660 0000 4FEA911C 		lsr	ip, r1, #6
+ 1661 0004 5CF80030 		ldr	r3, [ip, r0]
+ 1662              		.loc 1 830 47 view .LVU364
+ 1663 0008 01F01F01 		and	r1, r1, #31
+ 1664              	.LVL126:
+ 1665              		.loc 1 830 47 view .LVU365
+ 1666 000c 0122     		movs	r2, #1
+ 1667 000e 02FA01F1 		lsl	r1, r2, r1
+ 1668              		.loc 1 830 44 view .LVU366
+ 1669 0012 1943     		orrs	r1, r1, r3
+ 1670 0014 4CF80010 		str	r1, [ip, r0]
+ 831:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1671              		.loc 1 831 1 view .LVU367
+ 1672 0018 7047     		bx	lr
+ 1673              		.cfi_endproc
+ 1674              	.LFE162:
+ 1676              		.section	.text.usart_interrupt_disable,"ax",%progbits
+ARM GAS  /tmp/ccN5vJ6u.s 			page 44
+
+
+ 1677              		.align	1
+ 1678              		.global	usart_interrupt_disable
+ 1679              		.syntax unified
+ 1680              		.thumb
+ 1681              		.thumb_func
+ 1683              	usart_interrupt_disable:
+ 1684              	.LVL127:
+ 1685              	.LFB163:
+ 832:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 833:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 834:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      disable USART interrupt
+ 835:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 836:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  interrupt: USART interrupts, refer to usart_interrupt_enum
+ 837:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 838:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_PERR: parity error interrupt
+ 839:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_TBE: transmitter buffer empty interrupt
+ 840:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_TC: transmission complete interrupt
+ 841:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_RBNE: read data buffer not empty interrupt and overrun error interrupt
+ 842:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_IDLE: IDLE line detected interrupt
+ 843:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_LBD: LIN break detected interrupt
+ 844:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_ERR: error interrupt
+ 845:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_CTS: CTS interrupt
+ 846:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_RT: interrupt enable bit of receive timeout event
+ 847:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_EB: interrupt enable bit of end of block event
+ 848:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 849:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 850:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 851:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_interrupt_disable(uint32_t usart_periph, usart_interrupt_enum interrupt)
+ 852:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1686              		.loc 1 852 1 is_stmt 1 view -0
+ 1687              		.cfi_startproc
+ 1688              		@ args = 0, pretend = 0, frame = 0
+ 1689              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1690              		@ link register save eliminated.
+ 853:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_REG_VAL(usart_periph, interrupt) &= ~BIT(USART_BIT_POS(interrupt));
+ 1691              		.loc 1 853 5 view .LVU369
+ 1692              		.loc 1 853 44 is_stmt 0 view .LVU370
+ 1693 0000 4FEA911C 		lsr	ip, r1, #6
+ 1694 0004 5CF80030 		ldr	r3, [ip, r0]
+ 1695              		.loc 1 853 48 view .LVU371
+ 1696 0008 01F01F01 		and	r1, r1, #31
+ 1697              	.LVL128:
+ 1698              		.loc 1 853 48 view .LVU372
+ 1699 000c 0122     		movs	r2, #1
+ 1700 000e 02FA01F1 		lsl	r1, r2, r1
+ 1701              		.loc 1 853 44 view .LVU373
+ 1702 0012 23EA0101 		bic	r1, r3, r1
+ 1703 0016 4CF80010 		str	r1, [ip, r0]
+ 854:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1704              		.loc 1 854 1 view .LVU374
+ 1705 001a 7047     		bx	lr
+ 1706              		.cfi_endproc
+ 1707              	.LFE163:
+ 1709              		.section	.text.usart_interrupt_flag_get,"ax",%progbits
+ 1710              		.align	1
+ 1711              		.global	usart_interrupt_flag_get
+ 1712              		.syntax unified
+ARM GAS  /tmp/ccN5vJ6u.s 			page 45
+
+
+ 1713              		.thumb
+ 1714              		.thumb_func
+ 1716              	usart_interrupt_flag_get:
+ 1717              	.LVL129:
+ 1718              	.LFB164:
+ 855:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 856:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 857:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      get USART interrupt and flag status
+ 858:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 859:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  int_flag: USART interrupt flags, refer to usart_interrupt_flag_enum
+ 860:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 861:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_PERR: parity error interrupt and flag
+ 862:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_TBE: transmitter buffer empty interrupt and flag
+ 863:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_TC: transmission complete interrupt and flag
+ 864:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_RBNE: read data buffer not empty interrupt and flag
+ 865:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_RBNE_ORERR: read data buffer not empty interrupt and overrun error
+ 866:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_IDLE: IDLE line detected interrupt and flag
+ 867:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_LBD: LIN break detected interrupt and flag
+ 868:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_CTS: CTS interrupt and flag
+ 869:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_ERR_ORERR: error interrupt and overrun error
+ 870:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_ERR_NERR: error interrupt and noise error flag
+ 871:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_ERR_FERR: error interrupt and frame error flag
+ 872:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_EB: interrupt enable bit of end of block event and flag
+ 873:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_RT: interrupt enable bit of receive timeout event and flag
+ 874:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 875:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     FlagStatus: SET or RESET
+ 876:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 877:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** FlagStatus usart_interrupt_flag_get(uint32_t usart_periph, usart_interrupt_flag_enum int_flag)
+ 878:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1719              		.loc 1 878 1 is_stmt 1 view -0
+ 1720              		.cfi_startproc
+ 1721              		@ args = 0, pretend = 0, frame = 0
+ 1722              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1723              		@ link register save eliminated.
+ 1724              		.loc 1 878 1 is_stmt 0 view .LVU376
+ 1725 0000 10B4     		push	{r4}
+ 1726              	.LCFI4:
+ 1727              		.cfi_def_cfa_offset 4
+ 1728              		.cfi_offset 4, -4
+ 879:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     uint32_t intenable = 0U, flagstatus = 0U;
+ 1729              		.loc 1 879 5 is_stmt 1 view .LVU377
+ 1730              	.LVL130:
+ 880:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     /* get the interrupt enable bit status */
+ 881:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     intenable = (USART_REG_VAL(usart_periph, int_flag) & BIT(USART_BIT_POS(int_flag)));
+ 1731              		.loc 1 881 5 view .LVU378
+ 1732              		.loc 1 881 18 is_stmt 0 view .LVU379
+ 1733 0002 C1F38913 		ubfx	r3, r1, #6, #10
+ 1734 0006 1C58     		ldr	r4, [r3, r0]
+ 1735              		.loc 1 881 58 view .LVU380
+ 1736 0008 01F01F02 		and	r2, r1, #31
+ 1737 000c 0123     		movs	r3, #1
+ 1738 000e 03FA02F2 		lsl	r2, r3, r2
+ 1739              		.loc 1 881 15 view .LVU381
+ 1740 0012 2240     		ands	r2, r2, r4
+ 1741              	.LVL131:
+ 882:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     /* get the corresponding flag bit status */
+ 883:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     flagstatus = (USART_REG_VAL2(usart_periph, int_flag) & BIT(USART_BIT_POS2(int_flag)));
+ARM GAS  /tmp/ccN5vJ6u.s 			page 46
+
+
+ 1742              		.loc 1 883 5 is_stmt 1 view .LVU382
+ 1743              		.loc 1 883 19 is_stmt 0 view .LVU383
+ 1744 0014 8C0D     		lsrs	r4, r1, #22
+ 1745 0016 2058     		ldr	r0, [r4, r0]
+ 1746              	.LVL132:
+ 1747              		.loc 1 883 60 view .LVU384
+ 1748 0018 C1F30441 		ubfx	r1, r1, #16, #5
+ 1749              	.LVL133:
+ 1750              		.loc 1 883 60 view .LVU385
+ 1751 001c 03FA01F1 		lsl	r1, r3, r1
+ 1752              	.LVL134:
+ 884:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 885:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     if((0U != flagstatus) && (0U != intenable)){
+ 1753              		.loc 1 885 5 is_stmt 1 view .LVU386
+ 1754              		.loc 1 885 7 is_stmt 0 view .LVU387
+ 1755 0020 0842     		tst	r0, r1
+ 1756 0022 02D0     		beq	.L84
+ 1757              		.loc 1 885 27 discriminator 1 view .LVU388
+ 1758 0024 22B9     		cbnz	r2, .L85
+ 886:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         return SET;
+ 887:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     }else{
+ 888:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         return RESET; 
+ 1759              		.loc 1 888 16 view .LVU389
+ 1760 0026 0020     		movs	r0, #0
+ 1761              	.LVL135:
+ 1762              		.loc 1 888 16 view .LVU390
+ 1763 0028 00E0     		b	.L83
+ 1764              	.LVL136:
+ 1765              	.L84:
+ 1766              		.loc 1 888 16 view .LVU391
+ 1767 002a 0020     		movs	r0, #0
+ 1768              	.LVL137:
+ 1769              	.L83:
+ 889:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     }
+ 890:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1770              		.loc 1 890 1 view .LVU392
+ 1771 002c 10BC     		pop	{r4}
+ 1772              	.LCFI5:
+ 1773              		.cfi_remember_state
+ 1774              		.cfi_restore 4
+ 1775              		.cfi_def_cfa_offset 0
+ 1776 002e 7047     		bx	lr
+ 1777              	.LVL138:
+ 1778              	.L85:
+ 1779              	.LCFI6:
+ 1780              		.cfi_restore_state
+ 886:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         return SET;
+ 1781              		.loc 1 886 16 view .LVU393
+ 1782 0030 0120     		movs	r0, #1
+ 1783              	.LVL139:
+ 886:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****         return SET;
+ 1784              		.loc 1 886 16 view .LVU394
+ 1785 0032 FBE7     		b	.L83
+ 1786              		.cfi_endproc
+ 1787              	.LFE164:
+ 1789              		.section	.text.usart_interrupt_flag_clear,"ax",%progbits
+ 1790              		.align	1
+ARM GAS  /tmp/ccN5vJ6u.s 			page 47
+
+
+ 1791              		.global	usart_interrupt_flag_clear
+ 1792              		.syntax unified
+ 1793              		.thumb
+ 1794              		.thumb_func
+ 1796              	usart_interrupt_flag_clear:
+ 1797              	.LVL140:
+ 1798              	.LFB165:
+ 891:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** 
+ 892:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** /*!
+ 893:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \brief      clear USART interrupt flag in STAT0/STAT1 register
+ 894:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  usart_periph: USARTx(x=0,1,2)/UARTx(x=3,4)
+ 895:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[in]  int_flag: USART interrupt flags, refer to usart_interrupt_flag_enum
+ 896:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****                 only one parameter can be selected which is shown as below:
+ 897:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_CTS: CTS change flag
+ 898:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_LBD: LIN break detected flag
+ 899:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_TC: transmission complete
+ 900:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_RBNE: read data buffer not empty
+ 901:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_EB: end of block flag
+ 902:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****       \arg        USART_INT_FLAG_RT: receiver timeout flag
+ 903:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \param[out] none
+ 904:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     \retval     none
+ 905:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** */
+ 906:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** void usart_interrupt_flag_clear(uint32_t usart_periph, usart_interrupt_flag_enum int_flag)
+ 907:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** {
+ 1799              		.loc 1 907 1 is_stmt 1 view -0
+ 1800              		.cfi_startproc
+ 1801              		@ args = 0, pretend = 0, frame = 0
+ 1802              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1803              		@ link register save eliminated.
+ 908:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c ****     USART_REG_VAL2(usart_periph, int_flag) &= ~BIT(USART_BIT_POS2(int_flag));
+ 1804              		.loc 1 908 5 view .LVU396
+ 1805              		.loc 1 908 44 is_stmt 0 view .LVU397
+ 1806 0000 4FEA915C 		lsr	ip, r1, #22
+ 1807 0004 5CF80030 		ldr	r3, [ip, r0]
+ 1808              		.loc 1 908 48 view .LVU398
+ 1809 0008 C1F30441 		ubfx	r1, r1, #16, #5
+ 1810              	.LVL141:
+ 1811              		.loc 1 908 48 view .LVU399
+ 1812 000c 0122     		movs	r2, #1
+ 1813 000e 02FA01F1 		lsl	r1, r2, r1
+ 1814              		.loc 1 908 44 view .LVU400
+ 1815 0012 23EA0101 		bic	r1, r3, r1
+ 1816 0016 4CF80010 		str	r1, [ip, r0]
+ 909:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_usart.c **** }
+ 1817              		.loc 1 909 1 view .LVU401
+ 1818 001a 7047     		bx	lr
+ 1819              		.cfi_endproc
+ 1820              	.LFE165:
+ 1822              		.text
+ 1823              	.Letext0:
+ 1824              		.file 2 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/m
+ 1825              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
+ 1826              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
+ 1827              		.file 5 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_rcu.h"
+ 1828              		.file 6 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_usart.h"
+ARM GAS  /tmp/ccN5vJ6u.s 			page 48
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 gd32f30x_usart.c
+     /tmp/ccN5vJ6u.s:18     .text.usart_deinit:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:24     .text.usart_deinit:0000000000000000 usart_deinit
+     /tmp/ccN5vJ6u.s:130    .text.usart_deinit:0000000000000084 $d
+     /tmp/ccN5vJ6u.s:136    .text.usart_baudrate_set:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:142    .text.usart_baudrate_set:0000000000000000 usart_baudrate_set
+     /tmp/ccN5vJ6u.s:266    .text.usart_baudrate_set:0000000000000068 $d
+     /tmp/ccN5vJ6u.s:272    .text.usart_parity_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:278    .text.usart_parity_config:0000000000000000 usart_parity_config
+     /tmp/ccN5vJ6u.s:302    .text.usart_word_length_set:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:308    .text.usart_word_length_set:0000000000000000 usart_word_length_set
+     /tmp/ccN5vJ6u.s:332    .text.usart_stop_bit_set:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:338    .text.usart_stop_bit_set:0000000000000000 usart_stop_bit_set
+     /tmp/ccN5vJ6u.s:362    .text.usart_enable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:368    .text.usart_enable:0000000000000000 usart_enable
+     /tmp/ccN5vJ6u.s:387    .text.usart_disable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:393    .text.usart_disable:0000000000000000 usart_disable
+     /tmp/ccN5vJ6u.s:412    .text.usart_transmit_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:418    .text.usart_transmit_config:0000000000000000 usart_transmit_config
+     /tmp/ccN5vJ6u.s:448    .text.usart_receive_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:454    .text.usart_receive_config:0000000000000000 usart_receive_config
+     /tmp/ccN5vJ6u.s:484    .text.usart_data_first_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:490    .text.usart_data_first_config:0000000000000000 usart_data_first_config
+     /tmp/ccN5vJ6u.s:514    .text.usart_invert_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:520    .text.usart_invert_config:0000000000000000 usart_invert_config
+     /tmp/ccN5vJ6u.s:533    .text.usart_invert_config:0000000000000008 $d
+     /tmp/ccN5vJ6u.s:539    .text.usart_invert_config:000000000000000e $t
+     /tmp/ccN5vJ6u.s:594    .text.usart_receiver_timeout_enable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:600    .text.usart_receiver_timeout_enable:0000000000000000 usart_receiver_timeout_enable
+     /tmp/ccN5vJ6u.s:619    .text.usart_receiver_timeout_disable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:625    .text.usart_receiver_timeout_disable:0000000000000000 usart_receiver_timeout_disable
+     /tmp/ccN5vJ6u.s:644    .text.usart_receiver_timeout_threshold_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:650    .text.usart_receiver_timeout_threshold_config:0000000000000000 usart_receiver_timeout_threshold_config
+     /tmp/ccN5vJ6u.s:674    .text.usart_data_transmit:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:680    .text.usart_data_transmit:0000000000000000 usart_data_transmit
+     /tmp/ccN5vJ6u.s:700    .text.usart_data_receive:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:706    .text.usart_data_receive:0000000000000000 usart_data_receive
+     /tmp/ccN5vJ6u.s:725    .text.usart_address_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:731    .text.usart_address_config:0000000000000000 usart_address_config
+     /tmp/ccN5vJ6u.s:759    .text.usart_mute_mode_enable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:765    .text.usart_mute_mode_enable:0000000000000000 usart_mute_mode_enable
+     /tmp/ccN5vJ6u.s:784    .text.usart_mute_mode_disable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:790    .text.usart_mute_mode_disable:0000000000000000 usart_mute_mode_disable
+     /tmp/ccN5vJ6u.s:809    .text.usart_mute_mode_wakeup_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:815    .text.usart_mute_mode_wakeup_config:0000000000000000 usart_mute_mode_wakeup_config
+     /tmp/ccN5vJ6u.s:839    .text.usart_lin_mode_enable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:845    .text.usart_lin_mode_enable:0000000000000000 usart_lin_mode_enable
+     /tmp/ccN5vJ6u.s:864    .text.usart_lin_mode_disable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:870    .text.usart_lin_mode_disable:0000000000000000 usart_lin_mode_disable
+     /tmp/ccN5vJ6u.s:889    .text.usart_lin_break_detection_length_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:895    .text.usart_lin_break_detection_length_config:0000000000000000 usart_lin_break_detection_length_config
+     /tmp/ccN5vJ6u.s:923    .text.usart_send_break:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:929    .text.usart_send_break:0000000000000000 usart_send_break
+     /tmp/ccN5vJ6u.s:948    .text.usart_halfduplex_enable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:954    .text.usart_halfduplex_enable:0000000000000000 usart_halfduplex_enable
+     /tmp/ccN5vJ6u.s:973    .text.usart_halfduplex_disable:0000000000000000 $t
+ARM GAS  /tmp/ccN5vJ6u.s 			page 49
+
+
+     /tmp/ccN5vJ6u.s:979    .text.usart_halfduplex_disable:0000000000000000 usart_halfduplex_disable
+     /tmp/ccN5vJ6u.s:998    .text.usart_synchronous_clock_enable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1004   .text.usart_synchronous_clock_enable:0000000000000000 usart_synchronous_clock_enable
+     /tmp/ccN5vJ6u.s:1023   .text.usart_synchronous_clock_disable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1029   .text.usart_synchronous_clock_disable:0000000000000000 usart_synchronous_clock_disable
+     /tmp/ccN5vJ6u.s:1048   .text.usart_synchronous_clock_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1054   .text.usart_synchronous_clock_config:0000000000000000 usart_synchronous_clock_config
+     /tmp/ccN5vJ6u.s:1107   .text.usart_guard_time_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1113   .text.usart_guard_time_config:0000000000000000 usart_guard_time_config
+     /tmp/ccN5vJ6u.s:1143   .text.usart_smartcard_mode_enable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1149   .text.usart_smartcard_mode_enable:0000000000000000 usart_smartcard_mode_enable
+     /tmp/ccN5vJ6u.s:1168   .text.usart_smartcard_mode_disable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1174   .text.usart_smartcard_mode_disable:0000000000000000 usart_smartcard_mode_disable
+     /tmp/ccN5vJ6u.s:1193   .text.usart_smartcard_mode_nack_enable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1199   .text.usart_smartcard_mode_nack_enable:0000000000000000 usart_smartcard_mode_nack_enable
+     /tmp/ccN5vJ6u.s:1218   .text.usart_smartcard_mode_nack_disable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1224   .text.usart_smartcard_mode_nack_disable:0000000000000000 usart_smartcard_mode_nack_disable
+     /tmp/ccN5vJ6u.s:1243   .text.usart_smartcard_autoretry_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1249   .text.usart_smartcard_autoretry_config:0000000000000000 usart_smartcard_autoretry_config
+     /tmp/ccN5vJ6u.s:1279   .text.usart_block_length_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1285   .text.usart_block_length_config:0000000000000000 usart_block_length_config
+     /tmp/ccN5vJ6u.s:1309   .text.usart_irda_mode_enable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1315   .text.usart_irda_mode_enable:0000000000000000 usart_irda_mode_enable
+     /tmp/ccN5vJ6u.s:1334   .text.usart_irda_mode_disable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1340   .text.usart_irda_mode_disable:0000000000000000 usart_irda_mode_disable
+     /tmp/ccN5vJ6u.s:1359   .text.usart_prescaler_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1365   .text.usart_prescaler_config:0000000000000000 usart_prescaler_config
+     /tmp/ccN5vJ6u.s:1391   .text.usart_irda_lowpower_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1397   .text.usart_irda_lowpower_config:0000000000000000 usart_irda_lowpower_config
+     /tmp/ccN5vJ6u.s:1425   .text.usart_hardware_flow_rts_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1431   .text.usart_hardware_flow_rts_config:0000000000000000 usart_hardware_flow_rts_config
+     /tmp/ccN5vJ6u.s:1461   .text.usart_hardware_flow_cts_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1467   .text.usart_hardware_flow_cts_config:0000000000000000 usart_hardware_flow_cts_config
+     /tmp/ccN5vJ6u.s:1497   .text.usart_dma_receive_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1503   .text.usart_dma_receive_config:0000000000000000 usart_dma_receive_config
+     /tmp/ccN5vJ6u.s:1533   .text.usart_dma_transmit_config:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1539   .text.usart_dma_transmit_config:0000000000000000 usart_dma_transmit_config
+     /tmp/ccN5vJ6u.s:1569   .text.usart_flag_get:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1575   .text.usart_flag_get:0000000000000000 usart_flag_get
+     /tmp/ccN5vJ6u.s:1611   .text.usart_flag_clear:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1617   .text.usart_flag_clear:0000000000000000 usart_flag_clear
+     /tmp/ccN5vJ6u.s:1644   .text.usart_interrupt_enable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1650   .text.usart_interrupt_enable:0000000000000000 usart_interrupt_enable
+     /tmp/ccN5vJ6u.s:1677   .text.usart_interrupt_disable:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1683   .text.usart_interrupt_disable:0000000000000000 usart_interrupt_disable
+     /tmp/ccN5vJ6u.s:1710   .text.usart_interrupt_flag_get:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1716   .text.usart_interrupt_flag_get:0000000000000000 usart_interrupt_flag_get
+     /tmp/ccN5vJ6u.s:1790   .text.usart_interrupt_flag_clear:0000000000000000 $t
+     /tmp/ccN5vJ6u.s:1796   .text.usart_interrupt_flag_clear:0000000000000000 usart_interrupt_flag_clear
+
+UNDEFINED SYMBOLS
+rcu_periph_reset_enable
+rcu_periph_reset_disable
+rcu_clock_freq_get

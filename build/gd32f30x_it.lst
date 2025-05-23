@@ -1,0 +1,390 @@
+ARM GAS  /tmp/cc2QEu6a.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"gd32f30x_it.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.NMI_Handler,"ax",%progbits
+  18              		.align	1
+  19              		.global	NMI_Handler
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	NMI_Handler:
+  25              	.LFB116:
+  26              		.file 1 "Core/Source/gd32f30x_it.c"
+   1:Core/Source/gd32f30x_it.c **** /*!
+   2:Core/Source/gd32f30x_it.c ****     \file  gd32f30x_it.c
+   3:Core/Source/gd32f30x_it.c ****     \brief interrupt service routines
+   4:Core/Source/gd32f30x_it.c **** 
+   5:Core/Source/gd32f30x_it.c ****     \version 2017-02-10, V1.0.0, firmware for GD32F30x
+   6:Core/Source/gd32f30x_it.c ****     \version 2018-10-10, V1.1.0, firmware for GD32F30x
+   7:Core/Source/gd32f30x_it.c ****     \version 2018-12-25, V2.0.0, firmware for GD32F30x
+   8:Core/Source/gd32f30x_it.c **** */
+   9:Core/Source/gd32f30x_it.c **** 
+  10:Core/Source/gd32f30x_it.c **** /*
+  11:Core/Source/gd32f30x_it.c ****     Copyright (c) 2018, GigaDevice Semiconductor Inc.
+  12:Core/Source/gd32f30x_it.c **** 
+  13:Core/Source/gd32f30x_it.c ****     All rights reserved.
+  14:Core/Source/gd32f30x_it.c **** 
+  15:Core/Source/gd32f30x_it.c ****     Redistribution and use in source and binary forms, with or without modification, 
+  16:Core/Source/gd32f30x_it.c **** are permitted provided that the following conditions are met:
+  17:Core/Source/gd32f30x_it.c **** 
+  18:Core/Source/gd32f30x_it.c ****     1. Redistributions of source code must retain the above copyright notice, this 
+  19:Core/Source/gd32f30x_it.c ****        list of conditions and the following disclaimer.
+  20:Core/Source/gd32f30x_it.c ****     2. Redistributions in binary form must reproduce the above copyright notice, 
+  21:Core/Source/gd32f30x_it.c ****        this list of conditions and the following disclaimer in the documentation 
+  22:Core/Source/gd32f30x_it.c ****        and/or other materials provided with the distribution.
+  23:Core/Source/gd32f30x_it.c ****     3. Neither the name of the copyright holder nor the names of its contributors 
+  24:Core/Source/gd32f30x_it.c ****        may be used to endorse or promote products derived from this software without 
+  25:Core/Source/gd32f30x_it.c ****        specific prior written permission.
+  26:Core/Source/gd32f30x_it.c **** 
+  27:Core/Source/gd32f30x_it.c ****     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+  28:Core/Source/gd32f30x_it.c **** AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  29:Core/Source/gd32f30x_it.c **** WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  30:Core/Source/gd32f30x_it.c **** IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  31:Core/Source/gd32f30x_it.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  32:Core/Source/gd32f30x_it.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+ARM GAS  /tmp/cc2QEu6a.s 			page 2
+
+
+  33:Core/Source/gd32f30x_it.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+  34:Core/Source/gd32f30x_it.c **** WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  35:Core/Source/gd32f30x_it.c **** ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
+  36:Core/Source/gd32f30x_it.c **** OF SUCH DAMAGE.
+  37:Core/Source/gd32f30x_it.c **** */
+  38:Core/Source/gd32f30x_it.c **** 
+  39:Core/Source/gd32f30x_it.c **** #include "gd32f30x_it.h"
+  40:Core/Source/gd32f30x_it.c **** #include "systick.h"
+  41:Core/Source/gd32f30x_it.c **** 
+  42:Core/Source/gd32f30x_it.c **** /*!
+  43:Core/Source/gd32f30x_it.c ****     \brief      this function handles NMI exception
+  44:Core/Source/gd32f30x_it.c ****     \param[in]  none
+  45:Core/Source/gd32f30x_it.c ****     \param[out] none
+  46:Core/Source/gd32f30x_it.c ****     \retval     none
+  47:Core/Source/gd32f30x_it.c **** */
+  48:Core/Source/gd32f30x_it.c **** void NMI_Handler(void)
+  49:Core/Source/gd32f30x_it.c **** {
+  27              		.loc 1 49 1 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  50:Core/Source/gd32f30x_it.c **** }
+  32              		.loc 1 50 1 view .LVU1
+  33 0000 7047     		bx	lr
+  34              		.cfi_endproc
+  35              	.LFE116:
+  37              		.section	.text.HardFault_Handler,"ax",%progbits
+  38              		.align	1
+  39              		.global	HardFault_Handler
+  40              		.syntax unified
+  41              		.thumb
+  42              		.thumb_func
+  44              	HardFault_Handler:
+  45              	.LFB117:
+  51:Core/Source/gd32f30x_it.c **** 
+  52:Core/Source/gd32f30x_it.c **** /*!
+  53:Core/Source/gd32f30x_it.c ****     \brief      this function handles HardFault exception
+  54:Core/Source/gd32f30x_it.c ****     \param[in]  none
+  55:Core/Source/gd32f30x_it.c ****     \param[out] none
+  56:Core/Source/gd32f30x_it.c ****     \retval     none
+  57:Core/Source/gd32f30x_it.c **** */
+  58:Core/Source/gd32f30x_it.c **** void HardFault_Handler(void)
+  59:Core/Source/gd32f30x_it.c **** {
+  46              		.loc 1 59 1 view -0
+  47              		.cfi_startproc
+  48              		@ Volatile: function does not return.
+  49              		@ args = 0, pretend = 0, frame = 0
+  50              		@ frame_needed = 0, uses_anonymous_args = 0
+  51              		@ link register save eliminated.
+  52              	.L3:
+  60:Core/Source/gd32f30x_it.c ****     /* if Hard Fault exception occurs, go to infinite loop */
+  61:Core/Source/gd32f30x_it.c ****     while (1){
+  53              		.loc 1 61 5 discriminator 1 view .LVU3
+  62:Core/Source/gd32f30x_it.c ****     }
+  54              		.loc 1 62 5 discriminator 1 view .LVU4
+  61:Core/Source/gd32f30x_it.c ****     }
+ARM GAS  /tmp/cc2QEu6a.s 			page 3
+
+
+  55              		.loc 1 61 11 discriminator 1 view .LVU5
+  56 0000 FEE7     		b	.L3
+  57              		.cfi_endproc
+  58              	.LFE117:
+  60              		.section	.text.MemManage_Handler,"ax",%progbits
+  61              		.align	1
+  62              		.global	MemManage_Handler
+  63              		.syntax unified
+  64              		.thumb
+  65              		.thumb_func
+  67              	MemManage_Handler:
+  68              	.LFB118:
+  63:Core/Source/gd32f30x_it.c **** }
+  64:Core/Source/gd32f30x_it.c **** 
+  65:Core/Source/gd32f30x_it.c **** /*!
+  66:Core/Source/gd32f30x_it.c ****     \brief      this function handles MemManage exception
+  67:Core/Source/gd32f30x_it.c ****     \param[in]  none
+  68:Core/Source/gd32f30x_it.c ****     \param[out] none
+  69:Core/Source/gd32f30x_it.c ****     \retval     none
+  70:Core/Source/gd32f30x_it.c **** */
+  71:Core/Source/gd32f30x_it.c **** void MemManage_Handler(void)
+  72:Core/Source/gd32f30x_it.c **** {
+  69              		.loc 1 72 1 view -0
+  70              		.cfi_startproc
+  71              		@ Volatile: function does not return.
+  72              		@ args = 0, pretend = 0, frame = 0
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  74              		@ link register save eliminated.
+  75              	.L5:
+  73:Core/Source/gd32f30x_it.c ****     /* if Memory Manage exception occurs, go to infinite loop */
+  74:Core/Source/gd32f30x_it.c ****     while (1){
+  76              		.loc 1 74 5 discriminator 1 view .LVU7
+  75:Core/Source/gd32f30x_it.c ****     }
+  77              		.loc 1 75 5 discriminator 1 view .LVU8
+  74:Core/Source/gd32f30x_it.c ****     }
+  78              		.loc 1 74 11 discriminator 1 view .LVU9
+  79 0000 FEE7     		b	.L5
+  80              		.cfi_endproc
+  81              	.LFE118:
+  83              		.section	.text.BusFault_Handler,"ax",%progbits
+  84              		.align	1
+  85              		.global	BusFault_Handler
+  86              		.syntax unified
+  87              		.thumb
+  88              		.thumb_func
+  90              	BusFault_Handler:
+  91              	.LFB119:
+  76:Core/Source/gd32f30x_it.c **** }
+  77:Core/Source/gd32f30x_it.c **** 
+  78:Core/Source/gd32f30x_it.c **** /*!
+  79:Core/Source/gd32f30x_it.c ****     \brief      this function handles BusFault exception
+  80:Core/Source/gd32f30x_it.c ****     \param[in]  none
+  81:Core/Source/gd32f30x_it.c ****     \param[out] none
+  82:Core/Source/gd32f30x_it.c ****     \retval     none
+  83:Core/Source/gd32f30x_it.c **** */
+  84:Core/Source/gd32f30x_it.c **** void BusFault_Handler(void)
+  85:Core/Source/gd32f30x_it.c **** {
+ARM GAS  /tmp/cc2QEu6a.s 			page 4
+
+
+  92              		.loc 1 85 1 view -0
+  93              		.cfi_startproc
+  94              		@ Volatile: function does not return.
+  95              		@ args = 0, pretend = 0, frame = 0
+  96              		@ frame_needed = 0, uses_anonymous_args = 0
+  97              		@ link register save eliminated.
+  98              	.L7:
+  86:Core/Source/gd32f30x_it.c ****     /* if Bus Fault exception occurs, go to infinite loop */
+  87:Core/Source/gd32f30x_it.c ****     while (1){
+  99              		.loc 1 87 5 discriminator 1 view .LVU11
+  88:Core/Source/gd32f30x_it.c ****     }
+ 100              		.loc 1 88 5 discriminator 1 view .LVU12
+  87:Core/Source/gd32f30x_it.c ****     }
+ 101              		.loc 1 87 11 discriminator 1 view .LVU13
+ 102 0000 FEE7     		b	.L7
+ 103              		.cfi_endproc
+ 104              	.LFE119:
+ 106              		.section	.text.UsageFault_Handler,"ax",%progbits
+ 107              		.align	1
+ 108              		.global	UsageFault_Handler
+ 109              		.syntax unified
+ 110              		.thumb
+ 111              		.thumb_func
+ 113              	UsageFault_Handler:
+ 114              	.LFB120:
+  89:Core/Source/gd32f30x_it.c **** }
+  90:Core/Source/gd32f30x_it.c **** 
+  91:Core/Source/gd32f30x_it.c **** /*!
+  92:Core/Source/gd32f30x_it.c ****     \brief      this function handles UsageFault exception
+  93:Core/Source/gd32f30x_it.c ****     \param[in]  none
+  94:Core/Source/gd32f30x_it.c ****     \param[out] none
+  95:Core/Source/gd32f30x_it.c ****     \retval     none
+  96:Core/Source/gd32f30x_it.c **** */
+  97:Core/Source/gd32f30x_it.c **** void UsageFault_Handler(void)
+  98:Core/Source/gd32f30x_it.c **** {
+ 115              		.loc 1 98 1 view -0
+ 116              		.cfi_startproc
+ 117              		@ Volatile: function does not return.
+ 118              		@ args = 0, pretend = 0, frame = 0
+ 119              		@ frame_needed = 0, uses_anonymous_args = 0
+ 120              		@ link register save eliminated.
+ 121              	.L9:
+  99:Core/Source/gd32f30x_it.c ****     /* if Usage Fault exception occurs, go to infinite loop */
+ 100:Core/Source/gd32f30x_it.c ****     while (1){
+ 122              		.loc 1 100 5 discriminator 1 view .LVU15
+ 101:Core/Source/gd32f30x_it.c ****     }
+ 123              		.loc 1 101 5 discriminator 1 view .LVU16
+ 100:Core/Source/gd32f30x_it.c ****     }
+ 124              		.loc 1 100 11 discriminator 1 view .LVU17
+ 125 0000 FEE7     		b	.L9
+ 126              		.cfi_endproc
+ 127              	.LFE120:
+ 129              		.section	.text.SVC_Handler,"ax",%progbits
+ 130              		.align	1
+ 131              		.global	SVC_Handler
+ 132              		.syntax unified
+ 133              		.thumb
+ARM GAS  /tmp/cc2QEu6a.s 			page 5
+
+
+ 134              		.thumb_func
+ 136              	SVC_Handler:
+ 137              	.LFB121:
+ 102:Core/Source/gd32f30x_it.c **** }
+ 103:Core/Source/gd32f30x_it.c **** 
+ 104:Core/Source/gd32f30x_it.c **** /*!
+ 105:Core/Source/gd32f30x_it.c ****     \brief      this function handles SVC exception
+ 106:Core/Source/gd32f30x_it.c ****     \param[in]  none
+ 107:Core/Source/gd32f30x_it.c ****     \param[out] none
+ 108:Core/Source/gd32f30x_it.c ****     \retval     none
+ 109:Core/Source/gd32f30x_it.c **** */
+ 110:Core/Source/gd32f30x_it.c **** void SVC_Handler(void)
+ 111:Core/Source/gd32f30x_it.c **** {
+ 138              		.loc 1 111 1 view -0
+ 139              		.cfi_startproc
+ 140              		@ args = 0, pretend = 0, frame = 0
+ 141              		@ frame_needed = 0, uses_anonymous_args = 0
+ 142              		@ link register save eliminated.
+ 112:Core/Source/gd32f30x_it.c **** }
+ 143              		.loc 1 112 1 view .LVU19
+ 144 0000 7047     		bx	lr
+ 145              		.cfi_endproc
+ 146              	.LFE121:
+ 148              		.section	.text.DebugMon_Handler,"ax",%progbits
+ 149              		.align	1
+ 150              		.global	DebugMon_Handler
+ 151              		.syntax unified
+ 152              		.thumb
+ 153              		.thumb_func
+ 155              	DebugMon_Handler:
+ 156              	.LFB122:
+ 113:Core/Source/gd32f30x_it.c **** 
+ 114:Core/Source/gd32f30x_it.c **** /*!
+ 115:Core/Source/gd32f30x_it.c ****     \brief      this function handles DebugMon exception
+ 116:Core/Source/gd32f30x_it.c ****     \param[in]  none
+ 117:Core/Source/gd32f30x_it.c ****     \param[out] none
+ 118:Core/Source/gd32f30x_it.c ****     \retval     none
+ 119:Core/Source/gd32f30x_it.c **** */
+ 120:Core/Source/gd32f30x_it.c **** void DebugMon_Handler(void)
+ 121:Core/Source/gd32f30x_it.c **** {
+ 157              		.loc 1 121 1 view -0
+ 158              		.cfi_startproc
+ 159              		@ args = 0, pretend = 0, frame = 0
+ 160              		@ frame_needed = 0, uses_anonymous_args = 0
+ 161              		@ link register save eliminated.
+ 122:Core/Source/gd32f30x_it.c **** }
+ 162              		.loc 1 122 1 view .LVU21
+ 163 0000 7047     		bx	lr
+ 164              		.cfi_endproc
+ 165              	.LFE122:
+ 167              		.section	.text.PendSV_Handler,"ax",%progbits
+ 168              		.align	1
+ 169              		.global	PendSV_Handler
+ 170              		.syntax unified
+ 171              		.thumb
+ 172              		.thumb_func
+ 174              	PendSV_Handler:
+ARM GAS  /tmp/cc2QEu6a.s 			page 6
+
+
+ 175              	.LFB123:
+ 123:Core/Source/gd32f30x_it.c **** 
+ 124:Core/Source/gd32f30x_it.c **** /*!
+ 125:Core/Source/gd32f30x_it.c ****     \brief      this function handles PendSV exception
+ 126:Core/Source/gd32f30x_it.c ****     \param[in]  none
+ 127:Core/Source/gd32f30x_it.c ****     \param[out] none
+ 128:Core/Source/gd32f30x_it.c ****     \retval     none
+ 129:Core/Source/gd32f30x_it.c **** */
+ 130:Core/Source/gd32f30x_it.c **** void PendSV_Handler(void)
+ 131:Core/Source/gd32f30x_it.c **** {
+ 176              		.loc 1 131 1 view -0
+ 177              		.cfi_startproc
+ 178              		@ args = 0, pretend = 0, frame = 0
+ 179              		@ frame_needed = 0, uses_anonymous_args = 0
+ 180              		@ link register save eliminated.
+ 132:Core/Source/gd32f30x_it.c **** }
+ 181              		.loc 1 132 1 view .LVU23
+ 182 0000 7047     		bx	lr
+ 183              		.cfi_endproc
+ 184              	.LFE123:
+ 186              		.section	.text.SysTick_Handler,"ax",%progbits
+ 187              		.align	1
+ 188              		.global	SysTick_Handler
+ 189              		.syntax unified
+ 190              		.thumb
+ 191              		.thumb_func
+ 193              	SysTick_Handler:
+ 194              	.LFB124:
+ 133:Core/Source/gd32f30x_it.c **** 
+ 134:Core/Source/gd32f30x_it.c **** /*!
+ 135:Core/Source/gd32f30x_it.c ****     \brief      this function handles SysTick exception
+ 136:Core/Source/gd32f30x_it.c ****     \param[in]  none
+ 137:Core/Source/gd32f30x_it.c ****     \param[out] none
+ 138:Core/Source/gd32f30x_it.c ****     \retval     none
+ 139:Core/Source/gd32f30x_it.c **** */
+ 140:Core/Source/gd32f30x_it.c **** void SysTick_Handler(void)
+ 141:Core/Source/gd32f30x_it.c **** {
+ 195              		.loc 1 141 1 view -0
+ 196              		.cfi_startproc
+ 197              		@ args = 0, pretend = 0, frame = 0
+ 198              		@ frame_needed = 0, uses_anonymous_args = 0
+ 199 0000 08B5     		push	{r3, lr}
+ 200              	.LCFI0:
+ 201              		.cfi_def_cfa_offset 8
+ 202              		.cfi_offset 3, -8
+ 203              		.cfi_offset 14, -4
+ 142:Core/Source/gd32f30x_it.c ****     delay_decrement();
+ 204              		.loc 1 142 5 view .LVU25
+ 205 0002 FFF7FEFF 		bl	delay_decrement
+ 206              	.LVL0:
+ 143:Core/Source/gd32f30x_it.c **** }
+ 207              		.loc 1 143 1 is_stmt 0 view .LVU26
+ 208 0006 08BD     		pop	{r3, pc}
+ 209              		.cfi_endproc
+ 210              	.LFE124:
+ 212              		.text
+ 213              	.Letext0:
+ARM GAS  /tmp/cc2QEu6a.s 			page 7
+
+
+ 214              		.file 2 "Core/Include/systick.h"
+ARM GAS  /tmp/cc2QEu6a.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 gd32f30x_it.c
+     /tmp/cc2QEu6a.s:18     .text.NMI_Handler:0000000000000000 $t
+     /tmp/cc2QEu6a.s:24     .text.NMI_Handler:0000000000000000 NMI_Handler
+     /tmp/cc2QEu6a.s:38     .text.HardFault_Handler:0000000000000000 $t
+     /tmp/cc2QEu6a.s:44     .text.HardFault_Handler:0000000000000000 HardFault_Handler
+     /tmp/cc2QEu6a.s:61     .text.MemManage_Handler:0000000000000000 $t
+     /tmp/cc2QEu6a.s:67     .text.MemManage_Handler:0000000000000000 MemManage_Handler
+     /tmp/cc2QEu6a.s:84     .text.BusFault_Handler:0000000000000000 $t
+     /tmp/cc2QEu6a.s:90     .text.BusFault_Handler:0000000000000000 BusFault_Handler
+     /tmp/cc2QEu6a.s:107    .text.UsageFault_Handler:0000000000000000 $t
+     /tmp/cc2QEu6a.s:113    .text.UsageFault_Handler:0000000000000000 UsageFault_Handler
+     /tmp/cc2QEu6a.s:130    .text.SVC_Handler:0000000000000000 $t
+     /tmp/cc2QEu6a.s:136    .text.SVC_Handler:0000000000000000 SVC_Handler
+     /tmp/cc2QEu6a.s:149    .text.DebugMon_Handler:0000000000000000 $t
+     /tmp/cc2QEu6a.s:155    .text.DebugMon_Handler:0000000000000000 DebugMon_Handler
+     /tmp/cc2QEu6a.s:168    .text.PendSV_Handler:0000000000000000 $t
+     /tmp/cc2QEu6a.s:174    .text.PendSV_Handler:0000000000000000 PendSV_Handler
+     /tmp/cc2QEu6a.s:187    .text.SysTick_Handler:0000000000000000 $t
+     /tmp/cc2QEu6a.s:193    .text.SysTick_Handler:0000000000000000 SysTick_Handler
+
+UNDEFINED SYMBOLS
+delay_decrement

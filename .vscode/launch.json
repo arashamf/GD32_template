@@ -1,0 +1,56 @@
+{
+    "version": "0.2.0",
+    "configurations": 
+    [
+        {
+            "name": "GD32F3",
+            "cwd": "${workspaceRoot}",
+            "executable": "build/${workspaceFolderBasename}.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "preLaunchTask": "build",
+            "gdbPath": "arm-none-eabi-gdb",
+            "svdFile": "${workspaceRoot}/GD32F3x0.svd", // Add you svd file
+            
+            "configFiles": // Set you programmer and target controller
+            [
+                "interface/cmsis-dap.cfg",
+                "target/gd32f30x.cfg"
+            ],
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "none",
+            "swoConfig": 
+            {
+                "enabled": true,
+                "swoFrequency": 480000,
+                "cpuFrequency": 8000000,
+                "decoders": 
+                [
+                    {
+                        "label": "RTT channel 0",
+                        "port": 0,
+                        "timestamp": true,
+                        "type": "console"
+                    }
+                ]
+            }
+        }
+
+      /* {
+           "name": "Debug gdb",
+           "type": "cortex-debug",
+           "request": "attach",
+           "executable": "${workspaceRoot}\\build\\test.elf",
+           "target": "localhost:3333",
+           "cwd": "${workspaceRoot}",
+           "gdbPath": "arm-none-eabi-gdb",
+           "remote": true,
+           "autorun": [
+               "load ./build/test.elf",
+               "break main",
+               "monitor reset"
+           ]            
+       }*/
+   ]
+}

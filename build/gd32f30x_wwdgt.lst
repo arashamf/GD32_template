@@ -1,0 +1,483 @@
+ARM GAS  /tmp/cc0dy6WX.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"gd32f30x_wwdgt.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.wwdgt_deinit,"ax",%progbits
+  18              		.align	1
+  19              		.global	wwdgt_deinit
+  20              		.syntax unified
+  21              		.thumb
+  22              		.thumb_func
+  24              	wwdgt_deinit:
+  25              	.LFB116:
+  26              		.file 1 "Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c"
+   1:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** /*!
+   2:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \file    gd32f30x_wwdgt.c
+   3:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \brief   WWDGT driver
+   4:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** 
+   5:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \version 2017-02-10, V1.0.0, firmware for GD32F30x
+   6:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \version 2018-10-10, V1.1.0, firmware for GD32F30x
+   7:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \version 2018-12-25, V2.0.0, firmware for GD32F30x
+   8:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \version 2020-09-30, V2.1.0, firmware for GD32F30x
+   9:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** */
+  10:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** 
+  11:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** /*
+  12:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     Copyright (c) 2020, GigaDevice Semiconductor Inc.
+  13:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** 
+  14:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     Redistribution and use in source and binary forms, with or without modification, 
+  15:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** are permitted provided that the following conditions are met:
+  16:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** 
+  17:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     1. Redistributions of source code must retain the above copyright notice, this 
+  18:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****        list of conditions and the following disclaimer.
+  19:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     2. Redistributions in binary form must reproduce the above copyright notice, 
+  20:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****        this list of conditions and the following disclaimer in the documentation 
+  21:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****        and/or other materials provided with the distribution.
+  22:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     3. Neither the name of the copyright holder nor the names of its contributors 
+  23:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****        may be used to endorse or promote products derived from this software without 
+  24:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****        specific prior written permission.
+  25:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** 
+  26:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+  27:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+  28:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+  29:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+  30:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
+  31:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+  32:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
+ARM GAS  /tmp/cc0dy6WX.s 			page 2
+
+
+  33:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  34:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
+  35:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** OF SUCH DAMAGE.
+  36:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** */
+  37:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** 
+  38:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** #include "gd32f30x_wwdgt.h"
+  39:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** 
+  40:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** /* write value to WWDGT_CTL_CNT bit field */
+  41:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** #define CTL_CNT(regval)             (BITS(0,6) & ((uint32_t)(regval) << 0))
+  42:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** /* write value to WWDGT_CFG_WIN bit field */
+  43:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** #define CFG_WIN(regval)             (BITS(0,6) & ((uint32_t)(regval) << 0))
+  44:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** 
+  45:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** /*!
+  46:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \brief      reset the window watchdog timer configuration
+  47:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[in]  none
+  48:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[out] none
+  49:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \retval     none
+  50:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** */
+  51:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** void wwdgt_deinit(void)
+  52:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** {
+  27              		.loc 1 52 1 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  53:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     rcu_periph_reset_enable(RCU_WWDGTRST);
+  36              		.loc 1 53 5 view .LVU1
+  37 0002 40F20B40 		movw	r0, #1035
+  38 0006 FFF7FEFF 		bl	rcu_periph_reset_enable
+  39              	.LVL0:
+  54:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     rcu_periph_reset_disable(RCU_WWDGTRST);
+  40              		.loc 1 54 5 view .LVU2
+  41 000a 40F20B40 		movw	r0, #1035
+  42 000e FFF7FEFF 		bl	rcu_periph_reset_disable
+  43              	.LVL1:
+  55:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** }
+  44              		.loc 1 55 1 is_stmt 0 view .LVU3
+  45 0012 08BD     		pop	{r3, pc}
+  46              		.cfi_endproc
+  47              	.LFE116:
+  49              		.section	.text.wwdgt_enable,"ax",%progbits
+  50              		.align	1
+  51              		.global	wwdgt_enable
+  52              		.syntax unified
+  53              		.thumb
+  54              		.thumb_func
+  56              	wwdgt_enable:
+  57              	.LFB117:
+  56:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** 
+  57:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** /*!
+  58:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \brief      start the window watchdog timer counter
+  59:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[in]  none
+  60:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[out] none
+ARM GAS  /tmp/cc0dy6WX.s 			page 3
+
+
+  61:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \retval     none
+  62:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** */
+  63:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** void wwdgt_enable(void)
+  64:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** {
+  58              		.loc 1 64 1 is_stmt 1 view -0
+  59              		.cfi_startproc
+  60              		@ args = 0, pretend = 0, frame = 0
+  61              		@ frame_needed = 0, uses_anonymous_args = 0
+  62              		@ link register save eliminated.
+  65:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     WWDGT_CTL |= WWDGT_CTL_WDGTEN;
+  63              		.loc 1 65 5 view .LVU5
+  64              		.loc 1 65 15 is_stmt 0 view .LVU6
+  65 0000 034A     		ldr	r2, .L4
+  66 0002 D2F8003C 		ldr	r3, [r2, #3072]
+  67 0006 43F08003 		orr	r3, r3, #128
+  68 000a C2F8003C 		str	r3, [r2, #3072]
+  66:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** }
+  69              		.loc 1 66 1 view .LVU7
+  70 000e 7047     		bx	lr
+  71              	.L5:
+  72              		.align	2
+  73              	.L4:
+  74 0010 00200040 		.word	1073750016
+  75              		.cfi_endproc
+  76              	.LFE117:
+  78              		.section	.text.wwdgt_counter_update,"ax",%progbits
+  79              		.align	1
+  80              		.global	wwdgt_counter_update
+  81              		.syntax unified
+  82              		.thumb
+  83              		.thumb_func
+  85              	wwdgt_counter_update:
+  86              	.LVL2:
+  87              	.LFB118:
+  67:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** 
+  68:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** /*!
+  69:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \brief      configure the window watchdog timer counter value
+  70:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[in]  counter_value: 0x00 - 0x7F
+  71:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[out] none
+  72:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \retval     none
+  73:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** */
+  74:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** void wwdgt_counter_update(uint16_t counter_value)
+  75:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** {
+  88              		.loc 1 75 1 is_stmt 1 view -0
+  89              		.cfi_startproc
+  90              		@ args = 0, pretend = 0, frame = 0
+  91              		@ frame_needed = 0, uses_anonymous_args = 0
+  92              		@ link register save eliminated.
+  76:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     uint32_t reg = 0U;
+  93              		.loc 1 76 5 view .LVU9
+  77:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     
+  78:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     reg = (WWDGT_CTL & (~WWDGT_CTL_CNT));
+  94              		.loc 1 78 5 view .LVU10
+  95              		.loc 1 78 12 is_stmt 0 view .LVU11
+  96 0000 054A     		ldr	r2, .L7
+  97 0002 D2F8003C 		ldr	r3, [r2, #3072]
+  98              		.loc 1 78 9 view .LVU12
+ARM GAS  /tmp/cc0dy6WX.s 			page 4
+
+
+  99 0006 23F07F03 		bic	r3, r3, #127
+ 100              	.LVL3:
+  79:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     reg |= CTL_CNT(counter_value);
+ 101              		.loc 1 79 5 is_stmt 1 view .LVU13
+ 102              		.loc 1 79 12 is_stmt 0 view .LVU14
+ 103 000a 00F07F00 		and	r0, r0, #127
+ 104              	.LVL4:
+ 105              		.loc 1 79 9 view .LVU15
+ 106 000e 1843     		orrs	r0, r0, r3
+ 107              	.LVL5:
+  80:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     
+  81:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     WWDGT_CTL = reg;
+ 108              		.loc 1 81 5 is_stmt 1 view .LVU16
+ 109              		.loc 1 81 15 is_stmt 0 view .LVU17
+ 110 0010 C2F8000C 		str	r0, [r2, #3072]
+  82:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** }
+ 111              		.loc 1 82 1 view .LVU18
+ 112 0014 7047     		bx	lr
+ 113              	.L8:
+ 114 0016 00BF     		.align	2
+ 115              	.L7:
+ 116 0018 00200040 		.word	1073750016
+ 117              		.cfi_endproc
+ 118              	.LFE118:
+ 120              		.section	.text.wwdgt_config,"ax",%progbits
+ 121              		.align	1
+ 122              		.global	wwdgt_config
+ 123              		.syntax unified
+ 124              		.thumb
+ 125              		.thumb_func
+ 127              	wwdgt_config:
+ 128              	.LVL6:
+ 129              	.LFB119:
+  83:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** 
+  84:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** /*!
+  85:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \brief      configure counter value, window value, and prescaler divider value  
+  86:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[in]  counter: 0x00 - 0x7F   
+  87:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[in]  window: 0x00 - 0x7F
+  88:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[in]  prescaler: wwdgt prescaler value
+  89:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****                 only one parameter can be selected which is shown as below:
+  90:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****       \arg        WWDGT_CFG_PSC_DIV1: the time base of window watchdog counter = (PCLK1/4096)/1
+  91:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****       \arg        WWDGT_CFG_PSC_DIV2: the time base of window watchdog counter = (PCLK1/4096)/2
+  92:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****       \arg        WWDGT_CFG_PSC_DIV4: the time base of window watchdog counter = (PCLK1/4096)/4
+  93:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****       \arg        WWDGT_CFG_PSC_DIV8: the time base of window watchdog counter = (PCLK1/4096)/8
+  94:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[out] none
+  95:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \retval     none
+  96:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** */
+  97:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** void wwdgt_config(uint16_t counter, uint16_t window, uint32_t prescaler)
+  98:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** {
+ 130              		.loc 1 98 1 is_stmt 1 view -0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134              		@ link register save eliminated.
+ 135              		.loc 1 98 1 is_stmt 0 view .LVU20
+ 136 0000 30B4     		push	{r4, r5}
+ 137              	.LCFI1:
+ARM GAS  /tmp/cc0dy6WX.s 			page 5
+
+
+ 138              		.cfi_def_cfa_offset 8
+ 139              		.cfi_offset 4, -8
+ 140              		.cfi_offset 5, -4
+  99:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     uint32_t reg_cfg = 0U, reg_ctl = 0U;
+ 141              		.loc 1 99 5 is_stmt 1 view .LVU21
+ 142              	.LVL7:
+ 100:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** 
+ 101:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     /* clear WIN and PSC bits, clear CNT bit */
+ 102:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     reg_cfg = (WWDGT_CFG &(~(WWDGT_CFG_WIN|WWDGT_CFG_PSC)));
+ 143              		.loc 1 102 5 view .LVU22
+ 144              		.loc 1 102 16 is_stmt 0 view .LVU23
+ 145 0002 0C4C     		ldr	r4, .L11
+ 146 0004 D4F8043C 		ldr	r3, [r4, #3076]
+ 147              		.loc 1 102 13 view .LVU24
+ 148 0008 23F4FF73 		bic	r3, r3, #510
+ 149 000c 23F00103 		bic	r3, r3, #1
+ 150              	.LVL8:
+ 103:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     reg_ctl = (WWDGT_CTL &(~WWDGT_CTL_CNT));
+ 151              		.loc 1 103 5 is_stmt 1 view .LVU25
+ 152              		.loc 1 103 16 is_stmt 0 view .LVU26
+ 153 0010 D4F8005C 		ldr	r5, [r4, #3072]
+ 154              		.loc 1 103 13 view .LVU27
+ 155 0014 25F07F0C 		bic	ip, r5, #127
+ 156              	.LVL9:
+ 104:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****   
+ 105:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     /* configure WIN and PSC bits, configure CNT bit */
+ 106:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     reg_cfg |= CFG_WIN(window);
+ 157              		.loc 1 106 5 is_stmt 1 view .LVU28
+ 158              		.loc 1 106 16 is_stmt 0 view .LVU29
+ 159 0018 01F07F01 		and	r1, r1, #127
+ 160              	.LVL10:
+ 161              		.loc 1 106 13 view .LVU30
+ 162 001c 1943     		orrs	r1, r1, r3
+ 163              	.LVL11:
+ 107:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     reg_cfg |= prescaler;
+ 164              		.loc 1 107 5 is_stmt 1 view .LVU31
+ 165              		.loc 1 107 13 is_stmt 0 view .LVU32
+ 166 001e 1143     		orrs	r1, r1, r2
+ 167              	.LVL12:
+ 108:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     reg_ctl |= CTL_CNT(counter);
+ 168              		.loc 1 108 5 is_stmt 1 view .LVU33
+ 169              		.loc 1 108 16 is_stmt 0 view .LVU34
+ 170 0020 00F07F00 		and	r0, r0, #127
+ 171              	.LVL13:
+ 172              		.loc 1 108 13 view .LVU35
+ 173 0024 40EA0C00 		orr	r0, r0, ip
+ 174              	.LVL14:
+ 109:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     
+ 110:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     WWDGT_CTL = reg_ctl;
+ 175              		.loc 1 110 5 is_stmt 1 view .LVU36
+ 176              		.loc 1 110 15 is_stmt 0 view .LVU37
+ 177 0028 C4F8000C 		str	r0, [r4, #3072]
+ 111:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     WWDGT_CFG = reg_cfg;
+ 178              		.loc 1 111 5 is_stmt 1 view .LVU38
+ 179              		.loc 1 111 15 is_stmt 0 view .LVU39
+ 180 002c C4F8041C 		str	r1, [r4, #3076]
+ 112:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** }
+ARM GAS  /tmp/cc0dy6WX.s 			page 6
+
+
+ 181              		.loc 1 112 1 view .LVU40
+ 182 0030 30BC     		pop	{r4, r5}
+ 183              	.LCFI2:
+ 184              		.cfi_restore 5
+ 185              		.cfi_restore 4
+ 186              		.cfi_def_cfa_offset 0
+ 187 0032 7047     		bx	lr
+ 188              	.L12:
+ 189              		.align	2
+ 190              	.L11:
+ 191 0034 00200040 		.word	1073750016
+ 192              		.cfi_endproc
+ 193              	.LFE119:
+ 195              		.section	.text.wwdgt_interrupt_enable,"ax",%progbits
+ 196              		.align	1
+ 197              		.global	wwdgt_interrupt_enable
+ 198              		.syntax unified
+ 199              		.thumb
+ 200              		.thumb_func
+ 202              	wwdgt_interrupt_enable:
+ 203              	.LFB120:
+ 113:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** 
+ 114:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** /*!
+ 115:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \brief      enable early wakeup interrupt of WWDGT
+ 116:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[in]  none
+ 117:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[out] none
+ 118:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \retval     none
+ 119:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** */
+ 120:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** void wwdgt_interrupt_enable(void)
+ 121:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** {
+ 204              		.loc 1 121 1 is_stmt 1 view -0
+ 205              		.cfi_startproc
+ 206              		@ args = 0, pretend = 0, frame = 0
+ 207              		@ frame_needed = 0, uses_anonymous_args = 0
+ 208              		@ link register save eliminated.
+ 122:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     WWDGT_CFG |= WWDGT_CFG_EWIE;
+ 209              		.loc 1 122 5 view .LVU42
+ 210              		.loc 1 122 15 is_stmt 0 view .LVU43
+ 211 0000 034A     		ldr	r2, .L14
+ 212 0002 D2F8043C 		ldr	r3, [r2, #3076]
+ 213 0006 43F40073 		orr	r3, r3, #512
+ 214 000a C2F8043C 		str	r3, [r2, #3076]
+ 123:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** }
+ 215              		.loc 1 123 1 view .LVU44
+ 216 000e 7047     		bx	lr
+ 217              	.L15:
+ 218              		.align	2
+ 219              	.L14:
+ 220 0010 00200040 		.word	1073750016
+ 221              		.cfi_endproc
+ 222              	.LFE120:
+ 224              		.section	.text.wwdgt_flag_get,"ax",%progbits
+ 225              		.align	1
+ 226              		.global	wwdgt_flag_get
+ 227              		.syntax unified
+ 228              		.thumb
+ 229              		.thumb_func
+ARM GAS  /tmp/cc0dy6WX.s 			page 7
+
+
+ 231              	wwdgt_flag_get:
+ 232              	.LFB121:
+ 124:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** 
+ 125:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** /*!
+ 126:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \brief      check early wakeup interrupt state of WWDGT
+ 127:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[in]  none
+ 128:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[out] none
+ 129:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \retval     FlagStatus: SET or RESET
+ 130:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** */
+ 131:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** FlagStatus wwdgt_flag_get(void)
+ 132:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** {
+ 233              		.loc 1 132 1 is_stmt 1 view -0
+ 234              		.cfi_startproc
+ 235              		@ args = 0, pretend = 0, frame = 0
+ 236              		@ frame_needed = 0, uses_anonymous_args = 0
+ 237              		@ link register save eliminated.
+ 133:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     if(RESET != (WWDGT_STAT & WWDGT_STAT_EWIF)){
+ 238              		.loc 1 133 5 view .LVU46
+ 239              		.loc 1 133 18 is_stmt 0 view .LVU47
+ 240 0000 044B     		ldr	r3, .L19
+ 241 0002 D3F8083C 		ldr	r3, [r3, #3080]
+ 242              		.loc 1 133 7 view .LVU48
+ 243 0006 13F0010F 		tst	r3, #1
+ 244 000a 01D1     		bne	.L18
+ 134:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****         return SET;
+ 135:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     }
+ 136:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** 
+ 137:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     return RESET;
+ 245              		.loc 1 137 12 view .LVU49
+ 246 000c 0020     		movs	r0, #0
+ 247 000e 7047     		bx	lr
+ 248              	.L18:
+ 134:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****         return SET;
+ 249              		.loc 1 134 16 view .LVU50
+ 250 0010 0120     		movs	r0, #1
+ 138:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** }
+ 251              		.loc 1 138 1 view .LVU51
+ 252 0012 7047     		bx	lr
+ 253              	.L20:
+ 254              		.align	2
+ 255              	.L19:
+ 256 0014 00200040 		.word	1073750016
+ 257              		.cfi_endproc
+ 258              	.LFE121:
+ 260              		.section	.text.wwdgt_flag_clear,"ax",%progbits
+ 261              		.align	1
+ 262              		.global	wwdgt_flag_clear
+ 263              		.syntax unified
+ 264              		.thumb
+ 265              		.thumb_func
+ 267              	wwdgt_flag_clear:
+ 268              	.LFB122:
+ 139:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** 
+ 140:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** /*!
+ 141:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \brief      clear early wakeup interrupt state of WWDGT
+ 142:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[in]  none
+ 143:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[out] none
+ARM GAS  /tmp/cc0dy6WX.s 			page 8
+
+
+ 144:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \retval     none
+ 145:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** */
+ 146:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** void wwdgt_flag_clear(void)
+ 147:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** {
+ 269              		.loc 1 147 1 is_stmt 1 view -0
+ 270              		.cfi_startproc
+ 271              		@ args = 0, pretend = 0, frame = 0
+ 272              		@ frame_needed = 0, uses_anonymous_args = 0
+ 273              		@ link register save eliminated.
+ 148:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     WWDGT_STAT &= (~WWDGT_STAT_EWIF);
+ 274              		.loc 1 148 5 view .LVU53
+ 275              		.loc 1 148 16 is_stmt 0 view .LVU54
+ 276 0000 034A     		ldr	r2, .L22
+ 277 0002 D2F8083C 		ldr	r3, [r2, #3080]
+ 278 0006 23F00103 		bic	r3, r3, #1
+ 279 000a C2F8083C 		str	r3, [r2, #3080]
+ 149:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** }
+ 280              		.loc 1 149 1 view .LVU55
+ 281 000e 7047     		bx	lr
+ 282              	.L23:
+ 283              		.align	2
+ 284              	.L22:
+ 285 0010 00200040 		.word	1073750016
+ 286              		.cfi_endproc
+ 287              	.LFE122:
+ 289              		.text
+ 290              	.Letext0:
+ 291              		.file 2 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/m
+ 292              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
+ 293              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
+ 294              		.file 5 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_rcu.h"
+ARM GAS  /tmp/cc0dy6WX.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 gd32f30x_wwdgt.c
+     /tmp/cc0dy6WX.s:18     .text.wwdgt_deinit:0000000000000000 $t
+     /tmp/cc0dy6WX.s:24     .text.wwdgt_deinit:0000000000000000 wwdgt_deinit
+     /tmp/cc0dy6WX.s:50     .text.wwdgt_enable:0000000000000000 $t
+     /tmp/cc0dy6WX.s:56     .text.wwdgt_enable:0000000000000000 wwdgt_enable
+     /tmp/cc0dy6WX.s:74     .text.wwdgt_enable:0000000000000010 $d
+     /tmp/cc0dy6WX.s:79     .text.wwdgt_counter_update:0000000000000000 $t
+     /tmp/cc0dy6WX.s:85     .text.wwdgt_counter_update:0000000000000000 wwdgt_counter_update
+     /tmp/cc0dy6WX.s:116    .text.wwdgt_counter_update:0000000000000018 $d
+     /tmp/cc0dy6WX.s:121    .text.wwdgt_config:0000000000000000 $t
+     /tmp/cc0dy6WX.s:127    .text.wwdgt_config:0000000000000000 wwdgt_config
+     /tmp/cc0dy6WX.s:191    .text.wwdgt_config:0000000000000034 $d
+     /tmp/cc0dy6WX.s:196    .text.wwdgt_interrupt_enable:0000000000000000 $t
+     /tmp/cc0dy6WX.s:202    .text.wwdgt_interrupt_enable:0000000000000000 wwdgt_interrupt_enable
+     /tmp/cc0dy6WX.s:220    .text.wwdgt_interrupt_enable:0000000000000010 $d
+     /tmp/cc0dy6WX.s:225    .text.wwdgt_flag_get:0000000000000000 $t
+     /tmp/cc0dy6WX.s:231    .text.wwdgt_flag_get:0000000000000000 wwdgt_flag_get
+     /tmp/cc0dy6WX.s:256    .text.wwdgt_flag_get:0000000000000014 $d
+     /tmp/cc0dy6WX.s:261    .text.wwdgt_flag_clear:0000000000000000 $t
+     /tmp/cc0dy6WX.s:267    .text.wwdgt_flag_clear:0000000000000000 wwdgt_flag_clear
+     /tmp/cc0dy6WX.s:285    .text.wwdgt_flag_clear:0000000000000010 $d
+
+UNDEFINED SYMBOLS
+rcu_periph_reset_enable
+rcu_periph_reset_disable
