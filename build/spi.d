@@ -28,7 +28,8 @@ build/spi.o: Core/Source/spi.c Core/Include/spi.h \
  Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_misc.h \
  Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_enet.h \
  Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_exmc.h \
- Core/Include/gpio.h
+ Core/Include/gpio.h Drivers/display/OLED.h Drivers/display/OLED_Fonts.h \
+ Drivers/display/OLED_Icons.h
 Core/Include/spi.h:
 Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h:
 Drivers/CMSIS/core_cm4.h:
@@ -62,3 +63,6 @@ Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_misc.h:
 Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_enet.h:
 Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_exmc.h:
 Core/Include/gpio.h:
+Drivers/display/OLED.h:
+Drivers/display/OLED_Fonts.h:
+Drivers/display/OLED_Icons.h:

@@ -38,6 +38,8 @@ OF SUCH DAMAGE.
 
 #include "gd32f30x_it.h"
 #include "systick.h"
+#include "tim.h"
+#include "spi.h"
 
 /*!
     \brief      this function handles NMI exception
@@ -140,4 +142,26 @@ void PendSV_Handler(void)
 void SysTick_Handler(void)
 {
     delay_decrement();
+}
+
+//-----------------------------------------------------------------------//
+void TIMER6_IRQHandler (void)
+{
+    timer_delay_callback ();
+}
+
+//-----------------------------------------------------------------------//
+void TIMER9_IRQHandler (void)
+{
+    timer_delay_callback ();
+}
+
+//-----------------------------------------------------------------------//
+void DMA0_Channel2_IRQHandler(void)
+{
+    if(dma_interrupt_flag_get(DMA0, DMA_CH2, DMA_INT_FLAG_FTF))
+    {     
+        dma_interrupt_flag_clear(DMA0, DMA_CH2, DMA_INT_FLAG_G);
+        DMA0_Channel2_Callback();
+    }
 }

@@ -6,16 +6,15 @@
 #include "usart.h"
 #include "gpio.h"
 #include "spi.h"
+#include "tim.h"
 #include "OLED.h"
 #include "typedef.h"
 
 //---------------------------------------------------------------------------//
 #define ISP_ADDR ((uint32_t)0x1FFFF000)
-#define MAX_CNT_TIMEOUT   15
+//#define MAX_CNT_TIMEOUT   15
 //---------------------------------------------------------------------------//
-
 FlagStatus sw_led = SET;
-char lcd_buf[25];
 
 //---------------------------------------------------------------------------//
 void adc_config(void);
@@ -35,35 +34,29 @@ int main(void)
     SystemInit ();
     SystemCoreClockUpdate ();
     systick_config();
+    nvic_priority_group_set(NVIC_PRIGROUP_PRE2_SUB2); //2 bits for pre-emption priority 2 bits for subpriority
     gpio_config();
     usart0_config();
+    dma_config();
     spi0_config();
     OLED_init();
+    timer_delay_init ();
 
-    //rcu_ckout0_config(RCU_CKOUT0SRC_CKPLL_DIV2);
-    rcu_ckout0_config(RCU_CKOUT0SRC_CKSYS);
+    rcu_ckout0_config(RCU_CKOUT0SRC_CKSYS); //вывод системной частоты на вывод MCO
 
 	FontSet(Segoe_UI_Eng_12);
     snprintf(lcd_buf, 20,"enc_count=%ld", enc_count);
     OLED_DrawStr(lcd_buf, 5, 5);	//
-	OLED_UpdateScreen();
-    LED(OFF);
-    delay_1ms(1000);
+    OLED_UpdScreen_DMA();
+
     LED(ON);
 
     while (1) 
     {
-        delay_1ms(1000);
-        OLED_Clear(NONE_INVERTED);
-		OLED_DrawStr("hello", 0, 15);	
-		OLED_UpdateScreen();
-        TOOGLE_LED();
-
-        delay_1ms(1000);
-        OLED_Clear(NONE_INVERTED);
-		OLED_DrawStr("semistep", 0, 5);	
-		OLED_DrawStr("run_drive", 0, 25);	
-		OLED_UpdateScreen();
+        for (uint32_t count = 0; count < 500000; count++)
+        {
+            read_data_encoder();
+        }
         TOOGLE_LED();
     }
 

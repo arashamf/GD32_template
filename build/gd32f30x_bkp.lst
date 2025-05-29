@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccYXlj4j.s 			page 1
+ARM GAS  /tmp/cc1KJ4oX.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
   30:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
   31:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
   32:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-ARM GAS  /tmp/ccYXlj4j.s 			page 2
+ARM GAS  /tmp/cc1KJ4oX.s 			page 2
 
 
   33:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
   59:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  data: the data to be write in BKP data register
   60:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
   61:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
-ARM GAS  /tmp/ccYXlj4j.s 			page 3
+ARM GAS  /tmp/cc1KJ4oX.s 			page 3
 
 
   62:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
  100              		.cfi_endproc
  101              	.LFE117:
  103              		.section	.text.bkp_read_data,"ax",%progbits
-ARM GAS  /tmp/ccYXlj4j.s 			page 4
+ARM GAS  /tmp/cc1KJ4oX.s 			page 4
 
 
  104              		.align	1
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
  143 0016 431E     		subs	r3, r0, #1
  144 0018 DBB2     		uxtb	r3, r3
  145              		.loc 1 88 13 view .LVU30
-ARM GAS  /tmp/ccYXlj4j.s 			page 5
+ARM GAS  /tmp/cc1KJ4oX.s 			page 5
 
 
  146 001a 092B     		cmp	r3, #9
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
  186              		.loc 1 103 1 is_stmt 1 view -0
  187              		.cfi_startproc
  188              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccYXlj4j.s 			page 6
+ARM GAS  /tmp/cc1KJ4oX.s 			page 6
 
 
  189              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
  232              		.align	2
  233              	.L18:
  234 0010 006C0040 		.word	1073769472
-ARM GAS  /tmp/ccYXlj4j.s 			page 7
+ARM GAS  /tmp/cc1KJ4oX.s 			page 7
 
 
  235              		.cfi_endproc
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
  133:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \retval     none
  134:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** */
  135:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** void bkp_rtc_signal_output_disable(void)
-ARM GAS  /tmp/ccYXlj4j.s 			page 8
+ARM GAS  /tmp/cc1KJ4oX.s 			page 8
 
 
  136:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** {
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
  316              		.loc 1 152 9 is_stmt 0 view .LVU59
  317 0000 034A     		ldr	r2, .L27
  318 0002 938D     		ldrh	r3, [r2, #44]
-ARM GAS  /tmp/ccYXlj4j.s 			page 9
+ARM GAS  /tmp/cc1KJ4oX.s 			page 9
 
 
  319 0004 9BB2     		uxth	r3, r3
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
  357              		.loc 1 170 5 view .LVU69
  358              		.loc 1 170 9 is_stmt 0 view .LVU70
  359 0000 034A     		ldr	r2, .L30
-ARM GAS  /tmp/ccYXlj4j.s 			page 10
+ARM GAS  /tmp/cc1KJ4oX.s 			page 10
 
 
  360 0002 938D     		ldrh	r3, [r2, #44]
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
  188:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     ctl = BKP_OCTL;
  399              		.loc 1 188 5 view .LVU80
  400              		.loc 1 188 9 is_stmt 0 view .LVU81
-ARM GAS  /tmp/ccYXlj4j.s 			page 11
+ARM GAS  /tmp/cc1KJ4oX.s 			page 11
 
 
  401 0000 034A     		ldr	r2, .L33
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
  440              		.loc 1 205 5 view .LVU91
  441              		.loc 1 205 9 is_stmt 0 view .LVU92
  442 0000 024B     		ldr	r3, .L36
-ARM GAS  /tmp/ccYXlj4j.s 			page 12
+ARM GAS  /tmp/cc1KJ4oX.s 			page 12
 
 
  443 0002 9A8D     		ldrh	r2, [r3, #44]
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
  484 000c 7047     		bx	lr
  485              	.L40:
  486 000e 00BF     		.align	2
-ARM GAS  /tmp/ccYXlj4j.s 			page 13
+ARM GAS  /tmp/cc1KJ4oX.s 			page 13
 
 
  487              	.L39:
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
  233:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
  234:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      set tamper pin active level
  235:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  level: tamper active level
-ARM GAS  /tmp/ccYXlj4j.s 			page 14
+ARM GAS  /tmp/cc1KJ4oX.s 			page 14
 
 
  236:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****       \arg        TAMPER_PIN_ACTIVE_HIGH: the tamper pin is active high
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
  251:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
  252:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \brief      enable tamper interrupt
  253:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[in]  none
-ARM GAS  /tmp/ccYXlj4j.s 			page 15
+ARM GAS  /tmp/cc1KJ4oX.s 			page 15
 
 
  254:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     \param[out] none
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
  613 0004 9BB2     		uxth	r3, r3
  614 0006 23F00403 		bic	r3, r3, #4
  615 000a 9BB2     		uxth	r3, r3
-ARM GAS  /tmp/ccYXlj4j.s 			page 16
+ARM GAS  /tmp/cc1KJ4oX.s 			page 16
 
 
  616 000c 9386     		strh	r3, [r2, #52]	@ movhi
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
  657              	.LVL34:
  286:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c ****     }
  287:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** }
-ARM GAS  /tmp/ccYXlj4j.s 			page 17
+ARM GAS  /tmp/cc1KJ4oX.s 			page 17
 
 
  658              		.loc 1 287 1 view .LVU133
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
  703              		.thumb_func
  705              	bkp_interrupt_flag_get:
  706              	.LVL36:
-ARM GAS  /tmp/ccYXlj4j.s 			page 18
+ARM GAS  /tmp/cc1KJ4oX.s 			page 18
 
 
  707              	.LFB134:
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
  747              	.LVL40:
  748              	.LFB135:
  316:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** 
-ARM GAS  /tmp/ccYXlj4j.s 			page 19
+ARM GAS  /tmp/cc1KJ4oX.s 			page 19
 
 
  317:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_bkp.c **** /*!
@@ -1119,73 +1119,73 @@ ARM GAS  /tmp/ccYXlj4j.s 			page 1
  774              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
  775              		.file 5 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_bkp.h"
  776              		.file 6 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_rcu.h"
-ARM GAS  /tmp/ccYXlj4j.s 			page 20
+ARM GAS  /tmp/cc1KJ4oX.s 			page 20
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gd32f30x_bkp.c
-     /tmp/ccYXlj4j.s:18     .text.bkp_deinit:0000000000000000 $t
-     /tmp/ccYXlj4j.s:24     .text.bkp_deinit:0000000000000000 bkp_deinit
-     /tmp/ccYXlj4j.s:48     .text.bkp_write_data:0000000000000000 $t
-     /tmp/ccYXlj4j.s:54     .text.bkp_write_data:0000000000000000 bkp_write_data
-     /tmp/ccYXlj4j.s:99     .text.bkp_write_data:000000000000002c $d
-     /tmp/ccYXlj4j.s:104    .text.bkp_read_data:0000000000000000 $t
-     /tmp/ccYXlj4j.s:110    .text.bkp_read_data:0000000000000000 bkp_read_data
-     /tmp/ccYXlj4j.s:173    .text.bkp_read_data:0000000000000034 $d
-     /tmp/ccYXlj4j.s:178    .text.bkp_rtc_calibration_output_enable:0000000000000000 $t
-     /tmp/ccYXlj4j.s:184    .text.bkp_rtc_calibration_output_enable:0000000000000000 bkp_rtc_calibration_output_enable
-     /tmp/ccYXlj4j.s:203    .text.bkp_rtc_calibration_output_enable:0000000000000010 $d
-     /tmp/ccYXlj4j.s:208    .text.bkp_rtc_calibration_output_disable:0000000000000000 $t
-     /tmp/ccYXlj4j.s:214    .text.bkp_rtc_calibration_output_disable:0000000000000000 bkp_rtc_calibration_output_disable
-     /tmp/ccYXlj4j.s:234    .text.bkp_rtc_calibration_output_disable:0000000000000010 $d
-     /tmp/ccYXlj4j.s:239    .text.bkp_rtc_signal_output_enable:0000000000000000 $t
-     /tmp/ccYXlj4j.s:245    .text.bkp_rtc_signal_output_enable:0000000000000000 bkp_rtc_signal_output_enable
-     /tmp/ccYXlj4j.s:264    .text.bkp_rtc_signal_output_enable:0000000000000010 $d
-     /tmp/ccYXlj4j.s:269    .text.bkp_rtc_signal_output_disable:0000000000000000 $t
-     /tmp/ccYXlj4j.s:275    .text.bkp_rtc_signal_output_disable:0000000000000000 bkp_rtc_signal_output_disable
-     /tmp/ccYXlj4j.s:295    .text.bkp_rtc_signal_output_disable:0000000000000010 $d
-     /tmp/ccYXlj4j.s:300    .text.bkp_rtc_output_select:0000000000000000 $t
-     /tmp/ccYXlj4j.s:306    .text.bkp_rtc_output_select:0000000000000000 bkp_rtc_output_select
-     /tmp/ccYXlj4j.s:337    .text.bkp_rtc_output_select:0000000000000010 $d
-     /tmp/ccYXlj4j.s:342    .text.bkp_rtc_clock_output_select:0000000000000000 $t
-     /tmp/ccYXlj4j.s:348    .text.bkp_rtc_clock_output_select:0000000000000000 bkp_rtc_clock_output_select
-     /tmp/ccYXlj4j.s:379    .text.bkp_rtc_clock_output_select:0000000000000010 $d
-     /tmp/ccYXlj4j.s:384    .text.bkp_rtc_clock_calibration_direction:0000000000000000 $t
-     /tmp/ccYXlj4j.s:390    .text.bkp_rtc_clock_calibration_direction:0000000000000000 bkp_rtc_clock_calibration_direction
-     /tmp/ccYXlj4j.s:420    .text.bkp_rtc_clock_calibration_direction:0000000000000010 $d
-     /tmp/ccYXlj4j.s:425    .text.bkp_rtc_calibration_value_set:0000000000000000 $t
-     /tmp/ccYXlj4j.s:431    .text.bkp_rtc_calibration_value_set:0000000000000000 bkp_rtc_calibration_value_set
-     /tmp/ccYXlj4j.s:458    .text.bkp_rtc_calibration_value_set:000000000000000c $d
-     /tmp/ccYXlj4j.s:463    .text.bkp_tamper_detection_enable:0000000000000000 $t
-     /tmp/ccYXlj4j.s:469    .text.bkp_tamper_detection_enable:0000000000000000 bkp_tamper_detection_enable
-     /tmp/ccYXlj4j.s:488    .text.bkp_tamper_detection_enable:0000000000000010 $d
-     /tmp/ccYXlj4j.s:493    .text.bkp_tamper_detection_disable:0000000000000000 $t
-     /tmp/ccYXlj4j.s:499    .text.bkp_tamper_detection_disable:0000000000000000 bkp_tamper_detection_disable
-     /tmp/ccYXlj4j.s:519    .text.bkp_tamper_detection_disable:0000000000000010 $d
-     /tmp/ccYXlj4j.s:524    .text.bkp_tamper_active_level_set:0000000000000000 $t
-     /tmp/ccYXlj4j.s:530    .text.bkp_tamper_active_level_set:0000000000000000 bkp_tamper_active_level_set
-     /tmp/ccYXlj4j.s:561    .text.bkp_tamper_active_level_set:0000000000000010 $d
-     /tmp/ccYXlj4j.s:566    .text.bkp_tamper_interrupt_enable:0000000000000000 $t
-     /tmp/ccYXlj4j.s:572    .text.bkp_tamper_interrupt_enable:0000000000000000 bkp_tamper_interrupt_enable
-     /tmp/ccYXlj4j.s:591    .text.bkp_tamper_interrupt_enable:0000000000000010 $d
-     /tmp/ccYXlj4j.s:596    .text.bkp_tamper_interrupt_disable:0000000000000000 $t
-     /tmp/ccYXlj4j.s:602    .text.bkp_tamper_interrupt_disable:0000000000000000 bkp_tamper_interrupt_disable
-     /tmp/ccYXlj4j.s:622    .text.bkp_tamper_interrupt_disable:0000000000000010 $d
-     /tmp/ccYXlj4j.s:627    .text.bkp_flag_get:0000000000000000 $t
-     /tmp/ccYXlj4j.s:633    .text.bkp_flag_get:0000000000000000 bkp_flag_get
-     /tmp/ccYXlj4j.s:663    .text.bkp_flag_get:0000000000000010 $d
-     /tmp/ccYXlj4j.s:668    .text.bkp_flag_clear:0000000000000000 $t
-     /tmp/ccYXlj4j.s:674    .text.bkp_flag_clear:0000000000000000 bkp_flag_clear
-     /tmp/ccYXlj4j.s:694    .text.bkp_flag_clear:0000000000000010 $d
-     /tmp/ccYXlj4j.s:699    .text.bkp_interrupt_flag_get:0000000000000000 $t
-     /tmp/ccYXlj4j.s:705    .text.bkp_interrupt_flag_get:0000000000000000 bkp_interrupt_flag_get
-ARM GAS  /tmp/ccYXlj4j.s 			page 21
+     /tmp/cc1KJ4oX.s:18     .text.bkp_deinit:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:24     .text.bkp_deinit:0000000000000000 bkp_deinit
+     /tmp/cc1KJ4oX.s:48     .text.bkp_write_data:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:54     .text.bkp_write_data:0000000000000000 bkp_write_data
+     /tmp/cc1KJ4oX.s:99     .text.bkp_write_data:000000000000002c $d
+     /tmp/cc1KJ4oX.s:104    .text.bkp_read_data:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:110    .text.bkp_read_data:0000000000000000 bkp_read_data
+     /tmp/cc1KJ4oX.s:173    .text.bkp_read_data:0000000000000034 $d
+     /tmp/cc1KJ4oX.s:178    .text.bkp_rtc_calibration_output_enable:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:184    .text.bkp_rtc_calibration_output_enable:0000000000000000 bkp_rtc_calibration_output_enable
+     /tmp/cc1KJ4oX.s:203    .text.bkp_rtc_calibration_output_enable:0000000000000010 $d
+     /tmp/cc1KJ4oX.s:208    .text.bkp_rtc_calibration_output_disable:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:214    .text.bkp_rtc_calibration_output_disable:0000000000000000 bkp_rtc_calibration_output_disable
+     /tmp/cc1KJ4oX.s:234    .text.bkp_rtc_calibration_output_disable:0000000000000010 $d
+     /tmp/cc1KJ4oX.s:239    .text.bkp_rtc_signal_output_enable:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:245    .text.bkp_rtc_signal_output_enable:0000000000000000 bkp_rtc_signal_output_enable
+     /tmp/cc1KJ4oX.s:264    .text.bkp_rtc_signal_output_enable:0000000000000010 $d
+     /tmp/cc1KJ4oX.s:269    .text.bkp_rtc_signal_output_disable:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:275    .text.bkp_rtc_signal_output_disable:0000000000000000 bkp_rtc_signal_output_disable
+     /tmp/cc1KJ4oX.s:295    .text.bkp_rtc_signal_output_disable:0000000000000010 $d
+     /tmp/cc1KJ4oX.s:300    .text.bkp_rtc_output_select:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:306    .text.bkp_rtc_output_select:0000000000000000 bkp_rtc_output_select
+     /tmp/cc1KJ4oX.s:337    .text.bkp_rtc_output_select:0000000000000010 $d
+     /tmp/cc1KJ4oX.s:342    .text.bkp_rtc_clock_output_select:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:348    .text.bkp_rtc_clock_output_select:0000000000000000 bkp_rtc_clock_output_select
+     /tmp/cc1KJ4oX.s:379    .text.bkp_rtc_clock_output_select:0000000000000010 $d
+     /tmp/cc1KJ4oX.s:384    .text.bkp_rtc_clock_calibration_direction:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:390    .text.bkp_rtc_clock_calibration_direction:0000000000000000 bkp_rtc_clock_calibration_direction
+     /tmp/cc1KJ4oX.s:420    .text.bkp_rtc_clock_calibration_direction:0000000000000010 $d
+     /tmp/cc1KJ4oX.s:425    .text.bkp_rtc_calibration_value_set:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:431    .text.bkp_rtc_calibration_value_set:0000000000000000 bkp_rtc_calibration_value_set
+     /tmp/cc1KJ4oX.s:458    .text.bkp_rtc_calibration_value_set:000000000000000c $d
+     /tmp/cc1KJ4oX.s:463    .text.bkp_tamper_detection_enable:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:469    .text.bkp_tamper_detection_enable:0000000000000000 bkp_tamper_detection_enable
+     /tmp/cc1KJ4oX.s:488    .text.bkp_tamper_detection_enable:0000000000000010 $d
+     /tmp/cc1KJ4oX.s:493    .text.bkp_tamper_detection_disable:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:499    .text.bkp_tamper_detection_disable:0000000000000000 bkp_tamper_detection_disable
+     /tmp/cc1KJ4oX.s:519    .text.bkp_tamper_detection_disable:0000000000000010 $d
+     /tmp/cc1KJ4oX.s:524    .text.bkp_tamper_active_level_set:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:530    .text.bkp_tamper_active_level_set:0000000000000000 bkp_tamper_active_level_set
+     /tmp/cc1KJ4oX.s:561    .text.bkp_tamper_active_level_set:0000000000000010 $d
+     /tmp/cc1KJ4oX.s:566    .text.bkp_tamper_interrupt_enable:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:572    .text.bkp_tamper_interrupt_enable:0000000000000000 bkp_tamper_interrupt_enable
+     /tmp/cc1KJ4oX.s:591    .text.bkp_tamper_interrupt_enable:0000000000000010 $d
+     /tmp/cc1KJ4oX.s:596    .text.bkp_tamper_interrupt_disable:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:602    .text.bkp_tamper_interrupt_disable:0000000000000000 bkp_tamper_interrupt_disable
+     /tmp/cc1KJ4oX.s:622    .text.bkp_tamper_interrupt_disable:0000000000000010 $d
+     /tmp/cc1KJ4oX.s:627    .text.bkp_flag_get:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:633    .text.bkp_flag_get:0000000000000000 bkp_flag_get
+     /tmp/cc1KJ4oX.s:663    .text.bkp_flag_get:0000000000000010 $d
+     /tmp/cc1KJ4oX.s:668    .text.bkp_flag_clear:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:674    .text.bkp_flag_clear:0000000000000000 bkp_flag_clear
+     /tmp/cc1KJ4oX.s:694    .text.bkp_flag_clear:0000000000000010 $d
+     /tmp/cc1KJ4oX.s:699    .text.bkp_interrupt_flag_get:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:705    .text.bkp_interrupt_flag_get:0000000000000000 bkp_interrupt_flag_get
+ARM GAS  /tmp/cc1KJ4oX.s 			page 21
 
 
-     /tmp/ccYXlj4j.s:735    .text.bkp_interrupt_flag_get:0000000000000010 $d
-     /tmp/ccYXlj4j.s:740    .text.bkp_interrupt_flag_clear:0000000000000000 $t
-     /tmp/ccYXlj4j.s:746    .text.bkp_interrupt_flag_clear:0000000000000000 bkp_interrupt_flag_clear
-     /tmp/ccYXlj4j.s:766    .text.bkp_interrupt_flag_clear:0000000000000010 $d
+     /tmp/cc1KJ4oX.s:735    .text.bkp_interrupt_flag_get:0000000000000010 $d
+     /tmp/cc1KJ4oX.s:740    .text.bkp_interrupt_flag_clear:0000000000000000 $t
+     /tmp/cc1KJ4oX.s:746    .text.bkp_interrupt_flag_clear:0000000000000000 bkp_interrupt_flag_clear
+     /tmp/cc1KJ4oX.s:766    .text.bkp_interrupt_flag_clear:0000000000000010 $d
 
 UNDEFINED SYMBOLS
 rcu_bkp_reset_enable

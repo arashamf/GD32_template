@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc143s6M.s 			page 1
+ARM GAS  /tmp/ccSLM90J.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
   29:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
   30:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
   31:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-ARM GAS  /tmp/cc143s6M.s 			page 2
+ARM GAS  /tmp/ccSLM90J.s 			page 2
 
 
   32:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
   86:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     RCU_CTL &= ~RCU_CTL_HXTALBPS;
   87:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** #ifdef GD32F30X_CL
   88:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     RCU_CTL &= ~(RCU_CTL_PLL1EN | RCU_CTL_PLL2EN);
-ARM GAS  /tmp/cc143s6M.s 			page 3
+ARM GAS  /tmp/ccSLM90J.s 			page 3
 
 
   89:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** #endif /* GD32F30X_CL */
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
   34              		.loc 1 136 25 is_stmt 0 view .LVU2
   35 0000 8309     		lsrs	r3, r0, #6
   36 0002 03F18043 		add	r3, r3, #1073741824
-ARM GAS  /tmp/cc143s6M.s 			page 4
+ARM GAS  /tmp/ccSLM90J.s 			page 4
 
 
   37 0006 03F50433 		add	r3, r3, #135168
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  167:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \param[out] none
  168:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \retval     none
  169:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** */
-ARM GAS  /tmp/cc143s6M.s 			page 5
+ARM GAS  /tmp/ccSLM90J.s 			page 5
 
 
  170:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** void rcu_periph_clock_disable(rcu_periph_enum periph)
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  186:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     RCU_REG_VAL(periph) |= BIT(RCU_BIT_POS(periph));
  103              		.loc 1 186 5 view .LVU15
  104              		.loc 1 186 25 is_stmt 0 view .LVU16
-ARM GAS  /tmp/cc143s6M.s 			page 6
+ARM GAS  /tmp/ccSLM90J.s 			page 6
 
 
  105 0000 8309     		lsrs	r3, r0, #6
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  147              		.loc 1 200 29 view .LVU25
  148 0010 0121     		movs	r1, #1
  149 0012 01FA00F0 		lsl	r0, r1, r0
-ARM GAS  /tmp/cc143s6M.s 			page 7
+ARM GAS  /tmp/ccSLM90J.s 			page 7
 
 
  150              		.loc 1 200 25 view .LVU26
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  177 0006 03F50433 		add	r3, r3, #135168
  178 000a 1A68     		ldr	r2, [r3]
  179              		.loc 1 229 34 view .LVU31
-ARM GAS  /tmp/cc143s6M.s 			page 8
+ARM GAS  /tmp/ccSLM90J.s 			page 8
 
 
  180 000c 00F01F00 		and	r0, r0, #31
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  258:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     RCU_REG_VAL(periph_reset) &= ~BIT(RCU_BIT_POS(periph_reset));
  208              		.loc 1 258 5 view .LVU36
  209              		.loc 1 258 31 is_stmt 0 view .LVU37
-ARM GAS  /tmp/cc143s6M.s 			page 9
+ARM GAS  /tmp/ccSLM90J.s 			page 9
 
 
  210 0000 8309     		lsrs	r3, r0, #6
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  254              		.cfi_endproc
  255              	.LFE123:
  257              		.section	.text.rcu_bkp_reset_disable,"ax",%progbits
-ARM GAS  /tmp/cc143s6M.s 			page 10
+ARM GAS  /tmp/ccSLM90J.s 			page 10
 
 
  258              		.align	1
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  290:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \param[out] none
  291:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \retval     none
  292:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** */
-ARM GAS  /tmp/cc143s6M.s 			page 11
+ARM GAS  /tmp/ccSLM90J.s 			page 11
 
 
  293:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** void rcu_system_clock_source_config(uint32_t ck_sys)
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  310:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_SCSS_PLL: CK_PLL is selected as the CK_SYS source
  311:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** */
  312:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** uint32_t rcu_system_clock_source_get(void)
-ARM GAS  /tmp/cc143s6M.s 			page 12
+ARM GAS  /tmp/ccSLM90J.s 			page 12
 
 
  313:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** {
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  374              	.LVL17:
  330:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** 
  331:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     /* reset the AHBPSC bits and set according to ck_ahb */
-ARM GAS  /tmp/cc143s6M.s 			page 13
+ARM GAS  /tmp/ccSLM90J.s 			page 13
 
 
  332:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     reg &= ~RCU_CFG0_AHBPSC;
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  410              		.loc 1 352 5 view .LVU76
  411              		.loc 1 352 9 is_stmt 0 view .LVU77
  412 0000 034A     		ldr	r2, .L23
-ARM GAS  /tmp/cc143s6M.s 			page 14
+ARM GAS  /tmp/ccSLM90J.s 			page 14
 
 
  413 0002 5368     		ldr	r3, [r2, #4]
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  373:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     uint32_t reg;
  449              		.loc 1 373 5 view .LVU85
  374:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     
-ARM GAS  /tmp/cc143s6M.s 			page 15
+ARM GAS  /tmp/ccSLM90J.s 			page 15
 
 
  375:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     reg = RCU_CFG0;
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  397:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** */
  398:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** void rcu_ckout0_config(uint32_t ckout0_src)
  399:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** {
-ARM GAS  /tmp/cc143s6M.s 			page 16
+ARM GAS  /tmp/ccSLM90J.s 			page 16
 
 
  484              		.loc 1 399 1 is_stmt 1 view -0
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  416:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****                 only one parameter can be selected which is shown as below:
  417:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_PLL_MULx (XD series x = 2..63, CL series x = 2..14, 16..63, 6.5)
  418:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \param[out] none
-ARM GAS  /tmp/cc143s6M.s 			page 17
+ARM GAS  /tmp/ccSLM90J.s 			page 17
 
 
  419:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \retval     none
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  565              		.thumb
  566              		.thumb_func
  568              	rcu_pllpresel_config:
-ARM GAS  /tmp/cc143s6M.s 			page 18
+ARM GAS  /tmp/ccSLM90J.s 			page 18
 
 
  569              	.LVL38:
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  602              		.section	.text.rcu_predv0_config,"ax",%progbits
  603              		.align	1
  604              		.global	rcu_predv0_config
-ARM GAS  /tmp/cc143s6M.s 			page 19
+ARM GAS  /tmp/ccSLM90J.s 			page 19
 
 
  605              		.syntax unified
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  637 0010 7047     		bx	lr
  638              	.L39:
  473:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     }
-ARM GAS  /tmp/cc143s6M.s 			page 20
+ARM GAS  /tmp/ccSLM90J.s 			page 20
 
 
  639              		.loc 1 473 9 is_stmt 1 view .LVU139
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  509:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \param[out] none
  510:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \retval     none
  511:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** */
-ARM GAS  /tmp/cc143s6M.s 			page 21
+ARM GAS  /tmp/ccSLM90J.s 			page 21
 
 
  512:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** void rcu_predv1_config(uint32_t predv1_div)
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  566:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_CKADC_CKAHB_DIV10: ADC prescaler select CK_AHB/10
  567:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_CKADC_CKAHB_DIV20: ADC prescaler select CK_AHB/20
  568:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \param[out] none
-ARM GAS  /tmp/cc143s6M.s 			page 22
+ARM GAS  /tmp/ccSLM90J.s 			page 22
 
 
  569:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \retval     none
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  702 0023 13       		.byte	(.L44-.L45)/2
  703 0024 13       		.byte	(.L44-.L45)/2
  704 0025 13       		.byte	(.L44-.L45)/2
-ARM GAS  /tmp/cc143s6M.s 			page 23
+ARM GAS  /tmp/ccSLM90J.s 			page 23
 
 
  705              		.p2align 1
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  726              		.loc 1 593 31 is_stmt 0 view .LVU164
  727 0032 0849     		ldr	r1, .L48+4
  728 0034 01EA8030 		and	r0, r1, r0, lsl #14
-ARM GAS  /tmp/cc143s6M.s 			page 24
+ARM GAS  /tmp/ccSLM90J.s 			page 24
 
 
  729              	.LVL54:
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  614:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** /*!
  615:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \brief      configure the USBD/USBFS prescaler factor
  616:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \param[in]  usb_psc: USB prescaler factor
-ARM GAS  /tmp/cc143s6M.s 			page 25
+ARM GAS  /tmp/ccSLM90J.s 			page 25
 
 
  617:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****                 only one parameter can be selected which is shown as below:
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  802              	.LFE135:
  804              		.section	.text.rcu_rtc_clock_config,"ax",%progbits
  805              		.align	1
-ARM GAS  /tmp/cc143s6M.s 			page 26
+ARM GAS  /tmp/ccSLM90J.s 			page 26
 
 
  806              		.global	rcu_rtc_clock_config
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  840 0010 00100240 		.word	1073876992
  841              		.cfi_endproc
  842              	.LFE136:
-ARM GAS  /tmp/cc143s6M.s 			page 27
+ARM GAS  /tmp/ccSLM90J.s 			page 27
 
 
  844              		.section	.text.rcu_ck48m_clock_config,"ax",%progbits
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  709:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_CK48MSRC_CKPLL: CK_PLL selected as CK48M source clock
  710:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_CK48MSRC_IRC48M: CK_IRC48M selected as CK48M source clock
  711:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \param[out] none
-ARM GAS  /tmp/cc143s6M.s 			page 28
+ARM GAS  /tmp/ccSLM90J.s 			page 28
 
 
  712:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \retval     none
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  728:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_FLAG_IRC8MSTB: IRC8M stabilization flag
  729:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_FLAG_HXTALSTB: HXTAL stabilization flag
  730:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_FLAG_PLLSTB: PLL stabilization flag
-ARM GAS  /tmp/cc143s6M.s 			page 29
+ARM GAS  /tmp/ccSLM90J.s 			page 29
 
 
  731:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_FLAG_PLL1STB: PLL1 stabilization flag(CL series only)
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  926              		.global	rcu_all_reset_flag_clear
  927              		.syntax unified
  928              		.thumb
-ARM GAS  /tmp/cc143s6M.s 			page 30
+ARM GAS  /tmp/ccSLM90J.s 			page 30
 
 
  929              		.thumb_func
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  777:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_INT_FLAG_CKM: HXTAL clock stuck interrupt flag
  778:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_INT_FLAG_IRC48MSTB: IRC48M stabilization interrupt flag
  779:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \param[out] none
-ARM GAS  /tmp/cc143s6M.s 			page 31
+ARM GAS  /tmp/ccSLM90J.s 			page 31
 
 
  780:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \retval     FlagStatus: SET or RESET
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  796:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_INT_FLAG_IRC40KSTB_CLR: IRC40K stabilization interrupt flag clear
  797:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_INT_FLAG_LXTALSTB_CLR: LXTAL stabilization interrupt flag clear
  798:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_INT_FLAG_IRC8MSTB_CLR: IRC8M stabilization interrupt flag clear
-ARM GAS  /tmp/cc143s6M.s 			page 32
+ARM GAS  /tmp/ccSLM90J.s 			page 32
 
 
  799:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_INT_FLAG_HXTALSTB_CLR: HXTAL stabilization interrupt flag clear
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  820:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_INT_HXTALSTB: HXTAL stabilization interrupt enable
  821:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_INT_PLLSTB: PLL stabilization interrupt enable
  822:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_INT_PLL1STB: PLL1 stabilization interrupt enable(CL series only)
-ARM GAS  /tmp/cc143s6M.s 			page 33
+ARM GAS  /tmp/ccSLM90J.s 			page 33
 
 
  823:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_INT_PLL2STB: PLL2 stabilization interrupt enable(CL series only)
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  844:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****       \arg        RCU_INT_IRC48MSTB: IRC48M stabilization interrupt enable
  845:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \param[out] none
  846:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \retval     none
-ARM GAS  /tmp/cc143s6M.s 			page 34
+ARM GAS  /tmp/ccSLM90J.s 			page 34
 
 
  847:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** */
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  1110              		@ args = 0, pretend = 0, frame = 0
  1111              		@ frame_needed = 0, uses_anonymous_args = 0
  1112              		@ link register save eliminated.
-ARM GAS  /tmp/cc143s6M.s 			page 35
+ARM GAS  /tmp/ccSLM90J.s 			page 35
 
 
  866:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     uint32_t reg;
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  887:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \param[out] none
  888:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     \retval     ErrStatus: SUCCESS or ERROR
  889:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** */
-ARM GAS  /tmp/cc143s6M.s 			page 36
+ARM GAS  /tmp/ccSLM90J.s 			page 36
 
 
  890:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** ErrStatus rcu_osci_stab_wait(rcu_osci_type_enum osci)
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  902:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****         }
  903:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** 
  904:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****         /* check whether flag is set or not */
-ARM GAS  /tmp/cc143s6M.s 			page 37
+ARM GAS  /tmp/ccSLM90J.s 			page 37
 
 
  905:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****         if(RESET != rcu_flag_get(RCU_FLAG_HXTALSTB)){
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  959:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****         }
  960:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****         break;
  961:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** 
-ARM GAS  /tmp/cc143s6M.s 			page 38
+ARM GAS  /tmp/ccSLM90J.s 			page 38
 
 
  962:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     /* wait PLL stable */
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  1196 0024 B0F5106F 		cmp	r0, #2304
  1197 0028 61D0     		beq	.L99
  1198 002a 43F21003 		movw	r3, #12304
-ARM GAS  /tmp/cc143s6M.s 			page 39
+ARM GAS  /tmp/ccSLM90J.s 			page 39
 
 
  1199 002e 9842     		cmp	r0, r3
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  1240              	.LVL103:
  905:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****             reval = SUCCESS;
  1241              		.loc 1 905 11 view .LVU284
-ARM GAS  /tmp/cc143s6M.s 			page 40
+ARM GAS  /tmp/ccSLM90J.s 			page 40
 
 
  1242 0054 0028     		cmp	r0, #0
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  918:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****             reval = SUCCESS;
  1283              		.loc 1 918 11 view .LVU298
  1284 007e 0028     		cmp	r0, #0
-ARM GAS  /tmp/cc143s6M.s 			page 41
+ARM GAS  /tmp/ccSLM90J.s 			page 41
 
 
  1285 0080 CFD0     		beq	.L80
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  1325 00a2 0028     		cmp	r0, #0
  1326 00a4 BDD0     		beq	.L80
  932:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****         }
-ARM GAS  /tmp/cc143s6M.s 			page 42
+ARM GAS  /tmp/ccSLM90J.s 			page 42
 
 
  1327              		.loc 1 932 19 view .LVU313
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  1367              		.loc 1 952 25 is_stmt 0 view .LVU327
  1368 00cc 40F60110 		movw	r0, #2305
  1369              	.LVL127:
-ARM GAS  /tmp/cc143s6M.s 			page 43
+ARM GAS  /tmp/ccSLM90J.s 			page 43
 
 
  952:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****             stb_cnt++;
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  1410 00f4 1920     		movs	r0, #25
  1411              	.LVL135:
  965:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****             stb_cnt++;
-ARM GAS  /tmp/cc143s6M.s 			page 44
+ARM GAS  /tmp/ccSLM90J.s 			page 44
 
 
  1412              		.loc 1 965 25 view .LVU342
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  1458              		@ args = 0, pretend = 0, frame = 0
  1459              		@ frame_needed = 0, uses_anonymous_args = 0
  1460 0000 10B5     		push	{r4, lr}
-ARM GAS  /tmp/cc143s6M.s 			page 45
+ARM GAS  /tmp/ccSLM90J.s 			page 45
 
 
  1461              	.LCFI1:
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  1502 0046 E362     		str	r3, [r4, #44]
  101:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** 
  1503              		.loc 1 101 1 view .LVU366
-ARM GAS  /tmp/cc143s6M.s 			page 46
+ARM GAS  /tmp/ccSLM90J.s 			page 46
 
 
  1504 0048 10BD     		pop	{r4, pc}
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  1541 0018 1860     		str	r0, [r3]
 1028:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** }
  1542              		.loc 1 1028 1 view .LVU373
-ARM GAS  /tmp/cc143s6M.s 			page 47
+ARM GAS  /tmp/ccSLM90J.s 			page 47
 
 
  1543 001a 7047     		bx	lr
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  1579              		.cfi_endproc
  1580              	.LFE147:
  1582              		.section	.text.rcu_osci_bypass_mode_enable,"ax",%progbits
-ARM GAS  /tmp/cc143s6M.s 			page 48
+ARM GAS  /tmp/ccSLM90J.s 			page 48
 
 
  1583              		.align	1
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  1618              	.LVL147:
  1619              		.loc 1 1068 17 view .LVU390
  1620 001c 1A60     		str	r2, [r3]
-ARM GAS  /tmp/cc143s6M.s 			page 49
+ARM GAS  /tmp/ccSLM90J.s 			page 49
 
 
 1069:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****         break;
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  1657              	rcu_osci_bypass_mode_disable:
  1658              	.LVL150:
  1659              	.LFB149:
-ARM GAS  /tmp/cc143s6M.s 			page 50
+ARM GAS  /tmp/ccSLM90J.s 			page 50
 
 
 1089:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** 
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
 1111:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     case RCU_LXTAL:
 1112:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****         reg = RCU_BDCTL;
  1692              		.loc 1 1112 9 view .LVU412
-ARM GAS  /tmp/cc143s6M.s 			page 51
+ARM GAS  /tmp/ccSLM90J.s 			page 51
 
 
  1693              		.loc 1 1112 13 is_stmt 0 view .LVU413
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
 1135:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** */
 1136:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** 
 1137:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** void rcu_hxtal_clock_monitor_enable(void)
-ARM GAS  /tmp/cc143s6M.s 			page 52
+ARM GAS  /tmp/ccSLM90J.s 			page 52
 
 
 1138:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** {
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  1769              	.L136:
  1770              		.align	2
  1771              	.L135:
-ARM GAS  /tmp/cc143s6M.s 			page 53
+ARM GAS  /tmp/ccSLM90J.s 			page 53
 
 
  1772 000c 00100240 		.word	1073876992
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  1811              		.loc 1 1168 1 view .LVU440
  1812 0010 7047     		bx	lr
  1813              	.L139:
-ARM GAS  /tmp/cc143s6M.s 			page 54
+ARM GAS  /tmp/ccSLM90J.s 			page 54
 
 
  1814 0012 00BF     		.align	2
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  1854              		.global	rcu_clock_freq_get
  1855              		.syntax unified
  1856              		.thumb
-ARM GAS  /tmp/cc143s6M.s 			page 55
+ARM GAS  /tmp/ccSLM90J.s 			page 55
 
 
  1857              		.thumb_func
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  1888              		.loc 1 1209 5 is_stmt 1 view .LVU455
  1889              		.loc 1 1209 13 is_stmt 0 view .LVU456
  1890 0014 02AB     		add	r3, sp, #8
-ARM GAS  /tmp/cc143s6M.s 			page 56
+ARM GAS  /tmp/ccSLM90J.s 			page 56
 
 
  1891 0016 1034     		adds	r4, r4, #16
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
 1243:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****                 ck_src = HXTAL_VALUE/2U;
 1244:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****             }
 1245:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c **** #elif defined(GD32F30X_CL)
-ARM GAS  /tmp/cc143s6M.s 			page 57
+ARM GAS  /tmp/ccSLM90J.s 			page 57
 
 
 1246:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****             predv0sel = (RCU_CFG1 & RCU_CFG1_PREDV0SEL);
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  1917 0038 C3F30313 		ubfx	r3, r3, #4, #4
  1918              	.LVL166:
 1295:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****     clk_exp = ahb_exp[idx];
-ARM GAS  /tmp/cc143s6M.s 			page 58
+ARM GAS  /tmp/ccSLM90J.s 			page 58
 
 
  1919              		.loc 1 1295 5 is_stmt 1 view .LVU467
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  1963 0060 2033     		adds	r3, r3, #32
  1964              	.LVL179:
  1965              		.loc 1 1305 23 view .LVU487
-ARM GAS  /tmp/cc143s6M.s 			page 59
+ARM GAS  /tmp/ccSLM90J.s 			page 59
 
 
  1966 0062 6B44     		add	r3, sp, r3
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  2006              		.loc 1 1231 15 is_stmt 0 view .LVU501
  2007 0088 13F0804F 		tst	r3, #1073741824
  2008 008c 07D1     		bne	.L159
-ARM GAS  /tmp/cc143s6M.s 			page 60
+ARM GAS  /tmp/ccSLM90J.s 			page 60
 
 
 1233:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****             }else{
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  2048              		.loc 1 1266 13 is_stmt 0 view .LVU516
  2049 00ac 5268     		ldr	r2, [r2, #4]
 1266:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****             pllmf |= 0x10U;
-ARM GAS  /tmp/cc143s6M.s 			page 61
+ARM GAS  /tmp/ccSLM90J.s 			page 61
 
 
  2050              		.loc 1 1266 11 view .LVU517
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  2088              		.loc 1 1274 33 is_stmt 0 view .LVU533
  2089 00d2 A3F10F02 		sub	r2, r3, #15
 1274:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rcu.c ****             pllmf += 1U;
-ARM GAS  /tmp/cc143s6M.s 			page 62
+ARM GAS  /tmp/ccSLM90J.s 			page 62
 
 
  2090              		.loc 1 1274 17 view .LVU534
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  2122              		.cfi_remember_state
  2123              		.cfi_def_cfa_offset 8
  2124              		@ sp needed
-ARM GAS  /tmp/cc143s6M.s 			page 63
+ARM GAS  /tmp/ccSLM90J.s 			page 63
 
 
  2125 00ea 10BD     		pop	{r4, pc}
@@ -3778,127 +3778,127 @@ ARM GAS  /tmp/cc143s6M.s 			page 1
  2167              	.Letext0:
  2168              		.file 2 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/m
  2169              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
-ARM GAS  /tmp/cc143s6M.s 			page 64
+ARM GAS  /tmp/ccSLM90J.s 			page 64
 
 
  2170              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
  2171              		.file 5 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_rcu.h"
-ARM GAS  /tmp/cc143s6M.s 			page 65
+ARM GAS  /tmp/ccSLM90J.s 			page 65
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gd32f30x_rcu.c
-     /tmp/cc143s6M.s:18     .text.rcu_periph_clock_enable:0000000000000000 $t
-     /tmp/cc143s6M.s:24     .text.rcu_periph_clock_enable:0000000000000000 rcu_periph_clock_enable
-     /tmp/cc143s6M.s:54     .text.rcu_periph_clock_disable:0000000000000000 $t
-     /tmp/cc143s6M.s:60     .text.rcu_periph_clock_disable:0000000000000000 rcu_periph_clock_disable
-     /tmp/cc143s6M.s:89     .text.rcu_periph_clock_sleep_enable:0000000000000000 $t
-     /tmp/cc143s6M.s:95     .text.rcu_periph_clock_sleep_enable:0000000000000000 rcu_periph_clock_sleep_enable
-     /tmp/cc143s6M.s:124    .text.rcu_periph_clock_sleep_disable:0000000000000000 $t
-     /tmp/cc143s6M.s:130    .text.rcu_periph_clock_sleep_disable:0000000000000000 rcu_periph_clock_sleep_disable
-     /tmp/cc143s6M.s:159    .text.rcu_periph_reset_enable:0000000000000000 $t
-     /tmp/cc143s6M.s:165    .text.rcu_periph_reset_enable:0000000000000000 rcu_periph_reset_enable
-     /tmp/cc143s6M.s:194    .text.rcu_periph_reset_disable:0000000000000000 $t
-     /tmp/cc143s6M.s:200    .text.rcu_periph_reset_disable:0000000000000000 rcu_periph_reset_disable
-     /tmp/cc143s6M.s:229    .text.rcu_bkp_reset_enable:0000000000000000 $t
-     /tmp/cc143s6M.s:235    .text.rcu_bkp_reset_enable:0000000000000000 rcu_bkp_reset_enable
-     /tmp/cc143s6M.s:253    .text.rcu_bkp_reset_enable:000000000000000c $d
-     /tmp/cc143s6M.s:258    .text.rcu_bkp_reset_disable:0000000000000000 $t
-     /tmp/cc143s6M.s:264    .text.rcu_bkp_reset_disable:0000000000000000 rcu_bkp_reset_disable
-     /tmp/cc143s6M.s:282    .text.rcu_bkp_reset_disable:000000000000000c $d
-     /tmp/cc143s6M.s:287    .text.rcu_system_clock_source_config:0000000000000000 $t
-     /tmp/cc143s6M.s:293    .text.rcu_system_clock_source_config:0000000000000000 rcu_system_clock_source_config
-     /tmp/cc143s6M.s:322    .text.rcu_system_clock_source_config:0000000000000010 $d
-     /tmp/cc143s6M.s:327    .text.rcu_system_clock_source_get:0000000000000000 $t
-     /tmp/cc143s6M.s:333    .text.rcu_system_clock_source_get:0000000000000000 rcu_system_clock_source_get
-     /tmp/cc143s6M.s:350    .text.rcu_system_clock_source_get:000000000000000c $d
-     /tmp/cc143s6M.s:355    .text.rcu_ahb_clock_config:0000000000000000 $t
-     /tmp/cc143s6M.s:361    .text.rcu_ahb_clock_config:0000000000000000 rcu_ahb_clock_config
-     /tmp/cc143s6M.s:390    .text.rcu_ahb_clock_config:0000000000000010 $d
-     /tmp/cc143s6M.s:395    .text.rcu_apb1_clock_config:0000000000000000 $t
-     /tmp/cc143s6M.s:401    .text.rcu_apb1_clock_config:0000000000000000 rcu_apb1_clock_config
-     /tmp/cc143s6M.s:430    .text.rcu_apb1_clock_config:0000000000000010 $d
-     /tmp/cc143s6M.s:435    .text.rcu_apb2_clock_config:0000000000000000 $t
-     /tmp/cc143s6M.s:441    .text.rcu_apb2_clock_config:0000000000000000 rcu_apb2_clock_config
-     /tmp/cc143s6M.s:470    .text.rcu_apb2_clock_config:0000000000000010 $d
-     /tmp/cc143s6M.s:475    .text.rcu_ckout0_config:0000000000000000 $t
-     /tmp/cc143s6M.s:481    .text.rcu_ckout0_config:0000000000000000 rcu_ckout0_config
-     /tmp/cc143s6M.s:510    .text.rcu_ckout0_config:0000000000000010 $d
-     /tmp/cc143s6M.s:515    .text.rcu_pll_config:0000000000000000 $t
-     /tmp/cc143s6M.s:521    .text.rcu_pll_config:0000000000000000 rcu_pll_config
-     /tmp/cc143s6M.s:557    .text.rcu_pll_config:0000000000000014 $d
-     /tmp/cc143s6M.s:562    .text.rcu_pllpresel_config:0000000000000000 $t
-     /tmp/cc143s6M.s:568    .text.rcu_pllpresel_config:0000000000000000 rcu_pllpresel_config
-     /tmp/cc143s6M.s:598    .text.rcu_pllpresel_config:0000000000000010 $d
-     /tmp/cc143s6M.s:603    .text.rcu_predv0_config:0000000000000000 $t
-     /tmp/cc143s6M.s:609    .text.rcu_predv0_config:0000000000000000 rcu_predv0_config
-     /tmp/cc143s6M.s:648    .text.rcu_predv0_config:0000000000000018 $d
-     /tmp/cc143s6M.s:653    .text.rcu_adc_clock_config:0000000000000000 $t
-     /tmp/cc143s6M.s:659    .text.rcu_adc_clock_config:0000000000000000 rcu_adc_clock_config
-     /tmp/cc143s6M.s:693    .text.rcu_adc_clock_config:000000000000001a $d
-     /tmp/cc143s6M.s:705    .text.rcu_adc_clock_config:0000000000000026 $t
-     /tmp/cc143s6M.s:758    .text.rcu_adc_clock_config:0000000000000050 $d
-     /tmp/cc143s6M.s:765    .text.rcu_usb_clock_config:0000000000000000 $t
-     /tmp/cc143s6M.s:771    .text.rcu_usb_clock_config:0000000000000000 rcu_usb_clock_config
-     /tmp/cc143s6M.s:800    .text.rcu_usb_clock_config:0000000000000010 $d
-     /tmp/cc143s6M.s:805    .text.rcu_rtc_clock_config:0000000000000000 $t
-     /tmp/cc143s6M.s:811    .text.rcu_rtc_clock_config:0000000000000000 rcu_rtc_clock_config
-ARM GAS  /tmp/cc143s6M.s 			page 66
+     /tmp/ccSLM90J.s:18     .text.rcu_periph_clock_enable:0000000000000000 $t
+     /tmp/ccSLM90J.s:24     .text.rcu_periph_clock_enable:0000000000000000 rcu_periph_clock_enable
+     /tmp/ccSLM90J.s:54     .text.rcu_periph_clock_disable:0000000000000000 $t
+     /tmp/ccSLM90J.s:60     .text.rcu_periph_clock_disable:0000000000000000 rcu_periph_clock_disable
+     /tmp/ccSLM90J.s:89     .text.rcu_periph_clock_sleep_enable:0000000000000000 $t
+     /tmp/ccSLM90J.s:95     .text.rcu_periph_clock_sleep_enable:0000000000000000 rcu_periph_clock_sleep_enable
+     /tmp/ccSLM90J.s:124    .text.rcu_periph_clock_sleep_disable:0000000000000000 $t
+     /tmp/ccSLM90J.s:130    .text.rcu_periph_clock_sleep_disable:0000000000000000 rcu_periph_clock_sleep_disable
+     /tmp/ccSLM90J.s:159    .text.rcu_periph_reset_enable:0000000000000000 $t
+     /tmp/ccSLM90J.s:165    .text.rcu_periph_reset_enable:0000000000000000 rcu_periph_reset_enable
+     /tmp/ccSLM90J.s:194    .text.rcu_periph_reset_disable:0000000000000000 $t
+     /tmp/ccSLM90J.s:200    .text.rcu_periph_reset_disable:0000000000000000 rcu_periph_reset_disable
+     /tmp/ccSLM90J.s:229    .text.rcu_bkp_reset_enable:0000000000000000 $t
+     /tmp/ccSLM90J.s:235    .text.rcu_bkp_reset_enable:0000000000000000 rcu_bkp_reset_enable
+     /tmp/ccSLM90J.s:253    .text.rcu_bkp_reset_enable:000000000000000c $d
+     /tmp/ccSLM90J.s:258    .text.rcu_bkp_reset_disable:0000000000000000 $t
+     /tmp/ccSLM90J.s:264    .text.rcu_bkp_reset_disable:0000000000000000 rcu_bkp_reset_disable
+     /tmp/ccSLM90J.s:282    .text.rcu_bkp_reset_disable:000000000000000c $d
+     /tmp/ccSLM90J.s:287    .text.rcu_system_clock_source_config:0000000000000000 $t
+     /tmp/ccSLM90J.s:293    .text.rcu_system_clock_source_config:0000000000000000 rcu_system_clock_source_config
+     /tmp/ccSLM90J.s:322    .text.rcu_system_clock_source_config:0000000000000010 $d
+     /tmp/ccSLM90J.s:327    .text.rcu_system_clock_source_get:0000000000000000 $t
+     /tmp/ccSLM90J.s:333    .text.rcu_system_clock_source_get:0000000000000000 rcu_system_clock_source_get
+     /tmp/ccSLM90J.s:350    .text.rcu_system_clock_source_get:000000000000000c $d
+     /tmp/ccSLM90J.s:355    .text.rcu_ahb_clock_config:0000000000000000 $t
+     /tmp/ccSLM90J.s:361    .text.rcu_ahb_clock_config:0000000000000000 rcu_ahb_clock_config
+     /tmp/ccSLM90J.s:390    .text.rcu_ahb_clock_config:0000000000000010 $d
+     /tmp/ccSLM90J.s:395    .text.rcu_apb1_clock_config:0000000000000000 $t
+     /tmp/ccSLM90J.s:401    .text.rcu_apb1_clock_config:0000000000000000 rcu_apb1_clock_config
+     /tmp/ccSLM90J.s:430    .text.rcu_apb1_clock_config:0000000000000010 $d
+     /tmp/ccSLM90J.s:435    .text.rcu_apb2_clock_config:0000000000000000 $t
+     /tmp/ccSLM90J.s:441    .text.rcu_apb2_clock_config:0000000000000000 rcu_apb2_clock_config
+     /tmp/ccSLM90J.s:470    .text.rcu_apb2_clock_config:0000000000000010 $d
+     /tmp/ccSLM90J.s:475    .text.rcu_ckout0_config:0000000000000000 $t
+     /tmp/ccSLM90J.s:481    .text.rcu_ckout0_config:0000000000000000 rcu_ckout0_config
+     /tmp/ccSLM90J.s:510    .text.rcu_ckout0_config:0000000000000010 $d
+     /tmp/ccSLM90J.s:515    .text.rcu_pll_config:0000000000000000 $t
+     /tmp/ccSLM90J.s:521    .text.rcu_pll_config:0000000000000000 rcu_pll_config
+     /tmp/ccSLM90J.s:557    .text.rcu_pll_config:0000000000000014 $d
+     /tmp/ccSLM90J.s:562    .text.rcu_pllpresel_config:0000000000000000 $t
+     /tmp/ccSLM90J.s:568    .text.rcu_pllpresel_config:0000000000000000 rcu_pllpresel_config
+     /tmp/ccSLM90J.s:598    .text.rcu_pllpresel_config:0000000000000010 $d
+     /tmp/ccSLM90J.s:603    .text.rcu_predv0_config:0000000000000000 $t
+     /tmp/ccSLM90J.s:609    .text.rcu_predv0_config:0000000000000000 rcu_predv0_config
+     /tmp/ccSLM90J.s:648    .text.rcu_predv0_config:0000000000000018 $d
+     /tmp/ccSLM90J.s:653    .text.rcu_adc_clock_config:0000000000000000 $t
+     /tmp/ccSLM90J.s:659    .text.rcu_adc_clock_config:0000000000000000 rcu_adc_clock_config
+     /tmp/ccSLM90J.s:693    .text.rcu_adc_clock_config:000000000000001a $d
+     /tmp/ccSLM90J.s:705    .text.rcu_adc_clock_config:0000000000000026 $t
+     /tmp/ccSLM90J.s:758    .text.rcu_adc_clock_config:0000000000000050 $d
+     /tmp/ccSLM90J.s:765    .text.rcu_usb_clock_config:0000000000000000 $t
+     /tmp/ccSLM90J.s:771    .text.rcu_usb_clock_config:0000000000000000 rcu_usb_clock_config
+     /tmp/ccSLM90J.s:800    .text.rcu_usb_clock_config:0000000000000010 $d
+     /tmp/ccSLM90J.s:805    .text.rcu_rtc_clock_config:0000000000000000 $t
+     /tmp/ccSLM90J.s:811    .text.rcu_rtc_clock_config:0000000000000000 rcu_rtc_clock_config
+ARM GAS  /tmp/ccSLM90J.s 			page 66
 
 
-     /tmp/cc143s6M.s:840    .text.rcu_rtc_clock_config:0000000000000010 $d
-     /tmp/cc143s6M.s:845    .text.rcu_ck48m_clock_config:0000000000000000 $t
-     /tmp/cc143s6M.s:851    .text.rcu_ck48m_clock_config:0000000000000000 rcu_ck48m_clock_config
-     /tmp/cc143s6M.s:880    .text.rcu_ck48m_clock_config:0000000000000014 $d
-     /tmp/cc143s6M.s:885    .text.rcu_flag_get:0000000000000000 $t
-     /tmp/cc143s6M.s:891    .text.rcu_flag_get:0000000000000000 rcu_flag_get
-     /tmp/cc143s6M.s:925    .text.rcu_all_reset_flag_clear:0000000000000000 $t
-     /tmp/cc143s6M.s:931    .text.rcu_all_reset_flag_clear:0000000000000000 rcu_all_reset_flag_clear
-     /tmp/cc143s6M.s:949    .text.rcu_all_reset_flag_clear:000000000000000c $d
-     /tmp/cc143s6M.s:954    .text.rcu_interrupt_flag_get:0000000000000000 $t
-     /tmp/cc143s6M.s:960    .text.rcu_interrupt_flag_get:0000000000000000 rcu_interrupt_flag_get
-     /tmp/cc143s6M.s:994    .text.rcu_interrupt_flag_clear:0000000000000000 $t
-     /tmp/cc143s6M.s:1000   .text.rcu_interrupt_flag_clear:0000000000000000 rcu_interrupt_flag_clear
-     /tmp/cc143s6M.s:1029   .text.rcu_interrupt_enable:0000000000000000 $t
-     /tmp/cc143s6M.s:1035   .text.rcu_interrupt_enable:0000000000000000 rcu_interrupt_enable
-     /tmp/cc143s6M.s:1064   .text.rcu_interrupt_disable:0000000000000000 $t
-     /tmp/cc143s6M.s:1070   .text.rcu_interrupt_disable:0000000000000000 rcu_interrupt_disable
-     /tmp/cc143s6M.s:1099   .text.rcu_lxtal_drive_capability_config:0000000000000000 $t
-     /tmp/cc143s6M.s:1105   .text.rcu_lxtal_drive_capability_config:0000000000000000 rcu_lxtal_drive_capability_config
-     /tmp/cc143s6M.s:1134   .text.rcu_lxtal_drive_capability_config:0000000000000010 $d
-     /tmp/cc143s6M.s:1139   .text.rcu_osci_stab_wait:0000000000000000 $t
-     /tmp/cc143s6M.s:1145   .text.rcu_osci_stab_wait:0000000000000000 rcu_osci_stab_wait
-     /tmp/cc143s6M.s:1443   .text.rcu_osci_stab_wait:0000000000000114 $d
-     /tmp/cc143s6M.s:1448   .text.rcu_deinit:0000000000000000 $t
-     /tmp/cc143s6M.s:1454   .text.rcu_deinit:0000000000000000 rcu_deinit
-     /tmp/cc143s6M.s:1508   .text.rcu_deinit:000000000000004c $d
-     /tmp/cc143s6M.s:1513   .text.rcu_osci_on:0000000000000000 $t
-     /tmp/cc143s6M.s:1519   .text.rcu_osci_on:0000000000000000 rcu_osci_on
-     /tmp/cc143s6M.s:1548   .text.rcu_osci_off:0000000000000000 $t
-     /tmp/cc143s6M.s:1554   .text.rcu_osci_off:0000000000000000 rcu_osci_off
-     /tmp/cc143s6M.s:1583   .text.rcu_osci_bypass_mode_enable:0000000000000000 $t
-     /tmp/cc143s6M.s:1589   .text.rcu_osci_bypass_mode_enable:0000000000000000 rcu_osci_bypass_mode_enable
-     /tmp/cc143s6M.s:1646   .text.rcu_osci_bypass_mode_enable:0000000000000034 $d
-     /tmp/cc143s6M.s:1651   .text.rcu_osci_bypass_mode_disable:0000000000000000 $t
-     /tmp/cc143s6M.s:1657   .text.rcu_osci_bypass_mode_disable:0000000000000000 rcu_osci_bypass_mode_disable
-     /tmp/cc143s6M.s:1714   .text.rcu_osci_bypass_mode_disable:0000000000000034 $d
-     /tmp/cc143s6M.s:1719   .text.rcu_hxtal_clock_monitor_enable:0000000000000000 $t
-     /tmp/cc143s6M.s:1725   .text.rcu_hxtal_clock_monitor_enable:0000000000000000 rcu_hxtal_clock_monitor_enable
-     /tmp/cc143s6M.s:1743   .text.rcu_hxtal_clock_monitor_enable:000000000000000c $d
-     /tmp/cc143s6M.s:1748   .text.rcu_hxtal_clock_monitor_disable:0000000000000000 $t
-     /tmp/cc143s6M.s:1754   .text.rcu_hxtal_clock_monitor_disable:0000000000000000 rcu_hxtal_clock_monitor_disable
-     /tmp/cc143s6M.s:1772   .text.rcu_hxtal_clock_monitor_disable:000000000000000c $d
-     /tmp/cc143s6M.s:1777   .text.rcu_irc8m_adjust_value_set:0000000000000000 $t
-     /tmp/cc143s6M.s:1783   .text.rcu_irc8m_adjust_value_set:0000000000000000 rcu_irc8m_adjust_value_set
-     /tmp/cc143s6M.s:1816   .text.rcu_irc8m_adjust_value_set:0000000000000014 $d
-     /tmp/cc143s6M.s:1821   .text.rcu_deepsleep_voltage_set:0000000000000000 $t
-     /tmp/cc143s6M.s:1827   .text.rcu_deepsleep_voltage_set:0000000000000000 rcu_deepsleep_voltage_set
-     /tmp/cc143s6M.s:1848   .text.rcu_deepsleep_voltage_set:000000000000000c $d
-     /tmp/cc143s6M.s:1853   .text.rcu_clock_freq_get:0000000000000000 $t
-     /tmp/cc143s6M.s:1859   .text.rcu_clock_freq_get:0000000000000000 rcu_clock_freq_get
-     /tmp/cc143s6M.s:1980   .text.rcu_clock_freq_get:0000000000000076 $d
-     /tmp/cc143s6M.s:1985   .text.rcu_clock_freq_get:000000000000007a $t
-     /tmp/cc143s6M.s:2150   .text.rcu_clock_freq_get:00000000000000f4 $d
-     /tmp/cc143s6M.s:2159   .rodata:0000000000000000 $d
+     /tmp/ccSLM90J.s:840    .text.rcu_rtc_clock_config:0000000000000010 $d
+     /tmp/ccSLM90J.s:845    .text.rcu_ck48m_clock_config:0000000000000000 $t
+     /tmp/ccSLM90J.s:851    .text.rcu_ck48m_clock_config:0000000000000000 rcu_ck48m_clock_config
+     /tmp/ccSLM90J.s:880    .text.rcu_ck48m_clock_config:0000000000000014 $d
+     /tmp/ccSLM90J.s:885    .text.rcu_flag_get:0000000000000000 $t
+     /tmp/ccSLM90J.s:891    .text.rcu_flag_get:0000000000000000 rcu_flag_get
+     /tmp/ccSLM90J.s:925    .text.rcu_all_reset_flag_clear:0000000000000000 $t
+     /tmp/ccSLM90J.s:931    .text.rcu_all_reset_flag_clear:0000000000000000 rcu_all_reset_flag_clear
+     /tmp/ccSLM90J.s:949    .text.rcu_all_reset_flag_clear:000000000000000c $d
+     /tmp/ccSLM90J.s:954    .text.rcu_interrupt_flag_get:0000000000000000 $t
+     /tmp/ccSLM90J.s:960    .text.rcu_interrupt_flag_get:0000000000000000 rcu_interrupt_flag_get
+     /tmp/ccSLM90J.s:994    .text.rcu_interrupt_flag_clear:0000000000000000 $t
+     /tmp/ccSLM90J.s:1000   .text.rcu_interrupt_flag_clear:0000000000000000 rcu_interrupt_flag_clear
+     /tmp/ccSLM90J.s:1029   .text.rcu_interrupt_enable:0000000000000000 $t
+     /tmp/ccSLM90J.s:1035   .text.rcu_interrupt_enable:0000000000000000 rcu_interrupt_enable
+     /tmp/ccSLM90J.s:1064   .text.rcu_interrupt_disable:0000000000000000 $t
+     /tmp/ccSLM90J.s:1070   .text.rcu_interrupt_disable:0000000000000000 rcu_interrupt_disable
+     /tmp/ccSLM90J.s:1099   .text.rcu_lxtal_drive_capability_config:0000000000000000 $t
+     /tmp/ccSLM90J.s:1105   .text.rcu_lxtal_drive_capability_config:0000000000000000 rcu_lxtal_drive_capability_config
+     /tmp/ccSLM90J.s:1134   .text.rcu_lxtal_drive_capability_config:0000000000000010 $d
+     /tmp/ccSLM90J.s:1139   .text.rcu_osci_stab_wait:0000000000000000 $t
+     /tmp/ccSLM90J.s:1145   .text.rcu_osci_stab_wait:0000000000000000 rcu_osci_stab_wait
+     /tmp/ccSLM90J.s:1443   .text.rcu_osci_stab_wait:0000000000000114 $d
+     /tmp/ccSLM90J.s:1448   .text.rcu_deinit:0000000000000000 $t
+     /tmp/ccSLM90J.s:1454   .text.rcu_deinit:0000000000000000 rcu_deinit
+     /tmp/ccSLM90J.s:1508   .text.rcu_deinit:000000000000004c $d
+     /tmp/ccSLM90J.s:1513   .text.rcu_osci_on:0000000000000000 $t
+     /tmp/ccSLM90J.s:1519   .text.rcu_osci_on:0000000000000000 rcu_osci_on
+     /tmp/ccSLM90J.s:1548   .text.rcu_osci_off:0000000000000000 $t
+     /tmp/ccSLM90J.s:1554   .text.rcu_osci_off:0000000000000000 rcu_osci_off
+     /tmp/ccSLM90J.s:1583   .text.rcu_osci_bypass_mode_enable:0000000000000000 $t
+     /tmp/ccSLM90J.s:1589   .text.rcu_osci_bypass_mode_enable:0000000000000000 rcu_osci_bypass_mode_enable
+     /tmp/ccSLM90J.s:1646   .text.rcu_osci_bypass_mode_enable:0000000000000034 $d
+     /tmp/ccSLM90J.s:1651   .text.rcu_osci_bypass_mode_disable:0000000000000000 $t
+     /tmp/ccSLM90J.s:1657   .text.rcu_osci_bypass_mode_disable:0000000000000000 rcu_osci_bypass_mode_disable
+     /tmp/ccSLM90J.s:1714   .text.rcu_osci_bypass_mode_disable:0000000000000034 $d
+     /tmp/ccSLM90J.s:1719   .text.rcu_hxtal_clock_monitor_enable:0000000000000000 $t
+     /tmp/ccSLM90J.s:1725   .text.rcu_hxtal_clock_monitor_enable:0000000000000000 rcu_hxtal_clock_monitor_enable
+     /tmp/ccSLM90J.s:1743   .text.rcu_hxtal_clock_monitor_enable:000000000000000c $d
+     /tmp/ccSLM90J.s:1748   .text.rcu_hxtal_clock_monitor_disable:0000000000000000 $t
+     /tmp/ccSLM90J.s:1754   .text.rcu_hxtal_clock_monitor_disable:0000000000000000 rcu_hxtal_clock_monitor_disable
+     /tmp/ccSLM90J.s:1772   .text.rcu_hxtal_clock_monitor_disable:000000000000000c $d
+     /tmp/ccSLM90J.s:1777   .text.rcu_irc8m_adjust_value_set:0000000000000000 $t
+     /tmp/ccSLM90J.s:1783   .text.rcu_irc8m_adjust_value_set:0000000000000000 rcu_irc8m_adjust_value_set
+     /tmp/ccSLM90J.s:1816   .text.rcu_irc8m_adjust_value_set:0000000000000014 $d
+     /tmp/ccSLM90J.s:1821   .text.rcu_deepsleep_voltage_set:0000000000000000 $t
+     /tmp/ccSLM90J.s:1827   .text.rcu_deepsleep_voltage_set:0000000000000000 rcu_deepsleep_voltage_set
+     /tmp/ccSLM90J.s:1848   .text.rcu_deepsleep_voltage_set:000000000000000c $d
+     /tmp/ccSLM90J.s:1853   .text.rcu_clock_freq_get:0000000000000000 $t
+     /tmp/ccSLM90J.s:1859   .text.rcu_clock_freq_get:0000000000000000 rcu_clock_freq_get
+     /tmp/ccSLM90J.s:1980   .text.rcu_clock_freq_get:0000000000000076 $d
+     /tmp/ccSLM90J.s:1985   .text.rcu_clock_freq_get:000000000000007a $t
+     /tmp/ccSLM90J.s:2150   .text.rcu_clock_freq_get:00000000000000f4 $d
+     /tmp/ccSLM90J.s:2159   .rodata:0000000000000000 $d
 
 NO UNDEFINED SYMBOLS

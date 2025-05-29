@@ -11,8 +11,8 @@
 #define ABS(A) (((A) < 0) ? ((-1) * (A)) : (A))
 
 //-----------------------------------------------------------------------------//
-static uint8_t oled_start_column = 2;		// Display shift
-static uint8_t oled_buffer[1024];			// Display buffer
+static uint8_t oled_start_column = 0;		// Display shift
+uint8_t oled_buffer[OLED_BUFFERSIZE];		// Display buffer
 
 //-----------------------------------------------------------------------------//
 void OLED_SendCommand(uint8_t command);
@@ -50,7 +50,7 @@ void OLED_SendData(uint8_t data)
 void OLED_SendBuff(uint8_t * buf, uint8_t count)
 {
 	LCD_CS(ON);
-	for (uint8_t count; count < 0xFF; count++) {}
+	for (uint8_t count = 0; count < 0xFF; count++) {}
 	LCD_DC(ON);
 	for (uint8_t i = 0; i < count; i++)
 	{
@@ -292,7 +292,39 @@ void OLED_DrawPixel(uint8_t pos_x, uint8_t pos_y)
 	oled_buffer[pos_x + (pos_y / 8) * OLED_WIDTH] |= (1 << (pos_y & 7));
 }
 
-//------------------------------------------------------------------------//
+//-------------------------------UPDATE_SCREEN-------------------------------//
+void OLED_UpdateScreen()
+{
+	for (uint8_t page_number = 0; page_number < NUMB_PAGE ; page_number++)
+	{
+		OLED_UpdateOnePage(page_number);
+	}
+}
+
+//--------------------------------------------------------------------------//
+void OLED_UpdateOnePage(uint8_t page_number)
+{
+	OLED_PageAdress(page_number);
+
+	for (int16_t j = 0; j < OLED_WIDTH; j++)
+	{	OLED_SendData(oled_buffer[page_number * OLED_WIDTH + j]);	}
+}
+
+//----------------------------------------------------------------------------//
+void OLED_PageAdress(uint8_t page_number)
+{
+	OLED_SendCommand(0x00 | (oled_start_column & 0x0F));	// lo tetrad starting column address
+	OLED_SendCommand(0x10 | (oled_start_column >> 4));		// hi tetrad starting column address
+	OLED_SendCommand(0xB0 | page_number);					// starting address of the page
+}
+
+//------------------------------UPDATE_SCREEN_DMA------------------------------//
+void OLED_UpdScreen_DMA()
+{
+	spi_write_buffer_DMA ();
+}
+
+//-----------------------------------Графика-----------------------------------//
 void OLED_DrawBitmap(const uint8_t *progmem_bitmap, uint8_t height, uint8_t width, uint8_t pos_x, uint8_t pos_y)
 {
 	uint8_t current_byte;
@@ -312,7 +344,7 @@ void OLED_DrawBitmap(const uint8_t *progmem_bitmap, uint8_t height, uint8_t widt
 	}
 }
 
-//---------------------------------------------------------------------//
+//------------------------------------------------------------------------//
 void OLED_DrawXBM(int16_t xMove, int16_t yMove, const uint8_t *xbm)
 {
 	int16_t width = xbm[0];
@@ -563,25 +595,3 @@ void OLED_DrawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1)
 		}
 	}
 }
-
-//-------------------------------UPDATE_SCREEN-------------------------------//
-void OLED_UpdateScreen()
-{
-	for (uint8_t page_number = 0; page_number < NUMB_PAGE ; page_number++)
-	{
-		OLED_UpdateOnePage(page_number);
-	}
-}
-
-//--------------------------------------------------------------------------//
-void OLED_UpdateOnePage(uint8_t page_number)
-{
-	OLED_SendCommand(0x00 | (oled_start_column & 0x0F));	// lo tetrad starting column address
-	OLED_SendCommand(0x10 | (oled_start_column >> 4));		// hi tetrad starting column address
-	OLED_SendCommand(0xB0 | page_number);					// starting address of the page
-
-	for (int16_t j = 0; j < OLED_WIDTH; j++)
-	{	OLED_SendData(oled_buffer[page_number * OLED_WIDTH + j]);	}
-}
-
-//---------------------------------------------------------------------//

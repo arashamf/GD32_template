@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccNISWlL.s 			page 1
+ARM GAS  /tmp/ccM1pmPx.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccNISWlL.s 			page 1
   29:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c **** IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
   30:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
   31:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-ARM GAS  /tmp/ccNISWlL.s 			page 2
+ARM GAS  /tmp/ccM1pmPx.s 			page 2
 
 
   32:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccNISWlL.s 			page 1
   58:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****           \arg    RTC_INT_SECOND: second interrupt
   59:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****           \arg    RTC_INT_ALARM: alarm interrupt
   60:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****           \arg    RTC_INT_OVERFLOW: overflow interrupt
-ARM GAS  /tmp/ccNISWlL.s 			page 3
+ARM GAS  /tmp/ccM1pmPx.s 			page 3
 
 
   61:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****     \param[out] none
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccNISWlL.s 			page 1
   97 000a C2F80438 		str	r3, [r2, #2052]
   78:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c **** }
   98              		.loc 1 78 1 view .LVU11
-ARM GAS  /tmp/ccNISWlL.s 			page 4
+ARM GAS  /tmp/ccM1pmPx.s 			page 4
 
 
   99 000e 7047     		bx	lr
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccNISWlL.s 			page 1
   91:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c **** /*!
   92:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****     \brief      wait RTC last write operation finished flag set
   93:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****     \param[in]  none
-ARM GAS  /tmp/ccNISWlL.s 			page 5
+ARM GAS  /tmp/ccM1pmPx.s 			page 5
 
 
   94:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****     \param[out] none
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccNISWlL.s 			page 1
  180              		@ frame_needed = 0, uses_anonymous_args = 0
  181              		@ link register save eliminated.
  112:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****      /* clear RSYNF flag */
-ARM GAS  /tmp/ccNISWlL.s 			page 6
+ARM GAS  /tmp/ccM1pmPx.s 			page 6
 
 
  113:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****     RTC_CTL &= ~RTC_CTL_RSYNF;
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccNISWlL.s 			page 1
  127:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****     uint32_t temp = 0x0U;
  221              		.loc 1 127 5 view .LVU32
  222              	.LVL2:
-ARM GAS  /tmp/ccNISWlL.s 			page 7
+ARM GAS  /tmp/ccM1pmPx.s 			page 7
 
 
  128:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****     temp = RTC_CNTL;
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccNISWlL.s 			page 1
  141:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****     rtc_configuration_mode_enter();
  266              		.loc 1 141 5 is_stmt 1 view .LVU42
  267 0004 FFF7FEFF 		bl	rtc_configuration_mode_enter
-ARM GAS  /tmp/ccNISWlL.s 			page 8
+ARM GAS  /tmp/ccM1pmPx.s 			page 8
 
 
  268              	.LVL7:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccNISWlL.s 			page 1
  309              	.LCFI1:
  310              		.cfi_def_cfa_offset 8
  311              		.cfi_offset 4, -8
-ARM GAS  /tmp/ccNISWlL.s 			page 9
+ARM GAS  /tmp/ccM1pmPx.s 			page 9
 
 
  312              		.cfi_offset 14, -4
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccNISWlL.s 			page 1
  352              		.cfi_startproc
  353              		@ args = 0, pretend = 0, frame = 0
  354              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccNISWlL.s 			page 10
+ARM GAS  /tmp/ccM1pmPx.s 			page 10
 
 
  355              		.loc 1 172 1 is_stmt 0 view .LVU63
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccNISWlL.s 			page 1
  186:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c **** */
  187:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c **** uint32_t rtc_divider_get(void)
  188:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c **** {
-ARM GAS  /tmp/ccNISWlL.s 			page 11
+ARM GAS  /tmp/ccM1pmPx.s 			page 11
 
 
  398              		.loc 1 188 1 is_stmt 1 view -0
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccNISWlL.s 			page 1
  202:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****           \arg    RTC_FLAG_LWOF: last write operation finished flag
  203:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****     \param[out] none
  204:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****     \retval     SET or RESET
-ARM GAS  /tmp/ccNISWlL.s 			page 12
+ARM GAS  /tmp/ccM1pmPx.s 			page 12
 
 
  205:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c **** */
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccNISWlL.s 			page 1
  220:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****           \arg    RTC_FLAG_OVERFLOW: overflow interrupt flag
  221:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****           \arg    RTC_FLAG_RSYN: registers synchronized flag
  222:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****     \param[out] none
-ARM GAS  /tmp/ccNISWlL.s 			page 13
+ARM GAS  /tmp/ccM1pmPx.s 			page 13
 
 
  223:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_rtc.c ****     \retval     none
@@ -752,49 +752,49 @@ ARM GAS  /tmp/ccNISWlL.s 			page 1
  504              		.file 2 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/m
  505              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
  506              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
-ARM GAS  /tmp/ccNISWlL.s 			page 14
+ARM GAS  /tmp/ccM1pmPx.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gd32f30x_rtc.c
-     /tmp/ccNISWlL.s:18     .text.rtc_interrupt_enable:0000000000000000 $t
-     /tmp/ccNISWlL.s:24     .text.rtc_interrupt_enable:0000000000000000 rtc_interrupt_enable
-     /tmp/ccNISWlL.s:44     .text.rtc_interrupt_enable:0000000000000010 $d
-     /tmp/ccNISWlL.s:49     .text.rtc_interrupt_disable:0000000000000000 $t
-     /tmp/ccNISWlL.s:55     .text.rtc_interrupt_disable:0000000000000000 rtc_interrupt_disable
-     /tmp/ccNISWlL.s:74     .text.rtc_interrupt_disable:0000000000000010 $d
-     /tmp/ccNISWlL.s:79     .text.rtc_configuration_mode_enter:0000000000000000 $t
-     /tmp/ccNISWlL.s:85     .text.rtc_configuration_mode_enter:0000000000000000 rtc_configuration_mode_enter
-     /tmp/ccNISWlL.s:103    .text.rtc_configuration_mode_enter:0000000000000010 $d
-     /tmp/ccNISWlL.s:108    .text.rtc_configuration_mode_exit:0000000000000000 $t
-     /tmp/ccNISWlL.s:114    .text.rtc_configuration_mode_exit:0000000000000000 rtc_configuration_mode_exit
-     /tmp/ccNISWlL.s:132    .text.rtc_configuration_mode_exit:0000000000000010 $d
-     /tmp/ccNISWlL.s:137    .text.rtc_lwoff_wait:0000000000000000 $t
-     /tmp/ccNISWlL.s:143    .text.rtc_lwoff_wait:0000000000000000 rtc_lwoff_wait
-     /tmp/ccNISWlL.s:164    .text.rtc_lwoff_wait:0000000000000010 $d
-     /tmp/ccNISWlL.s:169    .text.rtc_register_sync_wait:0000000000000000 $t
-     /tmp/ccNISWlL.s:175    .text.rtc_register_sync_wait:0000000000000000 rtc_register_sync_wait
-     /tmp/ccNISWlL.s:203    .text.rtc_register_sync_wait:000000000000001c $d
-     /tmp/ccNISWlL.s:208    .text.rtc_counter_get:0000000000000000 $t
-     /tmp/ccNISWlL.s:214    .text.rtc_counter_get:0000000000000000 rtc_counter_get
-     /tmp/ccNISWlL.s:241    .text.rtc_counter_get:0000000000000010 $d
-     /tmp/ccNISWlL.s:246    .text.rtc_counter_set:0000000000000000 $t
-     /tmp/ccNISWlL.s:252    .text.rtc_counter_set:0000000000000000 rtc_counter_set
-     /tmp/ccNISWlL.s:289    .text.rtc_counter_set:000000000000001c $d
-     /tmp/ccNISWlL.s:294    .text.rtc_prescaler_set:0000000000000000 $t
-     /tmp/ccNISWlL.s:300    .text.rtc_prescaler_set:0000000000000000 rtc_prescaler_set
-     /tmp/ccNISWlL.s:337    .text.rtc_prescaler_set:0000000000000020 $d
-     /tmp/ccNISWlL.s:342    .text.rtc_alarm_config:0000000000000000 $t
-     /tmp/ccNISWlL.s:348    .text.rtc_alarm_config:0000000000000000 rtc_alarm_config
-     /tmp/ccNISWlL.s:385    .text.rtc_alarm_config:000000000000001c $d
-     /tmp/ccNISWlL.s:390    .text.rtc_divider_get:0000000000000000 $t
-     /tmp/ccNISWlL.s:396    .text.rtc_divider_get:0000000000000000 rtc_divider_get
-     /tmp/ccNISWlL.s:427    .text.rtc_divider_get:0000000000000014 $d
-     /tmp/ccNISWlL.s:432    .text.rtc_flag_get:0000000000000000 $t
-     /tmp/ccNISWlL.s:438    .text.rtc_flag_get:0000000000000000 rtc_flag_get
-     /tmp/ccNISWlL.s:468    .text.rtc_flag_get:0000000000000014 $d
-     /tmp/ccNISWlL.s:473    .text.rtc_flag_clear:0000000000000000 $t
-     /tmp/ccNISWlL.s:479    .text.rtc_flag_clear:0000000000000000 rtc_flag_clear
-     /tmp/ccNISWlL.s:498    .text.rtc_flag_clear:0000000000000010 $d
+     /tmp/ccM1pmPx.s:18     .text.rtc_interrupt_enable:0000000000000000 $t
+     /tmp/ccM1pmPx.s:24     .text.rtc_interrupt_enable:0000000000000000 rtc_interrupt_enable
+     /tmp/ccM1pmPx.s:44     .text.rtc_interrupt_enable:0000000000000010 $d
+     /tmp/ccM1pmPx.s:49     .text.rtc_interrupt_disable:0000000000000000 $t
+     /tmp/ccM1pmPx.s:55     .text.rtc_interrupt_disable:0000000000000000 rtc_interrupt_disable
+     /tmp/ccM1pmPx.s:74     .text.rtc_interrupt_disable:0000000000000010 $d
+     /tmp/ccM1pmPx.s:79     .text.rtc_configuration_mode_enter:0000000000000000 $t
+     /tmp/ccM1pmPx.s:85     .text.rtc_configuration_mode_enter:0000000000000000 rtc_configuration_mode_enter
+     /tmp/ccM1pmPx.s:103    .text.rtc_configuration_mode_enter:0000000000000010 $d
+     /tmp/ccM1pmPx.s:108    .text.rtc_configuration_mode_exit:0000000000000000 $t
+     /tmp/ccM1pmPx.s:114    .text.rtc_configuration_mode_exit:0000000000000000 rtc_configuration_mode_exit
+     /tmp/ccM1pmPx.s:132    .text.rtc_configuration_mode_exit:0000000000000010 $d
+     /tmp/ccM1pmPx.s:137    .text.rtc_lwoff_wait:0000000000000000 $t
+     /tmp/ccM1pmPx.s:143    .text.rtc_lwoff_wait:0000000000000000 rtc_lwoff_wait
+     /tmp/ccM1pmPx.s:164    .text.rtc_lwoff_wait:0000000000000010 $d
+     /tmp/ccM1pmPx.s:169    .text.rtc_register_sync_wait:0000000000000000 $t
+     /tmp/ccM1pmPx.s:175    .text.rtc_register_sync_wait:0000000000000000 rtc_register_sync_wait
+     /tmp/ccM1pmPx.s:203    .text.rtc_register_sync_wait:000000000000001c $d
+     /tmp/ccM1pmPx.s:208    .text.rtc_counter_get:0000000000000000 $t
+     /tmp/ccM1pmPx.s:214    .text.rtc_counter_get:0000000000000000 rtc_counter_get
+     /tmp/ccM1pmPx.s:241    .text.rtc_counter_get:0000000000000010 $d
+     /tmp/ccM1pmPx.s:246    .text.rtc_counter_set:0000000000000000 $t
+     /tmp/ccM1pmPx.s:252    .text.rtc_counter_set:0000000000000000 rtc_counter_set
+     /tmp/ccM1pmPx.s:289    .text.rtc_counter_set:000000000000001c $d
+     /tmp/ccM1pmPx.s:294    .text.rtc_prescaler_set:0000000000000000 $t
+     /tmp/ccM1pmPx.s:300    .text.rtc_prescaler_set:0000000000000000 rtc_prescaler_set
+     /tmp/ccM1pmPx.s:337    .text.rtc_prescaler_set:0000000000000020 $d
+     /tmp/ccM1pmPx.s:342    .text.rtc_alarm_config:0000000000000000 $t
+     /tmp/ccM1pmPx.s:348    .text.rtc_alarm_config:0000000000000000 rtc_alarm_config
+     /tmp/ccM1pmPx.s:385    .text.rtc_alarm_config:000000000000001c $d
+     /tmp/ccM1pmPx.s:390    .text.rtc_divider_get:0000000000000000 $t
+     /tmp/ccM1pmPx.s:396    .text.rtc_divider_get:0000000000000000 rtc_divider_get
+     /tmp/ccM1pmPx.s:427    .text.rtc_divider_get:0000000000000014 $d
+     /tmp/ccM1pmPx.s:432    .text.rtc_flag_get:0000000000000000 $t
+     /tmp/ccM1pmPx.s:438    .text.rtc_flag_get:0000000000000000 rtc_flag_get
+     /tmp/ccM1pmPx.s:468    .text.rtc_flag_get:0000000000000014 $d
+     /tmp/ccM1pmPx.s:473    .text.rtc_flag_clear:0000000000000000 $t
+     /tmp/ccM1pmPx.s:479    .text.rtc_flag_clear:0000000000000000 rtc_flag_clear
+     /tmp/ccM1pmPx.s:498    .text.rtc_flag_clear:0000000000000010 $d
 
 NO UNDEFINED SYMBOLS

@@ -19,4 +19,3 @@ static enum
 	PULSE_STATE_LAST_REV	= 0x02,
 } enc_state;
 
-extern char lcd_buf[25];

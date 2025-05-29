@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccmuXSVq.s 			page 1
+ARM GAS  /tmp/ccvo3m2W.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -38,8 +38,8 @@ ARM GAS  /tmp/ccmuXSVq.s 			page 1
   10:Core/Source/gpio.c ****     rcu_periph_clock_enable(LED_RCU);
   11:Core/Source/gpio.c ****     gpio_init(LED_PORT, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, LED_Pin); // configure led pin as outp
   12:Core/Source/gpio.c ****     
-  13:Core/Source/gpio.c ****     rcu_periph_clock_enable( MCO_GPIO_RCU );
-  14:Core/Source/gpio.c ****     gpio_init(GPIOA, GPIO_MODE_AF_PP , GPIO_OSPEED_50MHZ, GPIO_PIN_8); //MCO pin
+  13:Core/Source/gpio.c ****     rcu_periph_clock_enable(MCO_GPIO_RCU);
+  14:Core/Source/gpio.c ****     gpio_init(MCO_GPIO_PORT, GPIO_MODE_AF_PP , GPIO_OSPEED_50MHZ, MCO_Pin); //MCO pin
   15:Core/Source/gpio.c **** 
   16:Core/Source/gpio.c ****     ENC_gpio_init ();
   17:Core/Source/gpio.c **** 
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccmuXSVq.s 			page 1
   34              		.cfi_offset 4, -8
   35              		.cfi_offset 14, -4
   23:Core/Source/gpio.c ****     rcu_periph_clock_enable(DISP_GPIO_RCU);
-ARM GAS  /tmp/ccmuXSVq.s 			page 2
+ARM GAS  /tmp/ccvo3m2W.s 			page 2
 
 
   36              		.loc 1 23 5 view .LVU1
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccmuXSVq.s 			page 1
   81              		.loc 1 32 5 view .LVU9
   82 0050 0421     		movs	r1, #4
   83 0052 2046     		mov	r0, r4
-ARM GAS  /tmp/ccmuXSVq.s 			page 3
+ARM GAS  /tmp/ccvo3m2W.s 			page 3
 
 
   84 0054 FFF7FEFF 		bl	gpio_bit_reset
@@ -159,254 +159,328 @@ ARM GAS  /tmp/ccmuXSVq.s 			page 1
  115 0004 0220     		movs	r0, #2
  116 0006 FFF7FEFF 		bl	gpio_pin_remap_config
  117              	.LVL9:
-  39:Core/Source/gpio.c ****     gpio_init(GPIOB, GPIO_MODE_AF_OD, GPIO_OSPEED_50MHZ, GPIO_PIN_6 | GPIO_PIN_7); //PB6-SCL, PB7-S
+  39:Core/Source/gpio.c ****     rcu_periph_clock_enable(I2C_GPIO_RCU);
  118              		.loc 1 39 5 view .LVU13
- 119 000a C023     		movs	r3, #192
- 120 000c 0322     		movs	r2, #3
- 121 000e 1C21     		movs	r1, #28
- 122 0010 0148     		ldr	r0, .L7
- 123 0012 FFF7FEFF 		bl	gpio_init
- 124              	.LVL10:
-  40:Core/Source/gpio.c **** }
- 125              		.loc 1 40 1 is_stmt 0 view .LVU14
- 126 0016 08BD     		pop	{r3, pc}
- 127              	.L8:
- 128              		.align	2
- 129              	.L7:
- 130 0018 000C0140 		.word	1073810432
- 131              		.cfi_endproc
- 132              	.LFE118:
- 134              		.section	.text.SPI1_gpio_init,"ax",%progbits
- 135              		.align	1
-ARM GAS  /tmp/ccmuXSVq.s 			page 4
+ 119 000a 40F20360 		movw	r0, #1539
+ 120 000e FFF7FEFF 		bl	rcu_periph_clock_enable
+ 121              	.LVL10:
+  40:Core/Source/gpio.c ****     gpio_init(I2C_GPIO_Port, GPIO_MODE_AF_OD, GPIO_OSPEED_50MHZ, I2C_SDA_Pin | I2C_SCL_Pin); //PB6-
+ 122              		.loc 1 40 5 view .LVU14
+ 123 0012 C023     		movs	r3, #192
+ 124 0014 0322     		movs	r2, #3
+ 125 0016 1C21     		movs	r1, #28
+ 126 0018 0148     		ldr	r0, .L7
+ 127 001a FFF7FEFF 		bl	gpio_init
+ 128              	.LVL11:
+  41:Core/Source/gpio.c **** }
+ 129              		.loc 1 41 1 is_stmt 0 view .LVU15
+ 130 001e 08BD     		pop	{r3, pc}
+ 131              	.L8:
+ 132              		.align	2
+ 133              	.L7:
+ARM GAS  /tmp/ccvo3m2W.s 			page 4
 
 
- 136              		.global	SPI1_gpio_init
- 137              		.syntax unified
- 138              		.thumb
- 139              		.thumb_func
- 141              	SPI1_gpio_init:
- 142              	.LFB119:
-  41:Core/Source/gpio.c **** 
-  42:Core/Source/gpio.c **** //-----------------------configure SPI1 GPIO: SCK/PB13, MOSI/PB15-----------------------//
-  43:Core/Source/gpio.c **** void SPI1_gpio_init (void) 
-  44:Core/Source/gpio.c **** {
- 143              		.loc 1 44 1 is_stmt 1 view -0
- 144              		.cfi_startproc
- 145              		@ args = 0, pretend = 0, frame = 0
- 146              		@ frame_needed = 0, uses_anonymous_args = 0
- 147 0000 10B5     		push	{r4, lr}
- 148              	.LCFI2:
- 149              		.cfi_def_cfa_offset 8
- 150              		.cfi_offset 4, -8
- 151              		.cfi_offset 14, -4
-  45:Core/Source/gpio.c ****     rcu_periph_clock_enable(SPI1_GPIO_RCU);
- 152              		.loc 1 45 5 view .LVU16
- 153 0002 40F20360 		movw	r0, #1539
- 154 0006 FFF7FEFF 		bl	rcu_periph_clock_enable
- 155              	.LVL11:
-  46:Core/Source/gpio.c ****     gpio_init(SPI1_GPIO_Port , GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_13 | GPIO_PIN_15); //PB
+ 134 0020 000C0140 		.word	1073810432
+ 135              		.cfi_endproc
+ 136              	.LFE118:
+ 138              		.section	.text.SPI1_gpio_init,"ax",%progbits
+ 139              		.align	1
+ 140              		.global	SPI1_gpio_init
+ 141              		.syntax unified
+ 142              		.thumb
+ 143              		.thumb_func
+ 145              	SPI1_gpio_init:
+ 146              	.LFB119:
+  42:Core/Source/gpio.c **** 
+  43:Core/Source/gpio.c **** //-----------------------configure SPI1 GPIO: SCK/PB13, MOSI/PB15-----------------------//
+  44:Core/Source/gpio.c **** void SPI1_gpio_init (void) 
+  45:Core/Source/gpio.c **** {
+ 147              		.loc 1 45 1 is_stmt 1 view -0
+ 148              		.cfi_startproc
+ 149              		@ args = 0, pretend = 0, frame = 0
+ 150              		@ frame_needed = 0, uses_anonymous_args = 0
+ 151 0000 10B5     		push	{r4, lr}
+ 152              	.LCFI2:
+ 153              		.cfi_def_cfa_offset 8
+ 154              		.cfi_offset 4, -8
+ 155              		.cfi_offset 14, -4
+  46:Core/Source/gpio.c ****     rcu_periph_clock_enable(DISP_GPIO_RCU);
  156              		.loc 1 46 5 view .LVU17
- 157 000a 124C     		ldr	r4, .L11
- 158 000c 4FF42043 		mov	r3, #40960
- 159 0010 0322     		movs	r2, #3
- 160 0012 1821     		movs	r1, #24
- 161 0014 2046     		mov	r0, r4
- 162 0016 FFF7FEFF 		bl	gpio_init
- 163              	.LVL12:
-  47:Core/Source/gpio.c ****     gpio_init(SPI1_GPIO_Port , GPIO_MODE_IN_FLOATING, GPIO_OSPEED_50MHZ, GPIO_PIN_14); //PB14-MISO
- 164              		.loc 1 47 5 view .LVU18
- 165 001a 4FF48043 		mov	r3, #16384
- 166 001e 0322     		movs	r2, #3
- 167 0020 0421     		movs	r1, #4
- 168 0022 2046     		mov	r0, r4
- 169 0024 FFF7FEFF 		bl	gpio_init
- 170              	.LVL13:
-  48:Core/Source/gpio.c ****     gpio_init(DISP_GPIO_Port, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, RST_Pin | DC_Pin | CS_Pin);
- 171              		.loc 1 48 5 view .LVU19
- 172 0028 A4F58064 		sub	r4, r4, #1024
- 173 002c 0E23     		movs	r3, #14
- 174 002e 0322     		movs	r2, #3
- 175 0030 1021     		movs	r1, #16
- 176 0032 2046     		mov	r0, r4
- 177 0034 FFF7FEFF 		bl	gpio_init
- 178              	.LVL14:
-  49:Core/Source/gpio.c ****     LCD_CS(OFF) ;
- 179              		.loc 1 49 5 view .LVU20
- 180 0038 0221     		movs	r1, #2
- 181 003a 2046     		mov	r0, r4
- 182 003c FFF7FEFF 		bl	gpio_bit_set
- 183              	.LVL15:
-  50:Core/Source/gpio.c ****     LCD_DC(OFF) ;
-ARM GAS  /tmp/ccmuXSVq.s 			page 5
+ 157 0002 40F20260 		movw	r0, #1538
+ 158 0006 FFF7FEFF 		bl	rcu_periph_clock_enable
+ 159              	.LVL12:
+  47:Core/Source/gpio.c ****     rcu_periph_clock_enable(SPI1_GPIO_RCU);
+ 160              		.loc 1 47 5 view .LVU18
+ 161 000a 40F20360 		movw	r0, #1539
+ 162 000e FFF7FEFF 		bl	rcu_periph_clock_enable
+ 163              	.LVL13:
+  48:Core/Source/gpio.c ****     gpio_init(SPI1_GPIO_Port , GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_13 | GPIO_PIN_15); //PB
+ 164              		.loc 1 48 5 view .LVU19
+ 165 0012 124C     		ldr	r4, .L11
+ 166 0014 4FF42043 		mov	r3, #40960
+ 167 0018 0322     		movs	r2, #3
+ 168 001a 1821     		movs	r1, #24
+ 169 001c 2046     		mov	r0, r4
+ 170 001e FFF7FEFF 		bl	gpio_init
+ 171              	.LVL14:
+  49:Core/Source/gpio.c ****     gpio_init(SPI1_GPIO_Port , GPIO_MODE_IN_FLOATING, GPIO_OSPEED_50MHZ, GPIO_PIN_14); //PB14-MISO
+ 172              		.loc 1 49 5 view .LVU20
+ 173 0022 4FF48043 		mov	r3, #16384
+ 174 0026 0322     		movs	r2, #3
+ 175 0028 0421     		movs	r1, #4
+ 176 002a 2046     		mov	r0, r4
+ 177 002c FFF7FEFF 		bl	gpio_init
+ 178              	.LVL15:
+  50:Core/Source/gpio.c ****     gpio_init(DISP_GPIO_Port, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, RST_Pin | DC_Pin | CS_Pin);
+ 179              		.loc 1 50 5 view .LVU21
+ 180 0030 A4F58064 		sub	r4, r4, #1024
+ 181 0034 0E23     		movs	r3, #14
+ 182 0036 0322     		movs	r2, #3
+ 183 0038 1021     		movs	r1, #16
+ARM GAS  /tmp/ccvo3m2W.s 			page 5
 
 
- 184              		.loc 1 50 5 view .LVU21
- 185 0040 0821     		movs	r1, #8
- 186 0042 2046     		mov	r0, r4
- 187 0044 FFF7FEFF 		bl	gpio_bit_reset
- 188              	.LVL16:
-  51:Core/Source/gpio.c ****     LCD_RST(OFF) ;
- 189              		.loc 1 51 5 view .LVU22
- 190 0048 0421     		movs	r1, #4
- 191 004a 2046     		mov	r0, r4
- 192 004c FFF7FEFF 		bl	gpio_bit_reset
- 193              	.LVL17:
-  52:Core/Source/gpio.c **** }
- 194              		.loc 1 52 1 is_stmt 0 view .LVU23
- 195 0050 10BD     		pop	{r4, pc}
- 196              	.L12:
- 197 0052 00BF     		.align	2
- 198              	.L11:
- 199 0054 000C0140 		.word	1073810432
- 200              		.cfi_endproc
- 201              	.LFE119:
- 203              		.section	.text.ENC_gpio_init,"ax",%progbits
- 204              		.align	1
- 205              		.global	ENC_gpio_init
- 206              		.syntax unified
- 207              		.thumb
- 208              		.thumb_func
- 210              	ENC_gpio_init:
- 211              	.LFB120:
-  53:Core/Source/gpio.c **** 
-  54:Core/Source/gpio.c **** //-----------------------configure SPI1 GPIO: SCK/PB13, MOSI/PB15-----------------------//
-  55:Core/Source/gpio.c **** void ENC_gpio_init (void) 
-  56:Core/Source/gpio.c **** {
- 212              		.loc 1 56 1 is_stmt 1 view -0
- 213              		.cfi_startproc
- 214              		@ args = 0, pretend = 0, frame = 0
- 215              		@ frame_needed = 0, uses_anonymous_args = 0
- 216 0000 08B5     		push	{r3, lr}
- 217              	.LCFI3:
- 218              		.cfi_def_cfa_offset 8
- 219              		.cfi_offset 3, -8
- 220              		.cfi_offset 14, -4
-  57:Core/Source/gpio.c ****     rcu_periph_clock_enable(ENC_GPIO_RCU);
- 221              		.loc 1 57 5 view .LVU25
- 222 0002 40F20360 		movw	r0, #1539
- 223 0006 FFF7FEFF 		bl	rcu_periph_clock_enable
- 224              	.LVL18:
-  58:Core/Source/gpio.c ****     gpio_init(ENC_GPIO_Port, GPIO_MODE_IPD, GPIO_OSPEED_10MHZ, ENC_IN2_PIN | ENC_IN1_PIN); 
- 225              		.loc 1 58 5 view .LVU26
- 226 000a 5023     		movs	r3, #80
- 227 000c 0122     		movs	r2, #1
- 228 000e 2821     		movs	r1, #40
- 229 0010 0148     		ldr	r0, .L15
- 230 0012 FFF7FEFF 		bl	gpio_init
- 231              	.LVL19:
-  59:Core/Source/gpio.c **** }...
- 232              		.loc 1 59 1 is_stmt 0 view .LVU27
- 233 0016 08BD     		pop	{r3, pc}
-ARM GAS  /tmp/ccmuXSVq.s 			page 6
+ 184 003a 2046     		mov	r0, r4
+ 185 003c FFF7FEFF 		bl	gpio_init
+ 186              	.LVL16:
+  51:Core/Source/gpio.c ****     LCD_CS(OFF) ;
+ 187              		.loc 1 51 5 view .LVU22
+ 188 0040 0221     		movs	r1, #2
+ 189 0042 2046     		mov	r0, r4
+ 190 0044 FFF7FEFF 		bl	gpio_bit_set
+ 191              	.LVL17:
+  52:Core/Source/gpio.c ****     LCD_DC(OFF) ;
+ 192              		.loc 1 52 5 view .LVU23
+ 193 0048 0821     		movs	r1, #8
+ 194 004a 2046     		mov	r0, r4
+ 195 004c FFF7FEFF 		bl	gpio_bit_reset
+ 196              	.LVL18:
+  53:Core/Source/gpio.c ****     LCD_RST(OFF) ;
+ 197              		.loc 1 53 5 view .LVU24
+ 198 0050 0421     		movs	r1, #4
+ 199 0052 2046     		mov	r0, r4
+ 200 0054 FFF7FEFF 		bl	gpio_bit_reset
+ 201              	.LVL19:
+  54:Core/Source/gpio.c **** }
+ 202              		.loc 1 54 1 is_stmt 0 view .LVU25
+ 203 0058 10BD     		pop	{r4, pc}
+ 204              	.L12:
+ 205 005a 00BF     		.align	2
+ 206              	.L11:
+ 207 005c 000C0140 		.word	1073810432
+ 208              		.cfi_endproc
+ 209              	.LFE119:
+ 211              		.section	.text.ENC_gpio_init,"ax",%progbits
+ 212              		.align	1
+ 213              		.global	ENC_gpio_init
+ 214              		.syntax unified
+ 215              		.thumb
+ 216              		.thumb_func
+ 218              	ENC_gpio_init:
+ 219              	.LFB120:
+  55:Core/Source/gpio.c **** 
+  56:Core/Source/gpio.c **** //-----------------------configure ENC GPIO: PB4, PB6-----------------------//
+  57:Core/Source/gpio.c **** void ENC_gpio_init (void) 
+  58:Core/Source/gpio.c **** {
+ 220              		.loc 1 58 1 is_stmt 1 view -0
+ 221              		.cfi_startproc
+ 222              		@ args = 0, pretend = 0, frame = 0
+ 223              		@ frame_needed = 0, uses_anonymous_args = 0
+ 224 0000 08B5     		push	{r3, lr}
+ 225              	.LCFI3:
+ 226              		.cfi_def_cfa_offset 8
+ 227              		.cfi_offset 3, -8
+ 228              		.cfi_offset 14, -4
+  59:Core/Source/gpio.c ****     rcu_periph_clock_enable(USART_GPIO_RCU);
+ 229              		.loc 1 59 5 view .LVU27
+ 230 0002 40F20260 		movw	r0, #1538
+ 231 0006 FFF7FEFF 		bl	rcu_periph_clock_enable
+ 232              	.LVL20:
+  60:Core/Source/gpio.c ****     gpio_init(ENC_GPIO_Port, GPIO_MODE_IPD, GPIO_OSPEED_10MHZ, ENC_IN2_PIN | ENC_IN1_PIN); 
+ARM GAS  /tmp/ccvo3m2W.s 			page 6
 
 
- 234              	.L16:
- 235              		.align	2
- 236              	.L15:
- 237 0018 000C0140 		.word	1073810432
- 238              		.cfi_endproc
- 239              	.LFE120:
- 241              		.section	.text.gpio_config,"ax",%progbits
- 242              		.align	1
- 243              		.global	gpio_config
- 244              		.syntax unified
- 245              		.thumb
- 246              		.thumb_func
- 248              	gpio_config:
- 249              	.LFB116:
-   6:Core/Source/gpio.c **** {
- 250              		.loc 1 6 1 is_stmt 1 view -0
- 251              		.cfi_startproc
- 252              		@ args = 0, pretend = 0, frame = 0
- 253              		@ frame_needed = 0, uses_anonymous_args = 0
- 254 0000 08B5     		push	{r3, lr}
- 255              	.LCFI4:
- 256              		.cfi_def_cfa_offset 8
- 257              		.cfi_offset 3, -8
- 258              		.cfi_offset 14, -4
-   7:Core/Source/gpio.c ****     rcu_periph_clock_enable(RCU_AF);     // enable  clock 
- 259              		.loc 1 7 5 view .LVU29
- 260 0002 4FF4C060 		mov	r0, #1536
- 261 0006 FFF7FEFF 		bl	rcu_periph_clock_enable
- 262              	.LVL20:
-   8:Core/Source/gpio.c ****     gpio_pin_remap_config(GPIO_SWJ_SWDPENABLE_REMAP, ENABLE); //JTAG-DP disabled and SW-DP enabled 
- 263              		.loc 1 8 5 view .LVU30
- 264 000a 0121     		movs	r1, #1
- 265 000c 0D48     		ldr	r0, .L19
- 266 000e FFF7FEFF 		bl	gpio_pin_remap_config
- 267              	.LVL21:
-  10:Core/Source/gpio.c ****     rcu_periph_clock_enable(LED_RCU);
- 268              		.loc 1 10 5 view .LVU31
- 269 0012 40F20360 		movw	r0, #1539
- 270 0016 FFF7FEFF 		bl	rcu_periph_clock_enable
- 271              	.LVL22:
-  11:Core/Source/gpio.c ****     gpio_init(LED_PORT, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, LED_Pin); // configure led pin as outp
- 272              		.loc 1 11 5 view .LVU32
- 273 001a 0423     		movs	r3, #4
- 274 001c 0322     		movs	r2, #3
- 275 001e 1021     		movs	r1, #16
- 276 0020 0948     		ldr	r0, .L19+4
- 277 0022 FFF7FEFF 		bl	gpio_init
- 278              	.LVL23:
-  13:Core/Source/gpio.c ****     rcu_periph_clock_enable( MCO_GPIO_RCU );
- 279              		.loc 1 13 5 view .LVU33
- 280 0026 40F20260 		movw	r0, #1538
- 281 002a FFF7FEFF 		bl	rcu_periph_clock_enable
- 282              	.LVL24:
-  14:Core/Source/gpio.c ****     gpio_init(GPIOA, GPIO_MODE_AF_PP , GPIO_OSPEED_50MHZ, GPIO_PIN_8); //MCO pin
- 283              		.loc 1 14 5 view .LVU34
- 284 002e 4FF48073 		mov	r3, #256
- 285 0032 0322     		movs	r2, #3
-ARM GAS  /tmp/ccmuXSVq.s 			page 7
+ 233              		.loc 1 60 5 view .LVU28
+ 234 000a 5023     		movs	r3, #80
+ 235 000c 0122     		movs	r2, #1
+ 236 000e 2821     		movs	r1, #40
+ 237 0010 0148     		ldr	r0, .L15
+ 238 0012 FFF7FEFF 		bl	gpio_init
+ 239              	.LVL21:
+  61:Core/Source/gpio.c **** }
+ 240              		.loc 1 61 1 is_stmt 0 view .LVU29
+ 241 0016 08BD     		pop	{r3, pc}
+ 242              	.L16:
+ 243              		.align	2
+ 244              	.L15:
+ 245 0018 000C0140 		.word	1073810432
+ 246              		.cfi_endproc
+ 247              	.LFE120:
+ 249              		.section	.text.gpio_config,"ax",%progbits
+ 250              		.align	1
+ 251              		.global	gpio_config
+ 252              		.syntax unified
+ 253              		.thumb
+ 254              		.thumb_func
+ 256              	gpio_config:
+ 257              	.LFB116:
+   6:Core/Source/gpio.c ****     rcu_periph_clock_enable(RCU_AF);     // enable  clock 
+ 258              		.loc 1 6 1 is_stmt 1 view -0
+ 259              		.cfi_startproc
+ 260              		@ args = 0, pretend = 0, frame = 0
+ 261              		@ frame_needed = 0, uses_anonymous_args = 0
+ 262 0000 08B5     		push	{r3, lr}
+ 263              	.LCFI4:
+ 264              		.cfi_def_cfa_offset 8
+ 265              		.cfi_offset 3, -8
+ 266              		.cfi_offset 14, -4
+   7:Core/Source/gpio.c ****     gpio_pin_remap_config(GPIO_SWJ_SWDPENABLE_REMAP, ENABLE); //JTAG-DP disabled and SW-DP enabled 
+ 267              		.loc 1 7 5 view .LVU31
+ 268 0002 4FF4C060 		mov	r0, #1536
+ 269 0006 FFF7FEFF 		bl	rcu_periph_clock_enable
+ 270              	.LVL22:
+   8:Core/Source/gpio.c ****     
+ 271              		.loc 1 8 5 view .LVU32
+ 272 000a 0121     		movs	r1, #1
+ 273 000c 0D48     		ldr	r0, .L19
+ 274 000e FFF7FEFF 		bl	gpio_pin_remap_config
+ 275              	.LVL23:
+  10:Core/Source/gpio.c ****     gpio_init(LED_PORT, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, LED_Pin); // configure led pin as outp
+ 276              		.loc 1 10 5 view .LVU33
+ 277 0012 40F20360 		movw	r0, #1539
+ 278 0016 FFF7FEFF 		bl	rcu_periph_clock_enable
+ 279              	.LVL24:
+  11:Core/Source/gpio.c ****     
+ 280              		.loc 1 11 5 view .LVU34
+ 281 001a 0423     		movs	r3, #4
+ 282 001c 0322     		movs	r2, #3
+ 283 001e 1021     		movs	r1, #16
+ 284 0020 0948     		ldr	r0, .L19+4
+ 285 0022 FFF7FEFF 		bl	gpio_init
+ARM GAS  /tmp/ccvo3m2W.s 			page 7
 
 
- 286 0034 1821     		movs	r1, #24
- 287 0036 0548     		ldr	r0, .L19+8
- 288 0038 FFF7FEFF 		bl	gpio_init
- 289              	.LVL25:
-  16:Core/Source/gpio.c ****     ENC_gpio_init ();
- 290              		.loc 1 16 5 view .LVU35
- 291 003c FFF7FEFF 		bl	ENC_gpio_init
- 292              	.LVL26:
-  18:Core/Source/gpio.c **** }
- 293              		.loc 1 18 1 is_stmt 0 view .LVU36
- 294 0040 08BD     		pop	{r3, pc}
- 295              	.L20:
- 296 0042 00BF     		.align	2
- 297              	.L19:
- 298 0044 00023000 		.word	3146240
- 299 0048 000C0140 		.word	1073810432
- 300 004c 00080140 		.word	1073809408
- 301              		.cfi_endproc
- 302              	.LFE116:
- 304              		.text
- 305              	.Letext0:
- 306              		.file 2 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/m
- 307              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
- 308              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
- 309              		.file 5 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_rcu.h"
- 310              		.file 6 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_gpio.h"
-ARM GAS  /tmp/ccmuXSVq.s 			page 8
+ 286              	.LVL25:
+  13:Core/Source/gpio.c ****     gpio_init(MCO_GPIO_PORT, GPIO_MODE_AF_PP , GPIO_OSPEED_50MHZ, MCO_Pin); //MCO pin
+ 287              		.loc 1 13 5 view .LVU35
+ 288 0026 40F20260 		movw	r0, #1538
+ 289 002a FFF7FEFF 		bl	rcu_periph_clock_enable
+ 290              	.LVL26:
+  14:Core/Source/gpio.c **** 
+ 291              		.loc 1 14 5 view .LVU36
+ 292 002e 4FF48073 		mov	r3, #256
+ 293 0032 0322     		movs	r2, #3
+ 294 0034 1821     		movs	r1, #24
+ 295 0036 0548     		ldr	r0, .L19+8
+ 296 0038 FFF7FEFF 		bl	gpio_init
+ 297              	.LVL27:
+  16:Core/Source/gpio.c **** 
+ 298              		.loc 1 16 5 view .LVU37
+ 299 003c FFF7FEFF 		bl	ENC_gpio_init
+ 300              	.LVL28:
+  18:Core/Source/gpio.c **** 
+ 301              		.loc 1 18 1 is_stmt 0 view .LVU38
+ 302 0040 08BD     		pop	{r3, pc}
+ 303              	.L20:
+ 304 0042 00BF     		.align	2
+ 305              	.L19:
+ 306 0044 00023000 		.word	3146240
+ 307 0048 000C0140 		.word	1073810432
+ 308 004c 00080140 		.word	1073809408
+ 309              		.cfi_endproc
+ 310              	.LFE116:
+ 312              		.section	.text.usart0_gpio_init,"ax",%progbits
+ 313              		.align	1
+ 314              		.global	usart0_gpio_init
+ 315              		.syntax unified
+ 316              		.thumb
+ 317              		.thumb_func
+ 319              	usart0_gpio_init:
+ 320              	.LFB121:
+  62:Core/Source/gpio.c **** 
+  63:Core/Source/gpio.c **** //-----------------------configure UASRT0 GPIO: Tx:PA9, Rx:PA10-----------------------//
+  64:Core/Source/gpio.c **** void usart0_gpio_init (void) 
+  65:Core/Source/gpio.c **** {
+ 321              		.loc 1 65 1 is_stmt 1 view -0
+ 322              		.cfi_startproc
+ 323              		@ args = 0, pretend = 0, frame = 0
+ 324              		@ frame_needed = 0, uses_anonymous_args = 0
+ 325 0000 10B5     		push	{r4, lr}
+ 326              	.LCFI5:
+ 327              		.cfi_def_cfa_offset 8
+ 328              		.cfi_offset 4, -8
+ 329              		.cfi_offset 14, -4
+  66:Core/Source/gpio.c ****     rcu_periph_clock_enable(USART_GPIO_RCU);
+ 330              		.loc 1 66 5 view .LVU40
+ 331 0002 40F20260 		movw	r0, #1538
+ 332 0006 FFF7FEFF 		bl	rcu_periph_clock_enable
+ 333              	.LVL29:
+  67:Core/Source/gpio.c ****     gpio_pin_remap_config(GPIO_USART0_REMAP, DISABLE); 
+ 334              		.loc 1 67 5 view .LVU41
+ARM GAS  /tmp/ccvo3m2W.s 			page 8
+
+
+ 335 000a 0021     		movs	r1, #0
+ 336 000c 0420     		movs	r0, #4
+ 337 000e FFF7FEFF 		bl	gpio_pin_remap_config
+ 338              	.LVL30:
+  68:Core/Source/gpio.c ****     gpio_init(USART_GPIO_Port, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_9);         //PA9-USART
+ 339              		.loc 1 68 5 view .LVU42
+ 340 0012 084C     		ldr	r4, .L23
+ 341 0014 4FF40073 		mov	r3, #512
+ 342 0018 0322     		movs	r2, #3
+ 343 001a 1821     		movs	r1, #24
+ 344 001c 2046     		mov	r0, r4
+ 345 001e FFF7FEFF 		bl	gpio_init
+ 346              	.LVL31:
+  69:Core/Source/gpio.c ****     gpio_init(USART_GPIO_Port, GPIO_MODE_IN_FLOATING, GPIO_OSPEED_50MHZ, GPIO_PIN_10);  //PA10-USAR
+ 347              		.loc 1 69 5 view .LVU43
+ 348 0022 4FF48063 		mov	r3, #1024
+ 349 0026 0322     		movs	r2, #3
+ 350 0028 0421     		movs	r1, #4
+ 351 002a 2046     		mov	r0, r4
+ 352 002c FFF7FEFF 		bl	gpio_init
+ 353              	.LVL32:
+  70:Core/Source/gpio.c **** }
+ 354              		.loc 1 70 1 is_stmt 0 view .LVU44
+ 355 0030 10BD     		pop	{r4, pc}
+ 356              	.L24:
+ 357 0032 00BF     		.align	2
+ 358              	.L23:
+ 359 0034 00080140 		.word	1073809408
+ 360              		.cfi_endproc
+ 361              	.LFE121:
+ 363              		.text
+ 364              	.Letext0:
+ 365              		.file 2 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/m
+ 366              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
+ 367              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
+ 368              		.file 5 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_rcu.h"
+ 369              		.file 6 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_gpio.h"
+ARM GAS  /tmp/ccvo3m2W.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gpio.c
-     /tmp/ccmuXSVq.s:18     .text.SPI0_gpio_init:0000000000000000 $t
-     /tmp/ccmuXSVq.s:24     .text.SPI0_gpio_init:0000000000000000 SPI0_gpio_init
-     /tmp/ccmuXSVq.s:91     .text.SPI0_gpio_init:000000000000005c $d
-     /tmp/ccmuXSVq.s:96     .text.I2C_gpio_config:0000000000000000 $t
-     /tmp/ccmuXSVq.s:102    .text.I2C_gpio_config:0000000000000000 I2C_gpio_config
-     /tmp/ccmuXSVq.s:130    .text.I2C_gpio_config:0000000000000018 $d
-     /tmp/ccmuXSVq.s:135    .text.SPI1_gpio_init:0000000000000000 $t
-     /tmp/ccmuXSVq.s:141    .text.SPI1_gpio_init:0000000000000000 SPI1_gpio_init
-     /tmp/ccmuXSVq.s:199    .text.SPI1_gpio_init:0000000000000054 $d
-     /tmp/ccmuXSVq.s:204    .text.ENC_gpio_init:0000000000000000 $t
-     /tmp/ccmuXSVq.s:210    .text.ENC_gpio_init:0000000000000000 ENC_gpio_init
-     /tmp/ccmuXSVq.s:237    .text.ENC_gpio_init:0000000000000018 $d
-     /tmp/ccmuXSVq.s:242    .text.gpio_config:0000000000000000 $t
-     /tmp/ccmuXSVq.s:248    .text.gpio_config:0000000000000000 gpio_config
-     /tmp/ccmuXSVq.s:298    .text.gpio_config:0000000000000044 $d
+     /tmp/ccvo3m2W.s:18     .text.SPI0_gpio_init:0000000000000000 $t
+     /tmp/ccvo3m2W.s:24     .text.SPI0_gpio_init:0000000000000000 SPI0_gpio_init
+     /tmp/ccvo3m2W.s:91     .text.SPI0_gpio_init:000000000000005c $d
+     /tmp/ccvo3m2W.s:96     .text.I2C_gpio_config:0000000000000000 $t
+     /tmp/ccvo3m2W.s:102    .text.I2C_gpio_config:0000000000000000 I2C_gpio_config
+     /tmp/ccvo3m2W.s:134    .text.I2C_gpio_config:0000000000000020 $d
+     /tmp/ccvo3m2W.s:139    .text.SPI1_gpio_init:0000000000000000 $t
+     /tmp/ccvo3m2W.s:145    .text.SPI1_gpio_init:0000000000000000 SPI1_gpio_init
+     /tmp/ccvo3m2W.s:207    .text.SPI1_gpio_init:000000000000005c $d
+     /tmp/ccvo3m2W.s:212    .text.ENC_gpio_init:0000000000000000 $t
+     /tmp/ccvo3m2W.s:218    .text.ENC_gpio_init:0000000000000000 ENC_gpio_init
+     /tmp/ccvo3m2W.s:245    .text.ENC_gpio_init:0000000000000018 $d
+     /tmp/ccvo3m2W.s:250    .text.gpio_config:0000000000000000 $t
+     /tmp/ccvo3m2W.s:256    .text.gpio_config:0000000000000000 gpio_config
+     /tmp/ccvo3m2W.s:306    .text.gpio_config:0000000000000044 $d
+     /tmp/ccvo3m2W.s:313    .text.usart0_gpio_init:0000000000000000 $t
+     /tmp/ccvo3m2W.s:319    .text.usart0_gpio_init:0000000000000000 usart0_gpio_init
+     /tmp/ccvo3m2W.s:359    .text.usart0_gpio_init:0000000000000034 $d
 
 UNDEFINED SYMBOLS
 rcu_periph_clock_enable

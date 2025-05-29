@@ -27,7 +27,8 @@ build/usart.o: Core/Source/usart.c Core/Include/usart.h \
  Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_wwdgt.h \
  Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_misc.h \
  Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_enet.h \
- Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_exmc.h
+ Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_exmc.h \
+ Core/Include/gpio.h
 Core/Include/usart.h:
 Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h:
 Drivers/CMSIS/core_cm4.h:
@@ -60,3 +61,4 @@ Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_wwdgt.h:
 Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_misc.h:
 Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_enet.h:
 Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_exmc.h:
+Core/Include/gpio.h:

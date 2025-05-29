@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc1AWD71.s 			page 1
+ARM GAS  /tmp/ccgkKOFQ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -48,12 +48,12 @@ ARM GAS  /tmp/cc1AWD71.s 			page 1
   32              		.file 2 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
   33              		.file 3 "Drivers/display/OLED_Icons.h"
   34              		.file 4 "Drivers/display/OLED_Icons.c"
-ARM GAS  /tmp/cc1AWD71.s 			page 2
+ARM GAS  /tmp/ccgkKOFQ.s 			page 2
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 OLED_Icons.c
-     /tmp/cc1AWD71.s:22     .rodata.icon_clock:0000000000000000 icon_clock
-     /tmp/cc1AWD71.s:19     .rodata.icon_clock:0000000000000000 $d
+     /tmp/ccgkKOFQ.s:22     .rodata.icon_clock:0000000000000000 icon_clock
+     /tmp/ccgkKOFQ.s:19     .rodata.icon_clock:0000000000000000 $d
 
 NO UNDEFINED SYMBOLS

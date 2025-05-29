@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc3bvAUA.s 			page 1
+ARM GAS  /tmp/ccOu06Ko.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
   29:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
   30:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
   31:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-ARM GAS  /tmp/cc3bvAUA.s 			page 2
+ARM GAS  /tmp/ccOu06Ko.s 			page 2
 
 
   32:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
   64:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     case TIMER3:
   65:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         /* reset TIMER3 */
   66:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         rcu_periph_reset_enable(RCU_TIMER3RST);
-ARM GAS  /tmp/cc3bvAUA.s 			page 3
+ARM GAS  /tmp/ccOu06Ko.s 			page 3
 
 
   67:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         rcu_periph_reset_disable(RCU_TIMER3RST);
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
   74:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     case TIMER5:
   75:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         /* reset TIMER5 */
   76:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         rcu_periph_reset_enable(RCU_TIMER5RST);
-ARM GAS  /tmp/cc3bvAUA.s 			page 4
+ARM GAS  /tmp/ccOu06Ko.s 			page 4
 
 
   77:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         rcu_periph_reset_disable(RCU_TIMER5RST);
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  120:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** #endif /* GD32F30X_HD */
  121:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     default:
  122:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         break;
-ARM GAS  /tmp/cc3bvAUA.s 			page 5
+ARM GAS  /tmp/ccOu06Ko.s 			page 5
 
 
  123:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     }
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  143              		.loc 1 56 9 is_stmt 0 view .LVU29
  144 009c FFF7FEFF 		bl	rcu_periph_reset_enable
  145              	.LVL22:
-ARM GAS  /tmp/cc3bvAUA.s 			page 6
+ARM GAS  /tmp/ccOu06Ko.s 			page 6
 
 
   57:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         break;
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  191              		.global	timer_struct_para_init
  192              		.syntax unified
  193              		.thumb
-ARM GAS  /tmp/cc3bvAUA.s 			page 7
+ARM GAS  /tmp/ccOu06Ko.s 			page 7
 
 
  194              		.thumb_func
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  233              		.thumb
  234              		.thumb_func
  236              	timer_init:
-ARM GAS  /tmp/cc3bvAUA.s 			page 8
+ARM GAS  /tmp/ccOu06Ko.s 			page 8
 
 
  237              	.LVL33:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  269              		.loc 1 163 65 discriminator 2 view .LVU64
  270 0028 03F59433 		add	r3, r3, #75776
  271 002c 9842     		cmp	r0, r3
-ARM GAS  /tmp/cc3bvAUA.s 			page 9
+ARM GAS  /tmp/ccOu06Ko.s 			page 9
 
 
  272 002e 0BD1     		bne	.L21
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  175:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CTL0(timer_periph) |= (uint32_t)initpara->clockdivision;
  315              		.loc 1 175 9 is_stmt 1 view .LVU83
  316              		.loc 1 175 34 is_stmt 0 view .LVU84
-ARM GAS  /tmp/cc3bvAUA.s 			page 10
+ARM GAS  /tmp/ccOu06Ko.s 			page 10
 
 
  317 0062 0368     		ldr	r3, [r0]
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  363              	.LVL34:
  364              	.LFB119:
  186:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** 
-ARM GAS  /tmp/cc3bvAUA.s 			page 11
+ARM GAS  /tmp/ccOu06Ko.s 			page 11
 
 
  187:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** /*!
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  400              		.loc 1 207 1 view .LVU103
  401 0008 7047     		bx	lr
  402              		.cfi_endproc
-ARM GAS  /tmp/cc3bvAUA.s 			page 12
+ARM GAS  /tmp/ccOu06Ko.s 			page 12
 
 
  403              	.LFE120:
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  441              		.cfi_startproc
  442              		@ args = 0, pretend = 0, frame = 0
  443              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/cc3bvAUA.s 			page 13
+ARM GAS  /tmp/ccOu06Ko.s 			page 13
 
 
  444              		@ link register save eliminated.
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  489              	.LFB124:
  241:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** 
  242:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** /*!
-ARM GAS  /tmp/cc3bvAUA.s 			page 14
+ARM GAS  /tmp/ccOu06Ko.s 			page 14
 
 
  243:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     \brief      disable the update event
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  521              		.loc 1 267 30 is_stmt 0 view .LVU122
  522 0000 0268     		ldr	r2, [r0]
  523 0002 22F06002 		bic	r2, r2, #96
-ARM GAS  /tmp/cc3bvAUA.s 			page 15
+ARM GAS  /tmp/ccOu06Ko.s 			page 15
 
 
  524 0006 0260     		str	r2, [r0]
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  569              	.LFB127:
  281:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** 
  282:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** /*!
-ARM GAS  /tmp/cc3bvAUA.s 			page 16
+ARM GAS  /tmp/ccOu06Ko.s 			page 16
 
 
  283:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     \brief      set TIMER counter down direction
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  602 0000 8162     		str	r1, [r0, #40]
  307:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     
  308:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     if(TIMER_PSC_RELOAD_NOW == pscreload){
-ARM GAS  /tmp/cc3bvAUA.s 			page 17
+ARM GAS  /tmp/ccOu06Ko.s 			page 17
 
 
  603              		.loc 1 308 5 is_stmt 1 view .LVU137
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  645              		.thumb_func
  647              	timer_autoreload_value_config:
  648              	.LVL45:
-ARM GAS  /tmp/cc3bvAUA.s 			page 18
+ARM GAS  /tmp/ccOu06Ko.s 			page 18
 
 
  649              	.LFB130:
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  681              		.loc 1 347 1 view .LVU153
  682 0002 7047     		bx	lr
  683              		.cfi_endproc
-ARM GAS  /tmp/cc3bvAUA.s 			page 19
+ARM GAS  /tmp/ccOu06Ko.s 			page 19
 
 
  684              	.LFE131:
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  368:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** uint16_t timer_prescaler_read(uint32_t timer_periph)
  369:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** {
  722              		.loc 1 369 1 is_stmt 1 view -0
-ARM GAS  /tmp/cc3bvAUA.s 			page 20
+ARM GAS  /tmp/ccOu06Ko.s 			page 20
 
 
  723              		.cfi_startproc
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  760 0002 0368     		ldr	r3, [r0]
  761 0004 43F00803 		orr	r3, r3, #8
  762 0008 0360     		str	r3, [r0]
-ARM GAS  /tmp/cc3bvAUA.s 			page 21
+ARM GAS  /tmp/ccOu06Ko.s 			page 21
 
 
  763 000a 7047     		bx	lr
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  797              		@ frame_needed = 0, uses_anonymous_args = 0
  798              		@ link register save eliminated.
  408:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     if(TIMER_UPDATE_SRC_REGULAR == update){
-ARM GAS  /tmp/cc3bvAUA.s 			page 22
+ARM GAS  /tmp/ccOu06Ko.s 			page 22
 
 
  799              		.loc 1 408 5 view .LVU180
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  423:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****       \arg        TIMER_INT_CH0: channel 0 interrupt enable, TIMERx(x=0..4,7..13)
  424:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****       \arg        TIMER_INT_CH1: channel 1 interrupt enable, TIMERx(x=0..4,7,8,11)
  425:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****       \arg        TIMER_INT_CH2: channel 2 interrupt enable, TIMERx(x=0..4,7)
-ARM GAS  /tmp/cc3bvAUA.s 			page 23
+ARM GAS  /tmp/ccOu06Ko.s 			page 23
 
 
  426:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****       \arg        TIMER_INT_CH3: channel 3 interrupt enable , TIMERx(x=0..4,7)
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  864              		.cfi_startproc
  865              		@ args = 0, pretend = 0, frame = 0
  866              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/cc3bvAUA.s 			page 24
+ARM GAS  /tmp/ccOu06Ko.s 			page 24
 
 
  867              		@ link register save eliminated.
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  479:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     if((RESET != (TIMER_INTF(timer_periph) & interrupt) ) && (RESET != val)){
  900              		.loc 1 479 5 is_stmt 1 view .LVU204
  901              		.loc 1 479 19 is_stmt 0 view .LVU205
-ARM GAS  /tmp/cc3bvAUA.s 			page 25
+ARM GAS  /tmp/ccOu06Ko.s 			page 25
 
 
  902 0004 0269     		ldr	r2, [r0, #16]
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  497:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****       \arg        TIMER_INT_FLAG_TRG: trigger interrupt flag,TIMERx(x=0,7,8,11)
  498:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****       \arg        TIMER_INT_FLAG_BRK:  break interrupt flag,TIMERx(x=0,7)
  499:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     \param[out] none
-ARM GAS  /tmp/cc3bvAUA.s 			page 26
+ARM GAS  /tmp/ccOu06Ko.s 			page 26
 
 
  500:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     \retval     none
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  967              		.cfi_startproc
  968              		@ args = 0, pretend = 0, frame = 0
  969              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/cc3bvAUA.s 			page 27
+ARM GAS  /tmp/ccOu06Ko.s 			page 27
 
 
  970              		@ link register save eliminated.
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  553:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     \param[out] none
  554:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     \retval     none
  555:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** */
-ARM GAS  /tmp/cc3bvAUA.s 			page 28
+ARM GAS  /tmp/ccOu06Ko.s 			page 28
 
 
  556:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** void timer_flag_clear(uint32_t timer_periph, uint32_t flag)
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  1035 0000 C368     		ldr	r3, [r0, #12]
  1036 0002 0B43     		orrs	r3, r3, r1
  1037 0004 C360     		str	r3, [r0, #12]
-ARM GAS  /tmp/cc3bvAUA.s 			page 29
+ARM GAS  /tmp/ccOu06Ko.s 			page 29
 
 
  579:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** }
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  1075              	timer_channel_dma_request_source_select:
  1076              	.LVL72:
  1077              	.LFB144:
-ARM GAS  /tmp/cc3bvAUA.s 			page 30
+ARM GAS  /tmp/ccOu06Ko.s 			page 30
 
 
  600:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** 
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  1108 001a F9E7     		b	.L64
  1109              		.cfi_endproc
  1110              	.LFE144:
-ARM GAS  /tmp/cc3bvAUA.s 			page 31
+ARM GAS  /tmp/ccOu06Ko.s 			page 31
 
 
  1112              		.section	.text.timer_dma_transfer_config,"ax",%progbits
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  1132 000a 8364     		str	r3, [r0, #72]
  656:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     TIMER_DMACFG(timer_periph) |= (uint32_t)(dma_baseaddr | dma_lenth);
  1133              		.loc 1 656 5 is_stmt 1 view .LVU255
-ARM GAS  /tmp/cc3bvAUA.s 			page 32
+ARM GAS  /tmp/ccOu06Ko.s 			page 32
 
 
  1134              		.loc 1 656 32 is_stmt 0 view .LVU256
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  1168 0006 7047     		bx	lr
  1169              		.cfi_endproc
  1170              	.LFE146:
-ARM GAS  /tmp/cc3bvAUA.s 			page 33
+ARM GAS  /tmp/ccOu06Ko.s 			page 33
 
 
  1172              		.section	.text.timer_break_struct_para_init,"ax",%progbits
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  1209              		.loc 1 696 1 view .LVU279
  1210 0010 7047     		bx	lr
  1211              		.cfi_endproc
-ARM GAS  /tmp/cc3bvAUA.s 			page 34
+ARM GAS  /tmp/ccOu06Ko.s 			page 34
 
 
  1212              	.LFE147:
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  1246 000c B1F808C0 		ldrh	ip, [r1, #8]
  719:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****                                           ((uint32_t)(breakpara->protectmode))|
  1247              		.loc 1 719 64 view .LVU288
-ARM GAS  /tmp/cc3bvAUA.s 			page 35
+ARM GAS  /tmp/ccOu06Ko.s 			page 35
 
 
  1248 0010 4A89     		ldrh	r2, [r1, #10]
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  1288 0008 7047     		bx	lr
  1289              		.cfi_endproc
  1290              	.LFE149:
-ARM GAS  /tmp/cc3bvAUA.s 			page 36
+ARM GAS  /tmp/ccOu06Ko.s 			page 36
 
 
  1292              		.section	.text.timer_break_disable,"ax",%progbits
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  1329              		@ args = 0, pretend = 0, frame = 0
  1330              		@ frame_needed = 0, uses_anonymous_args = 0
  1331              		@ link register save eliminated.
-ARM GAS  /tmp/cc3bvAUA.s 			page 37
+ARM GAS  /tmp/ccOu06Ko.s 			page 37
 
 
  753:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     TIMER_CCHP(timer_periph) |= (uint32_t)TIMER_CCHP_OAEN;
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  766:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** 
  767:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** /*!
  768:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     \brief      configure TIMER primary output function
-ARM GAS  /tmp/cc3bvAUA.s 			page 38
+ARM GAS  /tmp/ccOu06Ko.s 			page 38
 
 
  769:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     \param[in]  timer_periph: TIMERx(x=0,7)
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  787:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     \param[out] none
  788:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     \retval     none
  789:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** */
-ARM GAS  /tmp/cc3bvAUA.s 			page 39
+ARM GAS  /tmp/ccOu06Ko.s 			page 39
 
 
  790:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** void timer_channel_control_shadow_config(uint32_t timer_periph, ControlStatus newvalue)
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  808:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** */              
  809:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** void timer_channel_control_shadow_update_config(uint32_t timer_periph, uint8_t ccuctl)
  810:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** {
-ARM GAS  /tmp/cc3bvAUA.s 			page 40
+ARM GAS  /tmp/ccOu06Ko.s 			page 40
 
 
  1449              		.loc 1 810 1 is_stmt 1 view -0
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  820:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** /*!
  821:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     \brief      initialize TIMER channel output parameter struct with a default value
  822:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     \param[in]  ocpara: TIMER channel n output parameter struct
-ARM GAS  /tmp/cc3bvAUA.s 			page 41
+ARM GAS  /tmp/ccOu06Ko.s 			page 41
 
 
  823:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     \param[out] none
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  840:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     \param[in]  channel:
  841:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****                 only one parameter can be selected which is shown as below:
  842:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****       \arg        TIMER_CH_0: TIMER channel 0(TIMERx(x=0..4,7..13))
-ARM GAS  /tmp/cc3bvAUA.s 			page 42
+ARM GAS  /tmp/ccOu06Ko.s 			page 42
 
 
  843:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****       \arg        TIMER_CH_1: TIMER channel 1(TIMERx(x=0..4,7,8,11))
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  1563              	.LVL88:
  1564              		.loc 1 865 36 view .LVU361
  1565 0026 0B43     		orrs	r3, r3, r1
-ARM GAS  /tmp/cc3bvAUA.s 			page 43
+ARM GAS  /tmp/ccOu06Ko.s 			page 43
 
 
  1566 0028 0362     		str	r3, [r0, #32]
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  878:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****             /* set the CH0NP bit */
  879:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****             TIMER_CHCTL2(timer_periph) |= (uint32_t)ocpara->ocnpolarity;
  1608              		.loc 1 879 13 is_stmt 1 view .LVU379
-ARM GAS  /tmp/cc3bvAUA.s 			page 44
+ARM GAS  /tmp/ccOu06Ko.s 			page 44
 
 
  1609              		.loc 1 879 40 is_stmt 0 view .LVU380
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  1649 008e 23F01003 		bic	r3, r3, #16
  1650 0092 0362     		str	r3, [r0, #32]
  894:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL0(timer_periph) &= ~(uint32_t)TIMER_CHCTL0_CH1MS;
-ARM GAS  /tmp/cc3bvAUA.s 			page 45
+ARM GAS  /tmp/ccOu06Ko.s 			page 45
 
 
  1651              		.loc 1 894 9 is_stmt 1 view .LVU397
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  1693              		.loc 1 906 13 is_stmt 1 view .LVU414
  1694              		.loc 1 906 40 is_stmt 0 view .LVU415
  1695 00d0 036A     		ldr	r3, [r0, #32]
-ARM GAS  /tmp/cc3bvAUA.s 			page 46
+ARM GAS  /tmp/ccOu06Ko.s 			page 46
 
 
  1696              		.loc 1 906 71 view .LVU416
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  1738              		.loc 1 918 38 view .LVU435
  1739 010a 43EA8203 		orr	r3, r3, r2, lsl #2
  1740 010e 4360     		str	r3, [r0, #4]
-ARM GAS  /tmp/cc3bvAUA.s 			page 47
+ARM GAS  /tmp/ccOu06Ko.s 			page 47
 
 
  1741 0110 7047     		bx	lr
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  1780 0142 03D0     		beq	.L99
  1781              		.loc 1 933 37 discriminator 1 view .LVU452
  1782 0144 03F50063 		add	r3, r3, #2048
-ARM GAS  /tmp/cc3bvAUA.s 			page 48
+ARM GAS  /tmp/ccOu06Ko.s 			page 48
 
 
  1783 0148 9842     		cmp	r0, r3
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  946:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****             /* reset the ISO2N bit */
  947:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****             TIMER_CTL1(timer_periph) &= (~(uint32_t)TIMER_CTL1_ISO2N);
  1825              		.loc 1 947 13 is_stmt 1 view .LVU471
-ARM GAS  /tmp/cc3bvAUA.s 			page 49
+ARM GAS  /tmp/ccOu06Ko.s 			page 49
 
 
  1826              		.loc 1 947 38 is_stmt 0 view .LVU472
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  962:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL2(timer_periph) |= (uint32_t)((uint32_t)(ocpara->ocpolarity) << 12U);
  1866              		.loc 1 962 9 is_stmt 1 view .LVU487
  1867              		.loc 1 962 36 is_stmt 0 view .LVU488
-ARM GAS  /tmp/cc3bvAUA.s 			page 50
+ARM GAS  /tmp/ccOu06Ko.s 			page 50
 
 
  1868 01b8 036A     		ldr	r3, [r0, #32]
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  1911              		.syntax unified
  1912              		.thumb
  1913              		.thumb_func
-ARM GAS  /tmp/cc3bvAUA.s 			page 51
+ARM GAS  /tmp/ccOu06Ko.s 			page 51
 
 
  1915              	timer_channel_output_mode_config:
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  1939              		.loc 1 1004 9 is_stmt 1 view .LVU505
  1940              		.loc 1 1004 36 is_stmt 0 view .LVU506
  1941 0014 8369     		ldr	r3, [r0, #24]
-ARM GAS  /tmp/cc3bvAUA.s 			page 52
+ARM GAS  /tmp/ccOu06Ko.s 			page 52
 
 
  1942 0016 1A43     		orrs	r2, r2, r3
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  1982              		.loc 1 1018 9 view .LVU521
  1983              		.loc 1 1018 36 is_stmt 0 view .LVU522
  1984 003e C369     		ldr	r3, [r0, #28]
-ARM GAS  /tmp/cc3bvAUA.s 			page 53
+ARM GAS  /tmp/ccOu06Ko.s 			page 53
 
 
  1985 0040 23F4E043 		bic	r3, r3, #28672
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  2018 0002 0AD8     		bhi	.L110
  2019 0004 DFE801F0 		tbb	[pc, r1]
  2020              	.L113:
-ARM GAS  /tmp/cc3bvAUA.s 			page 54
+ARM GAS  /tmp/ccOu06Ko.s 			page 54
 
 
  2021 0008 02       		.byte	(.L116-.L113)/2
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  2056              		.align	1
  2057              		.global	timer_channel_output_shadow_config
  2058              		.syntax unified
-ARM GAS  /tmp/cc3bvAUA.s 			page 55
+ARM GAS  /tmp/ccOu06Ko.s 			page 55
 
 
  2059              		.thumb
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  2090              	.LVL109:
  2091              		.loc 1 1085 36 view .LVU549
  2092 0018 8261     		str	r2, [r0, #24]
-ARM GAS  /tmp/cc3bvAUA.s 			page 56
+ARM GAS  /tmp/ccOu06Ko.s 			page 56
 
 
 1086:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         break;
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  2133 0044 C361     		str	r3, [r0, #28]
 1100:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL1(timer_periph) |= (uint32_t)((uint32_t)(ocshadow) << 8U);
  2134              		.loc 1 1100 9 is_stmt 1 view .LVU565
-ARM GAS  /tmp/cc3bvAUA.s 			page 57
+ARM GAS  /tmp/ccOu06Ko.s 			page 57
 
 
  2135              		.loc 1 1100 36 is_stmt 0 view .LVU566
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  2166 0004 DFE801F0 		tbb	[pc, r1]
  2167              	.L127:
  2168 0008 02       		.byte	(.L130-.L127)/2
-ARM GAS  /tmp/cc3bvAUA.s 			page 58
+ARM GAS  /tmp/ccOu06Ko.s 			page 58
 
 
  2169 0009 0A       		.byte	(.L129-.L127)/2
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  2210 0034 C361     		str	r3, [r0, #28]
 1139:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL1(timer_periph) |= (uint32_t)ocfast;
  2211              		.loc 1 1139 9 is_stmt 1 view .LVU586
-ARM GAS  /tmp/cc3bvAUA.s 			page 59
+ARM GAS  /tmp/ccOu06Ko.s 			page 59
 
 
  2212              		.loc 1 1139 36 is_stmt 0 view .LVU587
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1157:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****       \arg        TIMER_CH_1: TIMER channel1
 1158:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****       \arg        TIMER_CH_2: TIMER channel2
 1159:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****       \arg        TIMER_CH_3: TIMER channel3
-ARM GAS  /tmp/cc3bvAUA.s 			page 60
+ARM GAS  /tmp/ccOu06Ko.s 			page 60
 
 
 1160:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     \param[in]  occlear: channel output clear function
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  2287 0022 8361     		str	r3, [r0, #24]
 1178:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL0(timer_periph) |= (uint32_t)((uint32_t)occlear << 8U);
  2288              		.loc 1 1178 9 is_stmt 1 view .LVU607
-ARM GAS  /tmp/cc3bvAUA.s 			page 61
+ARM GAS  /tmp/ccOu06Ko.s 			page 61
 
 
  2289              		.loc 1 1178 36 is_stmt 0 view .LVU608
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1193:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** }
  2329              		.loc 1 1193 1 is_stmt 0 view .LVU623
  2330 004e 7047     		bx	lr
-ARM GAS  /tmp/cc3bvAUA.s 			page 62
+ARM GAS  /tmp/ccOu06Ko.s 			page 62
 
 
  2331              		.cfi_endproc
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  2364 0012 0362     		str	r3, [r0, #32]
 1217:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL2(timer_periph) |= (uint32_t)ocpolarity;
  2365              		.loc 1 1217 9 is_stmt 1 view .LVU628
-ARM GAS  /tmp/cc3bvAUA.s 			page 63
+ARM GAS  /tmp/ccOu06Ko.s 			page 63
 
 
  2366              		.loc 1 1217 36 is_stmt 0 view .LVU629
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1230:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     case TIMER_CH_3:
 1231:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL2(timer_periph) &= (~(uint32_t)TIMER_CHCTL2_CH3P);
  2408              		.loc 1 1231 9 view .LVU644
-ARM GAS  /tmp/cc3bvAUA.s 			page 64
+ARM GAS  /tmp/ccOu06Ko.s 			page 64
 
 
  2409              		.loc 1 1231 36 is_stmt 0 view .LVU645
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  2441              		@ link register save eliminated.
 1256:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     switch(channel){
  2442              		.loc 1 1256 5 view .LVU652
-ARM GAS  /tmp/cc3bvAUA.s 			page 65
+ARM GAS  /tmp/ccOu06Ko.s 			page 65
 
 
  2443 0000 0129     		cmp	r1, #1
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1264:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL2(timer_periph) |= (uint32_t)((uint32_t)ocnpolarity << 4U);
  2471              		.loc 1 1264 36 is_stmt 0 view .LVU661
  2472 001c 036A     		ldr	r3, [r0, #32]
-ARM GAS  /tmp/cc3bvAUA.s 			page 66
+ARM GAS  /tmp/ccOu06Ko.s 			page 66
 
 
  2473 001e 23F08003 		bic	r3, r3, #128
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1281:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****                 only one parameter can be selected which is shown as below:
 1282:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****       \arg        TIMER_CH_0: TIMER channel0(TIMERx(x=0..4,7..13))
 1283:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****       \arg        TIMER_CH_1: TIMER channel1(TIMERx(x=0..4,7,8,11))
-ARM GAS  /tmp/cc3bvAUA.s 			page 67
+ARM GAS  /tmp/ccOu06Ko.s 			page 67
 
 
 1284:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****       \arg        TIMER_CH_2: TIMER channel2(TIMERx(x=0..4,7))
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  2548 001c 036A     		ldr	r3, [r0, #32]
  2549 001e 23F01003 		bic	r3, r3, #16
  2550 0022 0362     		str	r3, [r0, #32]
-ARM GAS  /tmp/cc3bvAUA.s 			page 68
+ARM GAS  /tmp/ccOu06Ko.s 			page 68
 
 
 1304:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL2(timer_periph) |= (uint32_t)((uint32_t)state << 4U);
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1317:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         break;
 1318:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     }
 1319:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** }
-ARM GAS  /tmp/cc3bvAUA.s 			page 69
+ARM GAS  /tmp/ccOu06Ko.s 			page 69
 
 
  2592              		.loc 1 1319 1 is_stmt 0 view .LVU699
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1348:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         break;
 1349:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     /* configure TIMER_CH_2 */
 1350:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     case TIMER_CH_2:
-ARM GAS  /tmp/cc3bvAUA.s 			page 70
+ARM GAS  /tmp/ccOu06Ko.s 			page 70
 
 
 1351:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL2(timer_periph) &= (~(uint32_t)TIMER_CHCTL2_CH2NEN);
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  2655              	.L159:
 1351:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL2(timer_periph) |= (uint32_t)((uint32_t)ocnstate << 8U);
  2656              		.loc 1 1351 9 view .LVU715
-ARM GAS  /tmp/cc3bvAUA.s 			page 71
+ARM GAS  /tmp/ccOu06Ko.s 			page 71
 
 
 1351:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL2(timer_periph) |= (uint32_t)((uint32_t)ocnstate << 8U);
@@ -4258,7 +4258,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  2696 0006 4280     		strh	r2, [r0, #2]	@ movhi
 1370:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     icpara->icprescaler = TIMER_IC_PSC_DIV1;
  2697              		.loc 1 1370 5 is_stmt 1 view .LVU727
-ARM GAS  /tmp/cc3bvAUA.s 			page 72
+ARM GAS  /tmp/ccOu06Ko.s 			page 72
 
 
  2698              		.loc 1 1370 25 is_stmt 0 view .LVU728
@@ -4318,7 +4318,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1407:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL0(timer_periph) |= (uint32_t)((uint32_t)(icpara->icfilter) << 4U);
 1408:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** 
 1409:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         /* set the CH0EN bit */
-ARM GAS  /tmp/cc3bvAUA.s 			page 73
+ARM GAS  /tmp/ccOu06Ko.s 			page 73
 
 
 1410:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL2(timer_periph) |= (uint32_t)TIMER_CHCTL2_CH0EN;
@@ -4378,7 +4378,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1464:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         /* reset the CH3CAPFLT bit */
 1465:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL1(timer_periph) &= (~(uint32_t)TIMER_CHCTL1_CH3CAPFLT);
 1466:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL1(timer_periph) |= (uint32_t)((uint32_t)(icpara->icfilter) << 12U);
-ARM GAS  /tmp/cc3bvAUA.s 			page 74
+ARM GAS  /tmp/ccOu06Ko.s 			page 74
 
 
 1467:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** 
@@ -4438,7 +4438,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  2737 000e 23F00C03 		bic	r3, r3, #12
  2738 0012 8361     		str	r3, [r0, #24]
 1502:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL0(timer_periph) |= (uint32_t)prescaler;
-ARM GAS  /tmp/cc3bvAUA.s 			page 75
+ARM GAS  /tmp/ccOu06Ko.s 			page 75
 
 
  2739              		.loc 1 1502 9 is_stmt 1 view .LVU736
@@ -4498,7 +4498,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1514:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     /* configure TIMER_CH_3 */
 1515:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     case TIMER_CH_3:
 1516:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL1(timer_periph) &= (~(uint32_t)TIMER_CHCTL1_CH3CAPPSC);
-ARM GAS  /tmp/cc3bvAUA.s 			page 76
+ARM GAS  /tmp/ccOu06Ko.s 			page 76
 
 
  2782              		.loc 1 1516 9 view .LVU752
@@ -4558,7 +4558,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  2829 000d 7A       		.byte	(.L172-.L173)/2
  2830              		.p2align 1
  2831              	.L176:
-ARM GAS  /tmp/cc3bvAUA.s 			page 77
+ARM GAS  /tmp/ccOu06Ko.s 			page 77
 
 
 1397:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** 
@@ -4618,7 +4618,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1407:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** 
  2869              		.loc 1 1407 36 is_stmt 0 view .LVU779
  2870 0046 8369     		ldr	r3, [r0, #24]
-ARM GAS  /tmp/cc3bvAUA.s 			page 78
+ARM GAS  /tmp/ccOu06Ko.s 			page 78
 
 
 1407:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** 
@@ -4678,7 +4678,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  2909 0078 43EA0C13 		orr	r3, r3, ip, lsl #4
  2910 007c 0362     		str	r3, [r0, #32]
 1422:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL0(timer_periph) |= (uint32_t)((uint32_t)(icpara->icselection) << 8U);
-ARM GAS  /tmp/cc3bvAUA.s 			page 79
+ARM GAS  /tmp/ccOu06Ko.s 			page 79
 
 
  2911              		.loc 1 1422 9 is_stmt 1 view .LVU796
@@ -4738,7 +4738,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  2949 00b6 0362     		str	r3, [r0, #32]
 1437:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL2(timer_periph) |= (uint32_t)((uint32_t)(icpara->icpolarity) << 8U);
  2950              		.loc 1 1437 9 is_stmt 1 view .LVU813
-ARM GAS  /tmp/cc3bvAUA.s 			page 80
+ARM GAS  /tmp/ccOu06Ko.s 			page 80
 
 
 1437:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL2(timer_periph) |= (uint32_t)((uint32_t)(icpara->icpolarity) << 8U);
@@ -4798,7 +4798,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  2988 00f2 C361     		str	r3, [r0, #28]
 1449:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         break;
  2989              		.loc 1 1449 9 is_stmt 1 view .LVU831
-ARM GAS  /tmp/cc3bvAUA.s 			page 81
+ARM GAS  /tmp/ccOu06Ko.s 			page 81
 
 
 1449:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         break;
@@ -4858,7 +4858,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1465:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL1(timer_periph) |= (uint32_t)((uint32_t)(icpara->icfilter) << 12U);
  3028              		.loc 1 1465 9 is_stmt 1 view .LVU848
 1465:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL1(timer_periph) |= (uint32_t)((uint32_t)(icpara->icfilter) << 12U);
-ARM GAS  /tmp/cc3bvAUA.s 			page 82
+ARM GAS  /tmp/ccOu06Ko.s 			page 82
 
 
  3029              		.loc 1 1465 36 is_stmt 0 view .LVU849
@@ -4918,7 +4918,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  3063              		@ args = 0, pretend = 0, frame = 0
  3064              		@ frame_needed = 0, uses_anonymous_args = 0
  3065              		@ link register save eliminated.
-ARM GAS  /tmp/cc3bvAUA.s 			page 83
+ARM GAS  /tmp/ccOu06Ko.s 			page 83
 
 
 1538:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     uint32_t count_value = 0U;
@@ -4978,7 +4978,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  3102              		.loc 1 1555 9 view .LVU869
  3103              		.loc 1 1555 21 is_stmt 0 view .LVU870
  3104 0018 006C     		ldr	r0, [r0, #64]
-ARM GAS  /tmp/cc3bvAUA.s 			page 84
+ARM GAS  /tmp/ccOu06Ko.s 			page 84
 
 
  3105              	.LVL184:
@@ -5038,7 +5038,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  3136              		.cfi_def_cfa_offset 24
  3137              		.cfi_offset 3, -24
  3138              		.cfi_offset 4, -20
-ARM GAS  /tmp/cc3bvAUA.s 			page 85
+ARM GAS  /tmp/ccOu06Ko.s 			page 85
 
 
  3139              		.cfi_offset 5, -16
@@ -5098,7 +5098,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  3173              		.loc 1 1599 36 is_stmt 0 view .LVU890
  3174 001a 236A     		ldr	r3, [r4, #32]
  3175 001c 23F00103 		bic	r3, r3, #1
-ARM GAS  /tmp/cc3bvAUA.s 			page 86
+ARM GAS  /tmp/ccOu06Ko.s 			page 86
 
 
  3176 0020 2362     		str	r3, [r4, #32]
@@ -5158,7 +5158,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1613:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL2(timer_periph) |= (uint32_t)TIMER_CHCTL2_CH0EN;
  3217              		.loc 1 1613 9 is_stmt 1 view .LVU909
  3218              		.loc 1 1613 36 is_stmt 0 view .LVU910
-ARM GAS  /tmp/cc3bvAUA.s 			page 87
+ARM GAS  /tmp/ccOu06Ko.s 			page 87
 
 
  3219 0054 236A     		ldr	r3, [r4, #32]
@@ -5218,7 +5218,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  3258 0092 A361     		str	r3, [r4, #24]
 1629:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         /* set the CH1CAPFLT bit */
 1630:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL0(timer_periph) |= (uint32_t)((uint32_t)(icpwm->icfilter) << 12U);
-ARM GAS  /tmp/cc3bvAUA.s 			page 88
+ARM GAS  /tmp/ccOu06Ko.s 			page 88
 
 
  3259              		.loc 1 1630 9 is_stmt 1 view .LVU925
@@ -5278,7 +5278,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1665:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         /* reset the CH0CAPFLT bit */
 1666:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL0(timer_periph) &= (~(uint32_t)TIMER_CHCTL0_CH0CAPFLT);
 1667:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         /* set the CH0CAPFLT bit */
-ARM GAS  /tmp/cc3bvAUA.s 			page 89
+ARM GAS  /tmp/ccOu06Ko.s 			page 89
 
 
 1668:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL0(timer_periph) |= ((uint32_t)(icpwm->icfilter) << 4U);
@@ -5338,7 +5338,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  3314 00d4 A369     		ldr	r3, [r4, #24]
  3315 00d6 23F44073 		bic	r3, r3, #768
  3316 00da A361     		str	r3, [r4, #24]
-ARM GAS  /tmp/cc3bvAUA.s 			page 90
+ARM GAS  /tmp/ccOu06Ko.s 			page 90
 
 
 1645:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         /* reset the CH1CAPFLT bit */
@@ -5398,7 +5398,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  3354              		.loc 1 1656 36 is_stmt 0 view .LVU961
  3355 010a 236A     		ldr	r3, [r4, #32]
  3356 010c 23F00103 		bic	r3, r3, #1
-ARM GAS  /tmp/cc3bvAUA.s 			page 91
+ARM GAS  /tmp/ccOu06Ko.s 			page 91
 
 
  3357 0110 2362     		str	r3, [r4, #32]
@@ -5458,7 +5458,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  3395 0146 2362     		str	r3, [r4, #32]
 1672:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     }
  3396              		.loc 1 1672 9 is_stmt 1 view .LVU978
-ARM GAS  /tmp/cc3bvAUA.s 			page 92
+ARM GAS  /tmp/ccOu06Ko.s 			page 92
 
 
  3397 0148 AA88     		ldrh	r2, [r5, #4]
@@ -5518,7 +5518,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1691:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CTL1(timer_periph) &= ~(uint32_t)TIMER_CTL1_TI0S;
 1692:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     }else{
 1693:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         /* illegal parameters */
-ARM GAS  /tmp/cc3bvAUA.s 			page 93
+ARM GAS  /tmp/ccOu06Ko.s 			page 93
 
 
 1694:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     }
@@ -5578,7 +5578,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  3468 0000 8268     		ldr	r2, [r0, #8]
  3469 0002 22F07002 		bic	r2, r2, #112
  3470 0006 8260     		str	r2, [r0, #8]
-ARM GAS  /tmp/cc3bvAUA.s 			page 94
+ARM GAS  /tmp/ccOu06Ko.s 			page 94
 
 
 1716:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     TIMER_SMCFG(timer_periph) |= (uint32_t)intrigger;
@@ -5638,7 +5638,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  3504 000a 0B43     		orrs	r3, r3, r1
  3505 000c 4360     		str	r3, [r0, #4]
 1739:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** }
-ARM GAS  /tmp/cc3bvAUA.s 			page 95
+ARM GAS  /tmp/ccOu06Ko.s 			page 95
 
 
  3506              		.loc 1 1739 1 view .LVU1003
@@ -5698,7 +5698,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  3538              		.cfi_endproc
  3539              	.LFE175:
  3541              		.section	.text.timer_master_slave_mode_config,"ax",%progbits
-ARM GAS  /tmp/cc3bvAUA.s 			page 96
+ARM GAS  /tmp/ccOu06Ko.s 			page 96
 
 
  3542              		.align	1
@@ -5758,7 +5758,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1780:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_SMCFG(timer_periph) &= ~(uint32_t)TIMER_SMCFG_MSM;
  3575              		.loc 1 1780 35 is_stmt 0 view .LVU1019
  3576 0012 8368     		ldr	r3, [r0, #8]
-ARM GAS  /tmp/cc3bvAUA.s 			page 97
+ARM GAS  /tmp/ccOu06Ko.s 			page 97
 
 
  3577 0014 23F08003 		bic	r3, r3, #128
@@ -5818,7 +5818,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  3610 0008 8560     		str	r5, [r0, #8]
 1807:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     TIMER_SMCFG(timer_periph) |= (uint32_t)(extprescaler | extpolarity);
  3611              		.loc 1 1807 5 is_stmt 1 view .LVU1026
-ARM GAS  /tmp/cc3bvAUA.s 			page 98
+ARM GAS  /tmp/ccOu06Ko.s 			page 98
 
 
  3612              		.loc 1 1807 31 is_stmt 0 view .LVU1027
@@ -5878,7 +5878,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1829:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** */
 1830:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** void timer_quadrature_decoder_mode_config(uint32_t timer_periph, uint32_t decomode,
 1831:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****                                    uint16_t ic0polarity, uint16_t ic1polarity)
-ARM GAS  /tmp/cc3bvAUA.s 			page 99
+ARM GAS  /tmp/ccOu06Ko.s 			page 99
 
 
 1832:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** {
@@ -5938,7 +5938,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1841:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     TIMER_CHCTL2(timer_periph) |= ((uint32_t)ic0polarity|((uint32_t)ic1polarity << 4U));
  3692              		.loc 1 1841 5 is_stmt 1 view .LVU1049
  3693              		.loc 1 1841 32 is_stmt 0 view .LVU1050
-ARM GAS  /tmp/cc3bvAUA.s 			page 100
+ARM GAS  /tmp/ccOu06Ko.s 			page 100
 
 
  3694 0038 016A     		ldr	r1, [r0, #32]
@@ -5998,7 +5998,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  3739              		.syntax unified
  3740              		.thumb
  3741              		.thumb_func
-ARM GAS  /tmp/cc3bvAUA.s 			page 101
+ARM GAS  /tmp/ccOu06Ko.s 			page 101
 
 
  3743              	timer_internal_trigger_as_external_clock_config:
@@ -6058,7 +6058,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  3779              		.syntax unified
  3780              		.thumb
  3781              		.thumb_func
-ARM GAS  /tmp/cc3bvAUA.s 			page 102
+ARM GAS  /tmp/ccOu06Ko.s 			page 102
 
 
  3783              	timer_external_trigger_as_external_clock_config:
@@ -6118,7 +6118,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1909:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL2(timer_periph) |= (uint32_t)TIMER_CHCTL2_CH1EN;
 1910:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     }else{
 1911:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         /* reset the CH0EN bit */
-ARM GAS  /tmp/cc3bvAUA.s 			page 103
+ARM GAS  /tmp/ccOu06Ko.s 			page 103
 
 
 1912:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL2(timer_periph) &= (~(uint32_t)TIMER_CHCTL2_CH0EN);
@@ -6178,7 +6178,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1925:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         /* set the CH0EN bit */
 1926:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         TIMER_CHCTL2(timer_periph) |= (uint32_t)TIMER_CHCTL2_CH0EN;
  3842              		.loc 1 1926 9 is_stmt 1 view .LVU1088
-ARM GAS  /tmp/cc3bvAUA.s 			page 104
+ARM GAS  /tmp/ccOu06Ko.s 			page 104
 
 
  3843              		.loc 1 1926 36 is_stmt 0 view .LVU1089
@@ -6238,7 +6238,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  3882              	.LVL224:
 1899:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****         /* reset the CH1MS bit */
  3883              		.loc 1 1899 36 view .LVU1103
-ARM GAS  /tmp/cc3bvAUA.s 			page 105
+ARM GAS  /tmp/ccOu06Ko.s 			page 105
 
 
  3884 0074 2262     		str	r2, [r4, #32]
@@ -6298,7 +6298,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 1938:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     \param[in]  timer_periph: TIMERx(x=0..4,7,8,11)
 1939:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     \param[in]  extprescaler: 
 1940:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****                 only one parameter can be selected which is shown as below:
-ARM GAS  /tmp/cc3bvAUA.s 			page 106
+ARM GAS  /tmp/ccOu06Ko.s 			page 106
 
 
 1941:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****       \arg        TIMER_EXT_TRI_PSC_OFF: no divided
@@ -6358,7 +6358,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  3958              		.global	timer_external_clock_mode1_config
  3959              		.syntax unified
  3960              		.thumb
-ARM GAS  /tmp/cc3bvAUA.s 			page 107
+ARM GAS  /tmp/ccOu06Ko.s 			page 107
 
 
  3961              		.thumb_func
@@ -6418,7 +6418,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  3991              		.section	.text.timer_external_clock_mode1_disable,"ax",%progbits
  3992              		.align	1
  3993              		.global	timer_external_clock_mode1_disable
-ARM GAS  /tmp/cc3bvAUA.s 			page 108
+ARM GAS  /tmp/ccOu06Ko.s 			page 108
 
 
  3994              		.syntax unified
@@ -6478,7 +6478,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  4027              		.cfi_startproc
  4028              		@ args = 0, pretend = 0, frame = 0
  4029              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/cc3bvAUA.s 			page 109
+ARM GAS  /tmp/ccOu06Ko.s 			page 109
 
 
  4030              		@ link register save eliminated.
@@ -6538,7 +6538,7 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
 2031:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c ****     \retval     none
 2032:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** */
 2033:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** void timer_output_value_selection_config(uint32_t timer_periph, uint16_t outsel)
-ARM GAS  /tmp/cc3bvAUA.s 			page 110
+ARM GAS  /tmp/ccOu06Ko.s 			page 110
 
 
 2034:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_timer.c **** {
@@ -6589,187 +6589,187 @@ ARM GAS  /tmp/cc3bvAUA.s 			page 1
  4102              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
  4103              		.file 5 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_rcu.h"
  4104              		.file 6 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_timer.h"
-ARM GAS  /tmp/cc3bvAUA.s 			page 111
+ARM GAS  /tmp/ccOu06Ko.s 			page 111
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gd32f30x_timer.c
-     /tmp/cc3bvAUA.s:18     .text.timer_deinit:0000000000000000 $t
-     /tmp/cc3bvAUA.s:24     .text.timer_deinit:0000000000000000 timer_deinit
-     /tmp/cc3bvAUA.s:183    .text.timer_deinit:00000000000000d0 $d
-     /tmp/cc3bvAUA.s:190    .text.timer_struct_para_init:0000000000000000 $t
-     /tmp/cc3bvAUA.s:196    .text.timer_struct_para_init:0000000000000000 timer_struct_para_init
-     /tmp/cc3bvAUA.s:230    .text.timer_init:0000000000000000 $t
-     /tmp/cc3bvAUA.s:236    .text.timer_init:0000000000000000 timer_init
-     /tmp/cc3bvAUA.s:350    .text.timer_init:0000000000000088 $d
-     /tmp/cc3bvAUA.s:356    .text.timer_enable:0000000000000000 $t
-     /tmp/cc3bvAUA.s:362    .text.timer_enable:0000000000000000 timer_enable
-     /tmp/cc3bvAUA.s:381    .text.timer_disable:0000000000000000 $t
-     /tmp/cc3bvAUA.s:387    .text.timer_disable:0000000000000000 timer_disable
-     /tmp/cc3bvAUA.s:406    .text.timer_auto_reload_shadow_enable:0000000000000000 $t
-     /tmp/cc3bvAUA.s:412    .text.timer_auto_reload_shadow_enable:0000000000000000 timer_auto_reload_shadow_enable
-     /tmp/cc3bvAUA.s:431    .text.timer_auto_reload_shadow_disable:0000000000000000 $t
-     /tmp/cc3bvAUA.s:437    .text.timer_auto_reload_shadow_disable:0000000000000000 timer_auto_reload_shadow_disable
-     /tmp/cc3bvAUA.s:456    .text.timer_update_event_enable:0000000000000000 $t
-     /tmp/cc3bvAUA.s:462    .text.timer_update_event_enable:0000000000000000 timer_update_event_enable
-     /tmp/cc3bvAUA.s:481    .text.timer_update_event_disable:0000000000000000 $t
-     /tmp/cc3bvAUA.s:487    .text.timer_update_event_disable:0000000000000000 timer_update_event_disable
-     /tmp/cc3bvAUA.s:506    .text.timer_counter_alignment:0000000000000000 $t
-     /tmp/cc3bvAUA.s:512    .text.timer_counter_alignment:0000000000000000 timer_counter_alignment
-     /tmp/cc3bvAUA.s:536    .text.timer_counter_up_direction:0000000000000000 $t
-     /tmp/cc3bvAUA.s:542    .text.timer_counter_up_direction:0000000000000000 timer_counter_up_direction
-     /tmp/cc3bvAUA.s:561    .text.timer_counter_down_direction:0000000000000000 $t
-     /tmp/cc3bvAUA.s:567    .text.timer_counter_down_direction:0000000000000000 timer_counter_down_direction
-     /tmp/cc3bvAUA.s:586    .text.timer_prescaler_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:592    .text.timer_prescaler_config:0000000000000000 timer_prescaler_config
-     /tmp/cc3bvAUA.s:618    .text.timer_repetition_value_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:624    .text.timer_repetition_value_config:0000000000000000 timer_repetition_value_config
-     /tmp/cc3bvAUA.s:641    .text.timer_autoreload_value_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:647    .text.timer_autoreload_value_config:0000000000000000 timer_autoreload_value_config
-     /tmp/cc3bvAUA.s:664    .text.timer_counter_value_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:670    .text.timer_counter_value_config:0000000000000000 timer_counter_value_config
-     /tmp/cc3bvAUA.s:687    .text.timer_counter_read:0000000000000000 $t
-     /tmp/cc3bvAUA.s:693    .text.timer_counter_read:0000000000000000 timer_counter_read
-     /tmp/cc3bvAUA.s:713    .text.timer_prescaler_read:0000000000000000 $t
-     /tmp/cc3bvAUA.s:719    .text.timer_prescaler_read:0000000000000000 timer_prescaler_read
-     /tmp/cc3bvAUA.s:741    .text.timer_single_pulse_mode_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:747    .text.timer_single_pulse_mode_config:0000000000000000 timer_single_pulse_mode_config
-     /tmp/cc3bvAUA.s:785    .text.timer_update_source_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:791    .text.timer_update_source_config:0000000000000000 timer_update_source_config
-     /tmp/cc3bvAUA.s:829    .text.timer_interrupt_enable:0000000000000000 $t
-     /tmp/cc3bvAUA.s:835    .text.timer_interrupt_enable:0000000000000000 timer_interrupt_enable
-     /tmp/cc3bvAUA.s:854    .text.timer_interrupt_disable:0000000000000000 $t
-     /tmp/cc3bvAUA.s:860    .text.timer_interrupt_disable:0000000000000000 timer_interrupt_disable
-     /tmp/cc3bvAUA.s:879    .text.timer_interrupt_flag_get:0000000000000000 $t
-     /tmp/cc3bvAUA.s:885    .text.timer_interrupt_flag_get:0000000000000000 timer_interrupt_flag_get
-     /tmp/cc3bvAUA.s:931    .text.timer_interrupt_flag_clear:0000000000000000 $t
-     /tmp/cc3bvAUA.s:937    .text.timer_interrupt_flag_clear:0000000000000000 timer_interrupt_flag_clear
-     /tmp/cc3bvAUA.s:957    .text.timer_flag_get:0000000000000000 $t
-     /tmp/cc3bvAUA.s:963    .text.timer_flag_get:0000000000000000 timer_flag_get
-     /tmp/cc3bvAUA.s:993    .text.timer_flag_clear:0000000000000000 $t
-     /tmp/cc3bvAUA.s:999    .text.timer_flag_clear:0000000000000000 timer_flag_clear
-     /tmp/cc3bvAUA.s:1019   .text.timer_dma_enable:0000000000000000 $t
-ARM GAS  /tmp/cc3bvAUA.s 			page 112
+     /tmp/ccOu06Ko.s:18     .text.timer_deinit:0000000000000000 $t
+     /tmp/ccOu06Ko.s:24     .text.timer_deinit:0000000000000000 timer_deinit
+     /tmp/ccOu06Ko.s:183    .text.timer_deinit:00000000000000d0 $d
+     /tmp/ccOu06Ko.s:190    .text.timer_struct_para_init:0000000000000000 $t
+     /tmp/ccOu06Ko.s:196    .text.timer_struct_para_init:0000000000000000 timer_struct_para_init
+     /tmp/ccOu06Ko.s:230    .text.timer_init:0000000000000000 $t
+     /tmp/ccOu06Ko.s:236    .text.timer_init:0000000000000000 timer_init
+     /tmp/ccOu06Ko.s:350    .text.timer_init:0000000000000088 $d
+     /tmp/ccOu06Ko.s:356    .text.timer_enable:0000000000000000 $t
+     /tmp/ccOu06Ko.s:362    .text.timer_enable:0000000000000000 timer_enable
+     /tmp/ccOu06Ko.s:381    .text.timer_disable:0000000000000000 $t
+     /tmp/ccOu06Ko.s:387    .text.timer_disable:0000000000000000 timer_disable
+     /tmp/ccOu06Ko.s:406    .text.timer_auto_reload_shadow_enable:0000000000000000 $t
+     /tmp/ccOu06Ko.s:412    .text.timer_auto_reload_shadow_enable:0000000000000000 timer_auto_reload_shadow_enable
+     /tmp/ccOu06Ko.s:431    .text.timer_auto_reload_shadow_disable:0000000000000000 $t
+     /tmp/ccOu06Ko.s:437    .text.timer_auto_reload_shadow_disable:0000000000000000 timer_auto_reload_shadow_disable
+     /tmp/ccOu06Ko.s:456    .text.timer_update_event_enable:0000000000000000 $t
+     /tmp/ccOu06Ko.s:462    .text.timer_update_event_enable:0000000000000000 timer_update_event_enable
+     /tmp/ccOu06Ko.s:481    .text.timer_update_event_disable:0000000000000000 $t
+     /tmp/ccOu06Ko.s:487    .text.timer_update_event_disable:0000000000000000 timer_update_event_disable
+     /tmp/ccOu06Ko.s:506    .text.timer_counter_alignment:0000000000000000 $t
+     /tmp/ccOu06Ko.s:512    .text.timer_counter_alignment:0000000000000000 timer_counter_alignment
+     /tmp/ccOu06Ko.s:536    .text.timer_counter_up_direction:0000000000000000 $t
+     /tmp/ccOu06Ko.s:542    .text.timer_counter_up_direction:0000000000000000 timer_counter_up_direction
+     /tmp/ccOu06Ko.s:561    .text.timer_counter_down_direction:0000000000000000 $t
+     /tmp/ccOu06Ko.s:567    .text.timer_counter_down_direction:0000000000000000 timer_counter_down_direction
+     /tmp/ccOu06Ko.s:586    .text.timer_prescaler_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:592    .text.timer_prescaler_config:0000000000000000 timer_prescaler_config
+     /tmp/ccOu06Ko.s:618    .text.timer_repetition_value_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:624    .text.timer_repetition_value_config:0000000000000000 timer_repetition_value_config
+     /tmp/ccOu06Ko.s:641    .text.timer_autoreload_value_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:647    .text.timer_autoreload_value_config:0000000000000000 timer_autoreload_value_config
+     /tmp/ccOu06Ko.s:664    .text.timer_counter_value_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:670    .text.timer_counter_value_config:0000000000000000 timer_counter_value_config
+     /tmp/ccOu06Ko.s:687    .text.timer_counter_read:0000000000000000 $t
+     /tmp/ccOu06Ko.s:693    .text.timer_counter_read:0000000000000000 timer_counter_read
+     /tmp/ccOu06Ko.s:713    .text.timer_prescaler_read:0000000000000000 $t
+     /tmp/ccOu06Ko.s:719    .text.timer_prescaler_read:0000000000000000 timer_prescaler_read
+     /tmp/ccOu06Ko.s:741    .text.timer_single_pulse_mode_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:747    .text.timer_single_pulse_mode_config:0000000000000000 timer_single_pulse_mode_config
+     /tmp/ccOu06Ko.s:785    .text.timer_update_source_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:791    .text.timer_update_source_config:0000000000000000 timer_update_source_config
+     /tmp/ccOu06Ko.s:829    .text.timer_interrupt_enable:0000000000000000 $t
+     /tmp/ccOu06Ko.s:835    .text.timer_interrupt_enable:0000000000000000 timer_interrupt_enable
+     /tmp/ccOu06Ko.s:854    .text.timer_interrupt_disable:0000000000000000 $t
+     /tmp/ccOu06Ko.s:860    .text.timer_interrupt_disable:0000000000000000 timer_interrupt_disable
+     /tmp/ccOu06Ko.s:879    .text.timer_interrupt_flag_get:0000000000000000 $t
+     /tmp/ccOu06Ko.s:885    .text.timer_interrupt_flag_get:0000000000000000 timer_interrupt_flag_get
+     /tmp/ccOu06Ko.s:931    .text.timer_interrupt_flag_clear:0000000000000000 $t
+     /tmp/ccOu06Ko.s:937    .text.timer_interrupt_flag_clear:0000000000000000 timer_interrupt_flag_clear
+     /tmp/ccOu06Ko.s:957    .text.timer_flag_get:0000000000000000 $t
+     /tmp/ccOu06Ko.s:963    .text.timer_flag_get:0000000000000000 timer_flag_get
+     /tmp/ccOu06Ko.s:993    .text.timer_flag_clear:0000000000000000 $t
+     /tmp/ccOu06Ko.s:999    .text.timer_flag_clear:0000000000000000 timer_flag_clear
+     /tmp/ccOu06Ko.s:1019   .text.timer_dma_enable:0000000000000000 $t
+ARM GAS  /tmp/ccOu06Ko.s 			page 112
 
 
-     /tmp/cc3bvAUA.s:1025   .text.timer_dma_enable:0000000000000000 timer_dma_enable
-     /tmp/cc3bvAUA.s:1044   .text.timer_dma_disable:0000000000000000 $t
-     /tmp/cc3bvAUA.s:1050   .text.timer_dma_disable:0000000000000000 timer_dma_disable
-     /tmp/cc3bvAUA.s:1069   .text.timer_channel_dma_request_source_select:0000000000000000 $t
-     /tmp/cc3bvAUA.s:1075   .text.timer_channel_dma_request_source_select:0000000000000000 timer_channel_dma_request_source_select
-     /tmp/cc3bvAUA.s:1113   .text.timer_dma_transfer_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:1119   .text.timer_dma_transfer_config:0000000000000000 timer_dma_transfer_config
-     /tmp/cc3bvAUA.s:1148   .text.timer_event_software_generate:0000000000000000 $t
-     /tmp/cc3bvAUA.s:1154   .text.timer_event_software_generate:0000000000000000 timer_event_software_generate
-     /tmp/cc3bvAUA.s:1173   .text.timer_break_struct_para_init:0000000000000000 $t
-     /tmp/cc3bvAUA.s:1179   .text.timer_break_struct_para_init:0000000000000000 timer_break_struct_para_init
-     /tmp/cc3bvAUA.s:1215   .text.timer_break_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:1221   .text.timer_break_config:0000000000000000 timer_break_config
-     /tmp/cc3bvAUA.s:1268   .text.timer_break_enable:0000000000000000 $t
-     /tmp/cc3bvAUA.s:1274   .text.timer_break_enable:0000000000000000 timer_break_enable
-     /tmp/cc3bvAUA.s:1293   .text.timer_break_disable:0000000000000000 $t
-     /tmp/cc3bvAUA.s:1299   .text.timer_break_disable:0000000000000000 timer_break_disable
-     /tmp/cc3bvAUA.s:1318   .text.timer_automatic_output_enable:0000000000000000 $t
-     /tmp/cc3bvAUA.s:1324   .text.timer_automatic_output_enable:0000000000000000 timer_automatic_output_enable
-     /tmp/cc3bvAUA.s:1343   .text.timer_automatic_output_disable:0000000000000000 $t
-     /tmp/cc3bvAUA.s:1349   .text.timer_automatic_output_disable:0000000000000000 timer_automatic_output_disable
-     /tmp/cc3bvAUA.s:1368   .text.timer_primary_output_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:1374   .text.timer_primary_output_config:0000000000000000 timer_primary_output_config
-     /tmp/cc3bvAUA.s:1404   .text.timer_channel_control_shadow_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:1410   .text.timer_channel_control_shadow_config:0000000000000000 timer_channel_control_shadow_config
-     /tmp/cc3bvAUA.s:1440   .text.timer_channel_control_shadow_update_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:1446   .text.timer_channel_control_shadow_update_config:0000000000000000 timer_channel_control_shadow_update_config
-     /tmp/cc3bvAUA.s:1484   .text.timer_channel_output_struct_para_init:0000000000000000 $t
-     /tmp/cc3bvAUA.s:1490   .text.timer_channel_output_struct_para_init:0000000000000000 timer_channel_output_struct_para_init
-     /tmp/cc3bvAUA.s:1523   .text.timer_channel_output_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:1529   .text.timer_channel_output_config:0000000000000000 timer_channel_output_config
-     /tmp/cc3bvAUA.s:1542   .text.timer_channel_output_config:000000000000000a $d
-     /tmp/cc3bvAUA.s:1546   .text.timer_channel_output_config:0000000000000012 $t
-     /tmp/cc3bvAUA.s:1904   .text.timer_channel_output_config:00000000000001e4 $d
-     /tmp/cc3bvAUA.s:1909   .text.timer_channel_output_mode_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:1915   .text.timer_channel_output_mode_config:0000000000000000 timer_channel_output_mode_config
-     /tmp/cc3bvAUA.s:1928   .text.timer_channel_output_mode_config:0000000000000008 $d
-     /tmp/cc3bvAUA.s:1932   .text.timer_channel_output_mode_config:000000000000000c $t
-     /tmp/cc3bvAUA.s:2002   .text.timer_channel_output_pulse_value_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:2008   .text.timer_channel_output_pulse_value_config:0000000000000000 timer_channel_output_pulse_value_config
-     /tmp/cc3bvAUA.s:2021   .text.timer_channel_output_pulse_value_config:0000000000000008 $d
-     /tmp/cc3bvAUA.s:2025   .text.timer_channel_output_pulse_value_config:000000000000000c $t
-     /tmp/cc3bvAUA.s:2056   .text.timer_channel_output_shadow_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:2062   .text.timer_channel_output_shadow_config:0000000000000000 timer_channel_output_shadow_config
-     /tmp/cc3bvAUA.s:2075   .text.timer_channel_output_shadow_config:0000000000000008 $d
-     /tmp/cc3bvAUA.s:2079   .text.timer_channel_output_shadow_config:000000000000000c $t
-     /tmp/cc3bvAUA.s:2149   .text.timer_channel_output_fast_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:2155   .text.timer_channel_output_fast_config:0000000000000000 timer_channel_output_fast_config
-     /tmp/cc3bvAUA.s:2168   .text.timer_channel_output_fast_config:0000000000000008 $d
-     /tmp/cc3bvAUA.s:2172   .text.timer_channel_output_fast_config:000000000000000c $t
-     /tmp/cc3bvAUA.s:2242   .text.timer_channel_output_clear_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:2248   .text.timer_channel_output_clear_config:0000000000000000 timer_channel_output_clear_config
-     /tmp/cc3bvAUA.s:2261   .text.timer_channel_output_clear_config:0000000000000008 $d
-     /tmp/cc3bvAUA.s:2265   .text.timer_channel_output_clear_config:000000000000000c $t
-     /tmp/cc3bvAUA.s:2335   .text.timer_channel_output_polarity_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:2341   .text.timer_channel_output_polarity_config:0000000000000000 timer_channel_output_polarity_config
-     /tmp/cc3bvAUA.s:2354   .text.timer_channel_output_polarity_config:0000000000000008 $d
-ARM GAS  /tmp/cc3bvAUA.s 			page 113
+     /tmp/ccOu06Ko.s:1025   .text.timer_dma_enable:0000000000000000 timer_dma_enable
+     /tmp/ccOu06Ko.s:1044   .text.timer_dma_disable:0000000000000000 $t
+     /tmp/ccOu06Ko.s:1050   .text.timer_dma_disable:0000000000000000 timer_dma_disable
+     /tmp/ccOu06Ko.s:1069   .text.timer_channel_dma_request_source_select:0000000000000000 $t
+     /tmp/ccOu06Ko.s:1075   .text.timer_channel_dma_request_source_select:0000000000000000 timer_channel_dma_request_source_select
+     /tmp/ccOu06Ko.s:1113   .text.timer_dma_transfer_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:1119   .text.timer_dma_transfer_config:0000000000000000 timer_dma_transfer_config
+     /tmp/ccOu06Ko.s:1148   .text.timer_event_software_generate:0000000000000000 $t
+     /tmp/ccOu06Ko.s:1154   .text.timer_event_software_generate:0000000000000000 timer_event_software_generate
+     /tmp/ccOu06Ko.s:1173   .text.timer_break_struct_para_init:0000000000000000 $t
+     /tmp/ccOu06Ko.s:1179   .text.timer_break_struct_para_init:0000000000000000 timer_break_struct_para_init
+     /tmp/ccOu06Ko.s:1215   .text.timer_break_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:1221   .text.timer_break_config:0000000000000000 timer_break_config
+     /tmp/ccOu06Ko.s:1268   .text.timer_break_enable:0000000000000000 $t
+     /tmp/ccOu06Ko.s:1274   .text.timer_break_enable:0000000000000000 timer_break_enable
+     /tmp/ccOu06Ko.s:1293   .text.timer_break_disable:0000000000000000 $t
+     /tmp/ccOu06Ko.s:1299   .text.timer_break_disable:0000000000000000 timer_break_disable
+     /tmp/ccOu06Ko.s:1318   .text.timer_automatic_output_enable:0000000000000000 $t
+     /tmp/ccOu06Ko.s:1324   .text.timer_automatic_output_enable:0000000000000000 timer_automatic_output_enable
+     /tmp/ccOu06Ko.s:1343   .text.timer_automatic_output_disable:0000000000000000 $t
+     /tmp/ccOu06Ko.s:1349   .text.timer_automatic_output_disable:0000000000000000 timer_automatic_output_disable
+     /tmp/ccOu06Ko.s:1368   .text.timer_primary_output_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:1374   .text.timer_primary_output_config:0000000000000000 timer_primary_output_config
+     /tmp/ccOu06Ko.s:1404   .text.timer_channel_control_shadow_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:1410   .text.timer_channel_control_shadow_config:0000000000000000 timer_channel_control_shadow_config
+     /tmp/ccOu06Ko.s:1440   .text.timer_channel_control_shadow_update_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:1446   .text.timer_channel_control_shadow_update_config:0000000000000000 timer_channel_control_shadow_update_config
+     /tmp/ccOu06Ko.s:1484   .text.timer_channel_output_struct_para_init:0000000000000000 $t
+     /tmp/ccOu06Ko.s:1490   .text.timer_channel_output_struct_para_init:0000000000000000 timer_channel_output_struct_para_init
+     /tmp/ccOu06Ko.s:1523   .text.timer_channel_output_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:1529   .text.timer_channel_output_config:0000000000000000 timer_channel_output_config
+     /tmp/ccOu06Ko.s:1542   .text.timer_channel_output_config:000000000000000a $d
+     /tmp/ccOu06Ko.s:1546   .text.timer_channel_output_config:0000000000000012 $t
+     /tmp/ccOu06Ko.s:1904   .text.timer_channel_output_config:00000000000001e4 $d
+     /tmp/ccOu06Ko.s:1909   .text.timer_channel_output_mode_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:1915   .text.timer_channel_output_mode_config:0000000000000000 timer_channel_output_mode_config
+     /tmp/ccOu06Ko.s:1928   .text.timer_channel_output_mode_config:0000000000000008 $d
+     /tmp/ccOu06Ko.s:1932   .text.timer_channel_output_mode_config:000000000000000c $t
+     /tmp/ccOu06Ko.s:2002   .text.timer_channel_output_pulse_value_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:2008   .text.timer_channel_output_pulse_value_config:0000000000000000 timer_channel_output_pulse_value_config
+     /tmp/ccOu06Ko.s:2021   .text.timer_channel_output_pulse_value_config:0000000000000008 $d
+     /tmp/ccOu06Ko.s:2025   .text.timer_channel_output_pulse_value_config:000000000000000c $t
+     /tmp/ccOu06Ko.s:2056   .text.timer_channel_output_shadow_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:2062   .text.timer_channel_output_shadow_config:0000000000000000 timer_channel_output_shadow_config
+     /tmp/ccOu06Ko.s:2075   .text.timer_channel_output_shadow_config:0000000000000008 $d
+     /tmp/ccOu06Ko.s:2079   .text.timer_channel_output_shadow_config:000000000000000c $t
+     /tmp/ccOu06Ko.s:2149   .text.timer_channel_output_fast_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:2155   .text.timer_channel_output_fast_config:0000000000000000 timer_channel_output_fast_config
+     /tmp/ccOu06Ko.s:2168   .text.timer_channel_output_fast_config:0000000000000008 $d
+     /tmp/ccOu06Ko.s:2172   .text.timer_channel_output_fast_config:000000000000000c $t
+     /tmp/ccOu06Ko.s:2242   .text.timer_channel_output_clear_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:2248   .text.timer_channel_output_clear_config:0000000000000000 timer_channel_output_clear_config
+     /tmp/ccOu06Ko.s:2261   .text.timer_channel_output_clear_config:0000000000000008 $d
+     /tmp/ccOu06Ko.s:2265   .text.timer_channel_output_clear_config:000000000000000c $t
+     /tmp/ccOu06Ko.s:2335   .text.timer_channel_output_polarity_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:2341   .text.timer_channel_output_polarity_config:0000000000000000 timer_channel_output_polarity_config
+     /tmp/ccOu06Ko.s:2354   .text.timer_channel_output_polarity_config:0000000000000008 $d
+ARM GAS  /tmp/ccOu06Ko.s 			page 113
 
 
-     /tmp/cc3bvAUA.s:2358   .text.timer_channel_output_polarity_config:000000000000000c $t
-     /tmp/cc3bvAUA.s:2428   .text.timer_channel_complementary_output_polarity_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:2434   .text.timer_channel_complementary_output_polarity_config:0000000000000000 timer_channel_complementary_output_polarity_config
-     /tmp/cc3bvAUA.s:2505   .text.timer_channel_output_state_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:2511   .text.timer_channel_output_state_config:0000000000000000 timer_channel_output_state_config
-     /tmp/cc3bvAUA.s:2524   .text.timer_channel_output_state_config:0000000000000008 $d
-     /tmp/cc3bvAUA.s:2528   .text.timer_channel_output_state_config:000000000000000c $t
-     /tmp/cc3bvAUA.s:2598   .text.timer_channel_complementary_output_state_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:2604   .text.timer_channel_complementary_output_state_config:0000000000000000 timer_channel_complementary_output_state_config
-     /tmp/cc3bvAUA.s:2675   .text.timer_channel_input_struct_para_init:0000000000000000 $t
-     /tmp/cc3bvAUA.s:2681   .text.timer_channel_input_struct_para_init:0000000000000000 timer_channel_input_struct_para_init
-     /tmp/cc3bvAUA.s:2709   .text.timer_channel_input_capture_prescaler_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:2715   .text.timer_channel_input_capture_prescaler_config:0000000000000000 timer_channel_input_capture_prescaler_config
-     /tmp/cc3bvAUA.s:2728   .text.timer_channel_input_capture_prescaler_config:0000000000000008 $d
-     /tmp/cc3bvAUA.s:2732   .text.timer_channel_input_capture_prescaler_config:000000000000000c $t
-     /tmp/cc3bvAUA.s:2802   .text.timer_input_capture_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:2808   .text.timer_input_capture_config:0000000000000000 timer_input_capture_config
-     /tmp/cc3bvAUA.s:2826   .text.timer_input_capture_config:000000000000000a $d
-     /tmp/cc3bvAUA.s:2830   .text.timer_input_capture_config:000000000000000e $t
-     /tmp/cc3bvAUA.s:3052   .text.timer_channel_capture_value_register_read:0000000000000000 $t
-     /tmp/cc3bvAUA.s:3058   .text.timer_channel_capture_value_register_read:0000000000000000 timer_channel_capture_value_register_read
-     /tmp/cc3bvAUA.s:3072   .text.timer_channel_capture_value_register_read:0000000000000008 $d
-     /tmp/cc3bvAUA.s:3076   .text.timer_channel_capture_value_register_read:000000000000000c $t
-     /tmp/cc3bvAUA.s:3120   .text.timer_input_pwm_capture_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:3126   .text.timer_input_pwm_capture_config:0000000000000000 timer_input_pwm_capture_config
-     /tmp/cc3bvAUA.s:3408   .text.timer_hall_mode_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:3414   .text.timer_hall_mode_config:0000000000000000 timer_hall_mode_config
-     /tmp/cc3bvAUA.s:3452   .text.timer_input_trigger_source_select:0000000000000000 $t
-     /tmp/cc3bvAUA.s:3458   .text.timer_input_trigger_source_select:0000000000000000 timer_input_trigger_source_select
-     /tmp/cc3bvAUA.s:3482   .text.timer_master_output_trigger_source_select:0000000000000000 $t
-     /tmp/cc3bvAUA.s:3488   .text.timer_master_output_trigger_source_select:0000000000000000 timer_master_output_trigger_source_select
-     /tmp/cc3bvAUA.s:3512   .text.timer_slave_mode_select:0000000000000000 $t
-     /tmp/cc3bvAUA.s:3518   .text.timer_slave_mode_select:0000000000000000 timer_slave_mode_select
-     /tmp/cc3bvAUA.s:3542   .text.timer_master_slave_mode_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:3548   .text.timer_master_slave_mode_config:0000000000000000 timer_master_slave_mode_config
-     /tmp/cc3bvAUA.s:3586   .text.timer_external_trigger_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:3592   .text.timer_external_trigger_config:0000000000000000 timer_external_trigger_config
-     /tmp/cc3bvAUA.s:3638   .text.timer_quadrature_decoder_mode_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:3644   .text.timer_quadrature_decoder_mode_config:0000000000000000 timer_quadrature_decoder_mode_config
-     /tmp/cc3bvAUA.s:3712   .text.timer_internal_clock_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:3718   .text.timer_internal_clock_config:0000000000000000 timer_internal_clock_config
-     /tmp/cc3bvAUA.s:3737   .text.timer_internal_trigger_as_external_clock_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:3743   .text.timer_internal_trigger_as_external_clock_config:0000000000000000 timer_internal_trigger_as_external_clock_config
-     /tmp/cc3bvAUA.s:3777   .text.timer_external_trigger_as_external_clock_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:3783   .text.timer_external_trigger_as_external_clock_config:0000000000000000 timer_external_trigger_as_external_clock_config
-     /tmp/cc3bvAUA.s:3917   .text.timer_external_clock_mode0_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:3923   .text.timer_external_clock_mode0_config:0000000000000000 timer_external_clock_mode0_config
-     /tmp/cc3bvAUA.s:3957   .text.timer_external_clock_mode1_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:3963   .text.timer_external_clock_mode1_config:0000000000000000 timer_external_clock_mode1_config
-     /tmp/cc3bvAUA.s:3992   .text.timer_external_clock_mode1_disable:0000000000000000 $t
-     /tmp/cc3bvAUA.s:3998   .text.timer_external_clock_mode1_disable:0000000000000000 timer_external_clock_mode1_disable
-     /tmp/cc3bvAUA.s:4017   .text.timer_write_chxval_register_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:4023   .text.timer_write_chxval_register_config:0000000000000000 timer_write_chxval_register_config
-     /tmp/cc3bvAUA.s:4058   .text.timer_output_value_selection_config:0000000000000000 $t
-     /tmp/cc3bvAUA.s:4064   .text.timer_output_value_selection_config:0000000000000000 timer_output_value_selection_config
+     /tmp/ccOu06Ko.s:2358   .text.timer_channel_output_polarity_config:000000000000000c $t
+     /tmp/ccOu06Ko.s:2428   .text.timer_channel_complementary_output_polarity_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:2434   .text.timer_channel_complementary_output_polarity_config:0000000000000000 timer_channel_complementary_output_polarity_config
+     /tmp/ccOu06Ko.s:2505   .text.timer_channel_output_state_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:2511   .text.timer_channel_output_state_config:0000000000000000 timer_channel_output_state_config
+     /tmp/ccOu06Ko.s:2524   .text.timer_channel_output_state_config:0000000000000008 $d
+     /tmp/ccOu06Ko.s:2528   .text.timer_channel_output_state_config:000000000000000c $t
+     /tmp/ccOu06Ko.s:2598   .text.timer_channel_complementary_output_state_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:2604   .text.timer_channel_complementary_output_state_config:0000000000000000 timer_channel_complementary_output_state_config
+     /tmp/ccOu06Ko.s:2675   .text.timer_channel_input_struct_para_init:0000000000000000 $t
+     /tmp/ccOu06Ko.s:2681   .text.timer_channel_input_struct_para_init:0000000000000000 timer_channel_input_struct_para_init
+     /tmp/ccOu06Ko.s:2709   .text.timer_channel_input_capture_prescaler_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:2715   .text.timer_channel_input_capture_prescaler_config:0000000000000000 timer_channel_input_capture_prescaler_config
+     /tmp/ccOu06Ko.s:2728   .text.timer_channel_input_capture_prescaler_config:0000000000000008 $d
+     /tmp/ccOu06Ko.s:2732   .text.timer_channel_input_capture_prescaler_config:000000000000000c $t
+     /tmp/ccOu06Ko.s:2802   .text.timer_input_capture_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:2808   .text.timer_input_capture_config:0000000000000000 timer_input_capture_config
+     /tmp/ccOu06Ko.s:2826   .text.timer_input_capture_config:000000000000000a $d
+     /tmp/ccOu06Ko.s:2830   .text.timer_input_capture_config:000000000000000e $t
+     /tmp/ccOu06Ko.s:3052   .text.timer_channel_capture_value_register_read:0000000000000000 $t
+     /tmp/ccOu06Ko.s:3058   .text.timer_channel_capture_value_register_read:0000000000000000 timer_channel_capture_value_register_read
+     /tmp/ccOu06Ko.s:3072   .text.timer_channel_capture_value_register_read:0000000000000008 $d
+     /tmp/ccOu06Ko.s:3076   .text.timer_channel_capture_value_register_read:000000000000000c $t
+     /tmp/ccOu06Ko.s:3120   .text.timer_input_pwm_capture_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:3126   .text.timer_input_pwm_capture_config:0000000000000000 timer_input_pwm_capture_config
+     /tmp/ccOu06Ko.s:3408   .text.timer_hall_mode_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:3414   .text.timer_hall_mode_config:0000000000000000 timer_hall_mode_config
+     /tmp/ccOu06Ko.s:3452   .text.timer_input_trigger_source_select:0000000000000000 $t
+     /tmp/ccOu06Ko.s:3458   .text.timer_input_trigger_source_select:0000000000000000 timer_input_trigger_source_select
+     /tmp/ccOu06Ko.s:3482   .text.timer_master_output_trigger_source_select:0000000000000000 $t
+     /tmp/ccOu06Ko.s:3488   .text.timer_master_output_trigger_source_select:0000000000000000 timer_master_output_trigger_source_select
+     /tmp/ccOu06Ko.s:3512   .text.timer_slave_mode_select:0000000000000000 $t
+     /tmp/ccOu06Ko.s:3518   .text.timer_slave_mode_select:0000000000000000 timer_slave_mode_select
+     /tmp/ccOu06Ko.s:3542   .text.timer_master_slave_mode_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:3548   .text.timer_master_slave_mode_config:0000000000000000 timer_master_slave_mode_config
+     /tmp/ccOu06Ko.s:3586   .text.timer_external_trigger_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:3592   .text.timer_external_trigger_config:0000000000000000 timer_external_trigger_config
+     /tmp/ccOu06Ko.s:3638   .text.timer_quadrature_decoder_mode_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:3644   .text.timer_quadrature_decoder_mode_config:0000000000000000 timer_quadrature_decoder_mode_config
+     /tmp/ccOu06Ko.s:3712   .text.timer_internal_clock_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:3718   .text.timer_internal_clock_config:0000000000000000 timer_internal_clock_config
+     /tmp/ccOu06Ko.s:3737   .text.timer_internal_trigger_as_external_clock_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:3743   .text.timer_internal_trigger_as_external_clock_config:0000000000000000 timer_internal_trigger_as_external_clock_config
+     /tmp/ccOu06Ko.s:3777   .text.timer_external_trigger_as_external_clock_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:3783   .text.timer_external_trigger_as_external_clock_config:0000000000000000 timer_external_trigger_as_external_clock_config
+     /tmp/ccOu06Ko.s:3917   .text.timer_external_clock_mode0_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:3923   .text.timer_external_clock_mode0_config:0000000000000000 timer_external_clock_mode0_config
+     /tmp/ccOu06Ko.s:3957   .text.timer_external_clock_mode1_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:3963   .text.timer_external_clock_mode1_config:0000000000000000 timer_external_clock_mode1_config
+     /tmp/ccOu06Ko.s:3992   .text.timer_external_clock_mode1_disable:0000000000000000 $t
+     /tmp/ccOu06Ko.s:3998   .text.timer_external_clock_mode1_disable:0000000000000000 timer_external_clock_mode1_disable
+     /tmp/ccOu06Ko.s:4017   .text.timer_write_chxval_register_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:4023   .text.timer_write_chxval_register_config:0000000000000000 timer_write_chxval_register_config
+     /tmp/ccOu06Ko.s:4058   .text.timer_output_value_selection_config:0000000000000000 $t
+     /tmp/ccOu06Ko.s:4064   .text.timer_output_value_selection_config:0000000000000000 timer_output_value_selection_config
 
 UNDEFINED SYMBOLS
-ARM GAS  /tmp/cc3bvAUA.s 			page 114
+ARM GAS  /tmp/ccOu06Ko.s 			page 114
 
 
 rcu_periph_reset_enable

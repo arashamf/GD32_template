@@ -1,6 +1,13 @@
 #include "usart.h"
+#include "gpio.h"
 
-/* for MicroLIB */
+//---------------------------------------------------------------------//
+#define   DBG_UART      USART0
+
+//---------------------------------------------------------------------//
+char DBG_buf[30];
+
+//-----------------------------for MicroLIB-----------------------------//
 int fputc(int ch, FILE *f)
 {
   /* Place your implementation of fputc here */
@@ -10,7 +17,7 @@ int fputc(int ch, FILE *f)
 	return ch;
 }
 
-/* for GNU */
+//-------------------------------for GNU-------------------------------//
 int _write (int fd, char *pBuffer, int size)
 { 
 	for (int i = 0; i < size; i++)
@@ -21,25 +28,27 @@ int _write (int fd, char *pBuffer, int size)
 	return size;
 }
 
+//---------------------------------------------------------------------//
 void usart0_config(void)
 {
-    /* enable GPIO clock */
-    rcu_periph_clock_enable(RCU_GPIOA);
+    usart0_gpio_init ();
 
-    /* enable USART clock */
-    rcu_periph_clock_enable(RCU_USART0);
-
-    /* connect port to USARTx_Tx */
-    gpio_init(GPIOA, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_9);
-
-    /* connect port to USARTx_Rx */
-    gpio_init(GPIOA, GPIO_MODE_IN_FLOATING, GPIO_OSPEED_50MHZ, GPIO_PIN_10);
+    rcu_periph_clock_enable(RCU_USART0);     // enable USART clock 
 
     /* USART configure */
     usart_deinit(USART0);
     usart_baudrate_set(USART0, 115200U);
-    usart_receive_config(USART0, USART_RECEIVE_ENABLE);
     usart_transmit_config(USART0, USART_TRANSMIT_ENABLE);
     usart_enable(USART0);
 }
 
+//---------------------------------------------------------------------//
+int DBG_put_msg (char *pBuffer, int size)
+{ 
+	for (int i = 0; i < size; i++)
+	{
+		usart_data_transmit(DBG_UART, (uint8_t)pBuffer[i]);
+	  while(RESET == usart_flag_get(DBG_UART, USART_FLAG_TBE));
+	}
+	return size;
+}

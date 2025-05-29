@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccs6tlHJ.s 			page 1
+ARM GAS  /tmp/ccSDgGth.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -28,20 +28,21 @@ ARM GAS  /tmp/ccs6tlHJ.s 			page 1
   26              		.file 1 "Core/Source/tim.c"
    1:Core/Source/tim.c **** //-------------------------------------------------------------------------------------//
    2:Core/Source/tim.c **** #include "tim.h"
-   3:Core/Source/tim.c **** 
-   4:Core/Source/tim.c **** //-------------------------------------------------------------------------------------//
-   5:Core/Source/tim.c **** #define     TIM_MS_DELAY            TIMER5
-   6:Core/Source/tim.c **** #define     RCU_TIMER_DELAY         RCU_TIMER5
-   7:Core/Source/tim.c **** #define     TIM_MS_IRQHandler       TIMER5_IRQHandler
-   8:Core/Source/tim.c **** 
-   9:Core/Source/tim.c **** //-------------------------------------------------------------------------------------//
-  10:Core/Source/tim.c **** void timer_delay_callback (void);
-  11:Core/Source/tim.c **** uint8_t flag_end_delay = 0; //флаг окончания таймаута
-  12:Core/Source/tim.c **** 
-  13:Core/Source/tim.c **** //-------------------------------------------------------------------------------------//
-  14:Core/Source/tim.c **** void timer_delay_init (void)
-  15:Core/Source/tim.c **** {
-  27              		.loc 1 15 1 view -0
+   3:Core/Source/tim.c **** #include "gd32f30x.h"
+   4:Core/Source/tim.c **** 
+   5:Core/Source/tim.c **** //-------------------------------------------------------------------------------------//
+   6:Core/Source/tim.c **** #define     TIM_MS_DELAY            TIMER6
+   7:Core/Source/tim.c **** #define     RCU_TIMER_DELAY         RCU_TIMER6
+   8:Core/Source/tim.c **** #define     TIM_MS_IRQHandler       TIMER6_IRQHandler
+   9:Core/Source/tim.c **** #define     TIM_MS_DELAY_IRQn       TIMER6_IRQn 
+  10:Core/Source/tim.c **** //#define     TIM_MS_DELAY_IRQn       55
+  11:Core/Source/tim.c **** //-------------------------------------------------------------------------------------//
+  12:Core/Source/tim.c **** uint8_t flag_end_delay = 0; //флаг окончания таймаута
+  13:Core/Source/tim.c **** 
+  14:Core/Source/tim.c **** //-------------------------------------------------------------------------------------//
+  15:Core/Source/tim.c **** void timer_delay_init (void)
+  16:Core/Source/tim.c **** {
+  27              		.loc 1 16 1 view -0
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 16
   30              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -53,298 +54,275 @@ ARM GAS  /tmp/ccs6tlHJ.s 			page 1
   36 0002 84B0     		sub	sp, sp, #16
   37              	.LCFI1:
   38              		.cfi_def_cfa_offset 24
-  16:Core/Source/tim.c ****     timer_parameter_struct delay_tim_init;
-  39              		.loc 1 16 5 view .LVU1
-  17:Core/Source/tim.c **** 
-  18:Core/Source/tim.c ****     rcu_periph_clock_enable(RCU_TIMER_DELAY);
-  40              		.loc 1 18 5 view .LVU2
-ARM GAS  /tmp/ccs6tlHJ.s 			page 2
+  17:Core/Source/tim.c ****     timer_parameter_struct delay_tim_init;
+  39              		.loc 1 17 5 view .LVU1
+  18:Core/Source/tim.c **** 
+  19:Core/Source/tim.c ****     rcu_periph_clock_enable(RCU_TIMER_DELAY);
+ARM GAS  /tmp/ccSDgGth.s 			page 2
 
 
-  41 0004 40F20470 		movw	r0, #1796
+  40              		.loc 1 19 5 view .LVU2
+  41 0004 40F20570 		movw	r0, #1797
   42 0008 FFF7FEFF 		bl	rcu_periph_clock_enable
   43              	.LVL0:
-  19:Core/Source/tim.c ****     timer_deinit(TIM_MS_DELAY);
-  44              		.loc 1 19 5 view .LVU3
-  45 000c 114C     		ldr	r4, .L3
+  20:Core/Source/tim.c ****     timer_deinit(TIM_MS_DELAY);
+  44              		.loc 1 20 5 view .LVU3
+  45 000c 134C     		ldr	r4, .L3
   46 000e 2046     		mov	r0, r4
   47 0010 FFF7FEFF 		bl	timer_deinit
   48              	.LVL1:
-  20:Core/Source/tim.c **** 
-  21:Core/Source/tim.c ****     // TIMER2 configuration 
-  22:Core/Source/tim.c ****     delay_tim_init.prescaler         = (30000-1); //предделитель 30000
-  49              		.loc 1 22 5 view .LVU4
-  50              		.loc 1 22 38 is_stmt 0 view .LVU5
+  21:Core/Source/tim.c **** 
+  22:Core/Source/tim.c ****     // TIMER configuration 
+  23:Core/Source/tim.c ****     delay_tim_init.prescaler         = (30000-1); //предделитель 30000
+  49              		.loc 1 23 5 view .LVU4
+  50              		.loc 1 23 38 is_stmt 0 view .LVU5
   51 0014 47F22F53 		movw	r3, #29999
   52 0018 ADF80030 		strh	r3, [sp]	@ movhi
-  23:Core/Source/tim.c ****     delay_tim_init.alignedmode       = TIMER_COUNTER_EDGE;
-  53              		.loc 1 23 5 is_stmt 1 view .LVU6
-  54              		.loc 1 23 38 is_stmt 0 view .LVU7
+  24:Core/Source/tim.c ****     delay_tim_init.alignedmode       = TIMER_COUNTER_EDGE;
+  53              		.loc 1 24 5 is_stmt 1 view .LVU6
+  54              		.loc 1 24 38 is_stmt 0 view .LVU7
   55 001c 0023     		movs	r3, #0
   56 001e ADF80230 		strh	r3, [sp, #2]	@ movhi
-  24:Core/Source/tim.c ****     delay_tim_init.counterdirection  = TIMER_COUNTER_UP;
-  57              		.loc 1 24 5 is_stmt 1 view .LVU8
-  58              		.loc 1 24 38 is_stmt 0 view .LVU9
+  25:Core/Source/tim.c ****     delay_tim_init.counterdirection  = TIMER_COUNTER_UP;
+  57              		.loc 1 25 5 is_stmt 1 view .LVU8
+  58              		.loc 1 25 38 is_stmt 0 view .LVU9
   59 0022 ADF80430 		strh	r3, [sp, #4]	@ movhi
-  25:Core/Source/tim.c ****     delay_tim_init.period            = (1000-1);
-  60              		.loc 1 25 5 is_stmt 1 view .LVU10
-  61              		.loc 1 25 38 is_stmt 0 view .LVU11
-  62 0026 40F2E732 		movw	r2, #999
+  26:Core/Source/tim.c ****     delay_tim_init.period            = (4000-1);
+  60              		.loc 1 26 5 is_stmt 1 view .LVU10
+  61              		.loc 1 26 38 is_stmt 0 view .LVU11
+  62 0026 40F69F72 		movw	r2, #3999
   63 002a 0292     		str	r2, [sp, #8]
-  26:Core/Source/tim.c ****     delay_tim_init.clockdivision     = TIMER_CKDIV_DIV4 ; //делитель на 4
-  64              		.loc 1 26 5 is_stmt 1 view .LVU12
-  65              		.loc 1 26 38 is_stmt 0 view .LVU13
-  66 002c 4FF40072 		mov	r2, #512
-  67 0030 ADF80620 		strh	r2, [sp, #6]	@ movhi
-  27:Core/Source/tim.c ****     delay_tim_init.repetitioncounter = 0;
-  68              		.loc 1 27 5 is_stmt 1 view .LVU14
-  69              		.loc 1 27 38 is_stmt 0 view .LVU15
-  70 0034 8DF80C30 		strb	r3, [sp, #12]
-  28:Core/Source/tim.c ****     timer_init(TIM_MS_DELAY, &delay_tim_init);
-  71              		.loc 1 28 5 is_stmt 1 view .LVU16
-  72 0038 6946     		mov	r1, sp
-  73 003a 2046     		mov	r0, r4
-  74 003c FFF7FEFF 		bl	timer_init
-  75              	.LVL2:
-  29:Core/Source/tim.c **** 
-  30:Core/Source/tim.c ****     timer_interrupt_enable(TIM_MS_DELAY, TIMER_INT_UP);
-  76              		.loc 1 30 5 view .LVU17
-  77 0040 0121     		movs	r1, #1
-  78 0042 2046     		mov	r0, r4
-  79 0044 FFF7FEFF 		bl	timer_interrupt_enable
-  80              	.LVL3:
-  31:Core/Source/tim.c ****     timer_interrupt_flag_clear(TIM_MS_DELAY, TIMER_INT_FLAG_UP);
-  81              		.loc 1 31 5 view .LVU18
-  82 0048 0121     		movs	r1, #1
-  83 004a 2046     		mov	r0, r4
-  84 004c FFF7FEFF 		bl	timer_interrupt_flag_clear
-ARM GAS  /tmp/ccs6tlHJ.s 			page 3
+  27:Core/Source/tim.c ****     delay_tim_init.clockdivision     = TIMER_CKDIV_DIV1 ; //делитель частоты тай�
+  64              		.loc 1 27 5 is_stmt 1 view .LVU12
+  65              		.loc 1 27 38 is_stmt 0 view .LVU13
+  66 002c ADF80630 		strh	r3, [sp, #6]	@ movhi
+  28:Core/Source/tim.c ****     delay_tim_init.repetitioncounter = 0;
+  67              		.loc 1 28 5 is_stmt 1 view .LVU14
+  68              		.loc 1 28 38 is_stmt 0 view .LVU15
+  69 0030 8DF80C30 		strb	r3, [sp, #12]
+  29:Core/Source/tim.c ****     timer_init(TIM_MS_DELAY, &delay_tim_init);
+  70              		.loc 1 29 5 is_stmt 1 view .LVU16
+  71 0034 6946     		mov	r1, sp
+  72 0036 2046     		mov	r0, r4
+  73 0038 FFF7FEFF 		bl	timer_init
+  74              	.LVL2:
+  30:Core/Source/tim.c **** 
+  31:Core/Source/tim.c ****     timer_interrupt_enable(TIM_MS_DELAY, TIMER_INT_UP);
+  75              		.loc 1 31 5 view .LVU17
+  76 003c 0121     		movs	r1, #1
+  77 003e 2046     		mov	r0, r4
+  78 0040 FFF7FEFF 		bl	timer_interrupt_enable
+  79              	.LVL3:
+  32:Core/Source/tim.c ****     timer_interrupt_flag_clear(TIM_MS_DELAY, TIMER_INT_FLAG_UP);
+  80              		.loc 1 32 5 view .LVU18
+  81 0044 0121     		movs	r1, #1
+  82 0046 2046     		mov	r0, r4
+  83 0048 FFF7FEFF 		bl	timer_interrupt_flag_clear
+ARM GAS  /tmp/ccSDgGth.s 			page 3
 
 
-  85              	.LVL4:
-  32:Core/Source/tim.c **** }
-  86              		.loc 1 32 1 is_stmt 0 view .LVU19
-  87 0050 04B0     		add	sp, sp, #16
-  88              	.LCFI2:
-  89              		.cfi_def_cfa_offset 8
-  90              		@ sp needed
-  91 0052 10BD     		pop	{r4, pc}
-  92              	.L4:
-  93              		.align	2
-  94              	.L3:
-  95 0054 00100040 		.word	1073745920
-  96              		.cfi_endproc
-  97              	.LFE116:
-  99              		.section	.text.delay_ms,"ax",%progbits
- 100              		.align	1
- 101              		.global	delay_ms
- 102              		.syntax unified
- 103              		.thumb
- 104              		.thumb_func
- 106              	delay_ms:
- 107              	.LVL5:
- 108              	.LFB117:
+  84              	.LVL4:
   33:Core/Source/tim.c **** 
-  34:Core/Source/tim.c **** 
-  35:Core/Source/tim.c **** //-------------------------------------------------------------------------------------//
-  36:Core/Source/tim.c **** void delay_ms (uint16_t delay)
-  37:Core/Source/tim.c **** {
- 109              		.loc 1 37 1 is_stmt 1 view -0
- 110              		.cfi_startproc
- 111              		@ args = 0, pretend = 0, frame = 0
- 112              		@ frame_needed = 0, uses_anonymous_args = 0
- 113              		.loc 1 37 1 is_stmt 0 view .LVU21
- 114 0000 70B5     		push	{r4, r5, r6, lr}
- 115              	.LCFI3:
- 116              		.cfi_def_cfa_offset 16
- 117              		.cfi_offset 4, -16
- 118              		.cfi_offset 5, -12
- 119              		.cfi_offset 6, -8
- 120              		.cfi_offset 14, -4
- 121 0002 0546     		mov	r5, r0
-  38:Core/Source/tim.c ****     flag_end_delay = 1;
- 122              		.loc 1 38 5 is_stmt 1 view .LVU22
- 123              		.loc 1 38 20 is_stmt 0 view .LVU23
- 124 0004 0126     		movs	r6, #1
- 125 0006 094B     		ldr	r3, .L7
- 126 0008 1E70     		strb	r6, [r3]
-  39:Core/Source/tim.c ****     timer_counter_value_config(TIM_MS_DELAY, 0);
- 127              		.loc 1 39 5 is_stmt 1 view .LVU24
- 128 000a 094C     		ldr	r4, .L7+4
- 129 000c 0021     		movs	r1, #0
- 130 000e 2046     		mov	r0, r4
- 131              	.LVL6:
- 132              		.loc 1 39 5 is_stmt 0 view .LVU25
- 133 0010 FFF7FEFF 		bl	timer_counter_value_config
- 134              	.LVL7:
-  40:Core/Source/tim.c ****     timer_autoreload_value_config(TIM_MS_DELAY, delay);
-ARM GAS  /tmp/ccs6tlHJ.s 			page 4
+  34:Core/Source/tim.c ****     nvic_irq_enable(TIM_MS_DELAY_IRQn, 1, 1);
+  85              		.loc 1 34 5 view .LVU19
+  86 004c 0122     		movs	r2, #1
+  87 004e 1146     		mov	r1, r2
+  88 0050 3720     		movs	r0, #55
+  89 0052 FFF7FEFF 		bl	nvic_irq_enable
+  90              	.LVL5:
+  35:Core/Source/tim.c **** }
+  91              		.loc 1 35 1 is_stmt 0 view .LVU20
+  92 0056 04B0     		add	sp, sp, #16
+  93              	.LCFI2:
+  94              		.cfi_def_cfa_offset 8
+  95              		@ sp needed
+  96 0058 10BD     		pop	{r4, pc}
+  97              	.L4:
+  98 005a 00BF     		.align	2
+  99              	.L3:
+ 100 005c 00140040 		.word	1073746944
+ 101              		.cfi_endproc
+ 102              	.LFE116:
+ 104              		.section	.text.delay_ms,"ax",%progbits
+ 105              		.align	1
+ 106              		.global	delay_ms
+ 107              		.syntax unified
+ 108              		.thumb
+ 109              		.thumb_func
+ 111              	delay_ms:
+ 112              	.LVL6:
+ 113              	.LFB117:
+  36:Core/Source/tim.c **** 
+  37:Core/Source/tim.c **** 
+  38:Core/Source/tim.c **** //-------------------------------------------------------------------------------------//
+  39:Core/Source/tim.c **** void delay_ms (uint16_t delay)
+  40:Core/Source/tim.c **** {
+ 114              		.loc 1 40 1 is_stmt 1 view -0
+ 115              		.cfi_startproc
+ 116              		@ args = 0, pretend = 0, frame = 0
+ 117              		@ frame_needed = 0, uses_anonymous_args = 0
+ 118              		.loc 1 40 1 is_stmt 0 view .LVU22
+ 119 0000 70B5     		push	{r4, r5, r6, lr}
+ 120              	.LCFI3:
+ 121              		.cfi_def_cfa_offset 16
+ 122              		.cfi_offset 4, -16
+ 123              		.cfi_offset 5, -12
+ 124              		.cfi_offset 6, -8
+ 125              		.cfi_offset 14, -4
+ 126 0002 0446     		mov	r4, r0
+  41:Core/Source/tim.c ****     flag_end_delay = 1;
+ 127              		.loc 1 41 5 is_stmt 1 view .LVU23
+ 128              		.loc 1 41 20 is_stmt 0 view .LVU24
+ 129 0004 0126     		movs	r6, #1
+ 130 0006 0A4B     		ldr	r3, .L7
+ 131 0008 1E70     		strb	r6, [r3]
+  42:Core/Source/tim.c ****     timer_counter_value_config(TIM_MS_DELAY, 0);
+ 132              		.loc 1 42 5 is_stmt 1 view .LVU25
+ARM GAS  /tmp/ccSDgGth.s 			page 4
 
 
- 135              		.loc 1 40 5 is_stmt 1 view .LVU26
- 136 0014 2946     		mov	r1, r5
- 137 0016 2046     		mov	r0, r4
- 138 0018 FFF7FEFF 		bl	timer_autoreload_value_config
+ 133 000a 0A4D     		ldr	r5, .L7+4
+ 134 000c 0021     		movs	r1, #0
+ 135 000e 2846     		mov	r0, r5
+ 136              	.LVL7:
+ 137              		.loc 1 42 5 is_stmt 0 view .LVU26
+ 138 0010 FFF7FEFF 		bl	timer_counter_value_config
  139              	.LVL8:
-  41:Core/Source/tim.c ****     timer_interrupt_flag_clear(TIM_MS_DELAY, TIMER_INT_FLAG_UP);
- 140              		.loc 1 41 5 view .LVU27
- 141 001c 3146     		mov	r1, r6
- 142 001e 2046     		mov	r0, r4
- 143 0020 FFF7FEFF 		bl	timer_interrupt_flag_clear
- 144              	.LVL9:
-  42:Core/Source/tim.c ****     timer_enable(TIM_MS_DELAY);
- 145              		.loc 1 42 5 view .LVU28
- 146 0024 2046     		mov	r0, r4
- 147 0026 FFF7FEFF 		bl	timer_enable
- 148              	.LVL10:
-  43:Core/Source/tim.c **** 
-  44:Core/Source/tim.c **** }
- 149              		.loc 1 44 1 is_stmt 0 view .LVU29
- 150 002a 70BD     		pop	{r4, r5, r6, pc}
- 151              	.L8:
- 152              		.align	2
- 153              	.L7:
- 154 002c 00000000 		.word	.LANCHOR0
- 155 0030 00100040 		.word	1073745920
- 156              		.cfi_endproc
- 157              	.LFE117:
- 159              		.section	.text.timer_delay_callback,"ax",%progbits
- 160              		.align	1
- 161              		.global	timer_delay_callback
- 162              		.syntax unified
- 163              		.thumb
- 164              		.thumb_func
- 166              	timer_delay_callback:
- 167              	.LFB118:
-  45:Core/Source/tim.c **** 
-  46:Core/Source/tim.c **** //-------------------------------------------------------------------------------------//
-  47:Core/Source/tim.c **** void timer_delay_callback (void)
-  48:Core/Source/tim.c **** {
- 168              		.loc 1 48 1 is_stmt 1 view -0
- 169              		.cfi_startproc
- 170              		@ args = 0, pretend = 0, frame = 0
- 171              		@ frame_needed = 0, uses_anonymous_args = 0
- 172 0000 10B5     		push	{r4, lr}
- 173              	.LCFI4:
- 174              		.cfi_def_cfa_offset 8
- 175              		.cfi_offset 4, -8
- 176              		.cfi_offset 14, -4
-  49:Core/Source/tim.c **** 	if (timer_interrupt_flag_get(TIM_MS_DELAY, TIMER_INT_FLAG_UP) == SET)
- 177              		.loc 1 49 2 view .LVU31
- 178              		.loc 1 49 6 is_stmt 0 view .LVU32
- 179 0002 0121     		movs	r1, #1
- 180 0004 0848     		ldr	r0, .L13
- 181 0006 FFF7FEFF 		bl	timer_interrupt_flag_get
- 182              	.LVL11:
- 183              		.loc 1 49 5 view .LVU33
- 184 000a 0128     		cmp	r0, #1
-ARM GAS  /tmp/ccs6tlHJ.s 			page 5
+  43:Core/Source/tim.c ****     timer_autoreload_value_config(TIM_MS_DELAY, 4*delay);
+ 140              		.loc 1 43 5 is_stmt 1 view .LVU27
+ 141 0014 A100     		lsls	r1, r4, #2
+ 142 0016 89B2     		uxth	r1, r1
+ 143 0018 2846     		mov	r0, r5
+ 144 001a FFF7FEFF 		bl	timer_autoreload_value_config
+ 145              	.LVL9:
+  44:Core/Source/tim.c ****     timer_interrupt_flag_clear(TIM_MS_DELAY, TIMER_INT_FLAG_UP);
+ 146              		.loc 1 44 5 view .LVU28
+ 147 001e 3146     		mov	r1, r6
+ 148 0020 2846     		mov	r0, r5
+ 149 0022 FFF7FEFF 		bl	timer_interrupt_flag_clear
+ 150              	.LVL10:
+  45:Core/Source/tim.c ****     timer_enable(TIM_MS_DELAY);
+ 151              		.loc 1 45 5 view .LVU29
+ 152 0026 2846     		mov	r0, r5
+ 153 0028 FFF7FEFF 		bl	timer_enable
+ 154              	.LVL11:
+  46:Core/Source/tim.c **** 
+  47:Core/Source/tim.c **** }
+ 155              		.loc 1 47 1 is_stmt 0 view .LVU30
+ 156 002c 70BD     		pop	{r4, r5, r6, pc}
+ 157              	.L8:
+ 158 002e 00BF     		.align	2
+ 159              	.L7:
+ 160 0030 00000000 		.word	.LANCHOR0
+ 161 0034 00140040 		.word	1073746944
+ 162              		.cfi_endproc
+ 163              	.LFE117:
+ 165              		.section	.text.timer_delay_callback,"ax",%progbits
+ 166              		.align	1
+ 167              		.global	timer_delay_callback
+ 168              		.syntax unified
+ 169              		.thumb
+ 170              		.thumb_func
+ 172              	timer_delay_callback:
+ 173              	.LFB118:
+  48:Core/Source/tim.c **** 
+  49:Core/Source/tim.c **** //-------------------------------------------------------------------------------------//
+  50:Core/Source/tim.c **** void timer_delay_callback (void)
+  51:Core/Source/tim.c **** {
+ 174              		.loc 1 51 1 is_stmt 1 view -0
+ 175              		.cfi_startproc
+ 176              		@ args = 0, pretend = 0, frame = 0
+ 177              		@ frame_needed = 0, uses_anonymous_args = 0
+ 178 0000 10B5     		push	{r4, lr}
+ 179              	.LCFI4:
+ 180              		.cfi_def_cfa_offset 8
+ 181              		.cfi_offset 4, -8
+ 182              		.cfi_offset 14, -4
+ARM GAS  /tmp/ccSDgGth.s 			page 5
 
 
- 185 000c 00D0     		beq	.L12
- 186              	.L9:
-  50:Core/Source/tim.c **** 	{	
-  51:Core/Source/tim.c **** 		timer_interrupt_flag_clear(TIM_MS_DELAY, TIMER_INT_FLAG_UP); 
-  52:Core/Source/tim.c **** 		timer_disable(TIM_MS_DELAY); 
-  53:Core/Source/tim.c ****         flag_end_delay = 0;
-  54:Core/Source/tim.c **** 	}
-  55:Core/Source/tim.c **** }
- 187              		.loc 1 55 1 view .LVU34
- 188 000e 10BD     		pop	{r4, pc}
- 189              	.L12:
-  51:Core/Source/tim.c **** 		timer_disable(TIM_MS_DELAY); 
- 190              		.loc 1 51 3 is_stmt 1 view .LVU35
- 191 0010 054C     		ldr	r4, .L13
- 192 0012 0121     		movs	r1, #1
- 193 0014 2046     		mov	r0, r4
- 194 0016 FFF7FEFF 		bl	timer_interrupt_flag_clear
- 195              	.LVL12:
-  52:Core/Source/tim.c ****         flag_end_delay = 0;
- 196              		.loc 1 52 3 view .LVU36
- 197 001a 2046     		mov	r0, r4
- 198 001c FFF7FEFF 		bl	timer_disable
- 199              	.LVL13:
-  53:Core/Source/tim.c **** 	}
- 200              		.loc 1 53 9 view .LVU37
-  53:Core/Source/tim.c **** 	}
- 201              		.loc 1 53 24 is_stmt 0 view .LVU38
- 202 0020 024B     		ldr	r3, .L13+4
- 203 0022 0022     		movs	r2, #0
- 204 0024 1A70     		strb	r2, [r3]
- 205              		.loc 1 55 1 view .LVU39
- 206 0026 F2E7     		b	.L9
- 207              	.L14:
- 208              		.align	2
- 209              	.L13:
- 210 0028 00100040 		.word	1073745920
- 211 002c 00000000 		.word	.LANCHOR0
- 212              		.cfi_endproc
- 213              	.LFE118:
- 215              		.section	.text.TIMER5_IRQHandler,"ax",%progbits
- 216              		.align	1
- 217              		.global	TIMER5_IRQHandler
- 218              		.syntax unified
- 219              		.thumb
- 220              		.thumb_func
- 222              	TIMER5_IRQHandler:
- 223              	.LFB119:
-  56:Core/Source/tim.c **** 
-  57:Core/Source/tim.c **** //-------------------------------------------------------------------------------------//
-  58:Core/Source/tim.c **** void TIM_MS_IRQHandler(void)
-  59:Core/Source/tim.c **** {
- 224              		.loc 1 59 1 is_stmt 1 view -0
- 225              		.cfi_startproc
- 226              		@ args = 0, pretend = 0, frame = 0
- 227              		@ frame_needed = 0, uses_anonymous_args = 0
- 228 0000 08B5     		push	{r3, lr}
- 229              	.LCFI5:
-ARM GAS  /tmp/ccs6tlHJ.s 			page 6
+  52:Core/Source/tim.c **** 	if (timer_interrupt_flag_get(TIM_MS_DELAY, TIMER_INT_FLAG_UP) == SET)
+ 183              		.loc 1 52 2 view .LVU32
+ 184              		.loc 1 52 6 is_stmt 0 view .LVU33
+ 185 0002 0121     		movs	r1, #1
+ 186 0004 0848     		ldr	r0, .L13
+ 187 0006 FFF7FEFF 		bl	timer_interrupt_flag_get
+ 188              	.LVL12:
+ 189              		.loc 1 52 5 view .LVU34
+ 190 000a 0128     		cmp	r0, #1
+ 191 000c 00D0     		beq	.L12
+ 192              	.L9:
+  53:Core/Source/tim.c **** 	{	
+  54:Core/Source/tim.c **** 		timer_interrupt_flag_clear(TIM_MS_DELAY, TIMER_INT_FLAG_UP); 
+  55:Core/Source/tim.c **** 		timer_disable(TIM_MS_DELAY); 
+  56:Core/Source/tim.c ****         flag_end_delay = 0;
+  57:Core/Source/tim.c **** 	}
+  58:Core/Source/tim.c **** }
+ 193              		.loc 1 58 1 view .LVU35
+ 194 000e 10BD     		pop	{r4, pc}
+ 195              	.L12:
+  54:Core/Source/tim.c **** 		timer_disable(TIM_MS_DELAY); 
+ 196              		.loc 1 54 3 is_stmt 1 view .LVU36
+ 197 0010 054C     		ldr	r4, .L13
+ 198 0012 0121     		movs	r1, #1
+ 199 0014 2046     		mov	r0, r4
+ 200 0016 FFF7FEFF 		bl	timer_interrupt_flag_clear
+ 201              	.LVL13:
+  55:Core/Source/tim.c ****         flag_end_delay = 0;
+ 202              		.loc 1 55 3 view .LVU37
+ 203 001a 2046     		mov	r0, r4
+ 204 001c FFF7FEFF 		bl	timer_disable
+ 205              	.LVL14:
+  56:Core/Source/tim.c **** 	}
+ 206              		.loc 1 56 9 view .LVU38
+  56:Core/Source/tim.c **** 	}
+ 207              		.loc 1 56 24 is_stmt 0 view .LVU39
+ 208 0020 024B     		ldr	r3, .L13+4
+ 209 0022 0022     		movs	r2, #0
+ 210 0024 1A70     		strb	r2, [r3]
+ 211              		.loc 1 58 1 view .LVU40
+ 212 0026 F2E7     		b	.L9
+ 213              	.L14:
+ 214              		.align	2
+ 215              	.L13:
+ 216 0028 00140040 		.word	1073746944
+ 217 002c 00000000 		.word	.LANCHOR0
+ 218              		.cfi_endproc
+ 219              	.LFE118:
+ 221              		.global	flag_end_delay
+ 222              		.section	.bss.flag_end_delay,"aw",%nobits
+ 223              		.set	.LANCHOR0,. + 0
+ 226              	flag_end_delay:
+ 227 0000 00       		.space	1
+ 228              		.text
+ 229              	.Letext0:
+ 230              		.file 2 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/m
+ 231              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
+ARM GAS  /tmp/ccSDgGth.s 			page 6
 
 
- 230              		.cfi_def_cfa_offset 8
- 231              		.cfi_offset 3, -8
- 232              		.cfi_offset 14, -4
-  60:Core/Source/tim.c ****     timer_delay_callback ();
- 233              		.loc 1 60 5 view .LVU41
- 234 0002 FFF7FEFF 		bl	timer_delay_callback
- 235              	.LVL14:
-  61:Core/Source/tim.c **** }...
- 236              		.loc 1 61 1 is_stmt 0 view .LVU42
- 237 0006 08BD     		pop	{r3, pc}
- 238              		.cfi_endproc
- 239              	.LFE119:
- 241              		.global	flag_end_delay
- 242              		.section	.bss.flag_end_delay,"aw",%nobits
- 243              		.set	.LANCHOR0,. + 0
- 246              	flag_end_delay:
- 247 0000 00       		.space	1
- 248              		.text
- 249              	.Letext0:
- 250              		.file 2 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/m
- 251              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
- 252              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
- 253              		.file 5 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_rcu.h"
- 254              		.file 6 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_timer.h"
- 255              		.file 7 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_dbg.h"
- 256              		.file 8 "Core/Include/tim.h"
-ARM GAS  /tmp/ccs6tlHJ.s 			page 7
+ 232              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
+ 233              		.file 5 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_rcu.h"
+ 234              		.file 6 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_dbg.h"
+ 235              		.file 7 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_timer.h"
+ 236              		.file 8 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_misc.h"
+ 237              		.file 9 "Core/Include/tim.h"
+ARM GAS  /tmp/ccSDgGth.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 tim.c
-     /tmp/ccs6tlHJ.s:18     .text.timer_delay_init:0000000000000000 $t
-     /tmp/ccs6tlHJ.s:24     .text.timer_delay_init:0000000000000000 timer_delay_init
-     /tmp/ccs6tlHJ.s:95     .text.timer_delay_init:0000000000000054 $d
-     /tmp/ccs6tlHJ.s:100    .text.delay_ms:0000000000000000 $t
-     /tmp/ccs6tlHJ.s:106    .text.delay_ms:0000000000000000 delay_ms
-     /tmp/ccs6tlHJ.s:154    .text.delay_ms:000000000000002c $d
-     /tmp/ccs6tlHJ.s:160    .text.timer_delay_callback:0000000000000000 $t
-     /tmp/ccs6tlHJ.s:166    .text.timer_delay_callback:0000000000000000 timer_delay_callback
-     /tmp/ccs6tlHJ.s:210    .text.timer_delay_callback:0000000000000028 $d
-     /tmp/ccs6tlHJ.s:216    .text.TIMER5_IRQHandler:0000000000000000 $t
-     /tmp/ccs6tlHJ.s:222    .text.TIMER5_IRQHandler:0000000000000000 TIMER5_IRQHandler
-     /tmp/ccs6tlHJ.s:246    .bss.flag_end_delay:0000000000000000 flag_end_delay
-     /tmp/ccs6tlHJ.s:247    .bss.flag_end_delay:0000000000000000 $d
+     /tmp/ccSDgGth.s:18     .text.timer_delay_init:0000000000000000 $t
+     /tmp/ccSDgGth.s:24     .text.timer_delay_init:0000000000000000 timer_delay_init
+     /tmp/ccSDgGth.s:100    .text.timer_delay_init:000000000000005c $d
+     /tmp/ccSDgGth.s:105    .text.delay_ms:0000000000000000 $t
+     /tmp/ccSDgGth.s:111    .text.delay_ms:0000000000000000 delay_ms
+     /tmp/ccSDgGth.s:160    .text.delay_ms:0000000000000030 $d
+     /tmp/ccSDgGth.s:166    .text.timer_delay_callback:0000000000000000 $t
+     /tmp/ccSDgGth.s:172    .text.timer_delay_callback:0000000000000000 timer_delay_callback
+     /tmp/ccSDgGth.s:216    .text.timer_delay_callback:0000000000000028 $d
+     /tmp/ccSDgGth.s:226    .bss.flag_end_delay:0000000000000000 flag_end_delay
+     /tmp/ccSDgGth.s:227    .bss.flag_end_delay:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 rcu_periph_clock_enable
@@ -352,6 +330,7 @@ timer_deinit
 timer_init
 timer_interrupt_enable
 timer_interrupt_flag_clear
+nvic_irq_enable
 timer_counter_value_config
 timer_autoreload_value_config
 timer_enable

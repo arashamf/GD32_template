@@ -15,6 +15,9 @@
         "span": "c",
         "gd32f30x_libopt.h": "c",
         "encoder.h": "c",
-        "gd32f30x_it.h": "c"
+        "gd32f30x_it.h": "c",
+        "gd32f30x_misc.h": "c",
+        "tim.h": "c",
+        "oled.h": "c"
     }
 }

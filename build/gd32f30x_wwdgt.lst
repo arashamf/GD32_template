@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc0dy6WX.s 			page 1
+ARM GAS  /tmp/cc1SHlLY.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc0dy6WX.s 			page 1
   30:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
   31:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
   32:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-ARM GAS  /tmp/cc0dy6WX.s 			page 2
+ARM GAS  /tmp/cc1SHlLY.s 			page 2
 
 
   33:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc0dy6WX.s 			page 1
   58:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \brief      start the window watchdog timer counter
   59:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[in]  none
   60:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[out] none
-ARM GAS  /tmp/cc0dy6WX.s 			page 3
+ARM GAS  /tmp/cc1SHlLY.s 			page 3
 
 
   61:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \retval     none
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc0dy6WX.s 			page 1
   96 0000 054A     		ldr	r2, .L7
   97 0002 D2F8003C 		ldr	r3, [r2, #3072]
   98              		.loc 1 78 9 view .LVU12
-ARM GAS  /tmp/cc0dy6WX.s 			page 4
+ARM GAS  /tmp/cc1SHlLY.s 			page 4
 
 
   99 0006 23F07F03 		bic	r3, r3, #127
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc0dy6WX.s 			page 1
  135              		.loc 1 98 1 is_stmt 0 view .LVU20
  136 0000 30B4     		push	{r4, r5}
  137              	.LCFI1:
-ARM GAS  /tmp/cc0dy6WX.s 			page 5
+ARM GAS  /tmp/cc1SHlLY.s 			page 5
 
 
  138              		.cfi_def_cfa_offset 8
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc0dy6WX.s 			page 1
  179              		.loc 1 111 15 is_stmt 0 view .LVU39
  180 002c C4F8041C 		str	r1, [r4, #3076]
  112:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c **** }
-ARM GAS  /tmp/cc0dy6WX.s 			page 6
+ARM GAS  /tmp/cc1SHlLY.s 			page 6
 
 
  181              		.loc 1 112 1 view .LVU40
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc0dy6WX.s 			page 1
  227              		.syntax unified
  228              		.thumb
  229              		.thumb_func
-ARM GAS  /tmp/cc0dy6WX.s 			page 7
+ARM GAS  /tmp/cc1SHlLY.s 			page 7
 
 
  231              	wwdgt_flag_get:
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc0dy6WX.s 			page 1
  141:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \brief      clear early wakeup interrupt state of WWDGT
  142:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[in]  none
  143:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \param[out] none
-ARM GAS  /tmp/cc0dy6WX.s 			page 8
+ARM GAS  /tmp/cc1SHlLY.s 			page 8
 
 
  144:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_wwdgt.c ****     \retval     none
@@ -452,31 +452,31 @@ ARM GAS  /tmp/cc0dy6WX.s 			page 1
  292              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
  293              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
  294              		.file 5 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_rcu.h"
-ARM GAS  /tmp/cc0dy6WX.s 			page 9
+ARM GAS  /tmp/cc1SHlLY.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gd32f30x_wwdgt.c
-     /tmp/cc0dy6WX.s:18     .text.wwdgt_deinit:0000000000000000 $t
-     /tmp/cc0dy6WX.s:24     .text.wwdgt_deinit:0000000000000000 wwdgt_deinit
-     /tmp/cc0dy6WX.s:50     .text.wwdgt_enable:0000000000000000 $t
-     /tmp/cc0dy6WX.s:56     .text.wwdgt_enable:0000000000000000 wwdgt_enable
-     /tmp/cc0dy6WX.s:74     .text.wwdgt_enable:0000000000000010 $d
-     /tmp/cc0dy6WX.s:79     .text.wwdgt_counter_update:0000000000000000 $t
-     /tmp/cc0dy6WX.s:85     .text.wwdgt_counter_update:0000000000000000 wwdgt_counter_update
-     /tmp/cc0dy6WX.s:116    .text.wwdgt_counter_update:0000000000000018 $d
-     /tmp/cc0dy6WX.s:121    .text.wwdgt_config:0000000000000000 $t
-     /tmp/cc0dy6WX.s:127    .text.wwdgt_config:0000000000000000 wwdgt_config
-     /tmp/cc0dy6WX.s:191    .text.wwdgt_config:0000000000000034 $d
-     /tmp/cc0dy6WX.s:196    .text.wwdgt_interrupt_enable:0000000000000000 $t
-     /tmp/cc0dy6WX.s:202    .text.wwdgt_interrupt_enable:0000000000000000 wwdgt_interrupt_enable
-     /tmp/cc0dy6WX.s:220    .text.wwdgt_interrupt_enable:0000000000000010 $d
-     /tmp/cc0dy6WX.s:225    .text.wwdgt_flag_get:0000000000000000 $t
-     /tmp/cc0dy6WX.s:231    .text.wwdgt_flag_get:0000000000000000 wwdgt_flag_get
-     /tmp/cc0dy6WX.s:256    .text.wwdgt_flag_get:0000000000000014 $d
-     /tmp/cc0dy6WX.s:261    .text.wwdgt_flag_clear:0000000000000000 $t
-     /tmp/cc0dy6WX.s:267    .text.wwdgt_flag_clear:0000000000000000 wwdgt_flag_clear
-     /tmp/cc0dy6WX.s:285    .text.wwdgt_flag_clear:0000000000000010 $d
+     /tmp/cc1SHlLY.s:18     .text.wwdgt_deinit:0000000000000000 $t
+     /tmp/cc1SHlLY.s:24     .text.wwdgt_deinit:0000000000000000 wwdgt_deinit
+     /tmp/cc1SHlLY.s:50     .text.wwdgt_enable:0000000000000000 $t
+     /tmp/cc1SHlLY.s:56     .text.wwdgt_enable:0000000000000000 wwdgt_enable
+     /tmp/cc1SHlLY.s:74     .text.wwdgt_enable:0000000000000010 $d
+     /tmp/cc1SHlLY.s:79     .text.wwdgt_counter_update:0000000000000000 $t
+     /tmp/cc1SHlLY.s:85     .text.wwdgt_counter_update:0000000000000000 wwdgt_counter_update
+     /tmp/cc1SHlLY.s:116    .text.wwdgt_counter_update:0000000000000018 $d
+     /tmp/cc1SHlLY.s:121    .text.wwdgt_config:0000000000000000 $t
+     /tmp/cc1SHlLY.s:127    .text.wwdgt_config:0000000000000000 wwdgt_config
+     /tmp/cc1SHlLY.s:191    .text.wwdgt_config:0000000000000034 $d
+     /tmp/cc1SHlLY.s:196    .text.wwdgt_interrupt_enable:0000000000000000 $t
+     /tmp/cc1SHlLY.s:202    .text.wwdgt_interrupt_enable:0000000000000000 wwdgt_interrupt_enable
+     /tmp/cc1SHlLY.s:220    .text.wwdgt_interrupt_enable:0000000000000010 $d
+     /tmp/cc1SHlLY.s:225    .text.wwdgt_flag_get:0000000000000000 $t
+     /tmp/cc1SHlLY.s:231    .text.wwdgt_flag_get:0000000000000000 wwdgt_flag_get
+     /tmp/cc1SHlLY.s:256    .text.wwdgt_flag_get:0000000000000014 $d
+     /tmp/cc1SHlLY.s:261    .text.wwdgt_flag_clear:0000000000000000 $t
+     /tmp/cc1SHlLY.s:267    .text.wwdgt_flag_clear:0000000000000000 wwdgt_flag_clear
+     /tmp/cc1SHlLY.s:285    .text.wwdgt_flag_clear:0000000000000010 $d
 
 UNDEFINED SYMBOLS
 rcu_periph_reset_enable

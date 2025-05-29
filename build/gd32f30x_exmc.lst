@@ -1,4 +1,4 @@
-ARM GAS  /tmp/cc9sKKyL.s 			page 1
+ARM GAS  /tmp/ccGull1i.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
   29:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
   30:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
   31:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-ARM GAS  /tmp/cc9sKKyL.s 			page 2
+ARM GAS  /tmp/ccGull1i.s 			page 2
 
 
   32:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
   86:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** 
   87:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** #define PIOTCFG_IOWAIT_OFFSET             ((uint32_t)8U)
   88:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** #define PIOTCFG_IOHLD_OFFSET              ((uint32_t)16U)
-ARM GAS  /tmp/cc9sKKyL.s 			page 3
+ARM GAS  /tmp/ccGull1i.s 			page 3
 
 
   89:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** #define PIOTCFG_IOHIZ_OFFSET              ((uint32_t)24U)
@@ -178,7 +178,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
   58 0026 D200     		lsls	r2, r2, #3
  107:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     }
   59              		.loc 1 107 41 is_stmt 0 view .LVU11
-ARM GAS  /tmp/cc9sKKyL.s 			page 4
+ARM GAS  /tmp/ccGull1i.s 			page 4
 
 
   60 0028 43F2D201 		movw	r1, #12498
@@ -238,7 +238,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  101              		.loc 1 126 5 is_stmt 1 view .LVU22
  102              		.loc 1 126 42 is_stmt 0 view .LVU23
  103 000e 4362     		str	r3, [r0, #36]
-ARM GAS  /tmp/cc9sKKyL.s 			page 5
+ARM GAS  /tmp/ccGull1i.s 			page 5
 
 
  127:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     exmc_norsram_init_struct->nwait_polarity = EXMC_NWAIT_POLARITY_LOW;
@@ -298,7 +298,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  140:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     exmc_norsram_init_struct->read_write_timing->bus_latency = 0xFU;
  145              		.loc 1 140 5 is_stmt 1 view .LVU49
  146              		.loc 1 140 29 is_stmt 0 view .LVU50
-ARM GAS  /tmp/cc9sKKyL.s 			page 6
+ARM GAS  /tmp/ccGull1i.s 			page 6
 
 
  147 0030 446B     		ldr	r4, [r0, #52]
@@ -358,7 +358,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  190              		.cfi_restore 5
  191              		.cfi_restore 4
  192              		.cfi_def_cfa_offset 0
-ARM GAS  /tmp/cc9sKKyL.s 			page 7
+ARM GAS  /tmp/ccGull1i.s 			page 7
 
 
  193 005e 7047     		bx	lr
@@ -418,7 +418,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  179:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     snctl = EXMC_SNCTL(exmc_norsram_init_struct->norsram_region);
  222              		.loc 1 179 5 view .LVU75
  223              		.loc 1 179 13 is_stmt 0 view .LVU76
-ARM GAS  /tmp/cc9sKKyL.s 			page 8
+ARM GAS  /tmp/ccGull1i.s 			page 8
 
 
  224 0002 0168     		ldr	r1, [r0]
@@ -478,7 +478,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  259 002c 8269     		ldr	r2, [r0, #24]
  192:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                        (exmc_norsram_init_struct->wrap_burst_mode << SNCTL_WRAPEN_OFFSET) |
  260              		.loc 1 192 91 view .LVU93
-ARM GAS  /tmp/cc9sKKyL.s 			page 9
+ARM GAS  /tmp/ccGull1i.s 			page 9
 
 
  261 002e 1343     		orrs	r3, r3, r2
@@ -538,7 +538,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  200:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                        (((exmc_norsram_init_struct->read_write_timing->asyn_address_holdtime - 1U )
  301              		.loc 1 200 121 view .LVU113
  302 0066 42EA0C02 		orr	r2, r2, ip
-ARM GAS  /tmp/cc9sKKyL.s 			page 10
+ARM GAS  /tmp/ccGull1i.s 			page 10
 
 
  202:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                        (((exmc_norsram_init_struct->read_write_timing->asyn_data_setuptime - 1U ) <
@@ -598,7 +598,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  215:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****         snwtcfg = (uint32_t)((exmc_norsram_init_struct->write_timing->asyn_address_setuptime - 1U) 
  216:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                            (((exmc_norsram_init_struct->write_timing->asyn_address_holdtime -1U ) <
  217:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                            (((exmc_norsram_init_struct->write_timing->asyn_data_setuptime -1U ) << 
-ARM GAS  /tmp/cc9sKKyL.s 			page 11
+ARM GAS  /tmp/ccGull1i.s 			page 11
 
 
  218:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                            (((exmc_norsram_init_struct->write_timing->bus_latency - 1U ) << SNWTCFG
@@ -658,7 +658,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  382              	.LVL13:
  210:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     }
  383              		.loc 1 210 15 view .LVU142
-ARM GAS  /tmp/cc9sKKyL.s 			page 12
+ARM GAS  /tmp/ccGull1i.s 			page 12
 
 
  384 00c6 EAE7     		b	.L7
@@ -718,7 +718,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  420 00ea 2D04     		lsls	r5, r5, #16
  218:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                             exmc_norsram_init_struct->write_timing->asyn_access_mode;
  421              		.loc 1 218 118 view .LVU161
-ARM GAS  /tmp/cc9sKKyL.s 			page 13
+ARM GAS  /tmp/ccGull1i.s 			page 13
 
 
  422 00ec 05F47025 		and	r5, r5, #983040
@@ -778,7 +778,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  462 0006 0368     		ldr	r3, [r0]
  463 0008 43F00103 		orr	r3, r3, #1
  464 000c 0360     		str	r3, [r0]
-ARM GAS  /tmp/cc9sKKyL.s 			page 14
+ARM GAS  /tmp/ccGull1i.s 			page 14
 
 
  241:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** }
@@ -838,7 +838,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  509              	.LVL21:
  510              	.LFB121:
  255:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** 
-ARM GAS  /tmp/cc9sKKyL.s 			page 15
+ARM GAS  /tmp/ccGull1i.s 			page 15
 
 
  256:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** /*!
@@ -898,7 +898,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  551              	.LVL23:
  552              	.LFB122:
  272:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** 
-ARM GAS  /tmp/cc9sKKyL.s 			page 16
+ARM GAS  /tmp/ccGull1i.s 			page 16
 
 
  273:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** /*!
@@ -958,7 +958,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  589 0018 C269     		ldr	r2, [r0, #28]
  590              		.loc 1 290 58 view .LVU209
  591 001a 9360     		str	r3, [r2, #8]
-ARM GAS  /tmp/cc9sKKyL.s 			page 17
+ARM GAS  /tmp/ccGull1i.s 			page 17
 
 
  291:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     exmc_nand_init_struct->common_space_timing->holdtime = 0xFCU;
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  302:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                   nand_bank: EXMC_BANK1_NAND,EXMC_BANK2_NAND
  303:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                   ecc_size: EXMC_ECC_SIZE_xBYTES,x=256,512,1024,2048,4096
  304:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                   atr_latency: EXMC_ALE_RE_DELAY_x_HCLK,x=1..16
-ARM GAS  /tmp/cc9sKKyL.s 			page 18
+ARM GAS  /tmp/ccGull1i.s 			page 18
 
 
  305:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                   ctr_latency: EXMC_CLE_RE_DELAY_x_HCLK,x=1..16
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  324:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                        exmc_nand_init_struct->atr_latency;
  668              		.loc 1 324 45 view .LVU242
  669 0018 8368     		ldr	r3, [r0, #8]
-ARM GAS  /tmp/cc9sKKyL.s 			page 19
+ARM GAS  /tmp/ccGull1i.s 			page 19
 
 
  323:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                        exmc_nand_init_struct->ctr_latency |
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  712              		.loc 1 331 72 view .LVU264
  713 0046 E368     		ldr	r3, [r4, #12]
  714              		.loc 1 331 84 view .LVU265
-ARM GAS  /tmp/cc9sKKyL.s 			page 20
+ARM GAS  /tmp/ccGull1i.s 			page 20
 
 
  715 0048 013B     		subs	r3, r3, #1
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  758 0094 0268     		ldr	r2, [r0]
  759 0096 5201     		lsls	r2, r2, #5
  760 0098 02F12042 		add	r2, r2, #-1610612736
-ARM GAS  /tmp/cc9sKKyL.s 			page 21
+ARM GAS  /tmp/ccGull1i.s 			page 21
 
 
  761              		.loc 1 339 52 is_stmt 0 view .LVU283
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  803              		.cfi_endproc
  804              	.LFE124:
  806              		.section	.text.exmc_nand_disable,"ax",%progbits
-ARM GAS  /tmp/cc9sKKyL.s 			page 22
+ARM GAS  /tmp/ccGull1i.s 			page 22
 
 
  807              		.align	1
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  369:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     \brief      deinitialize EXMC PC card bank
  370:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     \param[in]  none
  371:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     \param[out] none
-ARM GAS  /tmp/cc9sKKyL.s 			page 23
+ARM GAS  /tmp/ccGull1i.s 			page 23
 
 
  372:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     \retval     none
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  389:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** */
  390:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** void exmc_pccard_struct_para_init(exmc_pccard_parameter_struct* exmc_pccard_init_struct)
  391:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** {
-ARM GAS  /tmp/cc9sKKyL.s 			page 24
+ARM GAS  /tmp/ccGull1i.s 			page 24
 
 
  888              		.loc 1 391 1 is_stmt 1 view -0
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  932              		.loc 1 401 63 view .LVU335
  933 0020 9360     		str	r3, [r2, #8]
  402:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     exmc_pccard_init_struct->attribute_space_timing->holdtime = 0xFCU;
-ARM GAS  /tmp/cc9sKKyL.s 			page 25
+ARM GAS  /tmp/ccGull1i.s 			page 25
 
 
  934              		.loc 1 402 5 is_stmt 1 view .LVU336
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  414:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                   ctr_latency: EXMC_CLE_RE_DELAY_x_HCLK,x=1..16
  415:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                   wait_feature: ENABLE or DISABLE
  416:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                   common_space_timing: struct exmc_nand_pccard_timing_parameter_struct set the time
-ARM GAS  /tmp/cc9sKKyL.s 			page 26
+ARM GAS  /tmp/ccGull1i.s 			page 26
 
 
  417:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                   attribute_space_timing: struct exmc_nand_pccard_timing_parameter_struct set the t
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  1014 0022 A168     		ldr	r1, [r4, #8]
  1015              		.loc 1 432 89 view .LVU370
  1016 0024 0139     		subs	r1, r1, #1
-ARM GAS  /tmp/cc9sKKyL.s 			page 27
+ARM GAS  /tmp/ccGull1i.s 			page 27
 
 
  1017              		.loc 1 432 95 view .LVU371
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  1059 0054 6168     		ldr	r1, [r4, #4]
  1060              		.loc 1 439 91 view .LVU393
  1061 0056 0904     		lsls	r1, r1, #16
-ARM GAS  /tmp/cc9sKKyL.s 			page 28
+ARM GAS  /tmp/ccGull1i.s 			page 28
 
 
  1062              		.loc 1 439 117 view .LVU394
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  445:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                               ((exmc_pccard_init_struct->io_space_timing->holdtime << PIOTCFG_IOHLD
  1104              		.loc 1 445 132 view .LVU415
  1105 0088 43EA0163 		orr	r3, r3, r1, lsl #24
-ARM GAS  /tmp/cc9sKKyL.s 			page 29
+ARM GAS  /tmp/ccGull1i.s 			page 29
 
 
  443:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                               (((exmc_pccard_init_struct->io_space_timing->waittime - 1U) << PIOTCF
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  459:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** 
  460:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** /*!
  461:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     \brief      disable PC Card Bank
-ARM GAS  /tmp/cc9sKKyL.s 			page 30
+ARM GAS  /tmp/ccGull1i.s 			page 30
 
 
  462:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     \param[in]  none
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  1181              		@ link register save eliminated.
  488:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     /* reset the bits */
  489:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     EXMC_SNCTL(exmc_norsram_region) &= ~EXMC_SNCTL_CPS;
-ARM GAS  /tmp/cc9sKKyL.s 			page 31
+ARM GAS  /tmp/ccGull1i.s 			page 31
 
 
  1182              		.loc 1 489 5 view .LVU427
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  1221 0002 08D0     		beq	.L33
  507:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****         /* enable the selected NAND bank ECC function */
  508:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****         EXMC_NPCTL(exmc_nand_bank) |= EXMC_NPCTL_ECCEN;
-ARM GAS  /tmp/cc9sKKyL.s 			page 32
+ARM GAS  /tmp/ccGull1i.s 			page 32
 
 
  509:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     }else{
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  514:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** 
  515:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c **** /*!
  516:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     \brief      get the EXMC ECC value
-ARM GAS  /tmp/cc9sKKyL.s 			page 33
+ARM GAS  /tmp/ccGull1i.s 			page 33
 
 
  517:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     \param[in]  exmc_nand_bank: specifie the NAND bank
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  1296              		.cfi_startproc
  1297              		@ args = 0, pretend = 0, frame = 0
  1298              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/cc9sKKyL.s 			page 34
+ARM GAS  /tmp/ccGull1i.s 			page 34
 
 
  1299              		@ link register save eliminated.
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  1332              	.LVL58:
  1333              		.loc 1 567 29 view .LVU461
  1334 0002 00F12040 		add	r0, r0, #-1610612736
-ARM GAS  /tmp/cc9sKKyL.s 			page 35
+ARM GAS  /tmp/ccGull1i.s 			page 35
 
 
  1335 0006 436C     		ldr	r3, [r0, #68]
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  1367              	.LVL61:
  592:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     
  593:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     if ((status & flag) != (uint32_t)flag ){
-ARM GAS  /tmp/cc9sKKyL.s 			page 36
+ARM GAS  /tmp/ccGull1i.s 			page 36
 
 
  1368              		.loc 1 593 5 is_stmt 1 view .LVU469
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  1398              		@ frame_needed = 0, uses_anonymous_args = 0
  1399              		@ link register save eliminated.
  620:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     /* NAND bank1,bank2 or PC card bank3 */
-ARM GAS  /tmp/cc9sKKyL.s 			page 37
+ARM GAS  /tmp/ccGull1i.s 			page 37
 
 
  621:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****     EXMC_NPINTEN(exmc_bank) &= (~flag);
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  1432 0000 4001     		lsls	r0, r0, #5
  1433              	.LVL66:
  1434              		.loc 1 644 14 view .LVU484
-ARM GAS  /tmp/cc9sKKyL.s 			page 38
+ARM GAS  /tmp/ccGull1i.s 			page 38
 
 
  1435 0002 00F12040 		add	r0, r0, #-1610612736
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  661:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****                 only one parameter can be selected which is shown as below:
  662:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****       \arg        EXMC_BANK1_NAND: the NAND bank1
  663:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****       \arg        EXMC_BANK2_NAND: the NAND bank2
-ARM GAS  /tmp/cc9sKKyL.s 			page 39
+ARM GAS  /tmp/ccGull1i.s 			page 39
 
 
  664:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_exmc.c ****       \arg        EXMC_BANK3_PCCARD: the PC card bank
@@ -2319,59 +2319,59 @@ ARM GAS  /tmp/cc9sKKyL.s 			page 1
  1496              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
  1497              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
  1498              		.file 5 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_exmc.h"
-ARM GAS  /tmp/cc9sKKyL.s 			page 40
+ARM GAS  /tmp/ccGull1i.s 			page 40
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gd32f30x_exmc.c
-     /tmp/cc9sKKyL.s:18     .text.exmc_norsram_deinit:0000000000000000 $t
-     /tmp/cc9sKKyL.s:24     .text.exmc_norsram_deinit:0000000000000000 exmc_norsram_deinit
-     /tmp/cc9sKKyL.s:67     .text.exmc_norsram_struct_para_init:0000000000000000 $t
-     /tmp/cc9sKKyL.s:73     .text.exmc_norsram_struct_para_init:0000000000000000 exmc_norsram_struct_para_init
-     /tmp/cc9sKKyL.s:198    .text.exmc_norsram_init:0000000000000000 $t
-     /tmp/cc9sKKyL.s:204    .text.exmc_norsram_init:0000000000000000 exmc_norsram_init
-     /tmp/cc9sKKyL.s:435    .text.exmc_norsram_init:00000000000000f8 $d
-     /tmp/cc9sKKyL.s:440    .text.exmc_norsram_enable:0000000000000000 $t
-     /tmp/cc9sKKyL.s:446    .text.exmc_norsram_enable:0000000000000000 exmc_norsram_enable
-     /tmp/cc9sKKyL.s:471    .text.exmc_norsram_disable:0000000000000000 $t
-     /tmp/cc9sKKyL.s:477    .text.exmc_norsram_disable:0000000000000000 exmc_norsram_disable
-     /tmp/cc9sKKyL.s:502    .text.exmc_nand_deinit:0000000000000000 $t
-     /tmp/cc9sKKyL.s:508    .text.exmc_nand_deinit:0000000000000000 exmc_nand_deinit
-     /tmp/cc9sKKyL.s:544    .text.exmc_nand_struct_para_init:0000000000000000 $t
-     /tmp/cc9sKKyL.s:550    .text.exmc_nand_struct_para_init:0000000000000000 exmc_nand_struct_para_init
-     /tmp/cc9sKKyL.s:628    .text.exmc_nand_init:0000000000000000 $t
-     /tmp/cc9sKKyL.s:634    .text.exmc_nand_init:0000000000000000 exmc_nand_init
-     /tmp/cc9sKKyL.s:773    .text.exmc_nand_enable:0000000000000000 $t
-     /tmp/cc9sKKyL.s:779    .text.exmc_nand_enable:0000000000000000 exmc_nand_enable
-     /tmp/cc9sKKyL.s:807    .text.exmc_nand_disable:0000000000000000 $t
-     /tmp/cc9sKKyL.s:813    .text.exmc_nand_disable:0000000000000000 exmc_nand_disable
-     /tmp/cc9sKKyL.s:841    .text.exmc_pccard_deinit:0000000000000000 $t
-     /tmp/cc9sKKyL.s:847    .text.exmc_pccard_deinit:0000000000000000 exmc_pccard_deinit
-     /tmp/cc9sKKyL.s:879    .text.exmc_pccard_struct_para_init:0000000000000000 $t
-     /tmp/cc9sKKyL.s:885    .text.exmc_pccard_struct_para_init:0000000000000000 exmc_pccard_struct_para_init
-     /tmp/cc9sKKyL.s:970    .text.exmc_pccard_init:0000000000000000 $t
-     /tmp/cc9sKKyL.s:976    .text.exmc_pccard_init:0000000000000000 exmc_pccard_init
-     /tmp/cc9sKKyL.s:1118   .text.exmc_pccard_enable:0000000000000000 $t
-     /tmp/cc9sKKyL.s:1124   .text.exmc_pccard_enable:0000000000000000 exmc_pccard_enable
-     /tmp/cc9sKKyL.s:1143   .text.exmc_pccard_disable:0000000000000000 $t
-     /tmp/cc9sKKyL.s:1149   .text.exmc_pccard_disable:0000000000000000 exmc_pccard_disable
-     /tmp/cc9sKKyL.s:1168   .text.exmc_norsram_page_size_config:0000000000000000 $t
-     /tmp/cc9sKKyL.s:1174   .text.exmc_norsram_page_size_config:0000000000000000 exmc_norsram_page_size_config
-     /tmp/cc9sKKyL.s:1204   .text.exmc_nand_ecc_config:0000000000000000 $t
-     /tmp/cc9sKKyL.s:1210   .text.exmc_nand_ecc_config:0000000000000000 exmc_nand_ecc_config
-     /tmp/cc9sKKyL.s:1259   .text.exmc_ecc_get:0000000000000000 $t
-     /tmp/cc9sKKyL.s:1265   .text.exmc_ecc_get:0000000000000000 exmc_ecc_get
-     /tmp/cc9sKKyL.s:1286   .text.exmc_interrupt_enable:0000000000000000 $t
-     /tmp/cc9sKKyL.s:1292   .text.exmc_interrupt_enable:0000000000000000 exmc_interrupt_enable
-     /tmp/cc9sKKyL.s:1315   .text.exmc_interrupt_disable:0000000000000000 $t
-     /tmp/cc9sKKyL.s:1321   .text.exmc_interrupt_disable:0000000000000000 exmc_interrupt_disable
-     /tmp/cc9sKKyL.s:1344   .text.exmc_flag_get:0000000000000000 $t
-     /tmp/cc9sKKyL.s:1350   .text.exmc_flag_get:0000000000000000 exmc_flag_get
-     /tmp/cc9sKKyL.s:1386   .text.exmc_flag_clear:0000000000000000 $t
-     /tmp/cc9sKKyL.s:1392   .text.exmc_flag_clear:0000000000000000 exmc_flag_clear
-     /tmp/cc9sKKyL.s:1415   .text.exmc_interrupt_flag_get:0000000000000000 $t
-     /tmp/cc9sKKyL.s:1421   .text.exmc_interrupt_flag_get:0000000000000000 exmc_interrupt_flag_get
-     /tmp/cc9sKKyL.s:1465   .text.exmc_interrupt_flag_clear:0000000000000000 $t
-     /tmp/cc9sKKyL.s:1471   .text.exmc_interrupt_flag_clear:0000000000000000 exmc_interrupt_flag_clear
+     /tmp/ccGull1i.s:18     .text.exmc_norsram_deinit:0000000000000000 $t
+     /tmp/ccGull1i.s:24     .text.exmc_norsram_deinit:0000000000000000 exmc_norsram_deinit
+     /tmp/ccGull1i.s:67     .text.exmc_norsram_struct_para_init:0000000000000000 $t
+     /tmp/ccGull1i.s:73     .text.exmc_norsram_struct_para_init:0000000000000000 exmc_norsram_struct_para_init
+     /tmp/ccGull1i.s:198    .text.exmc_norsram_init:0000000000000000 $t
+     /tmp/ccGull1i.s:204    .text.exmc_norsram_init:0000000000000000 exmc_norsram_init
+     /tmp/ccGull1i.s:435    .text.exmc_norsram_init:00000000000000f8 $d
+     /tmp/ccGull1i.s:440    .text.exmc_norsram_enable:0000000000000000 $t
+     /tmp/ccGull1i.s:446    .text.exmc_norsram_enable:0000000000000000 exmc_norsram_enable
+     /tmp/ccGull1i.s:471    .text.exmc_norsram_disable:0000000000000000 $t
+     /tmp/ccGull1i.s:477    .text.exmc_norsram_disable:0000000000000000 exmc_norsram_disable
+     /tmp/ccGull1i.s:502    .text.exmc_nand_deinit:0000000000000000 $t
+     /tmp/ccGull1i.s:508    .text.exmc_nand_deinit:0000000000000000 exmc_nand_deinit
+     /tmp/ccGull1i.s:544    .text.exmc_nand_struct_para_init:0000000000000000 $t
+     /tmp/ccGull1i.s:550    .text.exmc_nand_struct_para_init:0000000000000000 exmc_nand_struct_para_init
+     /tmp/ccGull1i.s:628    .text.exmc_nand_init:0000000000000000 $t
+     /tmp/ccGull1i.s:634    .text.exmc_nand_init:0000000000000000 exmc_nand_init
+     /tmp/ccGull1i.s:773    .text.exmc_nand_enable:0000000000000000 $t
+     /tmp/ccGull1i.s:779    .text.exmc_nand_enable:0000000000000000 exmc_nand_enable
+     /tmp/ccGull1i.s:807    .text.exmc_nand_disable:0000000000000000 $t
+     /tmp/ccGull1i.s:813    .text.exmc_nand_disable:0000000000000000 exmc_nand_disable
+     /tmp/ccGull1i.s:841    .text.exmc_pccard_deinit:0000000000000000 $t
+     /tmp/ccGull1i.s:847    .text.exmc_pccard_deinit:0000000000000000 exmc_pccard_deinit
+     /tmp/ccGull1i.s:879    .text.exmc_pccard_struct_para_init:0000000000000000 $t
+     /tmp/ccGull1i.s:885    .text.exmc_pccard_struct_para_init:0000000000000000 exmc_pccard_struct_para_init
+     /tmp/ccGull1i.s:970    .text.exmc_pccard_init:0000000000000000 $t
+     /tmp/ccGull1i.s:976    .text.exmc_pccard_init:0000000000000000 exmc_pccard_init
+     /tmp/ccGull1i.s:1118   .text.exmc_pccard_enable:0000000000000000 $t
+     /tmp/ccGull1i.s:1124   .text.exmc_pccard_enable:0000000000000000 exmc_pccard_enable
+     /tmp/ccGull1i.s:1143   .text.exmc_pccard_disable:0000000000000000 $t
+     /tmp/ccGull1i.s:1149   .text.exmc_pccard_disable:0000000000000000 exmc_pccard_disable
+     /tmp/ccGull1i.s:1168   .text.exmc_norsram_page_size_config:0000000000000000 $t
+     /tmp/ccGull1i.s:1174   .text.exmc_norsram_page_size_config:0000000000000000 exmc_norsram_page_size_config
+     /tmp/ccGull1i.s:1204   .text.exmc_nand_ecc_config:0000000000000000 $t
+     /tmp/ccGull1i.s:1210   .text.exmc_nand_ecc_config:0000000000000000 exmc_nand_ecc_config
+     /tmp/ccGull1i.s:1259   .text.exmc_ecc_get:0000000000000000 $t
+     /tmp/ccGull1i.s:1265   .text.exmc_ecc_get:0000000000000000 exmc_ecc_get
+     /tmp/ccGull1i.s:1286   .text.exmc_interrupt_enable:0000000000000000 $t
+     /tmp/ccGull1i.s:1292   .text.exmc_interrupt_enable:0000000000000000 exmc_interrupt_enable
+     /tmp/ccGull1i.s:1315   .text.exmc_interrupt_disable:0000000000000000 $t
+     /tmp/ccGull1i.s:1321   .text.exmc_interrupt_disable:0000000000000000 exmc_interrupt_disable
+     /tmp/ccGull1i.s:1344   .text.exmc_flag_get:0000000000000000 $t
+     /tmp/ccGull1i.s:1350   .text.exmc_flag_get:0000000000000000 exmc_flag_get
+     /tmp/ccGull1i.s:1386   .text.exmc_flag_clear:0000000000000000 $t
+     /tmp/ccGull1i.s:1392   .text.exmc_flag_clear:0000000000000000 exmc_flag_clear
+     /tmp/ccGull1i.s:1415   .text.exmc_interrupt_flag_get:0000000000000000 $t
+     /tmp/ccGull1i.s:1421   .text.exmc_interrupt_flag_get:0000000000000000 exmc_interrupt_flag_get
+     /tmp/ccGull1i.s:1465   .text.exmc_interrupt_flag_clear:0000000000000000 $t
+     /tmp/ccGull1i.s:1471   .text.exmc_interrupt_flag_clear:0000000000000000 exmc_interrupt_flag_clear
 
 NO UNDEFINED SYMBOLS

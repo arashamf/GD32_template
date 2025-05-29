@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccvkHKs4.s 			page 1
+ARM GAS  /tmp/ccMIQZlz.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -30,19 +30,19 @@ ARM GAS  /tmp/ccvkHKs4.s 			page 1
    2:Core/Source/encoder.c **** #include "encoder.h"
    3:Core/Source/encoder.c **** #include "typedef.h"
    4:Core/Source/encoder.c **** #include "gpio.h"
-   5:Core/Source/encoder.c **** #include "OLED.h"
-   6:Core/Source/encoder.c **** #include "tim.h"
-   7:Core/Source/encoder.c **** #include <stdio.h>
-   8:Core/Source/encoder.c **** 
-   9:Core/Source/encoder.c **** //-------------------------------------------------------------------------------------//
-  10:Core/Source/encoder.c **** #define MAX_CNT_TIMEOUT   15
-  11:Core/Source/encoder.c **** 
-  12:Core/Source/encoder.c **** //-------------------------------------------------------------------------------------//
-  13:Core/Source/encoder.c **** uint8_t val_old = 0, val_new = 0; //значения битов энкодера
-  14:Core/Source/encoder.c **** uint8_t flag_dir = 0, flag_rev = 0; //флаг направления поворота
-  15:Core/Source/encoder.c **** uint8_t state_machine = SM_WAIT; //стадия конечного автомата
-  16:Core/Source/encoder.c **** //uint8_t flag_end_delay = 0; //флаг окончания таймаута
-  17:Core/Source/encoder.c **** uint32_t ms_delay = 10; //продолжительность таймаута
+   5:Core/Source/encoder.c **** #include "spi.h"
+   6:Core/Source/encoder.c **** #include "OLED.h"
+   7:Core/Source/encoder.c **** #include "tim.h"
+   8:Core/Source/encoder.c **** #include <stdio.h>
+   9:Core/Source/encoder.c **** 
+  10:Core/Source/encoder.c **** //-------------------------------------------------------------------------------------//
+  11:Core/Source/encoder.c **** #define MAX_CNT_TIMEOUT   15
+  12:Core/Source/encoder.c **** 
+  13:Core/Source/encoder.c **** //-------------------------------------------------------------------------------------//
+  14:Core/Source/encoder.c **** uint8_t val_old = 0, val_new = 0; //значения битов энкодера
+  15:Core/Source/encoder.c **** uint8_t flag_dir = 0, flag_rev = 0; //флаг направления поворота
+  16:Core/Source/encoder.c **** uint8_t state_machine = SM_WAIT; //стадия конечного автомата
+  17:Core/Source/encoder.c **** uint32_t ms_delay = 5; //продолжительность таймаута
   18:Core/Source/encoder.c **** uint8_t cnt_timeout = 0; //количество таймаутов ожидания изменен�
   19:Core/Source/encoder.c **** int32_t enc_count = 0; //счётчик щелчков энкодера
   20:Core/Source/encoder.c **** 
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccvkHKs4.s 			page 1
   33              		.cfi_def_cfa_offset 4
   34              		.cfi_offset 14, -4
   35 0002 83B0     		sub	sp, sp, #12
-ARM GAS  /tmp/ccvkHKs4.s 			page 2
+ARM GAS  /tmp/ccMIQZlz.s 			page 2
 
 
   36              	.LCFI1:
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccvkHKs4.s 			page 1
   80 0044 9DF80700 		ldrb	r0, [sp, #7]	@ zero_extendqisi2
   34:Core/Source/encoder.c **** }
   81              		.loc 1 34 1 view .LVU19
-ARM GAS  /tmp/ccvkHKs4.s 			page 3
+ARM GAS  /tmp/ccMIQZlz.s 			page 3
 
 
   82 0048 03B0     		add	sp, sp, #12
@@ -172,23 +172,20 @@ ARM GAS  /tmp/ccvkHKs4.s 			page 1
  120 0002 85B0     		sub	sp, sp, #20
  121              	.LCFI4:
  122              		.cfi_def_cfa_offset 32
-  39:Core/Source/encoder.c ****   //for (uint32_t count = 0; count < 500000; count++)
-  40:Core/Source/encoder.c ****   { 
-  41:Core/Source/encoder.c ****     {
-  42:Core/Source/encoder.c ****       val_new = read_gray_code_from_encoder(); //чтение данных энкодера
- 123              		.loc 1 42 7 view .LVU21
- 124              		.loc 1 42 17 is_stmt 0 view .LVU22
-ARM GAS  /tmp/ccvkHKs4.s 			page 4
-
-
+  39:Core/Source/encoder.c ****   val_new = read_gray_code_from_encoder(); //чтение данных энкодера
+ 123              		.loc 1 39 3 view .LVU21
+ 124              		.loc 1 39 13 is_stmt 0 view .LVU22
  125 0004 FFF7FEFF 		bl	read_gray_code_from_encoder
  126              	.LVL2:
- 127              		.loc 1 42 15 view .LVU23
+ 127              		.loc 1 39 11 view .LVU23
+ARM GAS  /tmp/ccMIQZlz.s 			page 4
+
+
  128 0008 954B     		ldr	r3, .L44
  129 000a 1870     		strb	r0, [r3]
-  43:Core/Source/encoder.c **** 
-  44:Core/Source/encoder.c ****       switch (state_machine) //проверка номера стадии конечного авт
- 130              		.loc 1 44 7 is_stmt 1 view .LVU24
+  40:Core/Source/encoder.c **** 
+  41:Core/Source/encoder.c ****   switch (state_machine) //проверка номера стадии конечного автом
+ 130              		.loc 1 41 3 is_stmt 1 view .LVU24
  131 000c 954B     		ldr	r3, .L44+4
  132 000e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  133 0010 042B     		cmp	r3, #4
@@ -202,658 +199,625 @@ ARM GAS  /tmp/ccvkHKs4.s 			page 1
  141 0022 3B01     		.2byte	(.L9-.L10)/2
  142              		.p2align 1
  143              	.L14:
-  45:Core/Source/encoder.c ****       {
-  46:Core/Source/encoder.c ****         case SM_WAIT: //стадия ожидания поворота энкодера
-  47:Core/Source/encoder.c ****         if (flag_end_delay == 0) //если таймаут истёк
- 144              		.loc 1 47 9 view .LVU25
- 145              		.loc 1 47 28 is_stmt 0 view .LVU26
+  42:Core/Source/encoder.c ****   {
+  43:Core/Source/encoder.c ****     case SM_WAIT: //стадия ожидания поворота энкодера
+  44:Core/Source/encoder.c ****     if (flag_end_delay == OFF) //если таймаут истёк
+ 144              		.loc 1 44 5 view .LVU25
+ 145              		.loc 1 44 24 is_stmt 0 view .LVU26
  146 0024 904B     		ldr	r3, .L44+8
  147 0026 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 148              		.loc 1 47 12 view .LVU27
+ 148              		.loc 1 44 8 view .LVU27
  149 0028 002B     		cmp	r3, #0
  150 002a 40F04281 		bne	.L7
-  48:Core/Source/encoder.c ****         {
-  49:Core/Source/encoder.c ****           if (val_new != val_old) //если показания энкодера изменилис
- 151              		.loc 1 49 11 is_stmt 1 view .LVU28
- 152              		.loc 1 49 23 is_stmt 0 view .LVU29
+  45:Core/Source/encoder.c ****     {
+  46:Core/Source/encoder.c ****       if (val_new != val_old) //если показания энкодера изменились
+ 151              		.loc 1 46 7 is_stmt 1 view .LVU28
+ 152              		.loc 1 46 19 is_stmt 0 view .LVU29
  153 002e 8F4B     		ldr	r3, .L44+12
  154 0030 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 155              		.loc 1 49 14 view .LVU30
+ 155              		.loc 1 46 10 view .LVU30
  156 0032 9842     		cmp	r0, r3
  157 0034 00F03D81 		beq	.L7
-  50:Core/Source/encoder.c **** 	        { 
-  51:Core/Source/encoder.c ****             if (val_new == PULSE_STATE_FIRST_REV) 
- 158              		.loc 1 51 13 is_stmt 1 view .LVU31
- 159              		.loc 1 51 16 is_stmt 0 view .LVU32
+  47:Core/Source/encoder.c **** 	    { 
+  48:Core/Source/encoder.c ****         if (val_new == PULSE_STATE_FIRST_REV) 
+ 158              		.loc 1 48 9 is_stmt 1 view .LVU31
+ 159              		.loc 1 48 12 is_stmt 0 view .LVU32
  160 0038 0128     		cmp	r0, #1
  161 003a 13D0     		beq	.L34
-  52:Core/Source/encoder.c ****             {
-  53:Core/Source/encoder.c ****               state_machine = SM_FIRST; //переход на следующую стадию ав�
-  54:Core/Source/encoder.c ****               flag_rev = 1; //флаг реверсного поворота энкодера
-  55:Core/Source/encoder.c **** 
-  56:Core/Source/encoder.c ****               #ifdef __USE_DBG
-  57:Core/Source/encoder.c **** 		            sprintf (DBG_buffer,  "1WAIT,flag_rev=%u\r\n", val_new);
-  58:Core/Source/encoder.c **** 		            DBG_PutString(DBG_buffer);
-  59:Core/Source/encoder.c **** 	            #endif
-  60:Core/Source/encoder.c ****             }
-  61:Core/Source/encoder.c ****             else
-  62:Core/Source/encoder.c ****             {
-ARM GAS  /tmp/ccvkHKs4.s 			page 5
-
-
-  63:Core/Source/encoder.c ****               if (val_new == PULSE_STATE_FIRST_DIR)
- 162              		.loc 1 63 15 is_stmt 1 view .LVU33
- 163              		.loc 1 63 18 is_stmt 0 view .LVU34
+  49:Core/Source/encoder.c ****         {
+  50:Core/Source/encoder.c ****           state_machine = SM_FIRST; //переход на следующую стадию авто�
+  51:Core/Source/encoder.c ****           flag_rev = 1; //флаг реверсного поворота энкодера
+  52:Core/Source/encoder.c ****         }
+  53:Core/Source/encoder.c ****         else
+  54:Core/Source/encoder.c ****         {
+  55:Core/Source/encoder.c ****           if (val_new == PULSE_STATE_FIRST_DIR)
+ 162              		.loc 1 55 11 is_stmt 1 view .LVU33
+ 163              		.loc 1 55 14 is_stmt 0 view .LVU34
  164 003c 0228     		cmp	r0, #2
  165 003e 17D0     		beq	.L35
-  64:Core/Source/encoder.c ****               {
-  65:Core/Source/encoder.c ****                 state_machine = SM_FIRST; //переход на следующую стадию а�
-  66:Core/Source/encoder.c ****                 flag_dir = 1; //флаг прямого поворота энкодера
-  67:Core/Source/encoder.c **** 
-  68:Core/Source/encoder.c ****                 #ifdef __USE_DBG
-  69:Core/Source/encoder.c **** 		              sprintf (DBG_buffer,  "1WAIT,flag_dir=%u\r\n", val_new);
-  70:Core/Source/encoder.c **** 		              DBG_PutString(DBG_buffer);
-  71:Core/Source/encoder.c **** 	              #endif
-  72:Core/Source/encoder.c ****               }
-  73:Core/Source/encoder.c ****               else 
-  74:Core/Source/encoder.c ****               {
-  75:Core/Source/encoder.c ****                 #ifdef __USE_DBG
-  76:Core/Source/encoder.c ****                   sprintf (DBG_buffer,  "1RESET,new=%u,old=%u\r\n",  val_new, val_old);
-  77:Core/Source/encoder.c **** 		              DBG_PutString(DBG_buffer);
-  78:Core/Source/encoder.c **** 	              #endif
-  79:Core/Source/encoder.c **** 
-  80:Core/Source/encoder.c ****                 flag_rev = flag_dir = 0; //сброс флагов поворота энкодер�
- 166              		.loc 1 80 17 is_stmt 1 view .LVU35
- 167              		.loc 1 80 37 is_stmt 0 view .LVU36
+  56:Core/Source/encoder.c ****           {
+  57:Core/Source/encoder.c ****             state_machine = SM_FIRST; //переход на следующую стадию авт�
+  58:Core/Source/encoder.c ****             flag_dir = 1; //флаг прямого поворота энкодера
+ARM GAS  /tmp/ccMIQZlz.s 			page 5
+
+
+  59:Core/Source/encoder.c ****           }
+  60:Core/Source/encoder.c ****           else 
+  61:Core/Source/encoder.c ****           {
+  62:Core/Source/encoder.c ****             flag_rev = flag_dir = 0; //сброс флагов поворота энкодера
+ 166              		.loc 1 62 13 is_stmt 1 view .LVU35
+ 167              		.loc 1 62 33 is_stmt 0 view .LVU36
  168 0040 0023     		movs	r3, #0
  169 0042 8B4A     		ldr	r2, .L44+16
  170 0044 1370     		strb	r3, [r2]
- 171              		.loc 1 80 26 view .LVU37
+ 171              		.loc 1 62 22 view .LVU37
  172 0046 8B4A     		ldr	r2, .L44+20
  173 0048 1370     		strb	r3, [r2]
-  81:Core/Source/encoder.c ****                 state_machine = SM_RESET;  //переход в начальную стадию ко
- 174              		.loc 1 81 17 is_stmt 1 view .LVU38
- 175              		.loc 1 81 31 is_stmt 0 view .LVU39
+  63:Core/Source/encoder.c ****             state_machine = SM_RESET;  //переход в начальную стадию коне
+ 174              		.loc 1 63 13 is_stmt 1 view .LVU38
+ 175              		.loc 1 63 27 is_stmt 0 view .LVU39
  176 004a 864B     		ldr	r3, .L44+4
  177 004c 0422     		movs	r2, #4
  178 004e 1A70     		strb	r2, [r3]
  179              	.L16:
-  82:Core/Source/encoder.c ****               }
-  83:Core/Source/encoder.c ****             }
-  84:Core/Source/encoder.c ****             cnt_timeout = 0; //сброс счётчика таймаутов
- 180              		.loc 1 84 13 is_stmt 1 view .LVU40
- 181              		.loc 1 84 25 is_stmt 0 view .LVU41
+  64:Core/Source/encoder.c ****           }
+  65:Core/Source/encoder.c ****         }
+  66:Core/Source/encoder.c ****         cnt_timeout = 0; //сброс счётчика таймаутов
+ 180              		.loc 1 66 9 is_stmt 1 view .LVU40
+ 181              		.loc 1 66 21 is_stmt 0 view .LVU41
  182 0050 894B     		ldr	r3, .L44+24
  183 0052 0022     		movs	r2, #0
  184 0054 1A70     		strb	r2, [r3]
-  85:Core/Source/encoder.c ****             val_old = val_new; //сохранение текущего показания энко�
- 185              		.loc 1 85 13 is_stmt 1 view .LVU42
- 186              		.loc 1 85 21 is_stmt 0 view .LVU43
+  67:Core/Source/encoder.c ****         val_old = val_new; //сохранение текущего показания энкоде�
+ 185              		.loc 1 67 9 is_stmt 1 view .LVU42
+ 186              		.loc 1 67 17 is_stmt 0 view .LVU43
  187 0056 854B     		ldr	r3, .L44+12
  188 0058 1870     		strb	r0, [r3]
-  86:Core/Source/encoder.c ****             delay_ms (ms_delay); //начало таймаута
- 189              		.loc 1 86 13 is_stmt 1 view .LVU44
+  68:Core/Source/encoder.c ****         delay_ms (ms_delay); //начало таймаута
+ 189              		.loc 1 68 9 is_stmt 1 view .LVU44
  190 005a 884B     		ldr	r3, .L44+28
  191 005c 1888     		ldrh	r0, [r3]
  192 005e FFF7FEFF 		bl	delay_ms
  193              	.LVL3:
  194 0062 26E1     		b	.L7
-ARM GAS  /tmp/ccvkHKs4.s 			page 6
-
-
  195              	.L34:
-  53:Core/Source/encoder.c ****               flag_rev = 1; //флаг реверсного поворота энкодера
- 196              		.loc 1 53 15 view .LVU45
-  53:Core/Source/encoder.c ****               flag_rev = 1; //флаг реверсного поворота энкодера
- 197              		.loc 1 53 29 is_stmt 0 view .LVU46
+  50:Core/Source/encoder.c ****           flag_rev = 1; //флаг реверсного поворота энкодера
+ 196              		.loc 1 50 11 view .LVU45
+  50:Core/Source/encoder.c ****           flag_rev = 1; //флаг реверсного поворота энкодера
+ 197              		.loc 1 50 25 is_stmt 0 view .LVU46
  198 0064 0123     		movs	r3, #1
  199 0066 7F4A     		ldr	r2, .L44+4
  200 0068 1370     		strb	r3, [r2]
-  54:Core/Source/encoder.c **** 
- 201              		.loc 1 54 15 is_stmt 1 view .LVU47
-  54:Core/Source/encoder.c **** 
- 202              		.loc 1 54 24 is_stmt 0 view .LVU48
+  51:Core/Source/encoder.c ****         }
+ 201              		.loc 1 51 11 is_stmt 1 view .LVU47
+  51:Core/Source/encoder.c ****         }
+ 202              		.loc 1 51 20 is_stmt 0 view .LVU48
  203 006a 824A     		ldr	r2, .L44+20
  204 006c 1370     		strb	r3, [r2]
  205 006e EFE7     		b	.L16
  206              	.L35:
-  65:Core/Source/encoder.c ****                 flag_dir = 1; //флаг прямого поворота энкодера
- 207              		.loc 1 65 17 is_stmt 1 view .LVU49
-  65:Core/Source/encoder.c ****                 flag_dir = 1; //флаг прямого поворота энкодера
- 208              		.loc 1 65 31 is_stmt 0 view .LVU50
+  57:Core/Source/encoder.c ****             flag_dir = 1; //флаг прямого поворота энкодера
+ 207              		.loc 1 57 13 is_stmt 1 view .LVU49
+ARM GAS  /tmp/ccMIQZlz.s 			page 6
+
+
+  57:Core/Source/encoder.c ****             flag_dir = 1; //флаг прямого поворота энкодера
+ 208              		.loc 1 57 27 is_stmt 0 view .LVU50
  209 0070 0123     		movs	r3, #1
  210 0072 7C4A     		ldr	r2, .L44+4
  211 0074 1370     		strb	r3, [r2]
-  66:Core/Source/encoder.c **** 
- 212              		.loc 1 66 17 is_stmt 1 view .LVU51
-  66:Core/Source/encoder.c **** 
- 213              		.loc 1 66 26 is_stmt 0 view .LVU52
+  58:Core/Source/encoder.c ****           }
+ 212              		.loc 1 58 13 is_stmt 1 view .LVU51
+  58:Core/Source/encoder.c ****           }
+ 213              		.loc 1 58 22 is_stmt 0 view .LVU52
  214 0076 7E4A     		ldr	r2, .L44+16
  215 0078 1370     		strb	r3, [r2]
  216 007a E9E7     		b	.L16
  217              	.L13:
-  87:Core/Source/encoder.c ****           }
-  88:Core/Source/encoder.c ****         }
-  89:Core/Source/encoder.c ****         break;
-  90:Core/Source/encoder.c **** 
-  91:Core/Source/encoder.c ****         case SM_FIRST: //стадия средней части импульса энкодера
-  92:Core/Source/encoder.c ****           if (flag_end_delay == 0) //если таймаут истёк
- 218              		.loc 1 92 11 is_stmt 1 view .LVU53
- 219              		.loc 1 92 30 is_stmt 0 view .LVU54
+  69:Core/Source/encoder.c ****       }
+  70:Core/Source/encoder.c ****     }
+  71:Core/Source/encoder.c ****     break;
+  72:Core/Source/encoder.c **** 
+  73:Core/Source/encoder.c ****     case SM_FIRST: //стадия средней части импульса энкодера
+  74:Core/Source/encoder.c ****       if (flag_end_delay == OFF) //если таймаут истёк
+ 218              		.loc 1 74 7 is_stmt 1 view .LVU53
+ 219              		.loc 1 74 26 is_stmt 0 view .LVU54
  220 007c 7A4B     		ldr	r3, .L44+8
  221 007e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 222              		.loc 1 92 14 view .LVU55
+ 222              		.loc 1 74 10 view .LVU55
  223 0080 002B     		cmp	r3, #0
  224 0082 40F01681 		bne	.L7
-  93:Core/Source/encoder.c ****           {
-  94:Core/Source/encoder.c ****             if (val_new == val_old)
- 225              		.loc 1 94 13 is_stmt 1 view .LVU56
- 226              		.loc 1 94 25 is_stmt 0 view .LVU57
+  75:Core/Source/encoder.c ****       {
+  76:Core/Source/encoder.c ****         if (val_new == val_old)
+ 225              		.loc 1 76 9 is_stmt 1 view .LVU56
+ 226              		.loc 1 76 21 is_stmt 0 view .LVU57
  227 0086 794B     		ldr	r3, .L44+12
  228 0088 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 229              		.loc 1 94 16 view .LVU58
+ 229              		.loc 1 76 12 view .LVU58
  230 008a 9842     		cmp	r0, r3
  231 008c 13D0     		beq	.L36
-  95:Core/Source/encoder.c **** 	          { 
-  96:Core/Source/encoder.c ****               cnt_timeout++;
-  97:Core/Source/encoder.c ****               if (cnt_timeout > MAX_CNT_TIMEOUT)
-  98:Core/Source/encoder.c ****               {
-ARM GAS  /tmp/ccvkHKs4.s 			page 7
-
-
-  99:Core/Source/encoder.c ****                 cnt_timeout = 0;  //сброс счётчика таймаутов
- 100:Core/Source/encoder.c ****                 flag_rev = flag_dir = 0; //сброс флагов поворота энкодер�
- 101:Core/Source/encoder.c ****                 state_machine = SM_RESET;
- 102:Core/Source/encoder.c ****               }
- 103:Core/Source/encoder.c ****               else
- 104:Core/Source/encoder.c ****               { delay_ms (ms_delay); }//ожидание изменений показаний эн
- 105:Core/Source/encoder.c ****             }       
- 106:Core/Source/encoder.c ****           else
- 107:Core/Source/encoder.c ****           { 
- 108:Core/Source/encoder.c ****             #ifdef __USE_DBG
- 109:Core/Source/encoder.c ****               sprintf (DBG_buffer,  "2FIRST,val_new=%u\r\n",  val_new);
- 110:Core/Source/encoder.c **** 		          DBG_PutString(DBG_buffer);
- 111:Core/Source/encoder.c **** 	          #endif
- 112:Core/Source/encoder.c **** 
- 113:Core/Source/encoder.c ****             cnt_timeout = 0; //сброс счётчика таймаутов             
- 232              		.loc 1 113 13 is_stmt 1 view .LVU59
- 233              		.loc 1 113 25 is_stmt 0 view .LVU60
+  77:Core/Source/encoder.c **** 	      { 
+  78:Core/Source/encoder.c ****           cnt_timeout++;
+  79:Core/Source/encoder.c ****           if (cnt_timeout > MAX_CNT_TIMEOUT)
+  80:Core/Source/encoder.c ****           {
+  81:Core/Source/encoder.c ****             cnt_timeout = 0;  //сброс счётчика таймаутов
+  82:Core/Source/encoder.c ****             flag_rev = flag_dir = 0; //сброс флагов поворота энкодера
+  83:Core/Source/encoder.c ****             state_machine = SM_RESET;
+  84:Core/Source/encoder.c ****           }
+  85:Core/Source/encoder.c ****           else
+  86:Core/Source/encoder.c ****           { delay_ms (ms_delay); }//ожидание изменений показаний энко
+  87:Core/Source/encoder.c ****         }       
+  88:Core/Source/encoder.c ****       else
+  89:Core/Source/encoder.c ****       { 
+  90:Core/Source/encoder.c ****         cnt_timeout = 0; //сброс счётчика таймаутов             
+ 232              		.loc 1 90 9 is_stmt 1 view .LVU59
+ 233              		.loc 1 90 21 is_stmt 0 view .LVU60
  234 008e 7A4B     		ldr	r3, .L44+24
  235 0090 0022     		movs	r2, #0
  236 0092 1A70     		strb	r2, [r3]
- 114:Core/Source/encoder.c ****             val_old = val_new; //сохранение текущего показания энко�
- 237              		.loc 1 114 13 is_stmt 1 view .LVU61
- 238              		.loc 1 114 21 is_stmt 0 view .LVU62
+  91:Core/Source/encoder.c ****         val_old = val_new; //сохранение текущего показания энкоде�
+ 237              		.loc 1 91 9 is_stmt 1 view .LVU61
+ 238              		.loc 1 91 17 is_stmt 0 view .LVU62
+ARM GAS  /tmp/ccMIQZlz.s 			page 7
+
+
  239 0094 754B     		ldr	r3, .L44+12
  240 0096 1870     		strb	r0, [r3]
- 115:Core/Source/encoder.c ****             if (val_new == PULSE_STATE_SECOND) //если данные от экодера соот
- 241              		.loc 1 115 13 is_stmt 1 view .LVU63
- 242              		.loc 1 115 16 is_stmt 0 view .LVU64
+  92:Core/Source/encoder.c ****         if (val_new == PULSE_STATE_SECOND) //если данные от экодера соотве
+ 241              		.loc 1 92 9 is_stmt 1 view .LVU63
+ 242              		.loc 1 92 12 is_stmt 0 view .LVU64
  243 0098 0328     		cmp	r0, #3
  244 009a 22D0     		beq	.L37
- 116:Core/Source/encoder.c ****             { state_machine = SM_NULL; } //переход на следующую стадию ав
- 117:Core/Source/encoder.c ****             else //если данные от энкодера не соотвествуют ожи
- 118:Core/Source/encoder.c ****             {
- 119:Core/Source/encoder.c ****               flag_rev = flag_dir = 0;
- 245              		.loc 1 119 15 is_stmt 1 view .LVU65
- 246              		.loc 1 119 35 is_stmt 0 view .LVU66
+  93:Core/Source/encoder.c ****         { state_machine = SM_NULL; } //переход на следующую стадию авто
+  94:Core/Source/encoder.c ****         else //если данные от энкодера не соотвествуют ожида
+  95:Core/Source/encoder.c ****         {
+  96:Core/Source/encoder.c ****           flag_rev = flag_dir = 0;
+ 245              		.loc 1 96 11 is_stmt 1 view .LVU65
+ 246              		.loc 1 96 31 is_stmt 0 view .LVU66
  247 009c 0023     		movs	r3, #0
  248 009e 744A     		ldr	r2, .L44+16
  249 00a0 1370     		strb	r3, [r2]
- 250              		.loc 1 119 24 view .LVU67
+ 250              		.loc 1 96 20 view .LVU67
  251 00a2 744A     		ldr	r2, .L44+20
  252 00a4 1370     		strb	r3, [r2]
- 120:Core/Source/encoder.c ****               state_machine = SM_RESET; //переход на стадию сброса показ�
- 253              		.loc 1 120 15 is_stmt 1 view .LVU68
- 254              		.loc 1 120 29 is_stmt 0 view .LVU69
+  97:Core/Source/encoder.c ****           state_machine = SM_RESET; //переход на стадию сброса показан�
+ 253              		.loc 1 97 11 is_stmt 1 view .LVU68
+ 254              		.loc 1 97 25 is_stmt 0 view .LVU69
  255 00a6 6F4B     		ldr	r3, .L44+4
  256 00a8 0422     		movs	r2, #4
  257 00aa 1A70     		strb	r2, [r3]
  258              	.L21:
- 121:Core/Source/encoder.c ****             }
- 122:Core/Source/encoder.c ****             delay_ms (ms_delay);  //начало таймаута ожидания изменени
- 259              		.loc 1 122 13 is_stmt 1 view .LVU70
+  98:Core/Source/encoder.c ****         }
+  99:Core/Source/encoder.c ****         delay_ms (ms_delay);  //начало таймаута ожидания изменений �
+ 259              		.loc 1 99 9 is_stmt 1 view .LVU70
  260 00ac 734B     		ldr	r3, .L44+28
  261 00ae 1888     		ldrh	r0, [r3]
  262 00b0 FFF7FEFF 		bl	delay_ms
  263              	.LVL4:
  264 00b4 FDE0     		b	.L7
-ARM GAS  /tmp/ccvkHKs4.s 			page 8
-
-
  265              	.L36:
-  96:Core/Source/encoder.c ****               if (cnt_timeout > MAX_CNT_TIMEOUT)
- 266              		.loc 1 96 15 view .LVU71
-  96:Core/Source/encoder.c ****               if (cnt_timeout > MAX_CNT_TIMEOUT)
- 267              		.loc 1 96 26 is_stmt 0 view .LVU72
+  78:Core/Source/encoder.c ****           if (cnt_timeout > MAX_CNT_TIMEOUT)
+ 266              		.loc 1 78 11 view .LVU71
+  78:Core/Source/encoder.c ****           if (cnt_timeout > MAX_CNT_TIMEOUT)
+ 267              		.loc 1 78 22 is_stmt 0 view .LVU72
  268 00b6 704A     		ldr	r2, .L44+24
  269 00b8 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
  270 00ba 0133     		adds	r3, r3, #1
  271 00bc DBB2     		uxtb	r3, r3
  272 00be 1370     		strb	r3, [r2]
-  97:Core/Source/encoder.c ****               {
- 273              		.loc 1 97 15 is_stmt 1 view .LVU73
-  97:Core/Source/encoder.c ****               {
- 274              		.loc 1 97 18 is_stmt 0 view .LVU74
+  79:Core/Source/encoder.c ****           {
+ 273              		.loc 1 79 11 is_stmt 1 view .LVU73
+  79:Core/Source/encoder.c ****           {
+ 274              		.loc 1 79 14 is_stmt 0 view .LVU74
  275 00c0 0F2B     		cmp	r3, #15
  276 00c2 09D9     		bls	.L19
-  99:Core/Source/encoder.c ****                 flag_rev = flag_dir = 0; //сброс флагов поворота энкодер�
- 277              		.loc 1 99 17 is_stmt 1 view .LVU75
-  99:Core/Source/encoder.c ****                 flag_rev = flag_dir = 0; //сброс флагов поворота энкодер�
- 278              		.loc 1 99 29 is_stmt 0 view .LVU76
+  81:Core/Source/encoder.c ****             flag_rev = flag_dir = 0; //сброс флагов поворота энкодера
+ 277              		.loc 1 81 13 is_stmt 1 view .LVU75
+  81:Core/Source/encoder.c ****             flag_rev = flag_dir = 0; //сброс флагов поворота энкодера
+ 278              		.loc 1 81 25 is_stmt 0 view .LVU76
  279 00c4 0023     		movs	r3, #0
  280 00c6 1370     		strb	r3, [r2]
- 100:Core/Source/encoder.c ****                 state_machine = SM_RESET;
- 281              		.loc 1 100 17 is_stmt 1 view .LVU77
- 100:Core/Source/encoder.c ****                 state_machine = SM_RESET;
- 282              		.loc 1 100 37 is_stmt 0 view .LVU78
+  82:Core/Source/encoder.c ****             state_machine = SM_RESET;
+ARM GAS  /tmp/ccMIQZlz.s 			page 8
+
+
+ 281              		.loc 1 82 13 is_stmt 1 view .LVU77
+  82:Core/Source/encoder.c ****             state_machine = SM_RESET;
+ 282              		.loc 1 82 33 is_stmt 0 view .LVU78
  283 00c8 694A     		ldr	r2, .L44+16
  284 00ca 1370     		strb	r3, [r2]
- 100:Core/Source/encoder.c ****                 state_machine = SM_RESET;
- 285              		.loc 1 100 26 view .LVU79
+  82:Core/Source/encoder.c ****             state_machine = SM_RESET;
+ 285              		.loc 1 82 22 view .LVU79
  286 00cc 694A     		ldr	r2, .L44+20
  287 00ce 1370     		strb	r3, [r2]
- 101:Core/Source/encoder.c ****               }
- 288              		.loc 1 101 17 is_stmt 1 view .LVU80
- 101:Core/Source/encoder.c ****               }
- 289              		.loc 1 101 31 is_stmt 0 view .LVU81
+  83:Core/Source/encoder.c ****           }
+ 288              		.loc 1 83 13 is_stmt 1 view .LVU80
+  83:Core/Source/encoder.c ****           }
+ 289              		.loc 1 83 27 is_stmt 0 view .LVU81
  290 00d0 644B     		ldr	r3, .L44+4
  291 00d2 0422     		movs	r2, #4
  292 00d4 1A70     		strb	r2, [r3]
  293 00d6 ECE0     		b	.L7
  294              	.L19:
- 104:Core/Source/encoder.c ****             }       
- 295              		.loc 1 104 17 is_stmt 1 view .LVU82
+  86:Core/Source/encoder.c ****         }       
+ 295              		.loc 1 86 13 is_stmt 1 view .LVU82
  296 00d8 684B     		ldr	r3, .L44+28
  297 00da 1888     		ldrh	r0, [r3]
  298 00dc FFF7FEFF 		bl	delay_ms
  299              	.LVL5:
  300 00e0 E7E0     		b	.L7
  301              	.L37:
- 116:Core/Source/encoder.c ****             else //если данные от энкодера не соотвествуют ожи
- 302              		.loc 1 116 15 view .LVU83
- 116:Core/Source/encoder.c ****             else //если данные от энкодера не соотвествуют ожи
- 303              		.loc 1 116 29 is_stmt 0 view .LVU84
+  93:Core/Source/encoder.c ****         else //если данные от энкодера не соотвествуют ожида
+ 302              		.loc 1 93 11 view .LVU83
+  93:Core/Source/encoder.c ****         else //если данные от энкодера не соотвествуют ожида
+ 303              		.loc 1 93 25 is_stmt 0 view .LVU84
  304 00e2 604B     		ldr	r3, .L44+4
  305 00e4 0222     		movs	r2, #2
  306 00e6 1A70     		strb	r2, [r3]
  307 00e8 E0E7     		b	.L21
-ARM GAS  /tmp/ccvkHKs4.s 			page 9
-
-
  308              	.L12:
- 123:Core/Source/encoder.c ****           }
- 124:Core/Source/encoder.c ****         }
- 125:Core/Source/encoder.c ****         break;        
- 126:Core/Source/encoder.c **** 
- 127:Core/Source/encoder.c ****         case SM_NULL: //стадия последней части импульса энкодер�
- 128:Core/Source/encoder.c ****           if (flag_end_delay == 0) //если таймаут истёк
- 309              		.loc 1 128 11 is_stmt 1 view .LVU85
- 310              		.loc 1 128 30 is_stmt 0 view .LVU86
+ 100:Core/Source/encoder.c ****       }
+ 101:Core/Source/encoder.c ****     }
+ 102:Core/Source/encoder.c ****     break;        
+ 103:Core/Source/encoder.c **** 
+ 104:Core/Source/encoder.c ****     case SM_NULL: //стадия последней части импульса энкодера
+ 105:Core/Source/encoder.c ****       if (flag_end_delay == OFF) //если таймаут истёк
+ 309              		.loc 1 105 7 is_stmt 1 view .LVU85
+ 310              		.loc 1 105 26 is_stmt 0 view .LVU86
  311 00ea 5F4B     		ldr	r3, .L44+8
  312 00ec 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 313              		.loc 1 128 14 view .LVU87
+ 313              		.loc 1 105 10 view .LVU87
  314 00ee 002B     		cmp	r3, #0
  315 00f0 40F0DF80 		bne	.L7
- 129:Core/Source/encoder.c ****           {
- 130:Core/Source/encoder.c ****             if (val_new == val_old) //если показания энкодера не измен�
- 316              		.loc 1 130 13 is_stmt 1 view .LVU88
- 317              		.loc 1 130 25 is_stmt 0 view .LVU89
+ 106:Core/Source/encoder.c ****       {
+ 107:Core/Source/encoder.c ****         if (val_new == val_old) //если показания энкодера не изменил�
+ 316              		.loc 1 107 9 is_stmt 1 view .LVU88
+ 317              		.loc 1 107 21 is_stmt 0 view .LVU89
  318 00f4 5D4B     		ldr	r3, .L44+12
  319 00f6 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 320              		.loc 1 130 16 view .LVU90
+ 320              		.loc 1 107 12 view .LVU90
  321 00f8 9842     		cmp	r0, r3
  322 00fa 13D0     		beq	.L38
- 131:Core/Source/encoder.c **** 	          { 
- 132:Core/Source/encoder.c ****               if (cnt_timeout > MAX_CNT_TIMEOUT) //если количество таймаутов
- 133:Core/Source/encoder.c ****               {
- 134:Core/Source/encoder.c ****                 cnt_timeout = 0;  //сброс счётчика таймаутов
- 135:Core/Source/encoder.c ****                 flag_rev = flag_dir = 0; //сброс флагов поворота энкодер�
- 136:Core/Source/encoder.c ****                 state_machine = SM_RESET; //переход в начальную стадию ко�
- 137:Core/Source/encoder.c ****               }
- 138:Core/Source/encoder.c ****               else
- 139:Core/Source/encoder.c ****               {  delay_ms (ms_delay); }//начало таймаута ожидания измен�
- 140:Core/Source/encoder.c ****             }       
- 141:Core/Source/encoder.c ****             else
- 142:Core/Source/encoder.c ****             { 
- 143:Core/Source/encoder.c ****               #ifdef __USE_DBG
- 144:Core/Source/encoder.c ****                 sprintf (DBG_buffer,  "3NULL,val_new=%u\r\n",  val_new);
- 145:Core/Source/encoder.c **** 		            DBG_PutString(DBG_buffer);
- 146:Core/Source/encoder.c **** 	            #endif
- 147:Core/Source/encoder.c **** 
- 148:Core/Source/encoder.c ****               if (val_new ==  PULSE_STATE_LAST_REV) //если данные от экодера с�
- 323              		.loc 1 148 15 is_stmt 1 view .LVU91
- 324              		.loc 1 148 18 is_stmt 0 view .LVU92
+ARM GAS  /tmp/ccMIQZlz.s 			page 9
+
+
+ 108:Core/Source/encoder.c **** 	      { 
+ 109:Core/Source/encoder.c ****           if (cnt_timeout > MAX_CNT_TIMEOUT) //если количество таймаутов о�
+ 110:Core/Source/encoder.c ****           {
+ 111:Core/Source/encoder.c ****             cnt_timeout = 0;  //сброс счётчика таймаутов
+ 112:Core/Source/encoder.c ****             flag_rev = flag_dir = 0; //сброс флагов поворота энкодера
+ 113:Core/Source/encoder.c ****             state_machine = SM_RESET; //переход в начальную стадию коне�
+ 114:Core/Source/encoder.c ****           }
+ 115:Core/Source/encoder.c ****           else
+ 116:Core/Source/encoder.c ****           {  delay_ms (ms_delay); }//начало таймаута ожидания изменен�
+ 117:Core/Source/encoder.c ****         }       
+ 118:Core/Source/encoder.c ****         else
+ 119:Core/Source/encoder.c ****         { 
+ 120:Core/Source/encoder.c ****           if (val_new ==  PULSE_STATE_LAST_REV) //если данные от экодера соо�
+ 323              		.loc 1 120 11 is_stmt 1 view .LVU91
+ 324              		.loc 1 120 14 is_stmt 0 view .LVU92
  325 00fc 0228     		cmp	r0, #2
  326 00fe 25D0     		beq	.L39
- 149:Core/Source/encoder.c ****               {
- 150:Core/Source/encoder.c ****                 if (flag_rev == 1) //если установлен флаг реверсного п
- 151:Core/Source/encoder.c ****                 { 
- 152:Core/Source/encoder.c ****                   state_machine = SM_LAST;  //переход на следующую стадию �
- 153:Core/Source/encoder.c ****                   delay_ms (ms_delay); //начало таймаута
- 154:Core/Source/encoder.c ****                 }              
- 155:Core/Source/encoder.c ****               }
- 156:Core/Source/encoder.c ****               else
- 157:Core/Source/encoder.c ****               {
- 158:Core/Source/encoder.c ****                 if (val_new == PULSE_STATE_LAST_DIR) //если данные от экодера с
- 327              		.loc 1 158 17 is_stmt 1 view .LVU93
- 328              		.loc 1 158 20 is_stmt 0 view .LVU94
-ARM GAS  /tmp/ccvkHKs4.s 			page 10
-
-
+ 121:Core/Source/encoder.c ****           {
+ 122:Core/Source/encoder.c ****             if (flag_rev == 1) //если установлен флаг реверсного пов
+ 123:Core/Source/encoder.c ****             { 
+ 124:Core/Source/encoder.c ****                   state_machine = SM_LAST;  //переход на следующую стадию �
+ 125:Core/Source/encoder.c ****                   delay_ms (ms_delay); //начало таймаута
+ 126:Core/Source/encoder.c ****             }              
+ 127:Core/Source/encoder.c ****           }
+ 128:Core/Source/encoder.c ****           else
+ 129:Core/Source/encoder.c ****           {
+ 130:Core/Source/encoder.c ****             if (val_new == PULSE_STATE_LAST_DIR) //если данные от экодера соо
+ 327              		.loc 1 130 13 is_stmt 1 view .LVU93
+ 328              		.loc 1 130 16 is_stmt 0 view .LVU94
  329 0100 0128     		cmp	r0, #1
  330 0102 2FD0     		beq	.L40
- 159:Core/Source/encoder.c ****                 {
- 160:Core/Source/encoder.c ****                   if (flag_dir == 1) //если установлен флаг прямого пов
- 161:Core/Source/encoder.c ****                   {  
- 162:Core/Source/encoder.c ****                     state_machine = SM_LAST;  //переход на следующую стадию
- 163:Core/Source/encoder.c ****                     delay_ms (ms_delay); //начало таймаута
- 164:Core/Source/encoder.c ****                   }
- 165:Core/Source/encoder.c ****                 }
- 166:Core/Source/encoder.c ****                 else //если данные от энкодера не соотвествуют о
- 167:Core/Source/encoder.c ****                 {
- 168:Core/Source/encoder.c ****                   flag_rev = flag_dir = 0; //сброс флагов поворота энкоде�
- 331              		.loc 1 168 19 is_stmt 1 view .LVU95
- 332              		.loc 1 168 39 is_stmt 0 view .LVU96
+ 131:Core/Source/encoder.c ****             {
+ 132:Core/Source/encoder.c ****               if (flag_dir == 1) //если установлен флаг прямого повор
+ 133:Core/Source/encoder.c ****               {  
+ 134:Core/Source/encoder.c ****                 state_machine = SM_LAST;  //переход на следующую стадию а�
+ 135:Core/Source/encoder.c ****                 delay_ms (ms_delay); //начало таймаута
+ 136:Core/Source/encoder.c ****               }
+ 137:Core/Source/encoder.c ****             }
+ 138:Core/Source/encoder.c ****             else //если данные от энкодера не соотвествуют ожи
+ 139:Core/Source/encoder.c ****             {
+ 140:Core/Source/encoder.c ****               flag_rev = flag_dir = 0; //сброс флагов поворота энкодера
+ 331              		.loc 1 140 15 is_stmt 1 view .LVU95
+ 332              		.loc 1 140 35 is_stmt 0 view .LVU96
  333 0104 0023     		movs	r3, #0
  334 0106 5A4A     		ldr	r2, .L44+16
  335 0108 1370     		strb	r3, [r2]
- 336              		.loc 1 168 28 view .LVU97
+ 336              		.loc 1 140 24 view .LVU97
  337 010a 5A4A     		ldr	r2, .L44+20
  338 010c 1370     		strb	r3, [r2]
- 169:Core/Source/encoder.c ****                   state_machine = SM_RESET;  //переход на стадию сброса пок
- 339              		.loc 1 169 19 is_stmt 1 view .LVU98
- 340              		.loc 1 169 33 is_stmt 0 view .LVU99
+ 141:Core/Source/encoder.c ****               state_machine = SM_RESET;  //переход на стадию сброса показ
+ 339              		.loc 1 141 15 is_stmt 1 view .LVU98
+ 340              		.loc 1 141 29 is_stmt 0 view .LVU99
  341 010e 554B     		ldr	r3, .L44+4
  342 0110 0422     		movs	r2, #4
  343 0112 1A70     		strb	r2, [r3]
  344              	.L25:
- 170:Core/Source/encoder.c ****                 }
- 171:Core/Source/encoder.c ****               }
- 172:Core/Source/encoder.c ****               val_old = val_new; //сохранение текущего показания энк�
- 345              		.loc 1 172 15 is_stmt 1 view .LVU100
- 346              		.loc 1 172 23 is_stmt 0 view .LVU101
+ 142:Core/Source/encoder.c ****             }
+ARM GAS  /tmp/ccMIQZlz.s 			page 10
+
+
+ 143:Core/Source/encoder.c ****           }
+ 144:Core/Source/encoder.c ****           val_old = val_new; //сохранение текущего показания энкод�
+ 345              		.loc 1 144 11 is_stmt 1 view .LVU100
+ 346              		.loc 1 144 19 is_stmt 0 view .LVU101
  347 0114 524B     		ldr	r3, .L44
  348 0116 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
  349 0118 544B     		ldr	r3, .L44+12
  350 011a 1A70     		strb	r2, [r3]
- 173:Core/Source/encoder.c ****               cnt_timeout = 0; //сброс счётчика таймаутов
- 351              		.loc 1 173 15 is_stmt 1 view .LVU102
- 352              		.loc 1 173 27 is_stmt 0 view .LVU103
+ 145:Core/Source/encoder.c ****           cnt_timeout = 0; //сброс счётчика таймаутов
+ 351              		.loc 1 145 11 is_stmt 1 view .LVU102
+ 352              		.loc 1 145 23 is_stmt 0 view .LVU103
  353 011c 564B     		ldr	r3, .L44+24
  354 011e 0022     		movs	r2, #0
  355 0120 1A70     		strb	r2, [r3]
  356 0122 C6E0     		b	.L7
  357              	.L38:
- 132:Core/Source/encoder.c ****               {
- 358              		.loc 1 132 15 is_stmt 1 view .LVU104
- 132:Core/Source/encoder.c ****               {
- 359              		.loc 1 132 31 is_stmt 0 view .LVU105
+ 109:Core/Source/encoder.c ****           {
+ 358              		.loc 1 109 11 is_stmt 1 view .LVU104
+ 109:Core/Source/encoder.c ****           {
+ 359              		.loc 1 109 27 is_stmt 0 view .LVU105
  360 0124 544B     		ldr	r3, .L44+24
  361 0126 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 132:Core/Source/encoder.c ****               {
- 362              		.loc 1 132 18 view .LVU106
+ 109:Core/Source/encoder.c ****           {
+ 362              		.loc 1 109 14 view .LVU106
  363 0128 0F2B     		cmp	r3, #15
  364 012a 0AD9     		bls	.L23
- 134:Core/Source/encoder.c ****                 flag_rev = flag_dir = 0; //сброс флагов поворота энкодер�
- 365              		.loc 1 134 17 is_stmt 1 view .LVU107
- 134:Core/Source/encoder.c ****                 flag_rev = flag_dir = 0; //сброс флагов поворота энкодер�
-ARM GAS  /tmp/ccvkHKs4.s 			page 11
-
-
- 366              		.loc 1 134 29 is_stmt 0 view .LVU108
+ 111:Core/Source/encoder.c ****             flag_rev = flag_dir = 0; //сброс флагов поворота энкодера
+ 365              		.loc 1 111 13 is_stmt 1 view .LVU107
+ 111:Core/Source/encoder.c ****             flag_rev = flag_dir = 0; //сброс флагов поворота энкодера
+ 366              		.loc 1 111 25 is_stmt 0 view .LVU108
  367 012c 0023     		movs	r3, #0
  368 012e 524A     		ldr	r2, .L44+24
  369 0130 1370     		strb	r3, [r2]
- 135:Core/Source/encoder.c ****                 state_machine = SM_RESET; //переход в начальную стадию ко�
- 370              		.loc 1 135 17 is_stmt 1 view .LVU109
- 135:Core/Source/encoder.c ****                 state_machine = SM_RESET; //переход в начальную стадию ко�
- 371              		.loc 1 135 37 is_stmt 0 view .LVU110
+ 112:Core/Source/encoder.c ****             state_machine = SM_RESET; //переход в начальную стадию коне�
+ 370              		.loc 1 112 13 is_stmt 1 view .LVU109
+ 112:Core/Source/encoder.c ****             state_machine = SM_RESET; //переход в начальную стадию коне�
+ 371              		.loc 1 112 33 is_stmt 0 view .LVU110
  372 0132 4F4A     		ldr	r2, .L44+16
  373 0134 1370     		strb	r3, [r2]
- 135:Core/Source/encoder.c ****                 state_machine = SM_RESET; //переход в начальную стадию ко�
- 374              		.loc 1 135 26 view .LVU111
+ 112:Core/Source/encoder.c ****             state_machine = SM_RESET; //переход в начальную стадию коне�
+ 374              		.loc 1 112 22 view .LVU111
  375 0136 4F4A     		ldr	r2, .L44+20
  376 0138 1370     		strb	r3, [r2]
- 136:Core/Source/encoder.c ****               }
- 377              		.loc 1 136 17 is_stmt 1 view .LVU112
- 136:Core/Source/encoder.c ****               }
- 378              		.loc 1 136 31 is_stmt 0 view .LVU113
+ 113:Core/Source/encoder.c ****           }
+ 377              		.loc 1 113 13 is_stmt 1 view .LVU112
+ 113:Core/Source/encoder.c ****           }
+ 378              		.loc 1 113 27 is_stmt 0 view .LVU113
  379 013a 4A4B     		ldr	r3, .L44+4
  380 013c 0422     		movs	r2, #4
  381 013e 1A70     		strb	r2, [r3]
  382 0140 B7E0     		b	.L7
  383              	.L23:
- 139:Core/Source/encoder.c ****             }       
- 384              		.loc 1 139 18 is_stmt 1 view .LVU114
+ 116:Core/Source/encoder.c ****         }       
+ 384              		.loc 1 116 14 is_stmt 1 view .LVU114
  385 0142 4E4B     		ldr	r3, .L44+28
  386 0144 1888     		ldrh	r0, [r3]
  387 0146 FFF7FEFF 		bl	delay_ms
+ARM GAS  /tmp/ccMIQZlz.s 			page 11
+
+
  388              	.LVL6:
  389 014a B2E0     		b	.L7
  390              	.L39:
- 150:Core/Source/encoder.c ****                 { 
- 391              		.loc 1 150 17 view .LVU115
- 150:Core/Source/encoder.c ****                 { 
- 392              		.loc 1 150 30 is_stmt 0 view .LVU116
+ 122:Core/Source/encoder.c ****             { 
+ 391              		.loc 1 122 13 view .LVU115
+ 122:Core/Source/encoder.c ****             { 
+ 392              		.loc 1 122 26 is_stmt 0 view .LVU116
  393 014c 494B     		ldr	r3, .L44+20
  394 014e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 150:Core/Source/encoder.c ****                 { 
- 395              		.loc 1 150 20 view .LVU117
+ 122:Core/Source/encoder.c ****             { 
+ 395              		.loc 1 122 16 view .LVU117
  396 0150 012B     		cmp	r3, #1
  397 0152 DFD1     		bne	.L25
- 152:Core/Source/encoder.c ****                   delay_ms (ms_delay); //начало таймаута
- 398              		.loc 1 152 19 is_stmt 1 view .LVU118
- 152:Core/Source/encoder.c ****                   delay_ms (ms_delay); //начало таймаута
- 399              		.loc 1 152 33 is_stmt 0 view .LVU119
+ 124:Core/Source/encoder.c ****                   delay_ms (ms_delay); //начало таймаута
+ 398              		.loc 1 124 19 is_stmt 1 view .LVU118
+ 124:Core/Source/encoder.c ****                   delay_ms (ms_delay); //начало таймаута
+ 399              		.loc 1 124 33 is_stmt 0 view .LVU119
  400 0154 434B     		ldr	r3, .L44+4
  401 0156 0322     		movs	r2, #3
  402 0158 1A70     		strb	r2, [r3]
- 153:Core/Source/encoder.c ****                 }              
- 403              		.loc 1 153 19 is_stmt 1 view .LVU120
+ 125:Core/Source/encoder.c ****             }              
+ 403              		.loc 1 125 19 is_stmt 1 view .LVU120
  404 015a 484B     		ldr	r3, .L44+28
  405 015c 1888     		ldrh	r0, [r3]
  406 015e FFF7FEFF 		bl	delay_ms
  407              	.LVL7:
  408 0162 D7E7     		b	.L25
  409              	.L40:
- 160:Core/Source/encoder.c ****                   {  
-ARM GAS  /tmp/ccvkHKs4.s 			page 12
-
-
- 410              		.loc 1 160 19 view .LVU121
- 160:Core/Source/encoder.c ****                   {  
- 411              		.loc 1 160 32 is_stmt 0 view .LVU122
+ 132:Core/Source/encoder.c ****               {  
+ 410              		.loc 1 132 15 view .LVU121
+ 132:Core/Source/encoder.c ****               {  
+ 411              		.loc 1 132 28 is_stmt 0 view .LVU122
  412 0164 424B     		ldr	r3, .L44+16
  413 0166 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 160:Core/Source/encoder.c ****                   {  
- 414              		.loc 1 160 22 view .LVU123
+ 132:Core/Source/encoder.c ****               {  
+ 414              		.loc 1 132 18 view .LVU123
  415 0168 012B     		cmp	r3, #1
  416 016a D3D1     		bne	.L25
- 162:Core/Source/encoder.c ****                     delay_ms (ms_delay); //начало таймаута
- 417              		.loc 1 162 21 is_stmt 1 view .LVU124
- 162:Core/Source/encoder.c ****                     delay_ms (ms_delay); //начало таймаута
- 418              		.loc 1 162 35 is_stmt 0 view .LVU125
+ 134:Core/Source/encoder.c ****                 delay_ms (ms_delay); //начало таймаута
+ 417              		.loc 1 134 17 is_stmt 1 view .LVU124
+ 134:Core/Source/encoder.c ****                 delay_ms (ms_delay); //начало таймаута
+ 418              		.loc 1 134 31 is_stmt 0 view .LVU125
  419 016c 3D4B     		ldr	r3, .L44+4
  420 016e 0322     		movs	r2, #3
  421 0170 1A70     		strb	r2, [r3]
- 163:Core/Source/encoder.c ****                   }
- 422              		.loc 1 163 21 is_stmt 1 view .LVU126
+ 135:Core/Source/encoder.c ****               }
+ 422              		.loc 1 135 17 is_stmt 1 view .LVU126
  423 0172 424B     		ldr	r3, .L44+28
  424 0174 1888     		ldrh	r0, [r3]
  425 0176 FFF7FEFF 		bl	delay_ms
  426              	.LVL8:
  427 017a CBE7     		b	.L25
  428              	.L11:
- 174:Core/Source/encoder.c ****             }
- 175:Core/Source/encoder.c ****           }
- 176:Core/Source/encoder.c ****           break;
- 177:Core/Source/encoder.c **** 
- 178:Core/Source/encoder.c ****         case  SM_LAST: //проверка стадии импульса энкодера по ум�
- 179:Core/Source/encoder.c ****           if (flag_end_delay == 0) //если таймаут истёк
- 429              		.loc 1 179 11 view .LVU127
- 430              		.loc 1 179 30 is_stmt 0 view .LVU128
+ 146:Core/Source/encoder.c ****         }
+ 147:Core/Source/encoder.c ****       }
+ 148:Core/Source/encoder.c ****       break;
+ 149:Core/Source/encoder.c **** 
+ARM GAS  /tmp/ccMIQZlz.s 			page 12
+
+
+ 150:Core/Source/encoder.c ****     case  SM_LAST: //проверка стадии импульса энкодера по умол�
+ 151:Core/Source/encoder.c ****       if (flag_end_delay == OFF) //если таймаут истёк
+ 429              		.loc 1 151 7 view .LVU127
+ 430              		.loc 1 151 26 is_stmt 0 view .LVU128
  431 017c 3A4B     		ldr	r3, .L44+8
  432 017e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 433              		.loc 1 179 14 view .LVU129
+ 433              		.loc 1 151 10 view .LVU129
  434 0180 002B     		cmp	r3, #0
  435 0182 40F09680 		bne	.L7
- 180:Core/Source/encoder.c ****           {
- 181:Core/Source/encoder.c ****             if (val_new == val_old) //если показания энкодера не измен�
- 436              		.loc 1 181 13 is_stmt 1 view .LVU130
- 437              		.loc 1 181 25 is_stmt 0 view .LVU131
+ 152:Core/Source/encoder.c ****       {
+ 153:Core/Source/encoder.c ****         if (val_new == val_old) //если показания энкодера не изменил�
+ 436              		.loc 1 153 9 is_stmt 1 view .LVU130
+ 437              		.loc 1 153 21 is_stmt 0 view .LVU131
  438 0186 394B     		ldr	r3, .L44+12
  439 0188 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 440              		.loc 1 181 16 view .LVU132
+ 440              		.loc 1 153 12 view .LVU132
  441 018a 9842     		cmp	r0, r3
  442 018c 15D0     		beq	.L41
- 182:Core/Source/encoder.c **** 	          { 
- 183:Core/Source/encoder.c ****               if (cnt_timeout > MAX_CNT_TIMEOUT) //если количество таймаутов
- 184:Core/Source/encoder.c ****               {
- 185:Core/Source/encoder.c ****                 cnt_timeout = 0;  //сброс счётчика таймаутов
- 186:Core/Source/encoder.c ****                 flag_rev = flag_dir = 0; 
- 187:Core/Source/encoder.c ****                 state_machine = SM_RESET; //переход к начальной стадии ко�
- 188:Core/Source/encoder.c ****               }
- 189:Core/Source/encoder.c ****               else
- 190:Core/Source/encoder.c ****               {  delay_ms (ms_delay); }//таймаут ожидания изменений пок�
- 191:Core/Source/encoder.c ****             }       
- 192:Core/Source/encoder.c ****             else
-ARM GAS  /tmp/ccvkHKs4.s 			page 13
-
-
- 193:Core/Source/encoder.c ****             {
- 194:Core/Source/encoder.c ****               #ifdef __USE_DBG
- 195:Core/Source/encoder.c ****                 sprintf (DBG_buffer,  " 4LAST,val_new=%u\r\n",  val_new);
- 196:Core/Source/encoder.c **** 		            DBG_PutString(DBG_buffer);
- 197:Core/Source/encoder.c **** 	            #endif
- 198:Core/Source/encoder.c ****                 
- 199:Core/Source/encoder.c ****               if (flag_rev == 1) //если установлен флаг реверсного по
- 443              		.loc 1 199 15 is_stmt 1 view .LVU133
- 444              		.loc 1 199 28 is_stmt 0 view .LVU134
+ 154:Core/Source/encoder.c **** 	      { 
+ 155:Core/Source/encoder.c ****           if (cnt_timeout > MAX_CNT_TIMEOUT) //если количество таймаутов о�
+ 156:Core/Source/encoder.c ****           {
+ 157:Core/Source/encoder.c ****             cnt_timeout = 0;  //сброс счётчика таймаутов
+ 158:Core/Source/encoder.c ****             flag_rev = flag_dir = 0; 
+ 159:Core/Source/encoder.c ****             state_machine = SM_RESET; //переход к начальной стадии коне�
+ 160:Core/Source/encoder.c ****           }
+ 161:Core/Source/encoder.c ****           else
+ 162:Core/Source/encoder.c ****           {  delay_ms (ms_delay); }//таймаут ожидания изменений показ�
+ 163:Core/Source/encoder.c ****         }       
+ 164:Core/Source/encoder.c ****         else
+ 165:Core/Source/encoder.c ****         {               
+ 166:Core/Source/encoder.c ****           if (flag_rev == 1) //если установлен флаг реверсного пово
+ 443              		.loc 1 166 11 is_stmt 1 view .LVU133
+ 444              		.loc 1 166 24 is_stmt 0 view .LVU134
  445 018e 394B     		ldr	r3, .L44+20
  446 0190 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 447              		.loc 1 199 18 view .LVU135
+ 447              		.loc 1 166 14 view .LVU135
  448 0192 012B     		cmp	r3, #1
  449 0194 25D0     		beq	.L42
- 200:Core/Source/encoder.c ****               {
- 201:Core/Source/encoder.c ****                 enc_count--;  
- 202:Core/Source/encoder.c ****                 OLED_Clear(NONE_INVERTED);
- 203:Core/Source/encoder.c ****                 snprintf(lcd_buf, 25,"-cnt=%ld, %x, %x, %x", enc_count, val_new, val_old, val_old |
- 204:Core/Source/encoder.c ****                 OLED_DrawStr(lcd_buf, 15, 25);
- 205:Core/Source/encoder.c ****                 OLED_UpdateScreen();
- 206:Core/Source/encoder.c ****               }
- 207:Core/Source/encoder.c ****               else
- 208:Core/Source/encoder.c ****               {
- 209:Core/Source/encoder.c ****                 if (flag_dir == 1) //если установлен флаг прямого пово
- 450              		.loc 1 209 17 is_stmt 1 view .LVU136
- 451              		.loc 1 209 30 is_stmt 0 view .LVU137
+ 167:Core/Source/encoder.c ****           {
+ 168:Core/Source/encoder.c ****             enc_count--;  
+ 169:Core/Source/encoder.c ****             OLED_Clear(NONE_INVERTED);
+ 170:Core/Source/encoder.c ****             snprintf(lcd_buf, 25,"-cnt=%ld, %x, %x, %x", enc_count, val_new, val_old, val_old | val
+ 171:Core/Source/encoder.c ****             OLED_DrawStr(lcd_buf, 15, 25);
+ 172:Core/Source/encoder.c ****             OLED_UpdScreen_DMA();
+ 173:Core/Source/encoder.c ****           }
+ 174:Core/Source/encoder.c ****           else
+ 175:Core/Source/encoder.c ****           {
+ 176:Core/Source/encoder.c ****             if (flag_dir == 1) //если установлен флаг прямого поворо
+ 450              		.loc 1 176 13 is_stmt 1 view .LVU136
+ 451              		.loc 1 176 26 is_stmt 0 view .LVU137
  452 0196 364B     		ldr	r3, .L44+16
  453 0198 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 454              		.loc 1 209 20 view .LVU138
+ 454              		.loc 1 176 16 view .LVU138
  455 019a 012B     		cmp	r3, #1
  456 019c 40D0     		beq	.L43
  457              	.L30:
- 210:Core/Source/encoder.c ****                 {
- 211:Core/Source/encoder.c ****                   enc_count++;  
- 212:Core/Source/encoder.c ****                   OLED_Clear(NONE_INVERTED);
- 213:Core/Source/encoder.c ****                   snprintf(lcd_buf, 25,"+cnt=%ld, %x, %x, %x", enc_count, val_new, val_old, val_old
- 214:Core/Source/encoder.c ****                   OLED_DrawStr(lcd_buf, 15, 25);
- 215:Core/Source/encoder.c ****                   OLED_UpdateScreen(); 
- 216:Core/Source/encoder.c ****                 } 
- 217:Core/Source/encoder.c ****               } 
- 218:Core/Source/encoder.c ****               flag_rev = flag_dir = 0; //сброс флагов поворота энкодера
- 458              		.loc 1 218 15 is_stmt 1 view .LVU139
- 459              		.loc 1 218 35 is_stmt 0 view .LVU140
+ 177:Core/Source/encoder.c ****             {
+ARM GAS  /tmp/ccMIQZlz.s 			page 13
+
+
+ 178:Core/Source/encoder.c ****               enc_count++;  
+ 179:Core/Source/encoder.c ****               OLED_Clear(NONE_INVERTED);
+ 180:Core/Source/encoder.c ****               snprintf(lcd_buf, 25,"+cnt=%ld, %x, %x, %x", enc_count, val_new, val_old, val_old | v
+ 181:Core/Source/encoder.c ****               OLED_DrawStr(lcd_buf, 15, 25);
+ 182:Core/Source/encoder.c ****               OLED_UpdScreen_DMA();
+ 183:Core/Source/encoder.c ****             } 
+ 184:Core/Source/encoder.c ****           } 
+ 185:Core/Source/encoder.c ****           flag_rev = flag_dir = 0; //сброс флагов поворота энкодера
+ 458              		.loc 1 185 11 is_stmt 1 view .LVU139
+ 459              		.loc 1 185 31 is_stmt 0 view .LVU140
  460 019e 0023     		movs	r3, #0
  461 01a0 334A     		ldr	r2, .L44+16
  462 01a2 1370     		strb	r3, [r2]
- 463              		.loc 1 218 24 view .LVU141
+ 463              		.loc 1 185 20 view .LVU141
  464 01a4 334A     		ldr	r2, .L44+20
  465 01a6 1370     		strb	r3, [r2]
- 219:Core/Source/encoder.c ****               val_old = val_new; //сохранение текущего показания энк�
- 466              		.loc 1 219 15 is_stmt 1 view .LVU142
- 467              		.loc 1 219 23 is_stmt 0 view .LVU143
+ 186:Core/Source/encoder.c ****           val_old = val_new; //сохранение текущего показания энкод�
+ 466              		.loc 1 186 11 is_stmt 1 view .LVU142
+ 467              		.loc 1 186 19 is_stmt 0 view .LVU143
  468 01a8 2D4A     		ldr	r2, .L44
  469 01aa 1178     		ldrb	r1, [r2]	@ zero_extendqisi2
  470 01ac 2F4A     		ldr	r2, .L44+12
  471 01ae 1170     		strb	r1, [r2]
- 220:Core/Source/encoder.c ****               cnt_timeout = 0; //сброс счётчика таймаутов
-ARM GAS  /tmp/ccvkHKs4.s 			page 14
-
-
- 472              		.loc 1 220 15 is_stmt 1 view .LVU144
- 473              		.loc 1 220 27 is_stmt 0 view .LVU145
+ 187:Core/Source/encoder.c ****           cnt_timeout = 0; //сброс счётчика таймаутов
+ 472              		.loc 1 187 11 is_stmt 1 view .LVU144
+ 473              		.loc 1 187 23 is_stmt 0 view .LVU145
  474 01b0 314A     		ldr	r2, .L44+24
  475 01b2 1370     		strb	r3, [r2]
- 221:Core/Source/encoder.c ****               state_machine = SM_WAIT; //переход к начальной стадии коне
- 476              		.loc 1 221 15 is_stmt 1 view .LVU146
- 477              		.loc 1 221 29 is_stmt 0 view .LVU147
+ 188:Core/Source/encoder.c ****           state_machine = SM_WAIT; //переход к начальной стадии конечн
+ 476              		.loc 1 188 11 is_stmt 1 view .LVU146
+ 477              		.loc 1 188 25 is_stmt 0 view .LVU147
  478 01b4 2B4A     		ldr	r2, .L44+4
  479 01b6 1370     		strb	r3, [r2]
  480 01b8 7BE0     		b	.L7
  481              	.L41:
- 183:Core/Source/encoder.c ****               {
- 482              		.loc 1 183 15 is_stmt 1 view .LVU148
- 183:Core/Source/encoder.c ****               {
- 483              		.loc 1 183 31 is_stmt 0 view .LVU149
+ 155:Core/Source/encoder.c ****           {
+ 482              		.loc 1 155 11 is_stmt 1 view .LVU148
+ 155:Core/Source/encoder.c ****           {
+ 483              		.loc 1 155 27 is_stmt 0 view .LVU149
  484 01ba 2F4B     		ldr	r3, .L44+24
  485 01bc 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 183:Core/Source/encoder.c ****               {
- 486              		.loc 1 183 18 view .LVU150
+ 155:Core/Source/encoder.c ****           {
+ 486              		.loc 1 155 14 view .LVU150
  487 01be 0F2B     		cmp	r3, #15
  488 01c0 0AD9     		bls	.L28
- 185:Core/Source/encoder.c ****                 flag_rev = flag_dir = 0; 
- 489              		.loc 1 185 17 is_stmt 1 view .LVU151
- 185:Core/Source/encoder.c ****                 flag_rev = flag_dir = 0; 
- 490              		.loc 1 185 29 is_stmt 0 view .LVU152
+ 157:Core/Source/encoder.c ****             flag_rev = flag_dir = 0; 
+ 489              		.loc 1 157 13 is_stmt 1 view .LVU151
+ 157:Core/Source/encoder.c ****             flag_rev = flag_dir = 0; 
+ 490              		.loc 1 157 25 is_stmt 0 view .LVU152
  491 01c2 0023     		movs	r3, #0
  492 01c4 2C4A     		ldr	r2, .L44+24
  493 01c6 1370     		strb	r3, [r2]
- 186:Core/Source/encoder.c ****                 state_machine = SM_RESET; //переход к начальной стадии ко�
- 494              		.loc 1 186 17 is_stmt 1 view .LVU153
- 186:Core/Source/encoder.c ****                 state_machine = SM_RESET; //переход к начальной стадии ко�
- 495              		.loc 1 186 37 is_stmt 0 view .LVU154
+ 158:Core/Source/encoder.c ****             state_machine = SM_RESET; //переход к начальной стадии коне�
+ 494              		.loc 1 158 13 is_stmt 1 view .LVU153
+ 158:Core/Source/encoder.c ****             state_machine = SM_RESET; //переход к начальной стадии коне�
+ 495              		.loc 1 158 33 is_stmt 0 view .LVU154
  496 01c8 294A     		ldr	r2, .L44+16
+ARM GAS  /tmp/ccMIQZlz.s 			page 14
+
+
  497 01ca 1370     		strb	r3, [r2]
- 186:Core/Source/encoder.c ****                 state_machine = SM_RESET; //переход к начальной стадии ко�
- 498              		.loc 1 186 26 view .LVU155
+ 158:Core/Source/encoder.c ****             state_machine = SM_RESET; //переход к начальной стадии коне�
+ 498              		.loc 1 158 22 view .LVU155
  499 01cc 294A     		ldr	r2, .L44+20
  500 01ce 1370     		strb	r3, [r2]
- 187:Core/Source/encoder.c ****               }
- 501              		.loc 1 187 17 is_stmt 1 view .LVU156
- 187:Core/Source/encoder.c ****               }
- 502              		.loc 1 187 31 is_stmt 0 view .LVU157
+ 159:Core/Source/encoder.c ****           }
+ 501              		.loc 1 159 13 is_stmt 1 view .LVU156
+ 159:Core/Source/encoder.c ****           }
+ 502              		.loc 1 159 27 is_stmt 0 view .LVU157
  503 01d0 244B     		ldr	r3, .L44+4
  504 01d2 0422     		movs	r2, #4
  505 01d4 1A70     		strb	r2, [r3]
  506 01d6 6CE0     		b	.L7
  507              	.L28:
- 190:Core/Source/encoder.c ****             }       
- 508              		.loc 1 190 18 is_stmt 1 view .LVU158
+ 162:Core/Source/encoder.c ****         }       
+ 508              		.loc 1 162 14 is_stmt 1 view .LVU158
  509 01d8 284B     		ldr	r3, .L44+28
  510 01da 1888     		ldrh	r0, [r3]
  511 01dc FFF7FEFF 		bl	delay_ms
  512              	.LVL9:
  513 01e0 67E0     		b	.L7
  514              	.L42:
- 201:Core/Source/encoder.c ****                 OLED_Clear(NONE_INVERTED);
- 515              		.loc 1 201 17 view .LVU159
-ARM GAS  /tmp/ccvkHKs4.s 			page 15
-
-
- 201:Core/Source/encoder.c ****                 OLED_Clear(NONE_INVERTED);
- 516              		.loc 1 201 26 is_stmt 0 view .LVU160
+ 168:Core/Source/encoder.c ****             OLED_Clear(NONE_INVERTED);
+ 515              		.loc 1 168 13 view .LVU159
+ 168:Core/Source/encoder.c ****             OLED_Clear(NONE_INVERTED);
+ 516              		.loc 1 168 22 is_stmt 0 view .LVU160
  517 01e2 274C     		ldr	r4, .L44+32
  518 01e4 2368     		ldr	r3, [r4]
  519 01e6 013B     		subs	r3, r3, #1
  520 01e8 2360     		str	r3, [r4]
- 202:Core/Source/encoder.c ****                 snprintf(lcd_buf, 25,"-cnt=%ld, %x, %x, %x", enc_count, val_new, val_old, val_old |
- 521              		.loc 1 202 17 is_stmt 1 view .LVU161
+ 169:Core/Source/encoder.c ****             snprintf(lcd_buf, 25,"-cnt=%ld, %x, %x, %x", enc_count, val_new, val_old, val_old | val
+ 521              		.loc 1 169 13 is_stmt 1 view .LVU161
  522 01ea 0020     		movs	r0, #0
  523 01ec FFF7FEFF 		bl	OLED_Clear
  524              	.LVL10:
- 203:Core/Source/encoder.c ****                 OLED_DrawStr(lcd_buf, 15, 25);
- 525              		.loc 1 203 17 view .LVU162
+ 170:Core/Source/encoder.c ****             OLED_DrawStr(lcd_buf, 15, 25);
+ 525              		.loc 1 170 13 view .LVU162
  526 01f0 1B4B     		ldr	r3, .L44
  527 01f2 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  528 01f4 1D4A     		ldr	r2, .L44+12
@@ -869,38 +833,38 @@ ARM GAS  /tmp/ccvkHKs4.s 			page 1
  538 020a 2846     		mov	r0, r5
  539 020c FFF7FEFF 		bl	snprintf
  540              	.LVL11:
- 204:Core/Source/encoder.c ****                 OLED_UpdateScreen();
- 541              		.loc 1 204 17 view .LVU163
+ 171:Core/Source/encoder.c ****             OLED_UpdScreen_DMA();
+ 541              		.loc 1 171 13 view .LVU163
  542 0210 1922     		movs	r2, #25
  543 0212 0F21     		movs	r1, #15
  544 0214 2846     		mov	r0, r5
+ARM GAS  /tmp/ccMIQZlz.s 			page 15
+
+
  545 0216 FFF7FEFF 		bl	OLED_DrawStr
  546              	.LVL12:
- 205:Core/Source/encoder.c ****               }
- 547              		.loc 1 205 17 view .LVU164
- 548 021a FFF7FEFF 		bl	OLED_UpdateScreen
+ 172:Core/Source/encoder.c ****           }
+ 547              		.loc 1 172 13 view .LVU164
+ 548 021a FFF7FEFF 		bl	OLED_UpdScreen_DMA
  549              	.LVL13:
  550 021e BEE7     		b	.L30
  551              	.L43:
- 211:Core/Source/encoder.c ****                   OLED_Clear(NONE_INVERTED);
- 552              		.loc 1 211 19 view .LVU165
- 211:Core/Source/encoder.c ****                   OLED_Clear(NONE_INVERTED);
- 553              		.loc 1 211 28 is_stmt 0 view .LVU166
+ 178:Core/Source/encoder.c ****               OLED_Clear(NONE_INVERTED);
+ 552              		.loc 1 178 15 view .LVU165
+ 178:Core/Source/encoder.c ****               OLED_Clear(NONE_INVERTED);
+ 553              		.loc 1 178 24 is_stmt 0 view .LVU166
  554 0220 174C     		ldr	r4, .L44+32
  555 0222 2368     		ldr	r3, [r4]
  556 0224 0133     		adds	r3, r3, #1
  557 0226 2360     		str	r3, [r4]
- 212:Core/Source/encoder.c ****                   snprintf(lcd_buf, 25,"+cnt=%ld, %x, %x, %x", enc_count, val_new, val_old, val_old
- 558              		.loc 1 212 19 is_stmt 1 view .LVU167
+ 179:Core/Source/encoder.c ****               snprintf(lcd_buf, 25,"+cnt=%ld, %x, %x, %x", enc_count, val_new, val_old, val_old | v
+ 558              		.loc 1 179 15 is_stmt 1 view .LVU167
  559 0228 0020     		movs	r0, #0
  560 022a FFF7FEFF 		bl	OLED_Clear
  561              	.LVL14:
- 213:Core/Source/encoder.c ****                   OLED_DrawStr(lcd_buf, 15, 25);
- 562              		.loc 1 213 19 view .LVU168
+ 180:Core/Source/encoder.c ****               OLED_DrawStr(lcd_buf, 15, 25);
+ 562              		.loc 1 180 15 view .LVU168
  563 022e 0C4B     		ldr	r3, .L44
-ARM GAS  /tmp/ccvkHKs4.s 			page 16
-
-
  564 0230 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
  565 0232 0E4A     		ldr	r2, .L44+12
  566 0234 1278     		ldrb	r2, [r2]	@ zero_extendqisi2
@@ -915,16 +879,16 @@ ARM GAS  /tmp/ccvkHKs4.s 			page 1
  575 0248 2846     		mov	r0, r5
  576 024a FFF7FEFF 		bl	snprintf
  577              	.LVL15:
- 214:Core/Source/encoder.c ****                   OLED_UpdateScreen(); 
- 578              		.loc 1 214 19 view .LVU169
+ 181:Core/Source/encoder.c ****               OLED_UpdScreen_DMA();
+ 578              		.loc 1 181 15 view .LVU169
  579 024e 1922     		movs	r2, #25
  580 0250 0F21     		movs	r1, #15
  581 0252 2846     		mov	r0, r5
  582 0254 FFF7FEFF 		bl	OLED_DrawStr
  583              	.LVL16:
- 215:Core/Source/encoder.c ****                 } 
- 584              		.loc 1 215 19 view .LVU170
- 585 0258 FFF7FEFF 		bl	OLED_UpdateScreen
+ 182:Core/Source/encoder.c ****             } 
+ 584              		.loc 1 182 15 view .LVU170
+ 585 0258 FFF7FEFF 		bl	OLED_UpdScreen_DMA
  586              	.LVL17:
  587 025c 9FE7     		b	.L30
  588              	.L45:
@@ -934,6 +898,9 @@ ARM GAS  /tmp/ccvkHKs4.s 			page 1
  592 0264 00000000 		.word	.LANCHOR1
  593 0268 00000000 		.word	flag_end_delay
  594 026c 00000000 		.word	.LANCHOR2
+ARM GAS  /tmp/ccMIQZlz.s 			page 16
+
+
  595 0270 00000000 		.word	.LANCHOR4
  596 0274 00000000 		.word	.LANCHOR3
  597 0278 00000000 		.word	.LANCHOR5
@@ -943,84 +910,69 @@ ARM GAS  /tmp/ccvkHKs4.s 			page 1
  601 0288 00000000 		.word	.LC0
  602 028c 18000000 		.word	.LC1
  603              	.L9:
- 222:Core/Source/encoder.c ****             }            
- 223:Core/Source/encoder.c ****           } 
- 224:Core/Source/encoder.c ****           break;  
- 225:Core/Source/encoder.c **** 
- 226:Core/Source/encoder.c ****         case  SM_RESET: //стадия ожидания сброса показанрий энко�
- 227:Core/Source/encoder.c ****           if (flag_end_delay == 0) //если таймаут истёк
- 604              		.loc 1 227 11 view .LVU171
- 605              		.loc 1 227 30 is_stmt 0 view .LVU172
+ 189:Core/Source/encoder.c ****         }            
+ 190:Core/Source/encoder.c ****       } 
+ 191:Core/Source/encoder.c ****       break;  
+ 192:Core/Source/encoder.c **** 
+ 193:Core/Source/encoder.c ****     case  SM_RESET: //стадия ожидания сброса показанрий энкоде�
+ 194:Core/Source/encoder.c ****       if (flag_end_delay == OFF) //если таймаут истёк
+ 604              		.loc 1 194 7 view .LVU171
+ 605              		.loc 1 194 26 is_stmt 0 view .LVU172
  606 0290 094B     		ldr	r3, .L46
  607 0292 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 608              		.loc 1 227 14 view .LVU173
+ 608              		.loc 1 194 10 view .LVU173
  609 0294 6BB9     		cbnz	r3, .L7
- 228:Core/Source/encoder.c ****           {
- 229:Core/Source/encoder.c ****             if (val_new != val_old) //если показания энкодера изменили
- 610              		.loc 1 229 13 is_stmt 1 view .LVU174
-ARM GAS  /tmp/ccvkHKs4.s 			page 17
-
-
- 611              		.loc 1 229 25 is_stmt 0 view .LVU175
+ 195:Core/Source/encoder.c ****       {
+ 196:Core/Source/encoder.c ****         if (val_new != val_old) //если показания энкодера изменились
+ 610              		.loc 1 196 9 is_stmt 1 view .LVU174
+ 611              		.loc 1 196 21 is_stmt 0 view .LVU175
  612 0296 094B     		ldr	r3, .L46+4
  613 0298 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 614              		.loc 1 229 16 view .LVU176
+ 614              		.loc 1 196 12 view .LVU176
  615 029a 9842     		cmp	r0, r3
  616 029c 05D0     		beq	.L31
- 230:Core/Source/encoder.c ****             {
- 231:Core/Source/encoder.c ****               if (val_new == PULSE_STATE_DEFAULT) //если энкодер в состоянии �
- 617              		.loc 1 231 15 is_stmt 1 view .LVU177
- 618              		.loc 1 231 18 is_stmt 0 view .LVU178
+ 197:Core/Source/encoder.c ****         {
+ 198:Core/Source/encoder.c ****           if (val_new == PULSE_STATE_DEFAULT) //если энкодер в состоянии по 
+ 617              		.loc 1 198 11 is_stmt 1 view .LVU177
+ 618              		.loc 1 198 14 is_stmt 0 view .LVU178
  619 029e 10B9     		cbnz	r0, .L32
- 232:Core/Source/encoder.c **** 	            { 
- 233:Core/Source/encoder.c ****                 state_machine = SM_WAIT; //переход к начальной стадии кон
- 620              		.loc 1 233 17 is_stmt 1 view .LVU179
- 621              		.loc 1 233 31 is_stmt 0 view .LVU180
+ 199:Core/Source/encoder.c **** 	        { 
+ 200:Core/Source/encoder.c ****             state_machine = SM_WAIT; //переход к начальной стадии конеч
+ 620              		.loc 1 200 13 is_stmt 1 view .LVU179
+ 621              		.loc 1 200 27 is_stmt 0 view .LVU180
  622 02a0 074B     		ldr	r3, .L46+8
  623 02a2 0022     		movs	r2, #0
  624 02a4 1A70     		strb	r2, [r3]
  625              	.L32:
- 234:Core/Source/encoder.c ****                   
- 235:Core/Source/encoder.c ****                 #ifdef __USE_DBG
- 236:Core/Source/encoder.c ****                   sprintf (DBG_buffer,  "END_RESET,new=%u,old=%u\r\n",  val_new, val_old);
- 237:Core/Source/encoder.c **** 		              DBG_PutString(DBG_buffer);
- 238:Core/Source/encoder.c **** 	              #endif
- 239:Core/Source/encoder.c ****               }
- 240:Core/Source/encoder.c ****               else
- 241:Core/Source/encoder.c ****               {
- 242:Core/Source/encoder.c ****                 #ifdef __USE_DBG
- 243:Core/Source/encoder.c ****                   sprintf (DBG_buffer,  "CONT_RESET,new=%u,old=%u\r\n",  val_new, val_old);
- 244:Core/Source/encoder.c **** 		              DBG_PutString(DBG_buffer);
- 245:Core/Source/encoder.c **** 	              #endif
- 246:Core/Source/encoder.c ****               }
- 626              		.loc 1 246 15 is_stmt 1 view .LVU181
- 247:Core/Source/encoder.c ****               val_old = val_new; //сохранение текущего показания энк�
- 627              		.loc 1 247 15 view .LVU182
- 628              		.loc 1 247 23 is_stmt 0 view .LVU183
+ 201:Core/Source/encoder.c ****           }
+ 202:Core/Source/encoder.c ****           else
+ 203:Core/Source/encoder.c ****           {}
+ 626              		.loc 1 203 12 is_stmt 1 view .LVU181
+ 204:Core/Source/encoder.c ****           val_old = val_new; //сохранение текущего показания энкод�
+ 627              		.loc 1 204 11 view .LVU182
+ 628              		.loc 1 204 19 is_stmt 0 view .LVU183
  629 02a6 054B     		ldr	r3, .L46+4
  630 02a8 1870     		strb	r0, [r3]
  631              	.L31:
- 248:Core/Source/encoder.c ****             }               
- 249:Core/Source/encoder.c ****             delay_ms (ms_delay); //начало таймаута
- 632              		.loc 1 249 13 is_stmt 1 view .LVU184
+ 205:Core/Source/encoder.c ****         }               
+ 206:Core/Source/encoder.c ****         delay_ms (ms_delay); //начало таймаута
+ 632              		.loc 1 206 9 is_stmt 1 view .LVU184
  633 02aa 064B     		ldr	r3, .L46+12
+ARM GAS  /tmp/ccMIQZlz.s 			page 17
+
+
  634 02ac 1888     		ldrh	r0, [r3]
  635 02ae FFF7FEFF 		bl	delay_ms
  636              	.LVL18:
  637              	.L7:
- 250:Core/Source/encoder.c ****           }
- 251:Core/Source/encoder.c ****           break;
- 252:Core/Source/encoder.c **** 
- 253:Core/Source/encoder.c ****         default:
- 254:Core/Source/encoder.c ****           break;         
- 255:Core/Source/encoder.c ****       }
- 256:Core/Source/encoder.c ****     }
- 257:Core/Source/encoder.c ****   }
- 258:Core/Source/encoder.c **** }
- 638              		.loc 1 258 1 is_stmt 0 view .LVU185
-ARM GAS  /tmp/ccvkHKs4.s 			page 18
-
-
+ 207:Core/Source/encoder.c ****       }
+ 208:Core/Source/encoder.c ****       break;
+ 209:Core/Source/encoder.c **** 
+ 210:Core/Source/encoder.c ****     default:
+ 211:Core/Source/encoder.c ****       break;         
+ 212:Core/Source/encoder.c ****   }
+ 213:Core/Source/encoder.c **** }
+ 638              		.loc 1 213 1 is_stmt 0 view .LVU185
  639 02b2 05B0     		add	sp, sp, #20
  640              	.LCFI5:
  641              		.cfi_def_cfa_offset 12
@@ -1066,6 +1018,9 @@ ARM GAS  /tmp/ccvkHKs4.s 			page 1
  692 0000 00       		.space	1
  693              		.section	.bss.val_new,"aw",%nobits
  694              		.set	.LANCHOR0,. + 0
+ARM GAS  /tmp/ccMIQZlz.s 			page 18
+
+
  697              	val_new:
  698 0000 00       		.space	1
  699              		.section	.bss.val_old,"aw",%nobits
@@ -1076,53 +1031,51 @@ ARM GAS  /tmp/ccvkHKs4.s 			page 1
  706              		.align	2
  707              		.set	.LANCHOR6,. + 0
  710              	ms_delay:
- 711 0000 0A000000 		.word	10
+ 711 0000 05000000 		.word	5
  712              		.text
-ARM GAS  /tmp/ccvkHKs4.s 			page 19
-
-
  713              	.Letext0:
  714              		.file 2 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/m
  715              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
  716              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
  717              		.file 5 "Core/Include/typedef.h"
  718              		.file 6 "Core/Include/encoder.h"
- 719              		.file 7 "Core/Include/tim.h"
- 720              		.file 8 "Drivers/display/OLED.h"
- 721              		.file 9 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
- 722              		.file 10 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_gpio.h"
-ARM GAS  /tmp/ccvkHKs4.s 			page 20
+ 719              		.file 7 "Core/Include/spi.h"
+ 720              		.file 8 "Core/Include/tim.h"
+ 721              		.file 9 "Drivers/display/OLED.h"
+ 722              		.file 10 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/
+ 723              		.file 11 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_gpio.h"
+ARM GAS  /tmp/ccMIQZlz.s 			page 19
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 encoder.c
-     /tmp/ccvkHKs4.s:18     .text.read_gray_code_from_encoder:0000000000000000 $t
-     /tmp/ccvkHKs4.s:24     .text.read_gray_code_from_encoder:0000000000000000 read_gray_code_from_encoder
-     /tmp/ccvkHKs4.s:90     .text.read_gray_code_from_encoder:0000000000000050 $d
-     /tmp/ccvkHKs4.s:95     .rodata.read_data_encoder.str1.4:0000000000000000 $d
-     /tmp/ccvkHKs4.s:102    .text.read_data_encoder:0000000000000000 $t
-     /tmp/ccvkHKs4.s:108    .text.read_data_encoder:0000000000000000 read_data_encoder
-     /tmp/ccvkHKs4.s:137    .text.read_data_encoder:000000000000001a $d
-     /tmp/ccvkHKs4.s:142    .text.read_data_encoder:0000000000000024 $t
-     /tmp/ccvkHKs4.s:591    .text.read_data_encoder:0000000000000260 $d
-     /tmp/ccvkHKs4.s:606    .text.read_data_encoder:0000000000000290 $t
-     /tmp/ccvkHKs4.s:647    .text.read_data_encoder:00000000000002b8 $d
-     /tmp/ccvkHKs4.s:673    .bss.enc_count:0000000000000000 enc_count
-     /tmp/ccvkHKs4.s:666    .bss.cnt_timeout:0000000000000000 cnt_timeout
-     /tmp/ccvkHKs4.s:710    .data.ms_delay:0000000000000000 ms_delay
-     /tmp/ccvkHKs4.s:691    .bss.state_machine:0000000000000000 state_machine
-     /tmp/ccvkHKs4.s:685    .bss.flag_rev:0000000000000000 flag_rev
-     /tmp/ccvkHKs4.s:679    .bss.flag_dir:0000000000000000 flag_dir
-     /tmp/ccvkHKs4.s:697    .bss.val_new:0000000000000000 val_new
-     /tmp/ccvkHKs4.s:703    .bss.val_old:0000000000000000 val_old
-     /tmp/ccvkHKs4.s:667    .bss.cnt_timeout:0000000000000000 $d
-     /tmp/ccvkHKs4.s:669    .bss.enc_count:0000000000000000 $d
-     /tmp/ccvkHKs4.s:680    .bss.flag_dir:0000000000000000 $d
-     /tmp/ccvkHKs4.s:686    .bss.flag_rev:0000000000000000 $d
-     /tmp/ccvkHKs4.s:692    .bss.state_machine:0000000000000000 $d
-     /tmp/ccvkHKs4.s:698    .bss.val_new:0000000000000000 $d
-     /tmp/ccvkHKs4.s:704    .bss.val_old:0000000000000000 $d
-     /tmp/ccvkHKs4.s:706    .data.ms_delay:0000000000000000 $d
+     /tmp/ccMIQZlz.s:18     .text.read_gray_code_from_encoder:0000000000000000 $t
+     /tmp/ccMIQZlz.s:24     .text.read_gray_code_from_encoder:0000000000000000 read_gray_code_from_encoder
+     /tmp/ccMIQZlz.s:90     .text.read_gray_code_from_encoder:0000000000000050 $d
+     /tmp/ccMIQZlz.s:95     .rodata.read_data_encoder.str1.4:0000000000000000 $d
+     /tmp/ccMIQZlz.s:102    .text.read_data_encoder:0000000000000000 $t
+     /tmp/ccMIQZlz.s:108    .text.read_data_encoder:0000000000000000 read_data_encoder
+     /tmp/ccMIQZlz.s:137    .text.read_data_encoder:000000000000001a $d
+     /tmp/ccMIQZlz.s:142    .text.read_data_encoder:0000000000000024 $t
+     /tmp/ccMIQZlz.s:591    .text.read_data_encoder:0000000000000260 $d
+     /tmp/ccMIQZlz.s:606    .text.read_data_encoder:0000000000000290 $t
+     /tmp/ccMIQZlz.s:647    .text.read_data_encoder:00000000000002b8 $d
+     /tmp/ccMIQZlz.s:673    .bss.enc_count:0000000000000000 enc_count
+     /tmp/ccMIQZlz.s:666    .bss.cnt_timeout:0000000000000000 cnt_timeout
+     /tmp/ccMIQZlz.s:710    .data.ms_delay:0000000000000000 ms_delay
+     /tmp/ccMIQZlz.s:691    .bss.state_machine:0000000000000000 state_machine
+     /tmp/ccMIQZlz.s:685    .bss.flag_rev:0000000000000000 flag_rev
+     /tmp/ccMIQZlz.s:679    .bss.flag_dir:0000000000000000 flag_dir
+     /tmp/ccMIQZlz.s:697    .bss.val_new:0000000000000000 val_new
+     /tmp/ccMIQZlz.s:703    .bss.val_old:0000000000000000 val_old
+     /tmp/ccMIQZlz.s:667    .bss.cnt_timeout:0000000000000000 $d
+     /tmp/ccMIQZlz.s:669    .bss.enc_count:0000000000000000 $d
+     /tmp/ccMIQZlz.s:680    .bss.flag_dir:0000000000000000 $d
+     /tmp/ccMIQZlz.s:686    .bss.flag_rev:0000000000000000 $d
+     /tmp/ccMIQZlz.s:692    .bss.state_machine:0000000000000000 $d
+     /tmp/ccMIQZlz.s:698    .bss.val_new:0000000000000000 $d
+     /tmp/ccMIQZlz.s:704    .bss.val_old:0000000000000000 $d
+     /tmp/ccMIQZlz.s:706    .data.ms_delay:0000000000000000 $d
 
 UNDEFINED SYMBOLS
 gpio_input_bit_get
@@ -1130,6 +1083,6 @@ delay_ms
 OLED_Clear
 snprintf
 OLED_DrawStr
-OLED_UpdateScreen
+OLED_UpdScreen_DMA
 flag_end_delay
 lcd_buf

@@ -28,7 +28,7 @@ build/gd32f30x_it.o: Core/Source/gd32f30x_it.c Core/Include/gd32f30x_it.h \
  Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_misc.h \
  Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_enet.h \
  Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_exmc.h \
- Core/Include/systick.h
+ Core/Include/systick.h Core/Include/tim.h Core/Include/spi.h
 Core/Include/gd32f30x_it.h:
 Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h:
 Drivers/CMSIS/core_cm4.h:
@@ -62,3 +62,5 @@ Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_misc.h:
 Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_enet.h:
 Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_exmc.h:
 Core/Include/systick.h:
+Core/Include/tim.h:
+Core/Include/spi.h:

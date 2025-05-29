@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccBhVTSt.s 			page 1
+ARM GAS  /tmp/ccRBHNtl.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
   29:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c **** IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
   30:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
   31:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
-ARM GAS  /tmp/ccBhVTSt.s 			page 2
+ARM GAS  /tmp/ccRBHNtl.s 			page 2
 
 
   32:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
   55              		.cfi_endproc
   56              	.LFE116:
   58              		.section	.text.fmc_unlock,"ax",%progbits
-ARM GAS  /tmp/ccBhVTSt.s 			page 3
+ARM GAS  /tmp/ccRBHNtl.s 			page 3
 
 
   59              		.align	1
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
   97              		.loc 1 75 22 is_stmt 0 view .LVU22
   98 0022 064B     		ldr	r3, .L7
   99 0024 1B6D     		ldr	r3, [r3, #80]
-ARM GAS  /tmp/ccBhVTSt.s 			page 4
+ARM GAS  /tmp/ccRBHNtl.s 			page 4
 
 
  100              		.loc 1 75 11 view .LVU23
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  138              		.loc 1 93 5 view .LVU30
  139              		.loc 1 93 19 is_stmt 0 view .LVU31
  140 0000 054B     		ldr	r3, .L11
-ARM GAS  /tmp/ccBhVTSt.s 			page 5
+ARM GAS  /tmp/ccRBHNtl.s 			page 5
 
 
  141 0002 1B69     		ldr	r3, [r3, #16]
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  181 0000 054B     		ldr	r3, .L15
  182 0002 1B6D     		ldr	r3, [r3, #80]
  183              		.loc 1 109 7 view .LVU41
-ARM GAS  /tmp/ccBhVTSt.s 			page 6
+ARM GAS  /tmp/ccRBHNtl.s 			page 6
 
 
  184 0004 13F0800F 		tst	r3, #128
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  224 0004 43F08003 		orr	r3, r3, #128
  225 0008 1361     		str	r3, [r2, #16]
  126:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     
-ARM GAS  /tmp/ccBhVTSt.s 			page 7
+ARM GAS  /tmp/ccRBHNtl.s 			page 7
 
 
  127:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     if(FMC_BANK0_SIZE < FMC_SIZE){
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  263              		.loc 1 145 5 view .LVU57
  264              		.loc 1 145 14 is_stmt 0 view .LVU58
  265 0000 024A     		ldr	r2, .L22
-ARM GAS  /tmp/ccBhVTSt.s 			page 8
+ARM GAS  /tmp/ccRBHNtl.s 			page 8
 
 
  266 0002 1369     		ldr	r3, [r2, #16]
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  309              		.global	ob_unlock
  310              		.syntax unified
  311              		.thumb
-ARM GAS  /tmp/ccBhVTSt.s 			page 9
+ARM GAS  /tmp/ccRBHNtl.s 			page 9
 
 
  312              		.thumb_func
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  211:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****             FMC_CTL0 &= ~FMC_CTL0_PER;
  212:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****         }
  213:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     }
-ARM GAS  /tmp/ccBhVTSt.s 			page 10
+ARM GAS  /tmp/ccRBHNtl.s 			page 10
 
 
  214:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     /* return the FMC state */
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  268:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c **** /*!
  269:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     \brief      erase bank0
  270:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     \param[in]  none
-ARM GAS  /tmp/ccBhVTSt.s 			page 11
+ARM GAS  /tmp/ccRBHNtl.s 			page 11
 
 
  271:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     \param[out] none
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  325:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c **** fmc_state_enum fmc_word_program(uint32_t address, uint32_t data)
  326:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c **** {
  327:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     fmc_state_enum fmc_state = FMC_READY;
-ARM GAS  /tmp/ccBhVTSt.s 			page 12
+ARM GAS  /tmp/ccRBHNtl.s 			page 12
 
 
  328:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     if(FMC_BANK0_SIZE < FMC_SIZE){
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  382:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****         if(FMC_BANK0_END_ADDRESS > address){
  383:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****             fmc_state = fmc_bank0_ready_wait(FMC_TIMEOUT_COUNT); 
  384:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****   
-ARM GAS  /tmp/ccBhVTSt.s 			page 13
+ARM GAS  /tmp/ccRBHNtl.s 			page 13
 
 
  385:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****             if(FMC_READY == fmc_state){
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  439:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****                 /* set the PG bit to start program */
  440:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****                 FMC_CTL0 |= FMC_CTL0_PG;
  441:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****                 REG32(address) = data;
-ARM GAS  /tmp/ccBhVTSt.s 			page 14
+ARM GAS  /tmp/ccRBHNtl.s 			page 14
 
 
  442:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****                 /* wait for the FMC ready */
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  326 0004 13F4007F 		tst	r3, #512
  327 0008 05D1     		bne	.L27
  486:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****         /* write the FMC key */
-ARM GAS  /tmp/ccBhVTSt.s 			page 15
+ARM GAS  /tmp/ccRBHNtl.s 			page 15
 
 
  487:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****         FMC_OBKEY = UNLOCK_KEY0;
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  368              		.loc 1 502 1 view .LVU76
  369 000a 7047     		bx	lr
  370              	.L33:
-ARM GAS  /tmp/ccBhVTSt.s 			page 16
+ARM GAS  /tmp/ccRBHNtl.s 			page 16
 
 
  371              		.align	2
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  544:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****         }else{
  545:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****             if(FMC_TOERR != fmc_state){
  546:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****                 /* reset the OBPG bit */
-ARM GAS  /tmp/ccBhVTSt.s 			page 17
+ARM GAS  /tmp/ccRBHNtl.s 			page 17
 
 
  547:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****                 FMC_CTL0 &= ~FMC_CTL0_OBPG;
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  601:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****             /* wait for the FMC ready */
  602:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****             fmc_state = fmc_bank0_ready_wait(FMC_TIMEOUT_COUNT);
  603:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****         }
-ARM GAS  /tmp/ccBhVTSt.s 			page 18
+ARM GAS  /tmp/ccRBHNtl.s 			page 18
 
 
  604:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****         if(FMC_TOERR != fmc_state){
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  658:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c **** 
  659:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c **** /*!
  660:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     \brief      program the FMC user option byte 
-ARM GAS  /tmp/ccBhVTSt.s 			page 19
+ARM GAS  /tmp/ccRBHNtl.s 			page 19
 
 
  661:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     \param[in]  ob_fwdgt: option byte watchdog value
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  715:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****         /* set the OBPG bit */
  716:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****         FMC_CTL0 |= FMC_CTL0_OBPG; 
  717:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****         REG16(address) = data;
-ARM GAS  /tmp/ccBhVTSt.s 			page 20
+ARM GAS  /tmp/ccRBHNtl.s 			page 20
 
 
  718:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  746:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     \param[out] none
  747:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     \retval     ob_data
  748:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c **** */
-ARM GAS  /tmp/ccBhVTSt.s 			page 21
+ARM GAS  /tmp/ccRBHNtl.s 			page 21
 
 
  749:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c **** uint16_t ob_data_get(void)
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  454 0006 00BF     		.align	2
  455              	.L41:
  456 0008 00200240 		.word	1073881088
-ARM GAS  /tmp/ccBhVTSt.s 			page 22
+ARM GAS  /tmp/ccRBHNtl.s 			page 22
 
 
  457              		.cfi_endproc
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  495              	.L46:
  496 0014 00200240 		.word	1073881088
  497              		.cfi_endproc
-ARM GAS  /tmp/ccBhVTSt.s 			page 23
+ARM GAS  /tmp/ccRBHNtl.s 			page 23
 
 
  498              	.LFE140:
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  540              		.thumb_func
  542              	fmc_interrupt_disable:
  543              	.LVL8:
-ARM GAS  /tmp/ccBhVTSt.s 			page 24
+ARM GAS  /tmp/ccRBHNtl.s 			page 24
 
 
  544              	.LFB142:
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  818:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****       \arg        FMC_FLAG_BANK0_BUSY: FMC bank0 busy flag bit
  819:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****       \arg        FMC_FLAG_BANK0_PGERR: FMC bank0 operation error flag bit
  820:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****       \arg        FMC_FLAG_BANK0_WPERR: FMC bank0 erase/program protection error flag bit
-ARM GAS  /tmp/ccBhVTSt.s 			page 25
+ARM GAS  /tmp/ccRBHNtl.s 			page 25
 
 
  821:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****       \arg        FMC_FLAG_BANK0_END: FMC bank0 end of operation flag bit
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  619              	.LFB144:
  838:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c **** 
  839:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c **** /*!
-ARM GAS  /tmp/ccBhVTSt.s 			page 26
+ARM GAS  /tmp/ccRBHNtl.s 			page 26
 
 
  840:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     \brief      clear the FMC flag
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  861:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****       \arg        FMC_INT_FLAG_BANK0_PGERR: FMC bank0 operation error interrupt flag bit
  862:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****       \arg        FMC_INT_FLAG_BANK0_WPERR: FMC bank0 erase/program protection error interrupt flag
  863:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****       \arg        FMC_INT_FLAG_BANK0_END: FMC bank0 end of operation interrupt flag bit
-ARM GAS  /tmp/ccBhVTSt.s 			page 27
+ARM GAS  /tmp/ccRBHNtl.s 			page 27
 
 
  864:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****       \arg        FMC_INT_FLAG_BANK1_PGERR: FMC bank1 operation error interrupt flag bit
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  688              	.LVL16:
  689              		.loc 1 884 40 view .LVU142
  690 0026 03FA00F0 		lsl	r0, r3, r0
-ARM GAS  /tmp/ccBhVTSt.s 			page 28
+ARM GAS  /tmp/ccRBHNtl.s 			page 28
 
 
  691              		.loc 1 884 16 view .LVU143
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  731 005a 1840     		ands	r0, r0, r3
  732              	.LVL21:
  879:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     }else{
-ARM GAS  /tmp/ccBhVTSt.s 			page 29
+ARM GAS  /tmp/ccRBHNtl.s 			page 29
 
 
  733              		.loc 1 879 14 view .LVU159
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  767              		@ args = 0, pretend = 0, frame = 0
  768              		@ frame_needed = 0, uses_anonymous_args = 0
  769              		@ link register save eliminated.
-ARM GAS  /tmp/ccBhVTSt.s 			page 30
+ARM GAS  /tmp/ccRBHNtl.s 			page 30
 
 
  909:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     FMC_REG_VALS(flag) |= BIT(FMC_BIT_POS0(flag));
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  812 0008 0BD1     		bne	.L66
  923:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****         fmc_state = FMC_BUSY;
  924:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     }else{
-ARM GAS  /tmp/ccBhVTSt.s 			page 31
+ARM GAS  /tmp/ccRBHNtl.s 			page 31
 
 
  925:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****         if((uint32_t)0x00U != (FMC_STAT0 & FMC_STAT0_WPERR)){
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  854              		.global	fmc_bank1_state_get
  855              		.syntax unified
  856              		.thumb
-ARM GAS  /tmp/ccBhVTSt.s 			page 32
+ARM GAS  /tmp/ccRBHNtl.s 			page 32
 
 
  857              		.thumb_func
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  948:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****         fmc_state = FMC_BUSY;
  893              		.loc 1 948 19 view .LVU200
  894 0022 0120     		movs	r0, #1
-ARM GAS  /tmp/ccBhVTSt.s 			page 33
+ARM GAS  /tmp/ccRBHNtl.s 			page 33
 
 
  895 0024 7047     		bx	lr
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  933              		.cfi_offset 14, -4
  934 0002 0446     		mov	r4, r0
  971:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     fmc_state_enum fmc_state = FMC_BUSY;
-ARM GAS  /tmp/ccBhVTSt.s 			page 34
+ARM GAS  /tmp/ccRBHNtl.s 			page 34
 
 
  935              		.loc 1 971 5 is_stmt 1 view .LVU207
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  974              		.section	.text.fmc_bank0_erase,"ax",%progbits
  975              		.align	1
  976              		.global	fmc_bank0_erase
-ARM GAS  /tmp/ccBhVTSt.s 			page 35
+ARM GAS  /tmp/ccRBHNtl.s 			page 35
 
 
  977              		.syntax unified
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  285:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****         /* reset the MER bit */
  1020              		.loc 1 285 9 is_stmt 1 view .LVU234
  285:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****         /* reset the MER bit */
-ARM GAS  /tmp/ccBhVTSt.s 			page 36
+ARM GAS  /tmp/ccRBHNtl.s 			page 36
 
 
  1021              		.loc 1 285 21 is_stmt 0 view .LVU235
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  1069 000c FFF7FEFF 		bl	ob_spc_get
  1070              	.LVL46:
  518:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****         temp_spc = FMC_USPC;  
-ARM GAS  /tmp/ccBhVTSt.s 			page 37
+ARM GAS  /tmp/ccRBHNtl.s 			page 37
 
 
  1071              		.loc 1 518 7 view .LVU244
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  1111 0038 0446     		mov	r4, r0
  1112 003a 38B1     		cbz	r0, .L98
  545:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****                 /* reset the OBPG bit */
-ARM GAS  /tmp/ccBhVTSt.s 			page 38
+ARM GAS  /tmp/ccRBHNtl.s 			page 38
 
 
  1113              		.loc 1 545 13 is_stmt 1 view .LVU259
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  542:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****             }
  1153              		.loc 1 542 17 is_stmt 1 view .LVU274
  542:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****             }
-ARM GAS  /tmp/ccBhVTSt.s 			page 39
+ARM GAS  /tmp/ccRBHNtl.s 			page 39
 
 
  1154              		.loc 1 542 26 is_stmt 0 view .LVU275
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  1202              	.LVL58:
  570:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     temp_wp1 = (uint16_t)((ob_wp & OB_WP1_WP1) >> 8U);
  1203              		.loc 1 570 5 is_stmt 1 view .LVU284
-ARM GAS  /tmp/ccBhVTSt.s 			page 40
+ARM GAS  /tmp/ccRBHNtl.s 			page 40
 
 
  571:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     temp_wp2 = (uint16_t)((ob_wp & OB_WP2_WP2) >> 16U);
@@ -2398,7 +2398,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  1241 0030 08B9     		cbnz	r0, .L105
  592:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****             OB_WP2 = temp_wp2;
  1242              		.loc 1 592 37 discriminator 1 view .LVU302
-ARM GAS  /tmp/ccBhVTSt.s 			page 41
+ARM GAS  /tmp/ccRBHNtl.s 			page 41
 
 
  1243 0032 FF2D     		cmp	r5, #255
@@ -2458,7 +2458,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  1282              		.loc 1 587 13 is_stmt 1 view .LVU317
  587:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****       
  1283              		.loc 1 587 20 is_stmt 0 view .LVU318
-ARM GAS  /tmp/ccBhVTSt.s 			page 42
+ARM GAS  /tmp/ccRBHNtl.s 			page 42
 
 
  1284 005a 0B4B     		ldr	r3, .L112+4
@@ -2518,7 +2518,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  1322 0082 DBE7     		b	.L106
  1323              	.L113:
  1324              		.align	2
-ARM GAS  /tmp/ccBhVTSt.s 			page 43
+ARM GAS  /tmp/ccRBHNtl.s 			page 43
 
 
  1325              	.L112:
@@ -2578,7 +2578,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  1370              		.loc 1 626 18 is_stmt 0 view .LVU345
  1371 0010 164B     		ldr	r3, .L120
  1372 0012 1A69     		ldr	r2, [r3, #16]
-ARM GAS  /tmp/ccBhVTSt.s 			page 44
+ARM GAS  /tmp/ccRBHNtl.s 			page 44
 
 
  1373 0014 42F02002 		orr	r2, r2, #32
@@ -2638,7 +2638,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  639:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c **** 
  1412              		.loc 1 639 22 is_stmt 0 view .LVU361
  1413 004e A0B2     		uxth	r0, r4
-ARM GAS  /tmp/ccBhVTSt.s 			page 45
+ARM GAS  /tmp/ccRBHNtl.s 			page 45
 
 
  1414              	.LVL78:
@@ -2698,7 +2698,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  1461              		.cfi_offset 4, -20
  1462              		.cfi_offset 5, -16
  1463              		.cfi_offset 6, -12
-ARM GAS  /tmp/ccBhVTSt.s 			page 46
+ARM GAS  /tmp/ccRBHNtl.s 			page 46
 
 
  1464              		.cfi_offset 7, -8
@@ -2758,7 +2758,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  1503              		.loc 1 688 17 view .LVU385
  1504 002c 41EA0502 		orr	r2, r1, r5
  1505              	.LVL86:
-ARM GAS  /tmp/ccBhVTSt.s 			page 47
+ARM GAS  /tmp/ccRBHNtl.s 			page 47
 
 
  689:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     
@@ -2818,7 +2818,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  1551              	.LFB136:
  711:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     fmc_state_enum fmc_state = fmc_bank0_ready_wait(FMC_TIMEOUT_COUNT);
  1552              		.loc 1 711 1 is_stmt 1 view -0
-ARM GAS  /tmp/ccBhVTSt.s 			page 48
+ARM GAS  /tmp/ccRBHNtl.s 			page 48
 
 
  1553              		.cfi_startproc
@@ -2878,7 +2878,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  720:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     
  1595              		.loc 1 720 9 is_stmt 1 view .LVU410
  720:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     
-ARM GAS  /tmp/ccBhVTSt.s 			page 49
+ARM GAS  /tmp/ccRBHNtl.s 			page 49
 
 
  1596              		.loc 1 720 21 is_stmt 0 view .LVU411
@@ -2938,7 +2938,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  1638              	.LCFI7:
  1639              		.cfi_def_cfa_offset 8
  1640              		.cfi_offset 4, -8
-ARM GAS  /tmp/ccBhVTSt.s 			page 50
+ARM GAS  /tmp/ccRBHNtl.s 			page 50
 
 
  1641              		.cfi_offset 14, -4
@@ -2998,7 +2998,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  1678 001a FCE7     		b	.L137
  1679              		.cfi_endproc
  1680              	.LFE150:
-ARM GAS  /tmp/ccBhVTSt.s 			page 51
+ARM GAS  /tmp/ccRBHNtl.s 			page 51
 
 
  1682              		.section	.text.fmc_page_erase,"ax",%progbits
@@ -3058,7 +3058,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  1725              		.loc 1 175 13 is_stmt 1 view .LVU445
  175:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****                 FMC_CTL0 |= FMC_CTL0_PER;
  1726              		.loc 1 175 15 is_stmt 0 view .LVU446
-ARM GAS  /tmp/ccBhVTSt.s 			page 52
+ARM GAS  /tmp/ccRBHNtl.s 			page 52
 
 
  1727 001e 00B1     		cbz	r0, .L147
@@ -3118,7 +3118,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  1766 0048 4FF47020 		mov	r0, #983040
  1767              	.LVL114:
  186:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****             /* if the last operation is completed, start page erase */
-ARM GAS  /tmp/ccBhVTSt.s 			page 53
+ARM GAS  /tmp/ccRBHNtl.s 			page 53
 
 
  1768              		.loc 1 186 25 view .LVU462
@@ -3178,7 +3178,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  1806              	.LVL117:
  196:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****                 /* reset the PER bit */
  1807              		.loc 1 196 29 view .LVU479
-ARM GAS  /tmp/ccBhVTSt.s 			page 54
+ARM GAS  /tmp/ccRBHNtl.s 			page 54
 
 
  1808 007a FFF7FEFF 		bl	fmc_bank1_ready_wait
@@ -3238,7 +3238,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  209:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****             /* reset the PER bit */
  1847              		.loc 1 209 25 view .LVU495
  1848 00ac FFF7FEFF 		bl	fmc_bank0_ready_wait
-ARM GAS  /tmp/ccBhVTSt.s 			page 55
+ARM GAS  /tmp/ccRBHNtl.s 			page 55
 
 
  1849              	.LVL123:
@@ -3298,7 +3298,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  230:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****             /* start whole chip erase */
  1896              		.loc 1 230 9 is_stmt 1 view .LVU505
  230:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****             /* start whole chip erase */
-ARM GAS  /tmp/ccBhVTSt.s 			page 56
+ARM GAS  /tmp/ccRBHNtl.s 			page 56
 
 
  1897              		.loc 1 230 11 is_stmt 0 view .LVU506
@@ -3358,7 +3358,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  243:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****             /* start whole chip erase */
  1936              		.loc 1 243 11 is_stmt 0 view .LVU522
  1937 0048 0346     		mov	r3, r0
-ARM GAS  /tmp/ccBhVTSt.s 			page 57
+ARM GAS  /tmp/ccRBHNtl.s 			page 57
 
 
  1938 004a C0B9     		cbnz	r0, .L153
@@ -3418,7 +3418,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  1978              		.loc 1 266 1 view .LVU536
  1979 007e 1846     		mov	r0, r3
  1980 0080 10BD     		pop	{r4, pc}
-ARM GAS  /tmp/ccBhVTSt.s 			page 58
+ARM GAS  /tmp/ccRBHNtl.s 			page 58
 
 
  1981              	.LVL135:
@@ -3478,7 +3478,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  2027              		.cfi_startproc
  2028              		@ args = 0, pretend = 0, frame = 0
  2029              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /tmp/ccBhVTSt.s 			page 59
+ARM GAS  /tmp/ccRBHNtl.s 			page 59
 
 
  2030 0000 10B5     		push	{r4, lr}
@@ -3538,7 +3538,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  2069              		.loc 1 312 18 is_stmt 0 view .LVU561
  2070 0028 236D     		ldr	r3, [r4, #80]
  2071 002a 23F00403 		bic	r3, r3, #4
-ARM GAS  /tmp/ccBhVTSt.s 			page 60
+ARM GAS  /tmp/ccRBHNtl.s 			page 60
 
 
  2072 002e 2365     		str	r3, [r4, #80]
@@ -3598,7 +3598,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  2119              		.loc 1 330 13 is_stmt 1 view .LVU570
  330:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****   
  2120              		.loc 1 330 25 is_stmt 0 view .LVU571
-ARM GAS  /tmp/ccBhVTSt.s 			page 61
+ARM GAS  /tmp/ccRBHNtl.s 			page 61
 
 
  2121 0018 4FF47020 		mov	r0, #983040
@@ -3658,7 +3658,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  2161 0046 EDE7     		b	.L167
  2162              	.LVL153:
  2163              	.L166:
-ARM GAS  /tmp/ccBhVTSt.s 			page 62
+ARM GAS  /tmp/ccRBHNtl.s 			page 62
 
 
  342:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****   
@@ -3718,7 +3718,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  355:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****   
  2203              		.loc 1 355 21 is_stmt 0 view .LVU601
  2204 0076 4FF47020 		mov	r0, #983040
-ARM GAS  /tmp/ccBhVTSt.s 			page 63
+ARM GAS  /tmp/ccRBHNtl.s 			page 63
 
 
  2205              	.LVL160:
@@ -3778,7 +3778,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  2248              		.align	1
  2249              		.global	fmc_halfword_program
  2250              		.syntax unified
-ARM GAS  /tmp/ccBhVTSt.s 			page 64
+ARM GAS  /tmp/ccRBHNtl.s 			page 64
 
 
  2251              		.thumb
@@ -3838,7 +3838,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  2293              		.loc 1 385 15 is_stmt 0 view .LVU626
  2294 0020 0346     		mov	r3, r0
  2295 0022 08B1     		cbz	r0, .L177
-ARM GAS  /tmp/ccBhVTSt.s 			page 65
+ARM GAS  /tmp/ccRBHNtl.s 			page 65
 
 
  2296              	.LVL169:
@@ -3898,7 +3898,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  2336              	.LVL176:
  397:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****                 /* set the PG bit to start program */
  2337              		.loc 1 397 13 is_stmt 1 view .LVU641
-ARM GAS  /tmp/ccBhVTSt.s 			page 66
+ARM GAS  /tmp/ccRBHNtl.s 			page 66
 
 
  397:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****                 /* set the PG bit to start program */
@@ -3958,7 +3958,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  2377 007e 0346     		mov	r3, r0
  2378 0080 0028     		cmp	r0, #0
  2379 0082 CFD1     		bne	.L175
-ARM GAS  /tmp/ccBhVTSt.s 			page 67
+ARM GAS  /tmp/ccRBHNtl.s 			page 67
 
 
  412:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****             REG16(address) = data;
@@ -4018,7 +4018,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  2426              		@ frame_needed = 0, uses_anonymous_args = 0
  432:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****     fmc_state_enum fmc_state = FMC_READY;
  2427              		.loc 1 432 1 is_stmt 0 view .LVU667
-ARM GAS  /tmp/ccBhVTSt.s 			page 68
+ARM GAS  /tmp/ccRBHNtl.s 			page 68
 
 
  2428 0000 70B5     		push	{r4, r5, r6, lr}
@@ -4078,7 +4078,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  2469              	.L183:
  474:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c **** }
  2470              		.loc 1 474 5 is_stmt 1 view .LVU681
-ARM GAS  /tmp/ccBhVTSt.s 			page 69
+ARM GAS  /tmp/ccRBHNtl.s 			page 69
 
 
  475:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c **** 
@@ -4138,7 +4138,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  2510              		.loc 1 449 22 is_stmt 0 view .LVU696
  2511 005e 1E4A     		ldr	r2, .L186+8
  2512 0060 D2F8FC30 		ldr	r3, [r2, #252]
-ARM GAS  /tmp/ccBhVTSt.s 			page 70
+ARM GAS  /tmp/ccRBHNtl.s 			page 70
 
 
  2513 0064 43F00203 		orr	r3, r3, #2
@@ -4198,7 +4198,7 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  462:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****         if(FMC_READY == fmc_state){
  2553              		.loc 1 462 9 is_stmt 1 view .LVU711
  462:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_fmc.c ****         if(FMC_READY == fmc_state){
-ARM GAS  /tmp/ccBhVTSt.s 			page 71
+ARM GAS  /tmp/ccRBHNtl.s 			page 71
 
 
  2554              		.loc 1 462 18 is_stmt 0 view .LVU712
@@ -4258,116 +4258,116 @@ ARM GAS  /tmp/ccBhVTSt.s 			page 1
  2598              	.Letext0:
  2599              		.file 2 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/m
  2600              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
-ARM GAS  /tmp/ccBhVTSt.s 			page 72
+ARM GAS  /tmp/ccRBHNtl.s 			page 72
 
 
  2601              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
  2602              		.file 5 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_fmc.h"
-ARM GAS  /tmp/ccBhVTSt.s 			page 73
+ARM GAS  /tmp/ccRBHNtl.s 			page 73
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gd32f30x_fmc.c
-     /tmp/ccBhVTSt.s:18     .text.fmc_wscnt_set:0000000000000000 $t
-     /tmp/ccBhVTSt.s:24     .text.fmc_wscnt_set:0000000000000000 fmc_wscnt_set
-     /tmp/ccBhVTSt.s:54     .text.fmc_wscnt_set:0000000000000010 $d
-     /tmp/ccBhVTSt.s:59     .text.fmc_unlock:0000000000000000 $t
-     /tmp/ccBhVTSt.s:65     .text.fmc_unlock:0000000000000000 fmc_unlock
-     /tmp/ccBhVTSt.s:118    .text.fmc_unlock:000000000000003c $d
-     /tmp/ccBhVTSt.s:125    .text.fmc_bank0_unlock:0000000000000000 $t
-     /tmp/ccBhVTSt.s:131    .text.fmc_bank0_unlock:0000000000000000 fmc_bank0_unlock
-     /tmp/ccBhVTSt.s:160    .text.fmc_bank0_unlock:0000000000000018 $d
-     /tmp/ccBhVTSt.s:166    .text.fmc_bank1_unlock:0000000000000000 $t
-     /tmp/ccBhVTSt.s:172    .text.fmc_bank1_unlock:0000000000000000 fmc_bank1_unlock
-     /tmp/ccBhVTSt.s:201    .text.fmc_bank1_unlock:0000000000000018 $d
-     /tmp/ccBhVTSt.s:207    .text.fmc_lock:0000000000000000 $t
-     /tmp/ccBhVTSt.s:213    .text.fmc_lock:0000000000000000 fmc_lock
-     /tmp/ccBhVTSt.s:244    .text.fmc_lock:0000000000000020 $d
-     /tmp/ccBhVTSt.s:250    .text.fmc_bank0_lock:0000000000000000 $t
-     /tmp/ccBhVTSt.s:256    .text.fmc_bank0_lock:0000000000000000 fmc_bank0_lock
-     /tmp/ccBhVTSt.s:274    .text.fmc_bank0_lock:000000000000000c $d
-     /tmp/ccBhVTSt.s:279    .text.fmc_bank1_lock:0000000000000000 $t
-     /tmp/ccBhVTSt.s:285    .text.fmc_bank1_lock:0000000000000000 fmc_bank1_lock
-     /tmp/ccBhVTSt.s:303    .text.fmc_bank1_lock:000000000000000c $d
-     /tmp/ccBhVTSt.s:308    .text.ob_unlock:0000000000000000 $t
-     /tmp/ccBhVTSt.s:314    .text.ob_unlock:0000000000000000 ob_unlock
-     /tmp/ccBhVTSt.s:343    .text.ob_unlock:0000000000000018 $d
-     /tmp/ccBhVTSt.s:349    .text.ob_lock:0000000000000000 $t
-     /tmp/ccBhVTSt.s:355    .text.ob_lock:0000000000000000 ob_lock
-     /tmp/ccBhVTSt.s:373    .text.ob_lock:000000000000000c $d
-     /tmp/ccBhVTSt.s:378    .text.ob_user_get:0000000000000000 $t
-     /tmp/ccBhVTSt.s:384    .text.ob_user_get:0000000000000000 ob_user_get
-     /tmp/ccBhVTSt.s:401    .text.ob_user_get:000000000000000c $d
-     /tmp/ccBhVTSt.s:406    .text.ob_data_get:0000000000000000 $t
-     /tmp/ccBhVTSt.s:412    .text.ob_data_get:0000000000000000 ob_data_get
-     /tmp/ccBhVTSt.s:429    .text.ob_data_get:000000000000000c $d
-     /tmp/ccBhVTSt.s:434    .text.ob_write_protection_get:0000000000000000 $t
-     /tmp/ccBhVTSt.s:440    .text.ob_write_protection_get:0000000000000000 ob_write_protection_get
-     /tmp/ccBhVTSt.s:456    .text.ob_write_protection_get:0000000000000008 $d
-     /tmp/ccBhVTSt.s:461    .text.ob_spc_get:0000000000000000 $t
-     /tmp/ccBhVTSt.s:467    .text.ob_spc_get:0000000000000000 ob_spc_get
-     /tmp/ccBhVTSt.s:496    .text.ob_spc_get:0000000000000014 $d
-     /tmp/ccBhVTSt.s:501    .text.fmc_interrupt_enable:0000000000000000 $t
-     /tmp/ccBhVTSt.s:507    .text.fmc_interrupt_enable:0000000000000000 fmc_interrupt_enable
-     /tmp/ccBhVTSt.s:536    .text.fmc_interrupt_disable:0000000000000000 $t
-     /tmp/ccBhVTSt.s:542    .text.fmc_interrupt_disable:0000000000000000 fmc_interrupt_disable
-     /tmp/ccBhVTSt.s:571    .text.fmc_flag_get:0000000000000000 $t
-     /tmp/ccBhVTSt.s:577    .text.fmc_flag_get:0000000000000000 fmc_flag_get
-     /tmp/ccBhVTSt.s:611    .text.fmc_flag_clear:0000000000000000 $t
-     /tmp/ccBhVTSt.s:617    .text.fmc_flag_clear:0000000000000000 fmc_flag_clear
-     /tmp/ccBhVTSt.s:646    .text.fmc_interrupt_flag_get:0000000000000000 $t
-     /tmp/ccBhVTSt.s:652    .text.fmc_interrupt_flag_get:0000000000000000 fmc_interrupt_flag_get
-     /tmp/ccBhVTSt.s:751    .text.fmc_interrupt_flag_get:0000000000000068 $d
-     /tmp/ccBhVTSt.s:756    .text.fmc_interrupt_flag_clear:0000000000000000 $t
-     /tmp/ccBhVTSt.s:762    .text.fmc_interrupt_flag_clear:0000000000000000 fmc_interrupt_flag_clear
-     /tmp/ccBhVTSt.s:791    .text.fmc_bank0_state_get:0000000000000000 $t
-     /tmp/ccBhVTSt.s:797    .text.fmc_bank0_state_get:0000000000000000 fmc_bank0_state_get
-     /tmp/ccBhVTSt.s:848    .text.fmc_bank0_state_get:0000000000000030 $d
-ARM GAS  /tmp/ccBhVTSt.s 			page 74
+     /tmp/ccRBHNtl.s:18     .text.fmc_wscnt_set:0000000000000000 $t
+     /tmp/ccRBHNtl.s:24     .text.fmc_wscnt_set:0000000000000000 fmc_wscnt_set
+     /tmp/ccRBHNtl.s:54     .text.fmc_wscnt_set:0000000000000010 $d
+     /tmp/ccRBHNtl.s:59     .text.fmc_unlock:0000000000000000 $t
+     /tmp/ccRBHNtl.s:65     .text.fmc_unlock:0000000000000000 fmc_unlock
+     /tmp/ccRBHNtl.s:118    .text.fmc_unlock:000000000000003c $d
+     /tmp/ccRBHNtl.s:125    .text.fmc_bank0_unlock:0000000000000000 $t
+     /tmp/ccRBHNtl.s:131    .text.fmc_bank0_unlock:0000000000000000 fmc_bank0_unlock
+     /tmp/ccRBHNtl.s:160    .text.fmc_bank0_unlock:0000000000000018 $d
+     /tmp/ccRBHNtl.s:166    .text.fmc_bank1_unlock:0000000000000000 $t
+     /tmp/ccRBHNtl.s:172    .text.fmc_bank1_unlock:0000000000000000 fmc_bank1_unlock
+     /tmp/ccRBHNtl.s:201    .text.fmc_bank1_unlock:0000000000000018 $d
+     /tmp/ccRBHNtl.s:207    .text.fmc_lock:0000000000000000 $t
+     /tmp/ccRBHNtl.s:213    .text.fmc_lock:0000000000000000 fmc_lock
+     /tmp/ccRBHNtl.s:244    .text.fmc_lock:0000000000000020 $d
+     /tmp/ccRBHNtl.s:250    .text.fmc_bank0_lock:0000000000000000 $t
+     /tmp/ccRBHNtl.s:256    .text.fmc_bank0_lock:0000000000000000 fmc_bank0_lock
+     /tmp/ccRBHNtl.s:274    .text.fmc_bank0_lock:000000000000000c $d
+     /tmp/ccRBHNtl.s:279    .text.fmc_bank1_lock:0000000000000000 $t
+     /tmp/ccRBHNtl.s:285    .text.fmc_bank1_lock:0000000000000000 fmc_bank1_lock
+     /tmp/ccRBHNtl.s:303    .text.fmc_bank1_lock:000000000000000c $d
+     /tmp/ccRBHNtl.s:308    .text.ob_unlock:0000000000000000 $t
+     /tmp/ccRBHNtl.s:314    .text.ob_unlock:0000000000000000 ob_unlock
+     /tmp/ccRBHNtl.s:343    .text.ob_unlock:0000000000000018 $d
+     /tmp/ccRBHNtl.s:349    .text.ob_lock:0000000000000000 $t
+     /tmp/ccRBHNtl.s:355    .text.ob_lock:0000000000000000 ob_lock
+     /tmp/ccRBHNtl.s:373    .text.ob_lock:000000000000000c $d
+     /tmp/ccRBHNtl.s:378    .text.ob_user_get:0000000000000000 $t
+     /tmp/ccRBHNtl.s:384    .text.ob_user_get:0000000000000000 ob_user_get
+     /tmp/ccRBHNtl.s:401    .text.ob_user_get:000000000000000c $d
+     /tmp/ccRBHNtl.s:406    .text.ob_data_get:0000000000000000 $t
+     /tmp/ccRBHNtl.s:412    .text.ob_data_get:0000000000000000 ob_data_get
+     /tmp/ccRBHNtl.s:429    .text.ob_data_get:000000000000000c $d
+     /tmp/ccRBHNtl.s:434    .text.ob_write_protection_get:0000000000000000 $t
+     /tmp/ccRBHNtl.s:440    .text.ob_write_protection_get:0000000000000000 ob_write_protection_get
+     /tmp/ccRBHNtl.s:456    .text.ob_write_protection_get:0000000000000008 $d
+     /tmp/ccRBHNtl.s:461    .text.ob_spc_get:0000000000000000 $t
+     /tmp/ccRBHNtl.s:467    .text.ob_spc_get:0000000000000000 ob_spc_get
+     /tmp/ccRBHNtl.s:496    .text.ob_spc_get:0000000000000014 $d
+     /tmp/ccRBHNtl.s:501    .text.fmc_interrupt_enable:0000000000000000 $t
+     /tmp/ccRBHNtl.s:507    .text.fmc_interrupt_enable:0000000000000000 fmc_interrupt_enable
+     /tmp/ccRBHNtl.s:536    .text.fmc_interrupt_disable:0000000000000000 $t
+     /tmp/ccRBHNtl.s:542    .text.fmc_interrupt_disable:0000000000000000 fmc_interrupt_disable
+     /tmp/ccRBHNtl.s:571    .text.fmc_flag_get:0000000000000000 $t
+     /tmp/ccRBHNtl.s:577    .text.fmc_flag_get:0000000000000000 fmc_flag_get
+     /tmp/ccRBHNtl.s:611    .text.fmc_flag_clear:0000000000000000 $t
+     /tmp/ccRBHNtl.s:617    .text.fmc_flag_clear:0000000000000000 fmc_flag_clear
+     /tmp/ccRBHNtl.s:646    .text.fmc_interrupt_flag_get:0000000000000000 $t
+     /tmp/ccRBHNtl.s:652    .text.fmc_interrupt_flag_get:0000000000000000 fmc_interrupt_flag_get
+     /tmp/ccRBHNtl.s:751    .text.fmc_interrupt_flag_get:0000000000000068 $d
+     /tmp/ccRBHNtl.s:756    .text.fmc_interrupt_flag_clear:0000000000000000 $t
+     /tmp/ccRBHNtl.s:762    .text.fmc_interrupt_flag_clear:0000000000000000 fmc_interrupt_flag_clear
+     /tmp/ccRBHNtl.s:791    .text.fmc_bank0_state_get:0000000000000000 $t
+     /tmp/ccRBHNtl.s:797    .text.fmc_bank0_state_get:0000000000000000 fmc_bank0_state_get
+     /tmp/ccRBHNtl.s:848    .text.fmc_bank0_state_get:0000000000000030 $d
+ARM GAS  /tmp/ccRBHNtl.s 			page 74
 
 
-     /tmp/ccBhVTSt.s:853    .text.fmc_bank1_state_get:0000000000000000 $t
-     /tmp/ccBhVTSt.s:859    .text.fmc_bank1_state_get:0000000000000000 fmc_bank1_state_get
-     /tmp/ccBhVTSt.s:910    .text.fmc_bank1_state_get:0000000000000030 $d
-     /tmp/ccBhVTSt.s:915    .text.fmc_bank0_ready_wait:0000000000000000 $t
-     /tmp/ccBhVTSt.s:921    .text.fmc_bank0_ready_wait:0000000000000000 fmc_bank0_ready_wait
-     /tmp/ccBhVTSt.s:975    .text.fmc_bank0_erase:0000000000000000 $t
-     /tmp/ccBhVTSt.s:981    .text.fmc_bank0_erase:0000000000000000 fmc_bank0_erase
-     /tmp/ccBhVTSt.s:1034   .text.fmc_bank0_erase:0000000000000034 $d
-     /tmp/ccBhVTSt.s:1039   .text.ob_erase:0000000000000000 $t
-     /tmp/ccBhVTSt.s:1045   .text.ob_erase:0000000000000000 ob_erase
-     /tmp/ccBhVTSt.s:1163   .text.ob_erase:000000000000007c $d
-     /tmp/ccBhVTSt.s:1169   .text.ob_write_protection_enable:0000000000000000 $t
-     /tmp/ccBhVTSt.s:1175   .text.ob_write_protection_enable:0000000000000000 ob_write_protection_enable
-     /tmp/ccBhVTSt.s:1326   .text.ob_write_protection_enable:0000000000000084 $d
-     /tmp/ccBhVTSt.s:1332   .text.ob_security_protection_config:0000000000000000 $t
-     /tmp/ccBhVTSt.s:1338   .text.ob_security_protection_config:0000000000000000 ob_security_protection_config
-     /tmp/ccBhVTSt.s:1437   .text.ob_security_protection_config:000000000000006c $d
-     /tmp/ccBhVTSt.s:1443   .text.ob_user_write:0000000000000000 $t
-     /tmp/ccBhVTSt.s:1449   .text.ob_user_write:0000000000000000 ob_user_write
-     /tmp/ccBhVTSt.s:1537   .text.ob_user_write:0000000000000054 $d
-     /tmp/ccBhVTSt.s:1543   .text.ob_data_program:0000000000000000 $t
-     /tmp/ccBhVTSt.s:1549   .text.ob_data_program:0000000000000000 ob_data_program
-     /tmp/ccBhVTSt.s:1618   .text.ob_data_program:0000000000000040 $d
-     /tmp/ccBhVTSt.s:1623   .text.fmc_bank1_ready_wait:0000000000000000 $t
-     /tmp/ccBhVTSt.s:1629   .text.fmc_bank1_ready_wait:0000000000000000 fmc_bank1_ready_wait
-     /tmp/ccBhVTSt.s:1683   .text.fmc_page_erase:0000000000000000 $t
-     /tmp/ccBhVTSt.s:1689   .text.fmc_page_erase:0000000000000000 fmc_page_erase
-     /tmp/ccBhVTSt.s:1859   .text.fmc_page_erase:00000000000000bc $d
-     /tmp/ccBhVTSt.s:1866   .text.fmc_mass_erase:0000000000000000 $t
-     /tmp/ccBhVTSt.s:1872   .text.fmc_mass_erase:0000000000000000 fmc_mass_erase
-     /tmp/ccBhVTSt.s:2012   .text.fmc_mass_erase:00000000000000a8 $d
-     /tmp/ccBhVTSt.s:2018   .text.fmc_bank1_erase:0000000000000000 $t
-     /tmp/ccBhVTSt.s:2024   .text.fmc_bank1_erase:0000000000000000 fmc_bank1_erase
-     /tmp/ccBhVTSt.s:2077   .text.fmc_bank1_erase:0000000000000034 $d
-     /tmp/ccBhVTSt.s:2082   .text.fmc_word_program:0000000000000000 $t
-     /tmp/ccBhVTSt.s:2088   .text.fmc_word_program:0000000000000000 fmc_word_program
-     /tmp/ccBhVTSt.s:2241   .text.fmc_word_program:00000000000000a4 $d
-     /tmp/ccBhVTSt.s:2248   .text.fmc_halfword_program:0000000000000000 $t
-     /tmp/ccBhVTSt.s:2254   .text.fmc_halfword_program:0000000000000000 fmc_halfword_program
-     /tmp/ccBhVTSt.s:2407   .text.fmc_halfword_program:00000000000000a4 $d
-     /tmp/ccBhVTSt.s:2414   .text.fmc_word_reprogram:0000000000000000 $t
-     /tmp/ccBhVTSt.s:2420   .text.fmc_word_reprogram:0000000000000000 fmc_word_reprogram
-     /tmp/ccBhVTSt.s:2591   .text.fmc_word_reprogram:00000000000000d0 $d
+     /tmp/ccRBHNtl.s:853    .text.fmc_bank1_state_get:0000000000000000 $t
+     /tmp/ccRBHNtl.s:859    .text.fmc_bank1_state_get:0000000000000000 fmc_bank1_state_get
+     /tmp/ccRBHNtl.s:910    .text.fmc_bank1_state_get:0000000000000030 $d
+     /tmp/ccRBHNtl.s:915    .text.fmc_bank0_ready_wait:0000000000000000 $t
+     /tmp/ccRBHNtl.s:921    .text.fmc_bank0_ready_wait:0000000000000000 fmc_bank0_ready_wait
+     /tmp/ccRBHNtl.s:975    .text.fmc_bank0_erase:0000000000000000 $t
+     /tmp/ccRBHNtl.s:981    .text.fmc_bank0_erase:0000000000000000 fmc_bank0_erase
+     /tmp/ccRBHNtl.s:1034   .text.fmc_bank0_erase:0000000000000034 $d
+     /tmp/ccRBHNtl.s:1039   .text.ob_erase:0000000000000000 $t
+     /tmp/ccRBHNtl.s:1045   .text.ob_erase:0000000000000000 ob_erase
+     /tmp/ccRBHNtl.s:1163   .text.ob_erase:000000000000007c $d
+     /tmp/ccRBHNtl.s:1169   .text.ob_write_protection_enable:0000000000000000 $t
+     /tmp/ccRBHNtl.s:1175   .text.ob_write_protection_enable:0000000000000000 ob_write_protection_enable
+     /tmp/ccRBHNtl.s:1326   .text.ob_write_protection_enable:0000000000000084 $d
+     /tmp/ccRBHNtl.s:1332   .text.ob_security_protection_config:0000000000000000 $t
+     /tmp/ccRBHNtl.s:1338   .text.ob_security_protection_config:0000000000000000 ob_security_protection_config
+     /tmp/ccRBHNtl.s:1437   .text.ob_security_protection_config:000000000000006c $d
+     /tmp/ccRBHNtl.s:1443   .text.ob_user_write:0000000000000000 $t
+     /tmp/ccRBHNtl.s:1449   .text.ob_user_write:0000000000000000 ob_user_write
+     /tmp/ccRBHNtl.s:1537   .text.ob_user_write:0000000000000054 $d
+     /tmp/ccRBHNtl.s:1543   .text.ob_data_program:0000000000000000 $t
+     /tmp/ccRBHNtl.s:1549   .text.ob_data_program:0000000000000000 ob_data_program
+     /tmp/ccRBHNtl.s:1618   .text.ob_data_program:0000000000000040 $d
+     /tmp/ccRBHNtl.s:1623   .text.fmc_bank1_ready_wait:0000000000000000 $t
+     /tmp/ccRBHNtl.s:1629   .text.fmc_bank1_ready_wait:0000000000000000 fmc_bank1_ready_wait
+     /tmp/ccRBHNtl.s:1683   .text.fmc_page_erase:0000000000000000 $t
+     /tmp/ccRBHNtl.s:1689   .text.fmc_page_erase:0000000000000000 fmc_page_erase
+     /tmp/ccRBHNtl.s:1859   .text.fmc_page_erase:00000000000000bc $d
+     /tmp/ccRBHNtl.s:1866   .text.fmc_mass_erase:0000000000000000 $t
+     /tmp/ccRBHNtl.s:1872   .text.fmc_mass_erase:0000000000000000 fmc_mass_erase
+     /tmp/ccRBHNtl.s:2012   .text.fmc_mass_erase:00000000000000a8 $d
+     /tmp/ccRBHNtl.s:2018   .text.fmc_bank1_erase:0000000000000000 $t
+     /tmp/ccRBHNtl.s:2024   .text.fmc_bank1_erase:0000000000000000 fmc_bank1_erase
+     /tmp/ccRBHNtl.s:2077   .text.fmc_bank1_erase:0000000000000034 $d
+     /tmp/ccRBHNtl.s:2082   .text.fmc_word_program:0000000000000000 $t
+     /tmp/ccRBHNtl.s:2088   .text.fmc_word_program:0000000000000000 fmc_word_program
+     /tmp/ccRBHNtl.s:2241   .text.fmc_word_program:00000000000000a4 $d
+     /tmp/ccRBHNtl.s:2248   .text.fmc_halfword_program:0000000000000000 $t
+     /tmp/ccRBHNtl.s:2254   .text.fmc_halfword_program:0000000000000000 fmc_halfword_program
+     /tmp/ccRBHNtl.s:2407   .text.fmc_halfword_program:00000000000000a4 $d
+     /tmp/ccRBHNtl.s:2414   .text.fmc_word_reprogram:0000000000000000 $t
+     /tmp/ccRBHNtl.s:2420   .text.fmc_word_reprogram:0000000000000000 fmc_word_reprogram
+     /tmp/ccRBHNtl.s:2591   .text.fmc_word_reprogram:00000000000000d0 $d
 
 NO UNDEFINED SYMBOLS

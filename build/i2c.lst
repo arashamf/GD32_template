@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccheLRib.s 			page 1
+ARM GAS  /tmp/cc2aeTx6.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccheLRib.s 			page 1
   11:Core/Source/i2c.c ****     // I2C address configure 
   12:Core/Source/i2c.c ****     i2c_mode_addr_config(I2C0, I2C_I2CMODE_ENABLE, I2C_ADDFORMAT_7BITS, I2C0_OWN_ADDRESS7);
   46              		.loc 1 12 5 view .LVU3
-ARM GAS  /tmp/ccheLRib.s 			page 2
+ARM GAS  /tmp/cc2aeTx6.s 			page 2
 
 
   47 0012 1023     		movs	r3, #16
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccheLRib.s 			page 1
   96 0002 0746     		mov	r7, r0
   97 0004 0E46     		mov	r6, r1
   98 0006 1546     		mov	r5, r2
-ARM GAS  /tmp/ccheLRib.s 			page 3
+ARM GAS  /tmp/cc2aeTx6.s 			page 3
 
 
   20:Core/Source/i2c.c ****     uint8_t count = 0;
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccheLRib.s 			page 1
  146 0042 0028     		cmp	r0, #0
  147 0044 F8D0     		beq	.L8
   27:Core/Source/i2c.c ****     i2c_flag_clear(I2C0, I2C_FLAG_ADDSEND); //clear ADDSEND bit
-ARM GAS  /tmp/ccheLRib.s 			page 4
+ARM GAS  /tmp/cc2aeTx6.s 			page 4
 
 
  148              		.loc 1 27 5 is_stmt 1 view .LVU27
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccheLRib.s 			page 1
   30:Core/Source/i2c.c ****     {
  193              		.loc 1 30 18 is_stmt 1 discriminator 1 view .LVU42
   30:Core/Source/i2c.c ****     {
-ARM GAS  /tmp/ccheLRib.s 			page 5
+ARM GAS  /tmp/cc2aeTx6.s 			page 5
 
 
  194              		.loc 1 30 5 is_stmt 0 discriminator 1 view .LVU43
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccheLRib.s 			page 1
  241              		.cfi_offset 4, -20
  242              		.cfi_offset 5, -16
  243              		.cfi_offset 6, -12
-ARM GAS  /tmp/ccheLRib.s 			page 6
+ARM GAS  /tmp/cc2aeTx6.s 			page 6
 
 
  244              		.cfi_offset 7, -8
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccheLRib.s 			page 1
  290              		.loc 1 50 10 discriminator 1 view .LVU71
  291 0034 0028     		cmp	r0, #0
  292 0036 F8D0     		beq	.L19
-ARM GAS  /tmp/ccheLRib.s 			page 7
+ARM GAS  /tmp/cc2aeTx6.s 			page 7
 
 
   51:Core/Source/i2c.c ****     i2c_master_addressing(I2C0, slave_address, I2C_TRANSMITTER);	//send slave address to I2C bus
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccheLRib.s 			page 1
  339              	.LVL32:
   59:Core/Source/i2c.c **** 		while(!i2c_flag_get(I2C0, I2C_FLAG_TBE)); //wait until the TBE bit is set
  340              		.loc 1 59 3 view .LVU86
-ARM GAS  /tmp/ccheLRib.s 			page 8
+ARM GAS  /tmp/cc2aeTx6.s 			page 8
 
 
  341              	.L23:
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccheLRib.s 			page 1
   62:Core/Source/i2c.c ****     {			
  384              		.loc 1 62 37 is_stmt 1 discriminator 2 view .LVU102
   62:Core/Source/i2c.c ****     {			
-ARM GAS  /tmp/ccheLRib.s 			page 9
+ARM GAS  /tmp/cc2aeTx6.s 			page 9
 
 
  385              		.loc 1 62 42 is_stmt 0 discriminator 2 view .LVU103
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccheLRib.s 			page 1
  433              	i2c_write_buffer_8bit_registr:
  434              	.LVL43:
  435              	.LFB119:
-ARM GAS  /tmp/ccheLRib.s 			page 10
+ARM GAS  /tmp/cc2aeTx6.s 			page 10
 
 
   71:Core/Source/i2c.c **** 
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccheLRib.s 			page 1
  481              	.LVL47:
  482              		.loc 1 79 10 discriminator 1 view .LVU128
  483 002c 0028     		cmp	r0, #0
-ARM GAS  /tmp/ccheLRib.s 			page 11
+ARM GAS  /tmp/cc2aeTx6.s 			page 11
 
 
  484 002e F8D0     		beq	.L34
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccheLRib.s 			page 1
  531 006e 1048     		ldr	r0, .L43
  532 0070 FFF7FEFF 		bl	i2c_flag_get
  533              	.LVL53:
-ARM GAS  /tmp/ccheLRib.s 			page 12
+ARM GAS  /tmp/cc2aeTx6.s 			page 12
 
 
  534              		.loc 1 86 7 discriminator 1 view .LVU146
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccheLRib.s 			page 1
  574              	.L41:
  575              		.loc 1 95 33 discriminator 1 view .LVU160
  576              		.loc 1 95 10 discriminator 1 view .LVU161
-ARM GAS  /tmp/ccheLRib.s 			page 13
+ARM GAS  /tmp/cc2aeTx6.s 			page 13
 
 
  577              		.loc 1 95 11 is_stmt 0 discriminator 1 view .LVU162
@@ -745,23 +745,23 @@ ARM GAS  /tmp/ccheLRib.s 			page 1
  598              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
  599              		.file 4 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_i2c.h"
  600              		.file 5 "Core/Include/gpio.h"
-ARM GAS  /tmp/ccheLRib.s 			page 14
+ARM GAS  /tmp/cc2aeTx6.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 i2c.c
-     /tmp/ccheLRib.s:18     .text.i2c_config:0000000000000000 $t
-     /tmp/ccheLRib.s:24     .text.i2c_config:0000000000000000 i2c_config
-     /tmp/ccheLRib.s:67     .text.i2c_config:0000000000000030 $d
-     /tmp/ccheLRib.s:73     .text.i2c_write_bytes:0000000000000000 $t
-     /tmp/ccheLRib.s:79     .text.i2c_write_bytes:0000000000000000 i2c_write_bytes
-     /tmp/ccheLRib.s:218    .text.i2c_write_bytes:0000000000000094 $d
-     /tmp/ccheLRib.s:224    .text.i2c_write_buffer_16bit_registr:0000000000000000 $t
-     /tmp/ccheLRib.s:230    .text.i2c_write_buffer_16bit_registr:0000000000000000 i2c_write_buffer_16bit_registr
-     /tmp/ccheLRib.s:421    .text.i2c_write_buffer_16bit_registr:00000000000000cc $d
-     /tmp/ccheLRib.s:427    .text.i2c_write_buffer_8bit_registr:0000000000000000 $t
-     /tmp/ccheLRib.s:433    .text.i2c_write_buffer_8bit_registr:0000000000000000 i2c_write_buffer_8bit_registr
-     /tmp/ccheLRib.s:590    .text.i2c_write_buffer_8bit_registr:00000000000000b0 $d
+     /tmp/cc2aeTx6.s:18     .text.i2c_config:0000000000000000 $t
+     /tmp/cc2aeTx6.s:24     .text.i2c_config:0000000000000000 i2c_config
+     /tmp/cc2aeTx6.s:67     .text.i2c_config:0000000000000030 $d
+     /tmp/cc2aeTx6.s:73     .text.i2c_write_bytes:0000000000000000 $t
+     /tmp/cc2aeTx6.s:79     .text.i2c_write_bytes:0000000000000000 i2c_write_bytes
+     /tmp/cc2aeTx6.s:218    .text.i2c_write_bytes:0000000000000094 $d
+     /tmp/cc2aeTx6.s:224    .text.i2c_write_buffer_16bit_registr:0000000000000000 $t
+     /tmp/cc2aeTx6.s:230    .text.i2c_write_buffer_16bit_registr:0000000000000000 i2c_write_buffer_16bit_registr
+     /tmp/cc2aeTx6.s:421    .text.i2c_write_buffer_16bit_registr:00000000000000cc $d
+     /tmp/cc2aeTx6.s:427    .text.i2c_write_buffer_8bit_registr:0000000000000000 $t
+     /tmp/cc2aeTx6.s:433    .text.i2c_write_buffer_8bit_registr:0000000000000000 i2c_write_buffer_8bit_registr
+     /tmp/cc2aeTx6.s:590    .text.i2c_write_buffer_8bit_registr:00000000000000b0 $d
 
 UNDEFINED SYMBOLS
 I2C_gpio_config

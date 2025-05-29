@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccby8snc.s 			page 1
+ARM GAS  /tmp/ccG7VSby.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccby8snc.s 			page 1
   30:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_dbg.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
   31:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_dbg.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
   32:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_dbg.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-ARM GAS  /tmp/ccby8snc.s 			page 2
+ARM GAS  /tmp/ccG7VSby.s 			page 2
 
 
   33:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_dbg.c **** WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccby8snc.s 			page 1
   55              		.loc 1 60 1 is_stmt 1 view -0
   56              		.cfi_startproc
   57              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccby8snc.s 			page 3
+ARM GAS  /tmp/ccG7VSby.s 			page 3
 
 
   58              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccby8snc.s 			page 1
   97 000a 00BF     		.align	2
   98              	.L8:
   99 000c 002004E0 		.word	-536600576
-ARM GAS  /tmp/ccby8snc.s 			page 4
+ARM GAS  /tmp/ccG7VSby.s 			page 4
 
 
  100              		.cfi_endproc
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccby8snc.s 			page 1
   93:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_dbg.c **** 
   94:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_dbg.c **** /*!
   95:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_dbg.c ****     \brief      enable peripheral behavior when the mcu is in debug mode
-ARM GAS  /tmp/ccby8snc.s 			page 5
+ARM GAS  /tmp/ccG7VSby.s 			page 5
 
 
   96:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_dbg.c ****     \param[in]  dbg_periph: refer to dbg_periph_enum
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccby8snc.s 			page 1
  117:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_dbg.c ****       \arg        DBG_CANx_HOLD (x=0,1,CAN1 is only available for CL series): hold CAN0 counter whe
  118:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_dbg.c ****       \arg        DBG_I2Cx_HOLD (x=0,1): hold I2Cx smbus when core is halted
  119:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_dbg.c ****       \arg        DBG_TIMERx_HOLD (x=0,1,2,3,4,5,6,7,8,9,10,11,12,13,TIMER8..13 are not available f
-ARM GAS  /tmp/ccby8snc.s 			page 6
+ARM GAS  /tmp/ccG7VSby.s 			page 6
 
 
  120:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_dbg.c ****     \param[out] none
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccby8snc.s 			page 1
  217              		.loc 1 136 5 view .LVU31
  218              		.loc 1 136 14 is_stmt 0 view .LVU32
  219 0000 024A     		ldr	r2, .L16
-ARM GAS  /tmp/ccby8snc.s 			page 7
+ARM GAS  /tmp/ccG7VSby.s 			page 7
 
 
  220 0002 5368     		ldr	r3, [r2, #4]
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccby8snc.s 			page 1
  265              		.thumb
  266              		.thumb_func
  268              	dbg_trace_pin_mode_set:
-ARM GAS  /tmp/ccby8snc.s 			page 8
+ARM GAS  /tmp/ccG7VSby.s 			page 8
 
 
  269              	.LVL6:
@@ -468,35 +468,35 @@ ARM GAS  /tmp/ccby8snc.s 			page 1
  298              		.file 2 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/m
  299              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
  300              		.file 4 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_dbg.h"
-ARM GAS  /tmp/ccby8snc.s 			page 9
+ARM GAS  /tmp/ccG7VSby.s 			page 9
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gd32f30x_dbg.c
-     /tmp/ccby8snc.s:18     .text.dbg_deinit:0000000000000000 $t
-     /tmp/ccby8snc.s:24     .text.dbg_deinit:0000000000000000 dbg_deinit
-     /tmp/ccby8snc.s:42     .text.dbg_deinit:0000000000000008 $d
-     /tmp/ccby8snc.s:47     .text.dbg_id_get:0000000000000000 $t
-     /tmp/ccby8snc.s:53     .text.dbg_id_get:0000000000000000 dbg_id_get
-     /tmp/ccby8snc.s:69     .text.dbg_id_get:0000000000000008 $d
-     /tmp/ccby8snc.s:74     .text.dbg_low_power_enable:0000000000000000 $t
-     /tmp/ccby8snc.s:80     .text.dbg_low_power_enable:0000000000000000 dbg_low_power_enable
-     /tmp/ccby8snc.s:99     .text.dbg_low_power_enable:000000000000000c $d
-     /tmp/ccby8snc.s:104    .text.dbg_low_power_disable:0000000000000000 $t
-     /tmp/ccby8snc.s:110    .text.dbg_low_power_disable:0000000000000000 dbg_low_power_disable
-     /tmp/ccby8snc.s:129    .text.dbg_low_power_disable:000000000000000c $d
-     /tmp/ccby8snc.s:134    .text.dbg_periph_enable:0000000000000000 $t
-     /tmp/ccby8snc.s:140    .text.dbg_periph_enable:0000000000000000 dbg_periph_enable
-     /tmp/ccby8snc.s:169    .text.dbg_periph_disable:0000000000000000 $t
-     /tmp/ccby8snc.s:175    .text.dbg_periph_disable:0000000000000000 dbg_periph_disable
-     /tmp/ccby8snc.s:204    .text.dbg_trace_pin_enable:0000000000000000 $t
-     /tmp/ccby8snc.s:210    .text.dbg_trace_pin_enable:0000000000000000 dbg_trace_pin_enable
-     /tmp/ccby8snc.s:228    .text.dbg_trace_pin_enable:000000000000000c $d
-     /tmp/ccby8snc.s:233    .text.dbg_trace_pin_disable:0000000000000000 $t
-     /tmp/ccby8snc.s:239    .text.dbg_trace_pin_disable:0000000000000000 dbg_trace_pin_disable
-     /tmp/ccby8snc.s:257    .text.dbg_trace_pin_disable:000000000000000c $d
-     /tmp/ccby8snc.s:262    .text.dbg_trace_pin_mode_set:0000000000000000 $t
-     /tmp/ccby8snc.s:268    .text.dbg_trace_pin_mode_set:0000000000000000 dbg_trace_pin_mode_set
-     /tmp/ccby8snc.s:292    .text.dbg_trace_pin_mode_set:0000000000000014 $d
+     /tmp/ccG7VSby.s:18     .text.dbg_deinit:0000000000000000 $t
+     /tmp/ccG7VSby.s:24     .text.dbg_deinit:0000000000000000 dbg_deinit
+     /tmp/ccG7VSby.s:42     .text.dbg_deinit:0000000000000008 $d
+     /tmp/ccG7VSby.s:47     .text.dbg_id_get:0000000000000000 $t
+     /tmp/ccG7VSby.s:53     .text.dbg_id_get:0000000000000000 dbg_id_get
+     /tmp/ccG7VSby.s:69     .text.dbg_id_get:0000000000000008 $d
+     /tmp/ccG7VSby.s:74     .text.dbg_low_power_enable:0000000000000000 $t
+     /tmp/ccG7VSby.s:80     .text.dbg_low_power_enable:0000000000000000 dbg_low_power_enable
+     /tmp/ccG7VSby.s:99     .text.dbg_low_power_enable:000000000000000c $d
+     /tmp/ccG7VSby.s:104    .text.dbg_low_power_disable:0000000000000000 $t
+     /tmp/ccG7VSby.s:110    .text.dbg_low_power_disable:0000000000000000 dbg_low_power_disable
+     /tmp/ccG7VSby.s:129    .text.dbg_low_power_disable:000000000000000c $d
+     /tmp/ccG7VSby.s:134    .text.dbg_periph_enable:0000000000000000 $t
+     /tmp/ccG7VSby.s:140    .text.dbg_periph_enable:0000000000000000 dbg_periph_enable
+     /tmp/ccG7VSby.s:169    .text.dbg_periph_disable:0000000000000000 $t
+     /tmp/ccG7VSby.s:175    .text.dbg_periph_disable:0000000000000000 dbg_periph_disable
+     /tmp/ccG7VSby.s:204    .text.dbg_trace_pin_enable:0000000000000000 $t
+     /tmp/ccG7VSby.s:210    .text.dbg_trace_pin_enable:0000000000000000 dbg_trace_pin_enable
+     /tmp/ccG7VSby.s:228    .text.dbg_trace_pin_enable:000000000000000c $d
+     /tmp/ccG7VSby.s:233    .text.dbg_trace_pin_disable:0000000000000000 $t
+     /tmp/ccG7VSby.s:239    .text.dbg_trace_pin_disable:0000000000000000 dbg_trace_pin_disable
+     /tmp/ccG7VSby.s:257    .text.dbg_trace_pin_disable:000000000000000c $d
+     /tmp/ccG7VSby.s:262    .text.dbg_trace_pin_mode_set:0000000000000000 $t
+     /tmp/ccG7VSby.s:268    .text.dbg_trace_pin_mode_set:0000000000000000 dbg_trace_pin_mode_set
+     /tmp/ccG7VSby.s:292    .text.dbg_trace_pin_mode_set:0000000000000014 $d
 
 NO UNDEFINED SYMBOLS

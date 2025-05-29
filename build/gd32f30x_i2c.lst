@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccXq9a35.s 			page 1
+ARM GAS  /tmp/ccURqy4N.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
   29:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c **** WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
   30:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c **** IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
   31:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
-ARM GAS  /tmp/ccXq9a35.s 			page 2
+ARM GAS  /tmp/ccURqy4N.s 			page 2
 
 
   32:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
   67:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****         /* reset I2C1 */
   68:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****         rcu_periph_reset_enable(RCU_I2C1RST);
   69:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****         rcu_periph_reset_disable(RCU_I2C1RST);
-ARM GAS  /tmp/ccXq9a35.s 			page 3
+ARM GAS  /tmp/ccURqy4N.s 			page 3
 
 
   70:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****         break;
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
   89              		.thumb
   90              		.thumb_func
   92              	i2c_clock_config:
-ARM GAS  /tmp/ccXq9a35.s 			page 4
+ARM GAS  /tmp/ccURqy4N.s 			page 4
 
 
   93              	.LVL10:
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  122              		.loc 1 98 13 is_stmt 0 view .LVU23
  123 000c 0220     		movs	r0, #2
  124              	.LVL11:
-ARM GAS  /tmp/ccXq9a35.s 			page 5
+ARM GAS  /tmp/ccURqy4N.s 			page 5
 
 
  125              		.loc 1 98 13 view .LVU24
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  112:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****         risetime = (uint32_t)((pclk1/1000000U)+1U);
  165              		.loc 1 112 9 is_stmt 1 view .LVU41
  166              		.loc 1 112 18 is_stmt 0 view .LVU42
-ARM GAS  /tmp/ccXq9a35.s 			page 6
+ARM GAS  /tmp/ccURqy4N.s 			page 6
 
 
  167 0032 0133     		adds	r3, r3, #1
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  127:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     }else if(400000U >= clkspeed){
  128:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****         /* the maximum SCL rise time is 300ns in fast mode */
  129:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****         I2C_RT(i2c_periph) = (uint32_t)(((freq*(uint32_t)300U)/(uint32_t)1000U)+(uint32_t)1U);
-ARM GAS  /tmp/ccXq9a35.s 			page 7
+ARM GAS  /tmp/ccURqy4N.s 			page 7
 
 
  130:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****         if(I2C_DTCY_2 == dutycyc){
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  222 005c 0223     		movs	r3, #2
  223              	.LVL29:
  116:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****         }else{
-ARM GAS  /tmp/ccXq9a35.s 			page 8
+ARM GAS  /tmp/ccURqy4N.s 			page 8
 
 
  224              		.loc 1 116 32 view .LVU64
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  132:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****             I2C_CKCFG(i2c_periph) &= ~I2C_CKCFG_DTCY;
  263              		.loc 1 132 46 is_stmt 0 view .LVU80
  264 0082 05EB4505 		add	r5, r5, r5, lsl #1
-ARM GAS  /tmp/ccXq9a35.s 			page 9
+ARM GAS  /tmp/ccURqy4N.s 			page 9
 
 
  265              	.LVL36:
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  136:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****             I2C_CKCFG(i2c_periph) |= I2C_CKCFG_DTCY;
  304              		.loc 1 136 46 view .LVU96
  305 00b0 05EB8505 		add	r5, r5, r5, lsl #2
-ARM GAS  /tmp/ccXq9a35.s 			page 10
+ARM GAS  /tmp/ccURqy4N.s 			page 10
 
 
  136:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****             I2C_CKCFG(i2c_periph) |= I2C_CKCFG_DTCY;
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  344 00de E369     		ldr	r3, [r4, #28]
  345 00e0 23F48043 		bic	r3, r3, #16384
  346 00e4 E361     		str	r3, [r4, #28]
-ARM GAS  /tmp/ccXq9a35.s 			page 11
+ARM GAS  /tmp/ccURqy4N.s 			page 11
 
 
  347              	.L23:
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  388 011c A0860100 		.word	100000
  389 0120 801A0600 		.word	400000
  390 0124 D34D6210 		.word	274877907
-ARM GAS  /tmp/ccXq9a35.s 			page 12
+ARM GAS  /tmp/ccURqy4N.s 			page 12
 
 
  391              		.cfi_endproc
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  187:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     ctl |= mode;
  424              		.loc 1 187 5 is_stmt 1 view .LVU134
  425              		.loc 1 187 9 is_stmt 0 view .LVU135
-ARM GAS  /tmp/ccXq9a35.s 			page 13
+ARM GAS  /tmp/ccURqy4N.s 			page 13
 
 
  426 0008 4CEA0101 		orr	r1, ip, r1
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  464              		@ link register save eliminated.
  206:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     if(I2C_SMBUS_HOST == type){
  465              		.loc 1 206 5 view .LVU145
-ARM GAS  /tmp/ccXq9a35.s 			page 14
+ARM GAS  /tmp/ccURqy4N.s 			page 14
 
 
  466              		.loc 1 206 7 is_stmt 0 view .LVU146
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  501              		.loc 1 225 5 view .LVU153
  502              		.loc 1 225 7 is_stmt 0 view .LVU154
  503 0000 0129     		cmp	r1, #1
-ARM GAS  /tmp/ccXq9a35.s 			page 15
+ARM GAS  /tmp/ccURqy4N.s 			page 15
 
 
  504 0002 04D0     		beq	.L39
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  538              		.loc 1 245 7 is_stmt 0 view .LVU162
  539 0000 21B9     		cbnz	r1, .L41
  246:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****         I2C_CTL0(i2c_periph) |= I2C_CTL0_POAP;
-ARM GAS  /tmp/ccXq9a35.s 			page 16
+ARM GAS  /tmp/ccURqy4N.s 			page 16
 
 
  540              		.loc 1 246 9 is_stmt 1 view .LVU163
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  267:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****         addr = addr & I2C_TRANSMITTER;
  268:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     }else{
  269:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****         addr = addr | I2C_RECEIVER;
-ARM GAS  /tmp/ccXq9a35.s 			page 17
+ARM GAS  /tmp/ccURqy4N.s 			page 17
 
 
  576              		.loc 1 269 9 is_stmt 1 view .LVU171
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  613 0000 01F0FE01 		and	r1, r1, #254
  614              	.LVL66:
  286:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     I2C_SADDR1(i2c_periph) = (I2C_SADDR1_DUADEN | dualaddr);
-ARM GAS  /tmp/ccXq9a35.s 			page 18
+ARM GAS  /tmp/ccURqy4N.s 			page 18
 
 
  615              		.loc 1 286 5 is_stmt 1 view .LVU182
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  299:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c **** 
  300:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c **** /*!
  301:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     \brief      enable I2C
-ARM GAS  /tmp/ccXq9a35.s 			page 19
+ARM GAS  /tmp/ccURqy4N.s 			page 19
 
 
  302:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     \param[in]  i2c_periph: I2Cx(x=0,1) 
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  698              		.cfi_endproc
  699              	.LFE126:
  701              		.section	.text.i2c_start_on_bus,"ax",%progbits
-ARM GAS  /tmp/ccXq9a35.s 			page 20
+ARM GAS  /tmp/ccURqy4N.s 			page 20
 
 
  702              		.align	1
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  739              		@ frame_needed = 0, uses_anonymous_args = 0
  740              		@ link register save eliminated.
  341:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     I2C_CTL0(i2c_periph) |= I2C_CTL0_STOP;
-ARM GAS  /tmp/ccXq9a35.s 			page 21
+ARM GAS  /tmp/ccURqy4N.s 			page 21
 
 
  741              		.loc 1 341 5 view .LVU203
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  357:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     \brief      I2C receive data function
  358:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     \param[in]  i2c_periph: I2Cx(x=0,1)
  359:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     \param[out] none
-ARM GAS  /tmp/ccXq9a35.s 			page 22
+ARM GAS  /tmp/ccURqy4N.s 			page 22
 
 
  360:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     \retval     data of received
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  817 0000 4368     		ldr	r3, [r0, #4]
  818              	.LVL77:
  383:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     ctl &= ~(I2C_CTL1_DMAON); 
-ARM GAS  /tmp/ccXq9a35.s 			page 23
+ARM GAS  /tmp/ccURqy4N.s 			page 23
 
 
  819              		.loc 1 383 5 is_stmt 1 view .LVU218
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  404:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     ctl &= ~(I2C_CTL1_DMALST); 
  855              		.loc 1 404 5 is_stmt 1 view .LVU229
  856              		.loc 1 404 9 is_stmt 0 view .LVU230
-ARM GAS  /tmp/ccXq9a35.s 			page 24
+ARM GAS  /tmp/ccURqy4N.s 			page 24
 
 
  857 0002 23F48053 		bic	r3, r3, #4096
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  892              		.loc 1 425 9 is_stmt 0 view .LVU241
  893 0002 23F08003 		bic	r3, r3, #128
  894              	.LVL86:
-ARM GAS  /tmp/ccXq9a35.s 			page 25
+ARM GAS  /tmp/ccURqy4N.s 			page 25
 
 
  426:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     ctl |= stretchpara;
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  930              	.LVL90:
  447:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     ctl |= gcallpara;
  931              		.loc 1 447 5 is_stmt 1 view .LVU253
-ARM GAS  /tmp/ccXq9a35.s 			page 26
+ARM GAS  /tmp/ccURqy4N.s 			page 26
 
 
  932              		.loc 1 447 9 is_stmt 0 view .LVU254
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  967              		.loc 1 468 5 is_stmt 1 view .LVU264
  968              		.loc 1 468 9 is_stmt 0 view .LVU265
  969 0006 0B43     		orrs	r3, r3, r1
-ARM GAS  /tmp/ccXq9a35.s 			page 27
+ARM GAS  /tmp/ccURqy4N.s 			page 27
 
 
  970              	.LVL95:
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  1005 0006 0B43     		orrs	r3, r3, r1
  1006              	.LVL99:
  490:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     I2C_CTL0(i2c_periph) = ctl;
-ARM GAS  /tmp/ccXq9a35.s 			page 28
+ARM GAS  /tmp/ccURqy4N.s 			page 28
 
 
  1007              		.loc 1 490 5 is_stmt 1 view .LVU277
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  511:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     I2C_CTL0(i2c_periph) = ctl;
  1043              		.loc 1 511 5 is_stmt 1 view .LVU288
  1044              		.loc 1 511 26 is_stmt 0 view .LVU289
-ARM GAS  /tmp/ccXq9a35.s 			page 29
+ARM GAS  /tmp/ccURqy4N.s 			page 29
 
 
  1045 0008 0360     		str	r3, [r0]
@@ -1738,7 +1738,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  529:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****                 only one parameter can be selected which is shown as below:
  530:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****       \arg        I2C_SALTSEND_ENABLE: issue alert through SMBA pin 
  531:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****       \arg        I2C_SALTSEND_DISABLE: not issue alert through SMBA pin 
-ARM GAS  /tmp/ccXq9a35.s 			page 30
+ARM GAS  /tmp/ccURqy4N.s 			page 30
 
 
  532:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     \param[out] none
@@ -1798,7 +1798,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  552:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****       \arg        I2C_ARP_DISABLE: disable ARP
  553:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     \param[out] none
  554:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     \retval     none
-ARM GAS  /tmp/ccXq9a35.s 			page 31
+ARM GAS  /tmp/ccURqy4N.s 			page 31
 
 
  555:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c **** */
@@ -1858,7 +1858,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  575:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****       \arg        I2C_FLAG_ADD10SEND: header of 10-bit address is sent in master mode
  576:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****       \arg        I2C_FLAG_STPDET: stop condition detected in slave mode
  577:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****       \arg        I2C_FLAG_RBNE: I2C_DATA is not Empty during receiving
-ARM GAS  /tmp/ccXq9a35.s 			page 32
+ARM GAS  /tmp/ccURqy4N.s 			page 32
 
 
  578:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****       \arg        I2C_FLAG_TBE: I2C_DATA is empty during transmitting
@@ -1918,7 +1918,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  1186 0018 7047     		bx	lr
  1187              		.cfi_endproc
  1188              	.LFE141:
-ARM GAS  /tmp/ccXq9a35.s 			page 33
+ARM GAS  /tmp/ccURqy4N.s 			page 33
 
 
  1190              		.section	.text.i2c_flag_clear,"ax",%progbits
@@ -1978,7 +1978,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  1220              		.loc 1 628 39 view .LVU334
  1221 001a 23EA0101 		bic	r1, r3, r1
  1222 001e 4CF80010 		str	r1, [ip, r0]
-ARM GAS  /tmp/ccXq9a35.s 			page 34
+ARM GAS  /tmp/ccURqy4N.s 			page 34
 
 
  629:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****     }
@@ -2038,7 +2038,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  1260              		.loc 1 645 40 view .LVU343
  1261 0012 1943     		orrs	r1, r1, r3
  1262 0014 4CF80010 		str	r1, [ip, r0]
-ARM GAS  /tmp/ccXq9a35.s 			page 35
+ARM GAS  /tmp/ccURqy4N.s 			page 35
 
 
  646:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c **** }
@@ -2098,7 +2098,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  1303              		.global	i2c_interrupt_flag_get
  1304              		.syntax unified
  1305              		.thumb
-ARM GAS  /tmp/ccXq9a35.s 			page 36
+ARM GAS  /tmp/ccURqy4N.s 			page 36
 
 
  1306              		.thumb_func
@@ -2158,7 +2158,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  1329              		.loc 1 694 5 is_stmt 1 view .LVU358
  1330              		.loc 1 694 18 is_stmt 0 view .LVU359
  1331 0008 C1F38913 		ubfx	r3, r1, #6, #10
-ARM GAS  /tmp/ccXq9a35.s 			page 37
+ARM GAS  /tmp/ccURqy4N.s 			page 37
 
 
  1332 000c 1A58     		ldr	r2, [r3, r0]
@@ -2218,7 +2218,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  1371              		.loc 1 699 9 is_stmt 1 view .LVU373
  699:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_i2c.c ****         if(intenable && bufie){
  1372              		.loc 1 699 11 is_stmt 0 view .LVU374
-ARM GAS  /tmp/ccXq9a35.s 			page 38
+ARM GAS  /tmp/ccURqy4N.s 			page 38
 
 
  1373 0044 12B1     		cbz	r2, .L78
@@ -2278,7 +2278,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  1417 005e 00BF     		.align	2
  1418              	.L83:
  1419 0060 09010605 		.word	84279561
-ARM GAS  /tmp/ccXq9a35.s 			page 39
+ARM GAS  /tmp/ccURqy4N.s 			page 39
 
 
  1420              		.cfi_endproc
@@ -2338,7 +2338,7 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  1451 0012 0122     		movs	r2, #1
  1452 0014 02FA01F1 		lsl	r1, r2, r1
  1453              		.loc 1 735 44 view .LVU393
-ARM GAS  /tmp/ccXq9a35.s 			page 40
+ARM GAS  /tmp/ccURqy4N.s 			page 40
 
 
  1454 0018 23EA0101 		bic	r1, r3, r1
@@ -2369,80 +2369,80 @@ ARM GAS  /tmp/ccXq9a35.s 			page 1
  1476              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
  1477              		.file 5 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_rcu.h"
  1478              		.file 6 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_i2c.h"
-ARM GAS  /tmp/ccXq9a35.s 			page 41
+ARM GAS  /tmp/ccURqy4N.s 			page 41
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gd32f30x_i2c.c
-     /tmp/ccXq9a35.s:18     .text.i2c_deinit:0000000000000000 $t
-     /tmp/ccXq9a35.s:24     .text.i2c_deinit:0000000000000000 i2c_deinit
-     /tmp/ccXq9a35.s:81     .text.i2c_deinit:0000000000000038 $d
-     /tmp/ccXq9a35.s:86     .text.i2c_clock_config:0000000000000000 $t
-     /tmp/ccXq9a35.s:92     .text.i2c_clock_config:0000000000000000 i2c_clock_config
-     /tmp/ccXq9a35.s:386    .text.i2c_clock_config:0000000000000114 $d
-     /tmp/ccXq9a35.s:395    .text.i2c_mode_addr_config:0000000000000000 $t
-     /tmp/ccXq9a35.s:401    .text.i2c_mode_addr_config:0000000000000000 i2c_mode_addr_config
-     /tmp/ccXq9a35.s:451    .text.i2c_smbus_type_config:0000000000000000 $t
-     /tmp/ccXq9a35.s:457    .text.i2c_smbus_type_config:0000000000000000 i2c_smbus_type_config
-     /tmp/ccXq9a35.s:487    .text.i2c_ack_config:0000000000000000 $t
-     /tmp/ccXq9a35.s:493    .text.i2c_ack_config:0000000000000000 i2c_ack_config
-     /tmp/ccXq9a35.s:523    .text.i2c_ackpos_config:0000000000000000 $t
-     /tmp/ccXq9a35.s:529    .text.i2c_ackpos_config:0000000000000000 i2c_ackpos_config
-     /tmp/ccXq9a35.s:558    .text.i2c_master_addressing:0000000000000000 $t
-     /tmp/ccXq9a35.s:564    .text.i2c_master_addressing:0000000000000000 i2c_master_addressing
-     /tmp/ccXq9a35.s:597    .text.i2c_dualaddr_enable:0000000000000000 $t
-     /tmp/ccXq9a35.s:603    .text.i2c_dualaddr_enable:0000000000000000 i2c_dualaddr_enable
-     /tmp/ccXq9a35.s:627    .text.i2c_dualaddr_disable:0000000000000000 $t
-     /tmp/ccXq9a35.s:633    .text.i2c_dualaddr_disable:0000000000000000 i2c_dualaddr_disable
-     /tmp/ccXq9a35.s:652    .text.i2c_enable:0000000000000000 $t
-     /tmp/ccXq9a35.s:658    .text.i2c_enable:0000000000000000 i2c_enable
-     /tmp/ccXq9a35.s:677    .text.i2c_disable:0000000000000000 $t
-     /tmp/ccXq9a35.s:683    .text.i2c_disable:0000000000000000 i2c_disable
-     /tmp/ccXq9a35.s:702    .text.i2c_start_on_bus:0000000000000000 $t
-     /tmp/ccXq9a35.s:708    .text.i2c_start_on_bus:0000000000000000 i2c_start_on_bus
-     /tmp/ccXq9a35.s:727    .text.i2c_stop_on_bus:0000000000000000 $t
-     /tmp/ccXq9a35.s:733    .text.i2c_stop_on_bus:0000000000000000 i2c_stop_on_bus
-     /tmp/ccXq9a35.s:752    .text.i2c_data_transmit:0000000000000000 $t
-     /tmp/ccXq9a35.s:758    .text.i2c_data_transmit:0000000000000000 i2c_data_transmit
-     /tmp/ccXq9a35.s:775    .text.i2c_data_receive:0000000000000000 $t
-     /tmp/ccXq9a35.s:781    .text.i2c_data_receive:0000000000000000 i2c_data_receive
-     /tmp/ccXq9a35.s:800    .text.i2c_dma_enable:0000000000000000 $t
-     /tmp/ccXq9a35.s:806    .text.i2c_dma_enable:0000000000000000 i2c_dma_enable
-     /tmp/ccXq9a35.s:836    .text.i2c_dma_last_transfer_config:0000000000000000 $t
-     /tmp/ccXq9a35.s:842    .text.i2c_dma_last_transfer_config:0000000000000000 i2c_dma_last_transfer_config
-     /tmp/ccXq9a35.s:872    .text.i2c_stretch_scl_low_config:0000000000000000 $t
-     /tmp/ccXq9a35.s:878    .text.i2c_stretch_scl_low_config:0000000000000000 i2c_stretch_scl_low_config
-     /tmp/ccXq9a35.s:908    .text.i2c_slave_response_to_gcall_config:0000000000000000 $t
-     /tmp/ccXq9a35.s:914    .text.i2c_slave_response_to_gcall_config:0000000000000000 i2c_slave_response_to_gcall_config
-     /tmp/ccXq9a35.s:944    .text.i2c_software_reset_config:0000000000000000 $t
-     /tmp/ccXq9a35.s:950    .text.i2c_software_reset_config:0000000000000000 i2c_software_reset_config
-     /tmp/ccXq9a35.s:980    .text.i2c_pec_enable:0000000000000000 $t
-     /tmp/ccXq9a35.s:986    .text.i2c_pec_enable:0000000000000000 i2c_pec_enable
-     /tmp/ccXq9a35.s:1016   .text.i2c_pec_transfer_enable:0000000000000000 $t
-     /tmp/ccXq9a35.s:1022   .text.i2c_pec_transfer_enable:0000000000000000 i2c_pec_transfer_enable
-     /tmp/ccXq9a35.s:1052   .text.i2c_pec_value_get:0000000000000000 $t
-     /tmp/ccXq9a35.s:1058   .text.i2c_pec_value_get:0000000000000000 i2c_pec_value_get
-     /tmp/ccXq9a35.s:1077   .text.i2c_smbus_issue_alert:0000000000000000 $t
-     /tmp/ccXq9a35.s:1083   .text.i2c_smbus_issue_alert:0000000000000000 i2c_smbus_issue_alert
-     /tmp/ccXq9a35.s:1113   .text.i2c_smbus_arp_enable:0000000000000000 $t
-     /tmp/ccXq9a35.s:1119   .text.i2c_smbus_arp_enable:0000000000000000 i2c_smbus_arp_enable
-     /tmp/ccXq9a35.s:1149   .text.i2c_flag_get:0000000000000000 $t
-     /tmp/ccXq9a35.s:1155   .text.i2c_flag_get:0000000000000000 i2c_flag_get
-     /tmp/ccXq9a35.s:1191   .text.i2c_flag_clear:0000000000000000 $t
-ARM GAS  /tmp/ccXq9a35.s 			page 42
+     /tmp/ccURqy4N.s:18     .text.i2c_deinit:0000000000000000 $t
+     /tmp/ccURqy4N.s:24     .text.i2c_deinit:0000000000000000 i2c_deinit
+     /tmp/ccURqy4N.s:81     .text.i2c_deinit:0000000000000038 $d
+     /tmp/ccURqy4N.s:86     .text.i2c_clock_config:0000000000000000 $t
+     /tmp/ccURqy4N.s:92     .text.i2c_clock_config:0000000000000000 i2c_clock_config
+     /tmp/ccURqy4N.s:386    .text.i2c_clock_config:0000000000000114 $d
+     /tmp/ccURqy4N.s:395    .text.i2c_mode_addr_config:0000000000000000 $t
+     /tmp/ccURqy4N.s:401    .text.i2c_mode_addr_config:0000000000000000 i2c_mode_addr_config
+     /tmp/ccURqy4N.s:451    .text.i2c_smbus_type_config:0000000000000000 $t
+     /tmp/ccURqy4N.s:457    .text.i2c_smbus_type_config:0000000000000000 i2c_smbus_type_config
+     /tmp/ccURqy4N.s:487    .text.i2c_ack_config:0000000000000000 $t
+     /tmp/ccURqy4N.s:493    .text.i2c_ack_config:0000000000000000 i2c_ack_config
+     /tmp/ccURqy4N.s:523    .text.i2c_ackpos_config:0000000000000000 $t
+     /tmp/ccURqy4N.s:529    .text.i2c_ackpos_config:0000000000000000 i2c_ackpos_config
+     /tmp/ccURqy4N.s:558    .text.i2c_master_addressing:0000000000000000 $t
+     /tmp/ccURqy4N.s:564    .text.i2c_master_addressing:0000000000000000 i2c_master_addressing
+     /tmp/ccURqy4N.s:597    .text.i2c_dualaddr_enable:0000000000000000 $t
+     /tmp/ccURqy4N.s:603    .text.i2c_dualaddr_enable:0000000000000000 i2c_dualaddr_enable
+     /tmp/ccURqy4N.s:627    .text.i2c_dualaddr_disable:0000000000000000 $t
+     /tmp/ccURqy4N.s:633    .text.i2c_dualaddr_disable:0000000000000000 i2c_dualaddr_disable
+     /tmp/ccURqy4N.s:652    .text.i2c_enable:0000000000000000 $t
+     /tmp/ccURqy4N.s:658    .text.i2c_enable:0000000000000000 i2c_enable
+     /tmp/ccURqy4N.s:677    .text.i2c_disable:0000000000000000 $t
+     /tmp/ccURqy4N.s:683    .text.i2c_disable:0000000000000000 i2c_disable
+     /tmp/ccURqy4N.s:702    .text.i2c_start_on_bus:0000000000000000 $t
+     /tmp/ccURqy4N.s:708    .text.i2c_start_on_bus:0000000000000000 i2c_start_on_bus
+     /tmp/ccURqy4N.s:727    .text.i2c_stop_on_bus:0000000000000000 $t
+     /tmp/ccURqy4N.s:733    .text.i2c_stop_on_bus:0000000000000000 i2c_stop_on_bus
+     /tmp/ccURqy4N.s:752    .text.i2c_data_transmit:0000000000000000 $t
+     /tmp/ccURqy4N.s:758    .text.i2c_data_transmit:0000000000000000 i2c_data_transmit
+     /tmp/ccURqy4N.s:775    .text.i2c_data_receive:0000000000000000 $t
+     /tmp/ccURqy4N.s:781    .text.i2c_data_receive:0000000000000000 i2c_data_receive
+     /tmp/ccURqy4N.s:800    .text.i2c_dma_enable:0000000000000000 $t
+     /tmp/ccURqy4N.s:806    .text.i2c_dma_enable:0000000000000000 i2c_dma_enable
+     /tmp/ccURqy4N.s:836    .text.i2c_dma_last_transfer_config:0000000000000000 $t
+     /tmp/ccURqy4N.s:842    .text.i2c_dma_last_transfer_config:0000000000000000 i2c_dma_last_transfer_config
+     /tmp/ccURqy4N.s:872    .text.i2c_stretch_scl_low_config:0000000000000000 $t
+     /tmp/ccURqy4N.s:878    .text.i2c_stretch_scl_low_config:0000000000000000 i2c_stretch_scl_low_config
+     /tmp/ccURqy4N.s:908    .text.i2c_slave_response_to_gcall_config:0000000000000000 $t
+     /tmp/ccURqy4N.s:914    .text.i2c_slave_response_to_gcall_config:0000000000000000 i2c_slave_response_to_gcall_config
+     /tmp/ccURqy4N.s:944    .text.i2c_software_reset_config:0000000000000000 $t
+     /tmp/ccURqy4N.s:950    .text.i2c_software_reset_config:0000000000000000 i2c_software_reset_config
+     /tmp/ccURqy4N.s:980    .text.i2c_pec_enable:0000000000000000 $t
+     /tmp/ccURqy4N.s:986    .text.i2c_pec_enable:0000000000000000 i2c_pec_enable
+     /tmp/ccURqy4N.s:1016   .text.i2c_pec_transfer_enable:0000000000000000 $t
+     /tmp/ccURqy4N.s:1022   .text.i2c_pec_transfer_enable:0000000000000000 i2c_pec_transfer_enable
+     /tmp/ccURqy4N.s:1052   .text.i2c_pec_value_get:0000000000000000 $t
+     /tmp/ccURqy4N.s:1058   .text.i2c_pec_value_get:0000000000000000 i2c_pec_value_get
+     /tmp/ccURqy4N.s:1077   .text.i2c_smbus_issue_alert:0000000000000000 $t
+     /tmp/ccURqy4N.s:1083   .text.i2c_smbus_issue_alert:0000000000000000 i2c_smbus_issue_alert
+     /tmp/ccURqy4N.s:1113   .text.i2c_smbus_arp_enable:0000000000000000 $t
+     /tmp/ccURqy4N.s:1119   .text.i2c_smbus_arp_enable:0000000000000000 i2c_smbus_arp_enable
+     /tmp/ccURqy4N.s:1149   .text.i2c_flag_get:0000000000000000 $t
+     /tmp/ccURqy4N.s:1155   .text.i2c_flag_get:0000000000000000 i2c_flag_get
+     /tmp/ccURqy4N.s:1191   .text.i2c_flag_clear:0000000000000000 $t
+ARM GAS  /tmp/ccURqy4N.s 			page 42
 
 
-     /tmp/ccXq9a35.s:1197   .text.i2c_flag_clear:0000000000000000 i2c_flag_clear
-     /tmp/ccXq9a35.s:1236   .text.i2c_interrupt_enable:0000000000000000 $t
-     /tmp/ccXq9a35.s:1242   .text.i2c_interrupt_enable:0000000000000000 i2c_interrupt_enable
-     /tmp/ccXq9a35.s:1269   .text.i2c_interrupt_disable:0000000000000000 $t
-     /tmp/ccXq9a35.s:1275   .text.i2c_interrupt_disable:0000000000000000 i2c_interrupt_disable
-     /tmp/ccXq9a35.s:1302   .text.i2c_interrupt_flag_get:0000000000000000 $t
-     /tmp/ccXq9a35.s:1308   .text.i2c_interrupt_flag_get:0000000000000000 i2c_interrupt_flag_get
-     /tmp/ccXq9a35.s:1419   .text.i2c_interrupt_flag_get:0000000000000060 $d
-     /tmp/ccXq9a35.s:1424   .text.i2c_interrupt_flag_clear:0000000000000000 $t
-     /tmp/ccXq9a35.s:1430   .text.i2c_interrupt_flag_clear:0000000000000000 i2c_interrupt_flag_clear
-     /tmp/ccXq9a35.s:1468   .text.i2c_interrupt_flag_clear:0000000000000028 $d
+     /tmp/ccURqy4N.s:1197   .text.i2c_flag_clear:0000000000000000 i2c_flag_clear
+     /tmp/ccURqy4N.s:1236   .text.i2c_interrupt_enable:0000000000000000 $t
+     /tmp/ccURqy4N.s:1242   .text.i2c_interrupt_enable:0000000000000000 i2c_interrupt_enable
+     /tmp/ccURqy4N.s:1269   .text.i2c_interrupt_disable:0000000000000000 $t
+     /tmp/ccURqy4N.s:1275   .text.i2c_interrupt_disable:0000000000000000 i2c_interrupt_disable
+     /tmp/ccURqy4N.s:1302   .text.i2c_interrupt_flag_get:0000000000000000 $t
+     /tmp/ccURqy4N.s:1308   .text.i2c_interrupt_flag_get:0000000000000000 i2c_interrupt_flag_get
+     /tmp/ccURqy4N.s:1419   .text.i2c_interrupt_flag_get:0000000000000060 $d
+     /tmp/ccURqy4N.s:1424   .text.i2c_interrupt_flag_clear:0000000000000000 $t
+     /tmp/ccURqy4N.s:1430   .text.i2c_interrupt_flag_clear:0000000000000000 i2c_interrupt_flag_clear
+     /tmp/ccURqy4N.s:1468   .text.i2c_interrupt_flag_clear:0000000000000028 $d
 
 UNDEFINED SYMBOLS
 rcu_periph_reset_enable

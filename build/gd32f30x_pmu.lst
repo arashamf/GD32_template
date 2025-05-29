@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccKLrnU4.s 			page 1
+ARM GAS  /tmp/ccaAM9LP.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
   30:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
   31:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
   32:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-ARM GAS  /tmp/ccKLrnU4.s 			page 2
+ARM GAS  /tmp/ccaAM9LP.s 			page 2
 
 
   33:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c **** WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
   57:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****       \arg        PMU_LVDT_0: voltage threshold is 2.1V
   58:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****       \arg        PMU_LVDT_1: voltage threshold is 2.3V
   59:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****       \arg        PMU_LVDT_2: voltage threshold is 2.4V
-ARM GAS  /tmp/ccKLrnU4.s 			page 3
+ARM GAS  /tmp/ccaAM9LP.s 			page 3
 
 
   60:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****       \arg        PMU_LVDT_3: voltage threshold is 2.6V
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
   95              		.align	1
   96              		.global	pmu_ldo_output_select
   97              		.syntax unified
-ARM GAS  /tmp/ccKLrnU4.s 			page 4
+ARM GAS  /tmp/ccaAM9LP.s 			page 4
 
 
   98              		.thumb
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
   96:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c **** /*!
   97:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****     \brief      disable PMU lvd
   98:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****     \param[in]  none
-ARM GAS  /tmp/ccKLrnU4.s 			page 5
+ARM GAS  /tmp/ccaAM9LP.s 			page 5
 
 
   99:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****     \param[out] none
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  126:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c **** /*!
  127:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****     \brief      enable high-driver mode
  128:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****                 this bit set by software only when IRC16M or HXTAL used as system clock
-ARM GAS  /tmp/ccKLrnU4.s 			page 6
+ARM GAS  /tmp/ccaAM9LP.s 			page 6
 
 
  129:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****     \param[in]  none
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  205 0004 23F48033 		bic	r3, r3, #65536
  206 0008 1360     		str	r3, [r2]
  147:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c **** }
-ARM GAS  /tmp/ccKLrnU4.s 			page 7
+ARM GAS  /tmp/ccaAM9LP.s 			page 7
 
 
  207              		.loc 1 147 1 view .LVU31
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  159:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c **** 
  160:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c **** /*!
  161:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****     \brief      disable low-driver mode in deep-sleep mode
-ARM GAS  /tmp/ccKLrnU4.s 			page 8
+ARM GAS  /tmp/ccaAM9LP.s 			page 8
 
 
  162:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****     \param[in]  none
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  290              		.loc 1 181 13 is_stmt 0 view .LVU42
  291 0000 044B     		ldr	r3, .L25
  292 0002 1968     		ldr	r1, [r3]
-ARM GAS  /tmp/ccKLrnU4.s 			page 9
+ARM GAS  /tmp/ccaAM9LP.s 			page 9
 
 
  293 0004 21F48061 		bic	r1, r1, #1024
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  334 000e 1A60     		str	r2, [r3]
  197:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c **** }
  335              		.loc 1 197 1 view .LVU51
-ARM GAS  /tmp/ccKLrnU4.s 			page 10
+ARM GAS  /tmp/ccaAM9LP.s 			page 10
 
 
  336 0010 7047     		bx	lr
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
    4:Drivers/CMSIS/core_cmInstr.h ****  * @version  V3.01
    5:Drivers/CMSIS/core_cmInstr.h ****  * @date     06. March 2012
    6:Drivers/CMSIS/core_cmInstr.h ****  *
-ARM GAS  /tmp/ccKLrnU4.s 			page 11
+ARM GAS  /tmp/ccaAM9LP.s 			page 11
 
 
    7:Drivers/CMSIS/core_cmInstr.h ****  * @note
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
   61:Drivers/CMSIS/core_cmInstr.h ****  */
   62:Drivers/CMSIS/core_cmInstr.h **** #define __WFE                             __wfe
   63:Drivers/CMSIS/core_cmInstr.h **** 
-ARM GAS  /tmp/ccKLrnU4.s 			page 12
+ARM GAS  /tmp/ccaAM9LP.s 			page 12
 
 
   64:Drivers/CMSIS/core_cmInstr.h **** 
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  118:Drivers/CMSIS/core_cmInstr.h **** }
  119:Drivers/CMSIS/core_cmInstr.h **** 
  120:Drivers/CMSIS/core_cmInstr.h **** 
-ARM GAS  /tmp/ccKLrnU4.s 			page 13
+ARM GAS  /tmp/ccaAM9LP.s 			page 13
 
 
  121:Drivers/CMSIS/core_cmInstr.h **** /** \brief  Reverse byte order in signed short value
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  175:Drivers/CMSIS/core_cmInstr.h **** #define __LDREXH(ptr)                     ((uint16_t) __ldrex(ptr))
  176:Drivers/CMSIS/core_cmInstr.h **** 
  177:Drivers/CMSIS/core_cmInstr.h **** 
-ARM GAS  /tmp/ccKLrnU4.s 			page 14
+ARM GAS  /tmp/ccaAM9LP.s 			page 14
 
 
  178:Drivers/CMSIS/core_cmInstr.h **** /** \brief  LDR Exclusive (32 bit)
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  232:Drivers/CMSIS/core_cmInstr.h **** /** \brief  Signed Saturate
  233:Drivers/CMSIS/core_cmInstr.h **** 
  234:Drivers/CMSIS/core_cmInstr.h ****     This function saturates a signed value.
-ARM GAS  /tmp/ccKLrnU4.s 			page 15
+ARM GAS  /tmp/ccaAM9LP.s 			page 15
 
 
  235:Drivers/CMSIS/core_cmInstr.h **** 
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  289:Drivers/CMSIS/core_cmInstr.h **** }
  290:Drivers/CMSIS/core_cmInstr.h **** 
  291:Drivers/CMSIS/core_cmInstr.h **** 
-ARM GAS  /tmp/ccKLrnU4.s 			page 16
+ARM GAS  /tmp/ccaAM9LP.s 			page 16
 
 
  292:Drivers/CMSIS/core_cmInstr.h **** /** \brief  Wait For Interrupt
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  403              		.align	2
  404              	.L33:
  405 0014 00ED00E0 		.word	-536810240
-ARM GAS  /tmp/ccKLrnU4.s 			page 17
+ARM GAS  /tmp/ccaAM9LP.s 			page 17
 
 
  406              		.cfi_endproc
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  240:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****     /* set sleepdeep bit of Cortex-M4 system control register */
  241:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****     SCB->SCR |= SCB_SCR_SLEEPDEEP_Msk;
  441              		.loc 1 241 5 is_stmt 1 view .LVU72
-ARM GAS  /tmp/ccKLrnU4.s 			page 18
+ARM GAS  /tmp/ccaAM9LP.s 			page 18
 
 
  442              		.loc 1 241 14 is_stmt 0 view .LVU73
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  486 004c 4FF0FF32 		mov	r2, #-1
  487 0050 C3F88821 		str	r2, [r3, #392]
  252:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****     
-ARM GAS  /tmp/ccKLrnU4.s 			page 19
+ARM GAS  /tmp/ccaAM9LP.s 			page 19
 
 
  253:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****     /* select WFI or WFE command to enter deepsleep mode */
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  527              		.loc 1 265 26 view .LVU110
  528 0070 C3F80821 		str	r2, [r3, #264]
  266:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****     
-ARM GAS  /tmp/ccKLrnU4.s 			page 20
+ARM GAS  /tmp/ccaAM9LP.s 			page 20
 
 
  267:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****     /* reset sleepdeep bit of Cortex-M4 system control register */
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  566              		.syntax unified
  567              	@ 310 "Drivers/CMSIS/core_cmInstr.h" 1
  568 0084 20BF     		wfe
-ARM GAS  /tmp/ccKLrnU4.s 			page 21
+ARM GAS  /tmp/ccaAM9LP.s 			page 21
 
 
  569              	@ 0 "" 2
@@ -1258,7 +1258,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  279:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c **** void pmu_to_standbymode(uint8_t standbymodecmd)
  280:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c **** {
  612              		.loc 1 280 1 is_stmt 1 view -0
-ARM GAS  /tmp/ccKLrnU4.s 			page 22
+ARM GAS  /tmp/ccaAM9LP.s 			page 22
 
 
  613              		.cfi_startproc
@@ -1318,7 +1318,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  652              	.LBE31:
  653              	.LBE30:
  293:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****     }else{
-ARM GAS  /tmp/ccKLrnU4.s 			page 23
+ARM GAS  /tmp/ccaAM9LP.s 			page 23
 
 
  294:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****         __WFE();
@@ -1378,7 +1378,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  695 0002 1368     		ldr	r3, [r2]
  696 0004 43F48073 		orr	r3, r3, #256
  697 0008 1360     		str	r3, [r2]
-ARM GAS  /tmp/ccKLrnU4.s 			page 24
+ARM GAS  /tmp/ccaAM9LP.s 			page 24
 
 
  307:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c **** }
@@ -1438,7 +1438,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  744              	.LFB132:
  319:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c **** 
  320:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c **** /*!
-ARM GAS  /tmp/ccKLrnU4.s 			page 25
+ARM GAS  /tmp/ccaAM9LP.s 			page 25
 
 
  321:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****     \brief      enable wakeup pin
@@ -1498,7 +1498,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  782 0002 5368     		ldr	r3, [r2, #4]
  783 0004 23F48073 		bic	r3, r3, #256
  784 0008 5360     		str	r3, [r2, #4]
-ARM GAS  /tmp/ccKLrnU4.s 			page 26
+ARM GAS  /tmp/ccaAM9LP.s 			page 26
 
 
  340:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c **** }
@@ -1558,7 +1558,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  357:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****     case PMU_FLAG_RESET_STANDBY:
  358:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****         /* reset standby flag */
  359:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****         PMU_CTL |= PMU_CTL_STBRST;
-ARM GAS  /tmp/ccKLrnU4.s 			page 27
+ARM GAS  /tmp/ccaAM9LP.s 			page 27
 
 
  824              		.loc 1 359 9 view .LVU162
@@ -1618,7 +1618,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  858 0002 5B68     		ldr	r3, [r3, #4]
  859              		.loc 1 381 7 view .LVU169
  860 0004 0342     		tst	r3, r0
-ARM GAS  /tmp/ccKLrnU4.s 			page 28
+ARM GAS  /tmp/ccaAM9LP.s 			page 28
 
 
  861 0006 01D0     		beq	.L66
@@ -1678,7 +1678,7 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  120:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_pmu.c ****     }
  907              		.loc 1 120 18 is_stmt 0 discriminator 1 view .LVU179
  908 0004 4FF48030 		mov	r0, #65536
-ARM GAS  /tmp/ccKLrnU4.s 			page 29
+ARM GAS  /tmp/ccaAM9LP.s 			page 29
 
 
  909 0008 FFF7FEFF 		bl	pmu_flag_get
@@ -1729,75 +1729,75 @@ ARM GAS  /tmp/ccKLrnU4.s 			page 1
  947              		.file 5 "Drivers/CMSIS/core_cm4.h"
  948              		.file 6 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
  949              		.file 7 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_rcu.h"
-ARM GAS  /tmp/ccKLrnU4.s 			page 30
+ARM GAS  /tmp/ccaAM9LP.s 			page 30
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gd32f30x_pmu.c
-     /tmp/ccKLrnU4.s:18     .text.pmu_deinit:0000000000000000 $t
-     /tmp/ccKLrnU4.s:24     .text.pmu_deinit:0000000000000000 pmu_deinit
-     /tmp/ccKLrnU4.s:50     .text.pmu_lvd_select:0000000000000000 $t
-     /tmp/ccKLrnU4.s:56     .text.pmu_lvd_select:0000000000000000 pmu_lvd_select
-     /tmp/ccKLrnU4.s:90     .text.pmu_lvd_select:0000000000000024 $d
-     /tmp/ccKLrnU4.s:95     .text.pmu_ldo_output_select:0000000000000000 $t
-     /tmp/ccKLrnU4.s:101    .text.pmu_ldo_output_select:0000000000000000 pmu_ldo_output_select
-     /tmp/ccKLrnU4.s:125    .text.pmu_ldo_output_select:0000000000000014 $d
-     /tmp/ccKLrnU4.s:130    .text.pmu_lvd_disable:0000000000000000 $t
-     /tmp/ccKLrnU4.s:136    .text.pmu_lvd_disable:0000000000000000 pmu_lvd_disable
-     /tmp/ccKLrnU4.s:154    .text.pmu_lvd_disable:000000000000000c $d
-     /tmp/ccKLrnU4.s:159    .text.pmu_highdriver_mode_enable:0000000000000000 $t
-     /tmp/ccKLrnU4.s:165    .text.pmu_highdriver_mode_enable:0000000000000000 pmu_highdriver_mode_enable
-     /tmp/ccKLrnU4.s:183    .text.pmu_highdriver_mode_enable:000000000000000c $d
-     /tmp/ccKLrnU4.s:188    .text.pmu_highdriver_mode_disable:0000000000000000 $t
-     /tmp/ccKLrnU4.s:194    .text.pmu_highdriver_mode_disable:0000000000000000 pmu_highdriver_mode_disable
-     /tmp/ccKLrnU4.s:212    .text.pmu_highdriver_mode_disable:000000000000000c $d
-     /tmp/ccKLrnU4.s:217    .text.pmu_lowdriver_mode_enable:0000000000000000 $t
-     /tmp/ccKLrnU4.s:223    .text.pmu_lowdriver_mode_enable:0000000000000000 pmu_lowdriver_mode_enable
-     /tmp/ccKLrnU4.s:241    .text.pmu_lowdriver_mode_enable:000000000000000c $d
-     /tmp/ccKLrnU4.s:246    .text.pmu_lowdriver_mode_disable:0000000000000000 $t
-     /tmp/ccKLrnU4.s:252    .text.pmu_lowdriver_mode_disable:0000000000000000 pmu_lowdriver_mode_disable
-     /tmp/ccKLrnU4.s:270    .text.pmu_lowdriver_mode_disable:000000000000000c $d
-     /tmp/ccKLrnU4.s:275    .text.pmu_lowpower_driver_config:0000000000000000 $t
-     /tmp/ccKLrnU4.s:281    .text.pmu_lowpower_driver_config:0000000000000000 pmu_lowpower_driver_config
-     /tmp/ccKLrnU4.s:305    .text.pmu_lowpower_driver_config:0000000000000014 $d
-     /tmp/ccKLrnU4.s:310    .text.pmu_normalpower_driver_config:0000000000000000 $t
-     /tmp/ccKLrnU4.s:316    .text.pmu_normalpower_driver_config:0000000000000000 pmu_normalpower_driver_config
-     /tmp/ccKLrnU4.s:340    .text.pmu_normalpower_driver_config:0000000000000014 $d
-     /tmp/ccKLrnU4.s:345    .text.pmu_to_sleepmode:0000000000000000 $t
-     /tmp/ccKLrnU4.s:351    .text.pmu_to_sleepmode:0000000000000000 pmu_to_sleepmode
-     /tmp/ccKLrnU4.s:405    .text.pmu_to_sleepmode:0000000000000014 $d
-     /tmp/ccKLrnU4.s:410    .text.pmu_to_deepsleepmode:0000000000000000 $t
-     /tmp/ccKLrnU4.s:416    .text.pmu_to_deepsleepmode:0000000000000000 pmu_to_deepsleepmode
-     /tmp/ccKLrnU4.s:591    .text.pmu_to_deepsleepmode:000000000000008c $d
-     /tmp/ccKLrnU4.s:603    .text.pmu_to_standbymode:0000000000000000 $t
-     /tmp/ccKLrnU4.s:609    .text.pmu_to_standbymode:0000000000000000 pmu_to_standbymode
-     /tmp/ccKLrnU4.s:673    .text.pmu_to_standbymode:0000000000000028 $d
-     /tmp/ccKLrnU4.s:679    .text.pmu_backup_write_enable:0000000000000000 $t
-     /tmp/ccKLrnU4.s:685    .text.pmu_backup_write_enable:0000000000000000 pmu_backup_write_enable
-     /tmp/ccKLrnU4.s:703    .text.pmu_backup_write_enable:000000000000000c $d
-     /tmp/ccKLrnU4.s:708    .text.pmu_backup_write_disable:0000000000000000 $t
-     /tmp/ccKLrnU4.s:714    .text.pmu_backup_write_disable:0000000000000000 pmu_backup_write_disable
-     /tmp/ccKLrnU4.s:732    .text.pmu_backup_write_disable:000000000000000c $d
-     /tmp/ccKLrnU4.s:737    .text.pmu_wakeup_pin_enable:0000000000000000 $t
-     /tmp/ccKLrnU4.s:743    .text.pmu_wakeup_pin_enable:0000000000000000 pmu_wakeup_pin_enable
-     /tmp/ccKLrnU4.s:761    .text.pmu_wakeup_pin_enable:000000000000000c $d
-     /tmp/ccKLrnU4.s:766    .text.pmu_wakeup_pin_disable:0000000000000000 $t
-     /tmp/ccKLrnU4.s:772    .text.pmu_wakeup_pin_disable:0000000000000000 pmu_wakeup_pin_disable
-     /tmp/ccKLrnU4.s:790    .text.pmu_wakeup_pin_disable:000000000000000c $d
-     /tmp/ccKLrnU4.s:795    .text.pmu_flag_clear:0000000000000000 $t
-     /tmp/ccKLrnU4.s:801    .text.pmu_flag_clear:0000000000000000 pmu_flag_clear
-     /tmp/ccKLrnU4.s:836    .text.pmu_flag_clear:0000000000000020 $d
-     /tmp/ccKLrnU4.s:841    .text.pmu_flag_get:0000000000000000 $t
-     /tmp/ccKLrnU4.s:847    .text.pmu_flag_get:0000000000000000 pmu_flag_get
-ARM GAS  /tmp/ccKLrnU4.s 			page 31
+     /tmp/ccaAM9LP.s:18     .text.pmu_deinit:0000000000000000 $t
+     /tmp/ccaAM9LP.s:24     .text.pmu_deinit:0000000000000000 pmu_deinit
+     /tmp/ccaAM9LP.s:50     .text.pmu_lvd_select:0000000000000000 $t
+     /tmp/ccaAM9LP.s:56     .text.pmu_lvd_select:0000000000000000 pmu_lvd_select
+     /tmp/ccaAM9LP.s:90     .text.pmu_lvd_select:0000000000000024 $d
+     /tmp/ccaAM9LP.s:95     .text.pmu_ldo_output_select:0000000000000000 $t
+     /tmp/ccaAM9LP.s:101    .text.pmu_ldo_output_select:0000000000000000 pmu_ldo_output_select
+     /tmp/ccaAM9LP.s:125    .text.pmu_ldo_output_select:0000000000000014 $d
+     /tmp/ccaAM9LP.s:130    .text.pmu_lvd_disable:0000000000000000 $t
+     /tmp/ccaAM9LP.s:136    .text.pmu_lvd_disable:0000000000000000 pmu_lvd_disable
+     /tmp/ccaAM9LP.s:154    .text.pmu_lvd_disable:000000000000000c $d
+     /tmp/ccaAM9LP.s:159    .text.pmu_highdriver_mode_enable:0000000000000000 $t
+     /tmp/ccaAM9LP.s:165    .text.pmu_highdriver_mode_enable:0000000000000000 pmu_highdriver_mode_enable
+     /tmp/ccaAM9LP.s:183    .text.pmu_highdriver_mode_enable:000000000000000c $d
+     /tmp/ccaAM9LP.s:188    .text.pmu_highdriver_mode_disable:0000000000000000 $t
+     /tmp/ccaAM9LP.s:194    .text.pmu_highdriver_mode_disable:0000000000000000 pmu_highdriver_mode_disable
+     /tmp/ccaAM9LP.s:212    .text.pmu_highdriver_mode_disable:000000000000000c $d
+     /tmp/ccaAM9LP.s:217    .text.pmu_lowdriver_mode_enable:0000000000000000 $t
+     /tmp/ccaAM9LP.s:223    .text.pmu_lowdriver_mode_enable:0000000000000000 pmu_lowdriver_mode_enable
+     /tmp/ccaAM9LP.s:241    .text.pmu_lowdriver_mode_enable:000000000000000c $d
+     /tmp/ccaAM9LP.s:246    .text.pmu_lowdriver_mode_disable:0000000000000000 $t
+     /tmp/ccaAM9LP.s:252    .text.pmu_lowdriver_mode_disable:0000000000000000 pmu_lowdriver_mode_disable
+     /tmp/ccaAM9LP.s:270    .text.pmu_lowdriver_mode_disable:000000000000000c $d
+     /tmp/ccaAM9LP.s:275    .text.pmu_lowpower_driver_config:0000000000000000 $t
+     /tmp/ccaAM9LP.s:281    .text.pmu_lowpower_driver_config:0000000000000000 pmu_lowpower_driver_config
+     /tmp/ccaAM9LP.s:305    .text.pmu_lowpower_driver_config:0000000000000014 $d
+     /tmp/ccaAM9LP.s:310    .text.pmu_normalpower_driver_config:0000000000000000 $t
+     /tmp/ccaAM9LP.s:316    .text.pmu_normalpower_driver_config:0000000000000000 pmu_normalpower_driver_config
+     /tmp/ccaAM9LP.s:340    .text.pmu_normalpower_driver_config:0000000000000014 $d
+     /tmp/ccaAM9LP.s:345    .text.pmu_to_sleepmode:0000000000000000 $t
+     /tmp/ccaAM9LP.s:351    .text.pmu_to_sleepmode:0000000000000000 pmu_to_sleepmode
+     /tmp/ccaAM9LP.s:405    .text.pmu_to_sleepmode:0000000000000014 $d
+     /tmp/ccaAM9LP.s:410    .text.pmu_to_deepsleepmode:0000000000000000 $t
+     /tmp/ccaAM9LP.s:416    .text.pmu_to_deepsleepmode:0000000000000000 pmu_to_deepsleepmode
+     /tmp/ccaAM9LP.s:591    .text.pmu_to_deepsleepmode:000000000000008c $d
+     /tmp/ccaAM9LP.s:603    .text.pmu_to_standbymode:0000000000000000 $t
+     /tmp/ccaAM9LP.s:609    .text.pmu_to_standbymode:0000000000000000 pmu_to_standbymode
+     /tmp/ccaAM9LP.s:673    .text.pmu_to_standbymode:0000000000000028 $d
+     /tmp/ccaAM9LP.s:679    .text.pmu_backup_write_enable:0000000000000000 $t
+     /tmp/ccaAM9LP.s:685    .text.pmu_backup_write_enable:0000000000000000 pmu_backup_write_enable
+     /tmp/ccaAM9LP.s:703    .text.pmu_backup_write_enable:000000000000000c $d
+     /tmp/ccaAM9LP.s:708    .text.pmu_backup_write_disable:0000000000000000 $t
+     /tmp/ccaAM9LP.s:714    .text.pmu_backup_write_disable:0000000000000000 pmu_backup_write_disable
+     /tmp/ccaAM9LP.s:732    .text.pmu_backup_write_disable:000000000000000c $d
+     /tmp/ccaAM9LP.s:737    .text.pmu_wakeup_pin_enable:0000000000000000 $t
+     /tmp/ccaAM9LP.s:743    .text.pmu_wakeup_pin_enable:0000000000000000 pmu_wakeup_pin_enable
+     /tmp/ccaAM9LP.s:761    .text.pmu_wakeup_pin_enable:000000000000000c $d
+     /tmp/ccaAM9LP.s:766    .text.pmu_wakeup_pin_disable:0000000000000000 $t
+     /tmp/ccaAM9LP.s:772    .text.pmu_wakeup_pin_disable:0000000000000000 pmu_wakeup_pin_disable
+     /tmp/ccaAM9LP.s:790    .text.pmu_wakeup_pin_disable:000000000000000c $d
+     /tmp/ccaAM9LP.s:795    .text.pmu_flag_clear:0000000000000000 $t
+     /tmp/ccaAM9LP.s:801    .text.pmu_flag_clear:0000000000000000 pmu_flag_clear
+     /tmp/ccaAM9LP.s:836    .text.pmu_flag_clear:0000000000000020 $d
+     /tmp/ccaAM9LP.s:841    .text.pmu_flag_get:0000000000000000 $t
+     /tmp/ccaAM9LP.s:847    .text.pmu_flag_get:0000000000000000 pmu_flag_get
+ARM GAS  /tmp/ccaAM9LP.s 			page 31
 
 
-     /tmp/ccKLrnU4.s:877    .text.pmu_flag_get:0000000000000010 $d
-     /tmp/ccKLrnU4.s:882    .text.pmu_highdriver_switch_select:0000000000000000 $t
-     /tmp/ccKLrnU4.s:888    .text.pmu_highdriver_switch_select:0000000000000000 pmu_highdriver_switch_select
-     /tmp/ccKLrnU4.s:932    .text.pmu_highdriver_switch_select:0000000000000024 $d
-     /tmp/ccKLrnU4.s:937    .bss.reg_snap.0:0000000000000000 $d
-     /tmp/ccKLrnU4.s:941    .bss.reg_snap.0:0000000000000000 reg_snap.0
+     /tmp/ccaAM9LP.s:877    .text.pmu_flag_get:0000000000000010 $d
+     /tmp/ccaAM9LP.s:882    .text.pmu_highdriver_switch_select:0000000000000000 $t
+     /tmp/ccaAM9LP.s:888    .text.pmu_highdriver_switch_select:0000000000000000 pmu_highdriver_switch_select
+     /tmp/ccaAM9LP.s:932    .text.pmu_highdriver_switch_select:0000000000000024 $d
+     /tmp/ccaAM9LP.s:937    .bss.reg_snap.0:0000000000000000 $d
+     /tmp/ccaAM9LP.s:941    .bss.reg_snap.0:0000000000000000 reg_snap.0
 
 UNDEFINED SYMBOLS
 rcu_periph_reset_enable

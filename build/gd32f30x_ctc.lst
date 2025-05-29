@@ -1,4 +1,4 @@
-ARM GAS  /tmp/ccUnHP8l.s 			page 1
+ARM GAS  /tmp/ccBylB3O.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
   30:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c **** INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT 
   31:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c **** NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
   32:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c **** PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, 
-ARM GAS  /tmp/ccUnHP8l.s 			page 2
+ARM GAS  /tmp/ccBylB3O.s 			page 2
 
 
   33:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c **** WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
@@ -118,7 +118,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
   56              	ctc_counter_enable:
   57              	.LFB117:
   60:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c **** 
-ARM GAS  /tmp/ccUnHP8l.s 			page 3
+ARM GAS  /tmp/ccBylB3O.s 			page 3
 
 
   61:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c **** 
@@ -178,7 +178,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
   92              		.loc 1 82 5 view .LVU9
   93              		.loc 1 82 14 is_stmt 0 view .LVU10
   94 0000 034A     		ldr	r2, .L7
-ARM GAS  /tmp/ccUnHP8l.s 			page 4
+ARM GAS  /tmp/ccBylB3O.s 			page 4
 
 
   95 0002 D2F80038 		ldr	r3, [r2, #2048]
@@ -238,7 +238,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
  135              	.L11:
  136              		.align	2
  137              	.L10:
-ARM GAS  /tmp/ccUnHP8l.s 			page 5
+ARM GAS  /tmp/ccBylB3O.s 			page 5
 
 
  138 001c 00C00040 		.word	1073790976
@@ -298,7 +298,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
  114:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****                 only one parameter can be selected which is shown as below:
  115:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****       \arg        CTC_HARDWARE_TRIM_MODE_ENABLE: hardware automatically trim mode enable
  116:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****       \arg        CTC_HARDWARE_TRIM_MODE_DISABLE: hardware automatically trim mode disable
-ARM GAS  /tmp/ccUnHP8l.s 			page 6
+ARM GAS  /tmp/ccBylB3O.s 			page 6
 
 
  117:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****     \param[out] none
@@ -358,7 +358,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
  218              		@ args = 0, pretend = 0, frame = 0
  219              		@ frame_needed = 0, uses_anonymous_args = 0
  220              		@ link register save eliminated.
-ARM GAS  /tmp/ccUnHP8l.s 			page 7
+ARM GAS  /tmp/ccBylB3O.s 			page 7
 
 
  136:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****     CTC_CTL1 &= (uint32_t)(~CTC_CTL1_REFPOL);
@@ -418,7 +418,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
  260 0006 21F04051 		bic	r1, r1, #805306368
  261 000a C3F80418 		str	r1, [r3, #2052]
  153:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****     CTC_CTL1 |= (uint32_t)refs;
-ARM GAS  /tmp/ccUnHP8l.s 			page 8
+ARM GAS  /tmp/ccBylB3O.s 			page 8
 
 
  262              		.loc 1 153 5 is_stmt 1 view .LVU37
@@ -478,7 +478,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
  297              		.loc 1 174 5 is_stmt 1 view .LVU43
  298              		.loc 1 174 14 is_stmt 0 view .LVU44
  299 000e D3F80428 		ldr	r2, [r3, #2052]
-ARM GAS  /tmp/ccUnHP8l.s 			page 9
+ARM GAS  /tmp/ccBylB3O.s 			page 9
 
 
  300 0012 0243     		orrs	r2, r2, r0
@@ -538,7 +538,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
  342 001c 00C00040 		.word	1073790976
  343              		.cfi_endproc
  344              	.LFE125:
-ARM GAS  /tmp/ccUnHP8l.s 			page 10
+ARM GAS  /tmp/ccBylB3O.s 			page 10
 
 
  346              		.section	.text.ctc_counter_reload_value_config,"ax",%progbits
@@ -598,7 +598,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
  390              	.LFB127:
  202:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c **** 
  203:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c **** /*!
-ARM GAS  /tmp/ccUnHP8l.s 			page 11
+ARM GAS  /tmp/ccBylB3O.s 			page 11
 
 
  204:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****     \brief      read CTC counter capture value when reference sync pulse occurred
@@ -658,7 +658,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
  425              		.loc 1 225 1 is_stmt 1 view -0
  426              		.cfi_startproc
  427              		@ args = 0, pretend = 0, frame = 0
-ARM GAS  /tmp/ccUnHP8l.s 			page 12
+ARM GAS  /tmp/ccBylB3O.s 			page 12
 
 
  428              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -718,7 +718,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
  242:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****     reload_value = (uint16_t)(CTC_CTL1 & CTC_CTL1_RLVALUE);
  468              		.loc 1 242 5 view .LVU74
  469              		.loc 1 242 31 is_stmt 0 view .LVU75
-ARM GAS  /tmp/ccUnHP8l.s 			page 13
+ARM GAS  /tmp/ccBylB3O.s 			page 13
 
 
  470 0000 024B     		ldr	r3, .L42
@@ -778,7 +778,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
  511 000a 7047     		bx	lr
  512              	.L46:
  513              		.align	2
-ARM GAS  /tmp/ccUnHP8l.s 			page 14
+ARM GAS  /tmp/ccBylB3O.s 			page 14
 
 
  514              	.L45:
@@ -838,7 +838,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
  556              	ctc_interrupt_disable:
  557              	.LVL18:
  558              	.LFB132:
-ARM GAS  /tmp/ccUnHP8l.s 			page 15
+ARM GAS  /tmp/ccBylB3O.s 			page 15
 
 
  274:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c **** 
@@ -898,7 +898,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
  300:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****       \arg        CTC_INT_FLAG_REFMISS: reference sync pulse miss interrupt 
  301:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****       \arg        CTC_INT_FLAG_TRIMERR: trim value error interrupt
  302:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****     \param[out] none
-ARM GAS  /tmp/ccUnHP8l.s 			page 16
+ARM GAS  /tmp/ccBylB3O.s 			page 16
 
 
  303:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****     \retval     FlagStatus: SET or RESET
@@ -958,7 +958,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
  623              	.LVL23:
  624              	.L54:
  313:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****     }
-ARM GAS  /tmp/ccUnHP8l.s 			page 17
+ARM GAS  /tmp/ccBylB3O.s 			page 17
 
 
  625              		.loc 1 313 9 is_stmt 1 view .LVU108
@@ -1018,7 +1018,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
  335:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****       \arg        CTC_INT_FLAG_REFMISS: reference sync pulse miss interrupt 
  336:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****       \arg        CTC_INT_FLAG_TRIMERR: trim value error interrupt
  337:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****     \param[out] none
-ARM GAS  /tmp/ccUnHP8l.s 			page 18
+ARM GAS  /tmp/ccBylB3O.s 			page 18
 
 
  338:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****     \retval     none
@@ -1078,7 +1078,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
  350:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****     \brief      get CTC flag
  351:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****     \param[in]  flag: the CTC flag
  352:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****                 only one parameter can be selected which is shown as below: 
-ARM GAS  /tmp/ccUnHP8l.s 			page 19
+ARM GAS  /tmp/ccBylB3O.s 			page 19
 
 
  353:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c ****       \arg        CTC_FLAG_CKOK: clock trim OK flag
@@ -1138,7 +1138,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
  747              	ctc_flag_clear:
  748              	.LVL35:
  749              	.LFB136:
-ARM GAS  /tmp/ccUnHP8l.s 			page 20
+ARM GAS  /tmp/ccBylB3O.s 			page 20
 
 
  371:Drivers/GD32F30x_standard_peripheral/Source/gd32f30x_ctc.c **** 
@@ -1198,7 +1198,7 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
  781              		.cfi_endproc
  782              	.LFE136:
  784              		.text
-ARM GAS  /tmp/ccUnHP8l.s 			page 21
+ARM GAS  /tmp/ccBylB3O.s 			page 21
 
 
  785              	.Letext0:
@@ -1206,76 +1206,76 @@ ARM GAS  /tmp/ccUnHP8l.s 			page 1
  787              		.file 3 "/home/arashamf/soft/ARM_toolchains/gcc-arm-none-eabi-10.3-2021.10/arm-none-eabi/include/s
  788              		.file 4 "Drivers/CMSIS/GD/GD32F30x/Include/gd32f30x.h"
  789              		.file 5 "Drivers/GD32F30x_standard_peripheral/Include/gd32f30x_rcu.h"
-ARM GAS  /tmp/ccUnHP8l.s 			page 22
+ARM GAS  /tmp/ccBylB3O.s 			page 22
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gd32f30x_ctc.c
-     /tmp/ccUnHP8l.s:18     .text.ctc_deinit:0000000000000000 $t
-     /tmp/ccUnHP8l.s:24     .text.ctc_deinit:0000000000000000 ctc_deinit
-     /tmp/ccUnHP8l.s:50     .text.ctc_counter_enable:0000000000000000 $t
-     /tmp/ccUnHP8l.s:56     .text.ctc_counter_enable:0000000000000000 ctc_counter_enable
-     /tmp/ccUnHP8l.s:74     .text.ctc_counter_enable:0000000000000010 $d
-     /tmp/ccUnHP8l.s:79     .text.ctc_counter_disable:0000000000000000 $t
-     /tmp/ccUnHP8l.s:85     .text.ctc_counter_disable:0000000000000000 ctc_counter_disable
-     /tmp/ccUnHP8l.s:103    .text.ctc_counter_disable:0000000000000010 $d
-     /tmp/ccUnHP8l.s:108    .text.ctc_irc48m_trim_value_config:0000000000000000 $t
-     /tmp/ccUnHP8l.s:114    .text.ctc_irc48m_trim_value_config:0000000000000000 ctc_irc48m_trim_value_config
-     /tmp/ccUnHP8l.s:138    .text.ctc_irc48m_trim_value_config:000000000000001c $d
-     /tmp/ccUnHP8l.s:143    .text.ctc_software_refsource_pulse_generate:0000000000000000 $t
-     /tmp/ccUnHP8l.s:149    .text.ctc_software_refsource_pulse_generate:0000000000000000 ctc_software_refsource_pulse_generate
-     /tmp/ccUnHP8l.s:167    .text.ctc_software_refsource_pulse_generate:0000000000000010 $d
-     /tmp/ccUnHP8l.s:172    .text.ctc_hardware_trim_mode_config:0000000000000000 $t
-     /tmp/ccUnHP8l.s:178    .text.ctc_hardware_trim_mode_config:0000000000000000 ctc_hardware_trim_mode_config
-     /tmp/ccUnHP8l.s:202    .text.ctc_hardware_trim_mode_config:000000000000001c $d
-     /tmp/ccUnHP8l.s:207    .text.ctc_refsource_polarity_config:0000000000000000 $t
-     /tmp/ccUnHP8l.s:213    .text.ctc_refsource_polarity_config:0000000000000000 ctc_refsource_polarity_config
-     /tmp/ccUnHP8l.s:237    .text.ctc_refsource_polarity_config:000000000000001c $d
-     /tmp/ccUnHP8l.s:242    .text.ctc_refsource_signal_select:0000000000000000 $t
-     /tmp/ccUnHP8l.s:248    .text.ctc_refsource_signal_select:0000000000000000 ctc_refsource_signal_select
-     /tmp/ccUnHP8l.s:272    .text.ctc_refsource_signal_select:000000000000001c $d
-     /tmp/ccUnHP8l.s:277    .text.ctc_refsource_prescaler_config:0000000000000000 $t
-     /tmp/ccUnHP8l.s:283    .text.ctc_refsource_prescaler_config:0000000000000000 ctc_refsource_prescaler_config
-     /tmp/ccUnHP8l.s:307    .text.ctc_refsource_prescaler_config:000000000000001c $d
-     /tmp/ccUnHP8l.s:312    .text.ctc_clock_limit_value_config:0000000000000000 $t
-     /tmp/ccUnHP8l.s:318    .text.ctc_clock_limit_value_config:0000000000000000 ctc_clock_limit_value_config
-     /tmp/ccUnHP8l.s:342    .text.ctc_clock_limit_value_config:000000000000001c $d
-     /tmp/ccUnHP8l.s:347    .text.ctc_counter_reload_value_config:0000000000000000 $t
-     /tmp/ccUnHP8l.s:353    .text.ctc_counter_reload_value_config:0000000000000000 ctc_counter_reload_value_config
-     /tmp/ccUnHP8l.s:378    .text.ctc_counter_reload_value_config:000000000000001c $d
-     /tmp/ccUnHP8l.s:383    .text.ctc_counter_capture_value_read:0000000000000000 $t
-     /tmp/ccUnHP8l.s:389    .text.ctc_counter_capture_value_read:0000000000000000 ctc_counter_capture_value_read
-     /tmp/ccUnHP8l.s:412    .text.ctc_counter_capture_value_read:000000000000000c $d
-     /tmp/ccUnHP8l.s:417    .text.ctc_counter_direction_read:0000000000000000 $t
-     /tmp/ccUnHP8l.s:423    .text.ctc_counter_direction_read:0000000000000000 ctc_counter_direction_read
-     /tmp/ccUnHP8l.s:448    .text.ctc_counter_direction_read:0000000000000014 $d
-     /tmp/ccUnHP8l.s:453    .text.ctc_counter_reload_value_read:0000000000000000 $t
-     /tmp/ccUnHP8l.s:459    .text.ctc_counter_reload_value_read:0000000000000000 ctc_counter_reload_value_read
-     /tmp/ccUnHP8l.s:481    .text.ctc_counter_reload_value_read:000000000000000c $d
-     /tmp/ccUnHP8l.s:486    .text.ctc_irc48m_trim_value_read:0000000000000000 $t
-     /tmp/ccUnHP8l.s:492    .text.ctc_irc48m_trim_value_read:0000000000000000 ctc_irc48m_trim_value_read
-     /tmp/ccUnHP8l.s:515    .text.ctc_irc48m_trim_value_read:000000000000000c $d
-     /tmp/ccUnHP8l.s:520    .text.ctc_interrupt_enable:0000000000000000 $t
-     /tmp/ccUnHP8l.s:526    .text.ctc_interrupt_enable:0000000000000000 ctc_interrupt_enable
-     /tmp/ccUnHP8l.s:545    .text.ctc_interrupt_enable:0000000000000010 $d
-     /tmp/ccUnHP8l.s:550    .text.ctc_interrupt_disable:0000000000000000 $t
-     /tmp/ccUnHP8l.s:556    .text.ctc_interrupt_disable:0000000000000000 ctc_interrupt_disable
-     /tmp/ccUnHP8l.s:575    .text.ctc_interrupt_disable:0000000000000010 $d
-     /tmp/ccUnHP8l.s:580    .text.ctc_interrupt_flag_get:0000000000000000 $t
-     /tmp/ccUnHP8l.s:586    .text.ctc_interrupt_flag_get:0000000000000000 ctc_interrupt_flag_get
-     /tmp/ccUnHP8l.s:651    .text.ctc_interrupt_flag_get:0000000000000034 $d
-     /tmp/ccUnHP8l.s:656    .text.ctc_interrupt_flag_clear:0000000000000000 $t
-     /tmp/ccUnHP8l.s:662    .text.ctc_interrupt_flag_clear:0000000000000000 ctc_interrupt_flag_clear
-ARM GAS  /tmp/ccUnHP8l.s 			page 23
+     /tmp/ccBylB3O.s:18     .text.ctc_deinit:0000000000000000 $t
+     /tmp/ccBylB3O.s:24     .text.ctc_deinit:0000000000000000 ctc_deinit
+     /tmp/ccBylB3O.s:50     .text.ctc_counter_enable:0000000000000000 $t
+     /tmp/ccBylB3O.s:56     .text.ctc_counter_enable:0000000000000000 ctc_counter_enable
+     /tmp/ccBylB3O.s:74     .text.ctc_counter_enable:0000000000000010 $d
+     /tmp/ccBylB3O.s:79     .text.ctc_counter_disable:0000000000000000 $t
+     /tmp/ccBylB3O.s:85     .text.ctc_counter_disable:0000000000000000 ctc_counter_disable
+     /tmp/ccBylB3O.s:103    .text.ctc_counter_disable:0000000000000010 $d
+     /tmp/ccBylB3O.s:108    .text.ctc_irc48m_trim_value_config:0000000000000000 $t
+     /tmp/ccBylB3O.s:114    .text.ctc_irc48m_trim_value_config:0000000000000000 ctc_irc48m_trim_value_config
+     /tmp/ccBylB3O.s:138    .text.ctc_irc48m_trim_value_config:000000000000001c $d
+     /tmp/ccBylB3O.s:143    .text.ctc_software_refsource_pulse_generate:0000000000000000 $t
+     /tmp/ccBylB3O.s:149    .text.ctc_software_refsource_pulse_generate:0000000000000000 ctc_software_refsource_pulse_generate
+     /tmp/ccBylB3O.s:167    .text.ctc_software_refsource_pulse_generate:0000000000000010 $d
+     /tmp/ccBylB3O.s:172    .text.ctc_hardware_trim_mode_config:0000000000000000 $t
+     /tmp/ccBylB3O.s:178    .text.ctc_hardware_trim_mode_config:0000000000000000 ctc_hardware_trim_mode_config
+     /tmp/ccBylB3O.s:202    .text.ctc_hardware_trim_mode_config:000000000000001c $d
+     /tmp/ccBylB3O.s:207    .text.ctc_refsource_polarity_config:0000000000000000 $t
+     /tmp/ccBylB3O.s:213    .text.ctc_refsource_polarity_config:0000000000000000 ctc_refsource_polarity_config
+     /tmp/ccBylB3O.s:237    .text.ctc_refsource_polarity_config:000000000000001c $d
+     /tmp/ccBylB3O.s:242    .text.ctc_refsource_signal_select:0000000000000000 $t
+     /tmp/ccBylB3O.s:248    .text.ctc_refsource_signal_select:0000000000000000 ctc_refsource_signal_select
+     /tmp/ccBylB3O.s:272    .text.ctc_refsource_signal_select:000000000000001c $d
+     /tmp/ccBylB3O.s:277    .text.ctc_refsource_prescaler_config:0000000000000000 $t
+     /tmp/ccBylB3O.s:283    .text.ctc_refsource_prescaler_config:0000000000000000 ctc_refsource_prescaler_config
+     /tmp/ccBylB3O.s:307    .text.ctc_refsource_prescaler_config:000000000000001c $d
+     /tmp/ccBylB3O.s:312    .text.ctc_clock_limit_value_config:0000000000000000 $t
+     /tmp/ccBylB3O.s:318    .text.ctc_clock_limit_value_config:0000000000000000 ctc_clock_limit_value_config
+     /tmp/ccBylB3O.s:342    .text.ctc_clock_limit_value_config:000000000000001c $d
+     /tmp/ccBylB3O.s:347    .text.ctc_counter_reload_value_config:0000000000000000 $t
+     /tmp/ccBylB3O.s:353    .text.ctc_counter_reload_value_config:0000000000000000 ctc_counter_reload_value_config
+     /tmp/ccBylB3O.s:378    .text.ctc_counter_reload_value_config:000000000000001c $d
+     /tmp/ccBylB3O.s:383    .text.ctc_counter_capture_value_read:0000000000000000 $t
+     /tmp/ccBylB3O.s:389    .text.ctc_counter_capture_value_read:0000000000000000 ctc_counter_capture_value_read
+     /tmp/ccBylB3O.s:412    .text.ctc_counter_capture_value_read:000000000000000c $d
+     /tmp/ccBylB3O.s:417    .text.ctc_counter_direction_read:0000000000000000 $t
+     /tmp/ccBylB3O.s:423    .text.ctc_counter_direction_read:0000000000000000 ctc_counter_direction_read
+     /tmp/ccBylB3O.s:448    .text.ctc_counter_direction_read:0000000000000014 $d
+     /tmp/ccBylB3O.s:453    .text.ctc_counter_reload_value_read:0000000000000000 $t
+     /tmp/ccBylB3O.s:459    .text.ctc_counter_reload_value_read:0000000000000000 ctc_counter_reload_value_read
+     /tmp/ccBylB3O.s:481    .text.ctc_counter_reload_value_read:000000000000000c $d
+     /tmp/ccBylB3O.s:486    .text.ctc_irc48m_trim_value_read:0000000000000000 $t
+     /tmp/ccBylB3O.s:492    .text.ctc_irc48m_trim_value_read:0000000000000000 ctc_irc48m_trim_value_read
+     /tmp/ccBylB3O.s:515    .text.ctc_irc48m_trim_value_read:000000000000000c $d
+     /tmp/ccBylB3O.s:520    .text.ctc_interrupt_enable:0000000000000000 $t
+     /tmp/ccBylB3O.s:526    .text.ctc_interrupt_enable:0000000000000000 ctc_interrupt_enable
+     /tmp/ccBylB3O.s:545    .text.ctc_interrupt_enable:0000000000000010 $d
+     /tmp/ccBylB3O.s:550    .text.ctc_interrupt_disable:0000000000000000 $t
+     /tmp/ccBylB3O.s:556    .text.ctc_interrupt_disable:0000000000000000 ctc_interrupt_disable
+     /tmp/ccBylB3O.s:575    .text.ctc_interrupt_disable:0000000000000010 $d
+     /tmp/ccBylB3O.s:580    .text.ctc_interrupt_flag_get:0000000000000000 $t
+     /tmp/ccBylB3O.s:586    .text.ctc_interrupt_flag_get:0000000000000000 ctc_interrupt_flag_get
+     /tmp/ccBylB3O.s:651    .text.ctc_interrupt_flag_get:0000000000000034 $d
+     /tmp/ccBylB3O.s:656    .text.ctc_interrupt_flag_clear:0000000000000000 $t
+     /tmp/ccBylB3O.s:662    .text.ctc_interrupt_flag_clear:0000000000000000 ctc_interrupt_flag_clear
+ARM GAS  /tmp/ccBylB3O.s 			page 23
 
 
-     /tmp/ccUnHP8l.s:695    .text.ctc_interrupt_flag_clear:0000000000000024 $d
-     /tmp/ccUnHP8l.s:700    .text.ctc_flag_get:0000000000000000 $t
-     /tmp/ccUnHP8l.s:706    .text.ctc_flag_get:0000000000000000 ctc_flag_get
-     /tmp/ccUnHP8l.s:736    .text.ctc_flag_get:0000000000000014 $d
-     /tmp/ccUnHP8l.s:741    .text.ctc_flag_clear:0000000000000000 $t
-     /tmp/ccUnHP8l.s:747    .text.ctc_flag_clear:0000000000000000 ctc_flag_clear
-     /tmp/ccUnHP8l.s:780    .text.ctc_flag_clear:0000000000000024 $d
+     /tmp/ccBylB3O.s:695    .text.ctc_interrupt_flag_clear:0000000000000024 $d
+     /tmp/ccBylB3O.s:700    .text.ctc_flag_get:0000000000000000 $t
+     /tmp/ccBylB3O.s:706    .text.ctc_flag_get:0000000000000000 ctc_flag_get
+     /tmp/ccBylB3O.s:736    .text.ctc_flag_get:0000000000000014 $d
+     /tmp/ccBylB3O.s:741    .text.ctc_flag_clear:0000000000000000 $t
+     /tmp/ccBylB3O.s:747    .text.ctc_flag_clear:0000000000000000 ctc_flag_clear
+     /tmp/ccBylB3O.s:780    .text.ctc_flag_clear:0000000000000024 $d
 
 UNDEFINED SYMBOLS
 rcu_periph_reset_enable
